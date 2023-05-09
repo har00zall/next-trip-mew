@@ -422,7 +422,9 @@ class _F1HolidaysWidgetState extends State<F1HolidaysWidget> {
                                     ClipRRect(
                                       borderRadius: BorderRadius.circular(10.0),
                                       child: Image.network(
-                                        'https://picsum.photos/seed/35/600',
+                                        'https://nexttrip123.000webhostapp.com/${(String image) {
+                                          return image.split('"')[1];
+                                        }(gridViewHoliChennaiRecord.image!)}',
                                         width: double.infinity,
                                         height: 130.0,
                                         fit: BoxFit.cover,

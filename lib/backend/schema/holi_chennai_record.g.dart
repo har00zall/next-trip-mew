@@ -28,13 +28,6 @@ class _$HoliChennaiRecordSerializer
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    value = object.review;
-    if (value != null) {
-      result
-        ..add('Review')
-        ..add(
-            serializers.serialize(value, specifiedType: const FullType(bool)));
-    }
     value = object.type;
     if (value != null) {
       result
@@ -83,6 +76,12 @@ class _$HoliChennaiRecordSerializer
         ..add('No')
         ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
+    value = object.review;
+    if (value != null) {
+      result
+        ..add('Review')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -109,10 +108,6 @@ class _$HoliChennaiRecordSerializer
         case 'Name-of-Place':
           result.nameOfPlace = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
-          break;
-        case 'Review':
-          result.review = serializers.deserialize(value,
-              specifiedType: const FullType(bool)) as bool?;
           break;
         case 'type':
           result.type = serializers.deserialize(value,
@@ -142,6 +137,10 @@ class _$HoliChennaiRecordSerializer
           result.no = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int?;
           break;
+        case 'Review':
+          result.review = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -159,8 +158,6 @@ class _$HoliChennaiRecord extends HoliChennaiRecord {
   @override
   final String? nameOfPlace;
   @override
-  final bool? review;
-  @override
   final String? type;
   @override
   final String? nearByAddress;
@@ -175,6 +172,8 @@ class _$HoliChennaiRecord extends HoliChennaiRecord {
   @override
   final int? no;
   @override
+  final int? review;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$HoliChennaiRecord(
@@ -183,7 +182,6 @@ class _$HoliChennaiRecord extends HoliChennaiRecord {
 
   _$HoliChennaiRecord._(
       {this.nameOfPlace,
-      this.review,
       this.type,
       this.nearByAddress,
       this.openingTime,
@@ -191,6 +189,7 @@ class _$HoliChennaiRecord extends HoliChennaiRecord {
       this.thingsYouCanSeeInThere,
       this.image,
       this.no,
+      this.review,
       this.ffRef})
       : super._();
 
@@ -207,7 +206,6 @@ class _$HoliChennaiRecord extends HoliChennaiRecord {
     if (identical(other, this)) return true;
     return other is HoliChennaiRecord &&
         nameOfPlace == other.nameOfPlace &&
-        review == other.review &&
         type == other.type &&
         nearByAddress == other.nearByAddress &&
         openingTime == other.openingTime &&
@@ -215,6 +213,7 @@ class _$HoliChennaiRecord extends HoliChennaiRecord {
         thingsYouCanSeeInThere == other.thingsYouCanSeeInThere &&
         image == other.image &&
         no == other.no &&
+        review == other.review &&
         ffRef == other.ffRef;
   }
 
@@ -222,7 +221,6 @@ class _$HoliChennaiRecord extends HoliChennaiRecord {
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, nameOfPlace.hashCode);
-    _$hash = $jc(_$hash, review.hashCode);
     _$hash = $jc(_$hash, type.hashCode);
     _$hash = $jc(_$hash, nearByAddress.hashCode);
     _$hash = $jc(_$hash, openingTime.hashCode);
@@ -230,6 +228,7 @@ class _$HoliChennaiRecord extends HoliChennaiRecord {
     _$hash = $jc(_$hash, thingsYouCanSeeInThere.hashCode);
     _$hash = $jc(_$hash, image.hashCode);
     _$hash = $jc(_$hash, no.hashCode);
+    _$hash = $jc(_$hash, review.hashCode);
     _$hash = $jc(_$hash, ffRef.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -239,7 +238,6 @@ class _$HoliChennaiRecord extends HoliChennaiRecord {
   String toString() {
     return (newBuiltValueToStringHelper(r'HoliChennaiRecord')
           ..add('nameOfPlace', nameOfPlace)
-          ..add('review', review)
           ..add('type', type)
           ..add('nearByAddress', nearByAddress)
           ..add('openingTime', openingTime)
@@ -247,6 +245,7 @@ class _$HoliChennaiRecord extends HoliChennaiRecord {
           ..add('thingsYouCanSeeInThere', thingsYouCanSeeInThere)
           ..add('image', image)
           ..add('no', no)
+          ..add('review', review)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -259,10 +258,6 @@ class HoliChennaiRecordBuilder
   String? _nameOfPlace;
   String? get nameOfPlace => _$this._nameOfPlace;
   set nameOfPlace(String? nameOfPlace) => _$this._nameOfPlace = nameOfPlace;
-
-  bool? _review;
-  bool? get review => _$this._review;
-  set review(bool? review) => _$this._review = review;
 
   String? _type;
   String? get type => _$this._type;
@@ -294,6 +289,10 @@ class HoliChennaiRecordBuilder
   int? get no => _$this._no;
   set no(int? no) => _$this._no = no;
 
+  int? _review;
+  int? get review => _$this._review;
+  set review(int? review) => _$this._review = review;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -306,7 +305,6 @@ class HoliChennaiRecordBuilder
     final $v = _$v;
     if ($v != null) {
       _nameOfPlace = $v.nameOfPlace;
-      _review = $v.review;
       _type = $v.type;
       _nearByAddress = $v.nearByAddress;
       _openingTime = $v.openingTime;
@@ -314,6 +312,7 @@ class HoliChennaiRecordBuilder
       _thingsYouCanSeeInThere = $v.thingsYouCanSeeInThere;
       _image = $v.image;
       _no = $v.no;
+      _review = $v.review;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -338,7 +337,6 @@ class HoliChennaiRecordBuilder
     final _$result = _$v ??
         new _$HoliChennaiRecord._(
             nameOfPlace: nameOfPlace,
-            review: review,
             type: type,
             nearByAddress: nearByAddress,
             openingTime: openingTime,
@@ -346,6 +344,7 @@ class HoliChennaiRecordBuilder
             thingsYouCanSeeInThere: thingsYouCanSeeInThere,
             image: image,
             no: no,
+            review: review,
             ffRef: ffRef);
     replace(_$result);
     return _$result;

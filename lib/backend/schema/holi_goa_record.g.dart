@@ -27,13 +27,6 @@ class _$HoliGoaRecordSerializer implements StructuredSerializer<HoliGoaRecord> {
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    value = object.review;
-    if (value != null) {
-      result
-        ..add('Review')
-        ..add(
-            serializers.serialize(value, specifiedType: const FullType(bool)));
-    }
     value = object.type;
     if (value != null) {
       result
@@ -82,6 +75,12 @@ class _$HoliGoaRecordSerializer implements StructuredSerializer<HoliGoaRecord> {
         ..add('No')
         ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
+    value = object.review;
+    if (value != null) {
+      result
+        ..add('Review')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -108,10 +107,6 @@ class _$HoliGoaRecordSerializer implements StructuredSerializer<HoliGoaRecord> {
         case 'Name-of-Place':
           result.nameOfPlace = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
-          break;
-        case 'Review':
-          result.review = serializers.deserialize(value,
-              specifiedType: const FullType(bool)) as bool?;
           break;
         case 'type':
           result.type = serializers.deserialize(value,
@@ -141,6 +136,10 @@ class _$HoliGoaRecordSerializer implements StructuredSerializer<HoliGoaRecord> {
           result.no = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int?;
           break;
+        case 'Review':
+          result.review = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -158,8 +157,6 @@ class _$HoliGoaRecord extends HoliGoaRecord {
   @override
   final String? nameOfPlace;
   @override
-  final bool? review;
-  @override
   final String? type;
   @override
   final String? nearByAddress;
@@ -174,6 +171,8 @@ class _$HoliGoaRecord extends HoliGoaRecord {
   @override
   final int? no;
   @override
+  final int? review;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$HoliGoaRecord([void Function(HoliGoaRecordBuilder)? updates]) =>
@@ -181,7 +180,6 @@ class _$HoliGoaRecord extends HoliGoaRecord {
 
   _$HoliGoaRecord._(
       {this.nameOfPlace,
-      this.review,
       this.type,
       this.nearByAddress,
       this.openingTime,
@@ -189,6 +187,7 @@ class _$HoliGoaRecord extends HoliGoaRecord {
       this.thingsYouCanSeeInThere,
       this.image,
       this.no,
+      this.review,
       this.ffRef})
       : super._();
 
@@ -204,7 +203,6 @@ class _$HoliGoaRecord extends HoliGoaRecord {
     if (identical(other, this)) return true;
     return other is HoliGoaRecord &&
         nameOfPlace == other.nameOfPlace &&
-        review == other.review &&
         type == other.type &&
         nearByAddress == other.nearByAddress &&
         openingTime == other.openingTime &&
@@ -212,6 +210,7 @@ class _$HoliGoaRecord extends HoliGoaRecord {
         thingsYouCanSeeInThere == other.thingsYouCanSeeInThere &&
         image == other.image &&
         no == other.no &&
+        review == other.review &&
         ffRef == other.ffRef;
   }
 
@@ -219,7 +218,6 @@ class _$HoliGoaRecord extends HoliGoaRecord {
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, nameOfPlace.hashCode);
-    _$hash = $jc(_$hash, review.hashCode);
     _$hash = $jc(_$hash, type.hashCode);
     _$hash = $jc(_$hash, nearByAddress.hashCode);
     _$hash = $jc(_$hash, openingTime.hashCode);
@@ -227,6 +225,7 @@ class _$HoliGoaRecord extends HoliGoaRecord {
     _$hash = $jc(_$hash, thingsYouCanSeeInThere.hashCode);
     _$hash = $jc(_$hash, image.hashCode);
     _$hash = $jc(_$hash, no.hashCode);
+    _$hash = $jc(_$hash, review.hashCode);
     _$hash = $jc(_$hash, ffRef.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -236,7 +235,6 @@ class _$HoliGoaRecord extends HoliGoaRecord {
   String toString() {
     return (newBuiltValueToStringHelper(r'HoliGoaRecord')
           ..add('nameOfPlace', nameOfPlace)
-          ..add('review', review)
           ..add('type', type)
           ..add('nearByAddress', nearByAddress)
           ..add('openingTime', openingTime)
@@ -244,6 +242,7 @@ class _$HoliGoaRecord extends HoliGoaRecord {
           ..add('thingsYouCanSeeInThere', thingsYouCanSeeInThere)
           ..add('image', image)
           ..add('no', no)
+          ..add('review', review)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -256,10 +255,6 @@ class HoliGoaRecordBuilder
   String? _nameOfPlace;
   String? get nameOfPlace => _$this._nameOfPlace;
   set nameOfPlace(String? nameOfPlace) => _$this._nameOfPlace = nameOfPlace;
-
-  bool? _review;
-  bool? get review => _$this._review;
-  set review(bool? review) => _$this._review = review;
 
   String? _type;
   String? get type => _$this._type;
@@ -291,6 +286,10 @@ class HoliGoaRecordBuilder
   int? get no => _$this._no;
   set no(int? no) => _$this._no = no;
 
+  int? _review;
+  int? get review => _$this._review;
+  set review(int? review) => _$this._review = review;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -303,7 +302,6 @@ class HoliGoaRecordBuilder
     final $v = _$v;
     if ($v != null) {
       _nameOfPlace = $v.nameOfPlace;
-      _review = $v.review;
       _type = $v.type;
       _nearByAddress = $v.nearByAddress;
       _openingTime = $v.openingTime;
@@ -311,6 +309,7 @@ class HoliGoaRecordBuilder
       _thingsYouCanSeeInThere = $v.thingsYouCanSeeInThere;
       _image = $v.image;
       _no = $v.no;
+      _review = $v.review;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -335,7 +334,6 @@ class HoliGoaRecordBuilder
     final _$result = _$v ??
         new _$HoliGoaRecord._(
             nameOfPlace: nameOfPlace,
-            review: review,
             type: type,
             nearByAddress: nearByAddress,
             openingTime: openingTime,
@@ -343,6 +341,7 @@ class HoliGoaRecordBuilder
             thingsYouCanSeeInThere: thingsYouCanSeeInThere,
             image: image,
             no: no,
+            review: review,
             ffRef: ffRef);
     replace(_$result);
     return _$result;

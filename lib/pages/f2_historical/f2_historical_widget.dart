@@ -343,7 +343,7 @@ class _F2HistoricalWidgetState extends State<F2HistoricalWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     5.0, 0.0, 0.0, 0.0),
                                             child: Text(
-                                              gridViewHisBangaloreRecord.name!,
+                                              gridViewHisBangaloreRecord.names!,
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
