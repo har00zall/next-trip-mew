@@ -11,9 +11,6 @@ abstract class EfChennaiRecord
   static Serializer<EfChennaiRecord> get serializer =>
       _$efChennaiRecordSerializer;
 
-  @BuiltValueField(wireName: 'No')
-  bool? get no;
-
   @BuiltValueField(wireName: 'Name-of-festival')
   String? get nameOfFestival;
 
@@ -29,18 +26,21 @@ abstract class EfChennaiRecord
   @BuiltValueField(wireName: 'Images')
   String? get images;
 
+  @BuiltValueField(wireName: 'No')
+  int? get no;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
 
   static void _initializeBuilder(EfChennaiRecordBuilder builder) => builder
-    ..no = false
     ..nameOfFestival = ''
     ..when = ''
     ..where = ''
     ..duration = ''
     ..famousFor = ''
-    ..images = '';
+    ..images = ''
+    ..no = 0;
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('efChennai');
@@ -64,25 +64,25 @@ abstract class EfChennaiRecord
 }
 
 Map<String, dynamic> createEfChennaiRecordData({
-  bool? no,
   String? nameOfFestival,
   String? when,
   String? where,
   String? duration,
   String? famousFor,
   String? images,
+  int? no,
 }) {
   final firestoreData = serializers.toFirestore(
     EfChennaiRecord.serializer,
     EfChennaiRecord(
       (e) => e
-        ..no = no
         ..nameOfFestival = nameOfFestival
         ..when = when
         ..where = where
         ..duration = duration
         ..famousFor = famousFor
-        ..images = images,
+        ..images = images
+        ..no = no,
     ),
   );
 

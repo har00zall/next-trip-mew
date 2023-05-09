@@ -64,6 +64,12 @@ class _$HisBangaloreRecordSerializer
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
+    value = object.no;
+    if (value != null) {
+      result
+        ..add('No')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -111,6 +117,10 @@ class _$HisBangaloreRecordSerializer
           result.image = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
+        case 'No':
+          result.no = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -138,6 +148,8 @@ class _$HisBangaloreRecord extends HisBangaloreRecord {
   @override
   final String? image;
   @override
+  final int? no;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$HisBangaloreRecord(
@@ -151,6 +163,7 @@ class _$HisBangaloreRecord extends HisBangaloreRecord {
       this.review,
       this.type,
       this.image,
+      this.no,
       this.ffRef})
       : super._();
 
@@ -173,6 +186,7 @@ class _$HisBangaloreRecord extends HisBangaloreRecord {
         review == other.review &&
         type == other.type &&
         image == other.image &&
+        no == other.no &&
         ffRef == other.ffRef;
   }
 
@@ -185,6 +199,7 @@ class _$HisBangaloreRecord extends HisBangaloreRecord {
     _$hash = $jc(_$hash, review.hashCode);
     _$hash = $jc(_$hash, type.hashCode);
     _$hash = $jc(_$hash, image.hashCode);
+    _$hash = $jc(_$hash, no.hashCode);
     _$hash = $jc(_$hash, ffRef.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -199,6 +214,7 @@ class _$HisBangaloreRecord extends HisBangaloreRecord {
           ..add('review', review)
           ..add('type', type)
           ..add('image', image)
+          ..add('no', no)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -232,6 +248,10 @@ class HisBangaloreRecordBuilder
   String? get image => _$this._image;
   set image(String? image) => _$this._image = image;
 
+  int? _no;
+  int? get no => _$this._no;
+  set no(int? no) => _$this._no = no;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -249,6 +269,7 @@ class HisBangaloreRecordBuilder
       _review = $v.review;
       _type = $v.type;
       _image = $v.image;
+      _no = $v.no;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -278,6 +299,7 @@ class HisBangaloreRecordBuilder
             review: review,
             type: type,
             image: image,
+            no: no,
             ffRef: ffRef);
     replace(_$result);
     return _$result;
