@@ -9,9 +9,6 @@ part 'acbus_record.g.dart';
 abstract class AcbusRecord implements Built<AcbusRecord, AcbusRecordBuilder> {
   static Serializer<AcbusRecord> get serializer => _$acbusRecordSerializer;
 
-  @BuiltValueField(wireName: 'No')
-  bool? get no;
-
   @BuiltValueField(wireName: 'Bus_Name')
   String? get busName;
 
@@ -42,12 +39,14 @@ abstract class AcbusRecord implements Built<AcbusRecord, AcbusRecordBuilder> {
   @BuiltValueField(wireName: 'Duration')
   String? get duration;
 
+  @BuiltValueField(wireName: 'No')
+  int? get no;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
 
   static void _initializeBuilder(AcbusRecordBuilder builder) => builder
-    ..no = false
     ..busName = ''
     ..from = ''
     ..to = ''
@@ -57,7 +56,8 @@ abstract class AcbusRecord implements Built<AcbusRecord, AcbusRecordBuilder> {
     ..acSleeper = 0
     ..date = ''
     ..time = ''
-    ..duration = '';
+    ..duration = ''
+    ..no = 0;
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('acbus');
@@ -81,7 +81,6 @@ abstract class AcbusRecord implements Built<AcbusRecord, AcbusRecordBuilder> {
 }
 
 Map<String, dynamic> createAcbusRecordData({
-  bool? no,
   String? busName,
   String? from,
   String? to,
@@ -92,12 +91,12 @@ Map<String, dynamic> createAcbusRecordData({
   String? date,
   String? time,
   String? duration,
+  int? no,
 }) {
   final firestoreData = serializers.toFirestore(
     AcbusRecord.serializer,
     AcbusRecord(
       (a) => a
-        ..no = no
         ..busName = busName
         ..from = from
         ..to = to
@@ -107,7 +106,8 @@ Map<String, dynamic> createAcbusRecordData({
         ..acSleeper = acSleeper
         ..date = date
         ..time = time
-        ..duration = duration,
+        ..duration = duration
+        ..no = no,
     ),
   );
 

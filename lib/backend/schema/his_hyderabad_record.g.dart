@@ -22,13 +22,6 @@ class _$HisHyderabadRecordSerializer
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
-    value = object.no;
-    if (value != null) {
-      result
-        ..add('No')
-        ..add(
-            serializers.serialize(value, specifiedType: const FullType(bool)));
-    }
     value = object.url;
     if (value != null) {
       result
@@ -71,6 +64,12 @@ class _$HisHyderabadRecordSerializer
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
+    value = object.no;
+    if (value != null) {
+      result
+        ..add('No')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -94,10 +93,6 @@ class _$HisHyderabadRecordSerializer
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
-        case 'No':
-          result.no = serializers.deserialize(value,
-              specifiedType: const FullType(bool)) as bool?;
-          break;
         case 'Url':
           result.url = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
@@ -122,6 +117,10 @@ class _$HisHyderabadRecordSerializer
           result.images = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
+        case 'No':
+          result.no = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -137,8 +136,6 @@ class _$HisHyderabadRecordSerializer
 
 class _$HisHyderabadRecord extends HisHyderabadRecord {
   @override
-  final bool? no;
-  @override
   final String? url;
   @override
   final String? name;
@@ -151,6 +148,8 @@ class _$HisHyderabadRecord extends HisHyderabadRecord {
   @override
   final String? images;
   @override
+  final int? no;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$HisHyderabadRecord(
@@ -158,13 +157,13 @@ class _$HisHyderabadRecord extends HisHyderabadRecord {
       (new HisHyderabadRecordBuilder()..update(updates))._build();
 
   _$HisHyderabadRecord._(
-      {this.no,
-      this.url,
+      {this.url,
       this.name,
       this.rate,
       this.review,
       this.type,
       this.images,
+      this.no,
       this.ffRef})
       : super._();
 
@@ -181,26 +180,26 @@ class _$HisHyderabadRecord extends HisHyderabadRecord {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is HisHyderabadRecord &&
-        no == other.no &&
         url == other.url &&
         name == other.name &&
         rate == other.rate &&
         review == other.review &&
         type == other.type &&
         images == other.images &&
+        no == other.no &&
         ffRef == other.ffRef;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
-    _$hash = $jc(_$hash, no.hashCode);
     _$hash = $jc(_$hash, url.hashCode);
     _$hash = $jc(_$hash, name.hashCode);
     _$hash = $jc(_$hash, rate.hashCode);
     _$hash = $jc(_$hash, review.hashCode);
     _$hash = $jc(_$hash, type.hashCode);
     _$hash = $jc(_$hash, images.hashCode);
+    _$hash = $jc(_$hash, no.hashCode);
     _$hash = $jc(_$hash, ffRef.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -209,13 +208,13 @@ class _$HisHyderabadRecord extends HisHyderabadRecord {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'HisHyderabadRecord')
-          ..add('no', no)
           ..add('url', url)
           ..add('name', name)
           ..add('rate', rate)
           ..add('review', review)
           ..add('type', type)
           ..add('images', images)
+          ..add('no', no)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -224,10 +223,6 @@ class _$HisHyderabadRecord extends HisHyderabadRecord {
 class HisHyderabadRecordBuilder
     implements Builder<HisHyderabadRecord, HisHyderabadRecordBuilder> {
   _$HisHyderabadRecord? _$v;
-
-  bool? _no;
-  bool? get no => _$this._no;
-  set no(bool? no) => _$this._no = no;
 
   String? _url;
   String? get url => _$this._url;
@@ -253,6 +248,10 @@ class HisHyderabadRecordBuilder
   String? get images => _$this._images;
   set images(String? images) => _$this._images = images;
 
+  int? _no;
+  int? get no => _$this._no;
+  set no(int? no) => _$this._no = no;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -264,13 +263,13 @@ class HisHyderabadRecordBuilder
   HisHyderabadRecordBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _no = $v.no;
       _url = $v.url;
       _name = $v.name;
       _rate = $v.rate;
       _review = $v.review;
       _type = $v.type;
       _images = $v.images;
+      _no = $v.no;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -294,13 +293,13 @@ class HisHyderabadRecordBuilder
   _$HisHyderabadRecord _build() {
     final _$result = _$v ??
         new _$HisHyderabadRecord._(
-            no: no,
             url: url,
             name: name,
             rate: rate,
             review: review,
             type: type,
             images: images,
+            no: no,
             ffRef: ffRef);
     replace(_$result);
     return _$result;

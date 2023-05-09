@@ -11,9 +11,6 @@ abstract class HoliHyderabadRecord
   static Serializer<HoliHyderabadRecord> get serializer =>
       _$holiHyderabadRecordSerializer;
 
-  @BuiltValueField(wireName: 'No')
-  bool? get no;
-
   @BuiltValueField(wireName: 'Name-of-Place')
   String? get nameOfPlace;
 
@@ -22,15 +19,18 @@ abstract class HoliHyderabadRecord
   @BuiltValueField(wireName: 'Opening-Time')
   String? get openingTime;
 
+  @BuiltValueField(wireName: 'No')
+  int? get no;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
 
   static void _initializeBuilder(HoliHyderabadRecordBuilder builder) => builder
-    ..no = false
     ..nameOfPlace = ''
     ..type = ''
-    ..openingTime = '';
+    ..openingTime = ''
+    ..no = 0;
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('holiHyderabad');
@@ -55,19 +55,19 @@ abstract class HoliHyderabadRecord
 }
 
 Map<String, dynamic> createHoliHyderabadRecordData({
-  bool? no,
   String? nameOfPlace,
   String? type,
   String? openingTime,
+  int? no,
 }) {
   final firestoreData = serializers.toFirestore(
     HoliHyderabadRecord.serializer,
     HoliHyderabadRecord(
       (h) => h
-        ..no = no
         ..nameOfPlace = nameOfPlace
         ..type = type
-        ..openingTime = openingTime,
+        ..openingTime = openingTime
+        ..no = no,
     ),
   );
 

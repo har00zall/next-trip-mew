@@ -19,13 +19,6 @@ class _$AcbusRecordSerializer implements StructuredSerializer<AcbusRecord> {
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
-    value = object.no;
-    if (value != null) {
-      result
-        ..add('No')
-        ..add(
-            serializers.serialize(value, specifiedType: const FullType(bool)));
-    }
     value = object.busName;
     if (value != null) {
       result
@@ -94,6 +87,12 @@ class _$AcbusRecordSerializer implements StructuredSerializer<AcbusRecord> {
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
+    value = object.no;
+    if (value != null) {
+      result
+        ..add('No')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -116,10 +115,6 @@ class _$AcbusRecordSerializer implements StructuredSerializer<AcbusRecord> {
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
-        case 'No':
-          result.no = serializers.deserialize(value,
-              specifiedType: const FullType(bool)) as bool?;
-          break;
         case 'Bus_Name':
           result.busName = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
@@ -160,6 +155,10 @@ class _$AcbusRecordSerializer implements StructuredSerializer<AcbusRecord> {
           result.duration = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
+        case 'No':
+          result.no = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -174,8 +173,6 @@ class _$AcbusRecordSerializer implements StructuredSerializer<AcbusRecord> {
 }
 
 class _$AcbusRecord extends AcbusRecord {
-  @override
-  final bool? no;
   @override
   final String? busName;
   @override
@@ -197,14 +194,15 @@ class _$AcbusRecord extends AcbusRecord {
   @override
   final String? duration;
   @override
+  final int? no;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$AcbusRecord([void Function(AcbusRecordBuilder)? updates]) =>
       (new AcbusRecordBuilder()..update(updates))._build();
 
   _$AcbusRecord._(
-      {this.no,
-      this.busName,
+      {this.busName,
       this.from,
       this.to,
       this.boarding,
@@ -214,6 +212,7 @@ class _$AcbusRecord extends AcbusRecord {
       this.date,
       this.time,
       this.duration,
+      this.no,
       this.ffRef})
       : super._();
 
@@ -228,7 +227,6 @@ class _$AcbusRecord extends AcbusRecord {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is AcbusRecord &&
-        no == other.no &&
         busName == other.busName &&
         from == other.from &&
         to == other.to &&
@@ -239,13 +237,13 @@ class _$AcbusRecord extends AcbusRecord {
         date == other.date &&
         time == other.time &&
         duration == other.duration &&
+        no == other.no &&
         ffRef == other.ffRef;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
-    _$hash = $jc(_$hash, no.hashCode);
     _$hash = $jc(_$hash, busName.hashCode);
     _$hash = $jc(_$hash, from.hashCode);
     _$hash = $jc(_$hash, to.hashCode);
@@ -256,6 +254,7 @@ class _$AcbusRecord extends AcbusRecord {
     _$hash = $jc(_$hash, date.hashCode);
     _$hash = $jc(_$hash, time.hashCode);
     _$hash = $jc(_$hash, duration.hashCode);
+    _$hash = $jc(_$hash, no.hashCode);
     _$hash = $jc(_$hash, ffRef.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -264,7 +263,6 @@ class _$AcbusRecord extends AcbusRecord {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'AcbusRecord')
-          ..add('no', no)
           ..add('busName', busName)
           ..add('from', from)
           ..add('to', to)
@@ -275,6 +273,7 @@ class _$AcbusRecord extends AcbusRecord {
           ..add('date', date)
           ..add('time', time)
           ..add('duration', duration)
+          ..add('no', no)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -282,10 +281,6 @@ class _$AcbusRecord extends AcbusRecord {
 
 class AcbusRecordBuilder implements Builder<AcbusRecord, AcbusRecordBuilder> {
   _$AcbusRecord? _$v;
-
-  bool? _no;
-  bool? get no => _$this._no;
-  set no(bool? no) => _$this._no = no;
 
   String? _busName;
   String? get busName => _$this._busName;
@@ -327,6 +322,10 @@ class AcbusRecordBuilder implements Builder<AcbusRecord, AcbusRecordBuilder> {
   String? get duration => _$this._duration;
   set duration(String? duration) => _$this._duration = duration;
 
+  int? _no;
+  int? get no => _$this._no;
+  set no(int? no) => _$this._no = no;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -338,7 +337,6 @@ class AcbusRecordBuilder implements Builder<AcbusRecord, AcbusRecordBuilder> {
   AcbusRecordBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _no = $v.no;
       _busName = $v.busName;
       _from = $v.from;
       _to = $v.to;
@@ -349,6 +347,7 @@ class AcbusRecordBuilder implements Builder<AcbusRecord, AcbusRecordBuilder> {
       _date = $v.date;
       _time = $v.time;
       _duration = $v.duration;
+      _no = $v.no;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -372,7 +371,6 @@ class AcbusRecordBuilder implements Builder<AcbusRecord, AcbusRecordBuilder> {
   _$AcbusRecord _build() {
     final _$result = _$v ??
         new _$AcbusRecord._(
-            no: no,
             busName: busName,
             from: from,
             to: to,
@@ -383,6 +381,7 @@ class AcbusRecordBuilder implements Builder<AcbusRecord, AcbusRecordBuilder> {
             date: date,
             time: time,
             duration: duration,
+            no: no,
             ffRef: ffRef);
     replace(_$result);
     return _$result;

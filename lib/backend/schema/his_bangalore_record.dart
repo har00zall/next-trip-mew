@@ -11,9 +11,6 @@ abstract class HisBangaloreRecord
   static Serializer<HisBangaloreRecord> get serializer =>
       _$hisBangaloreRecordSerializer;
 
-  @BuiltValueField(wireName: 'No')
-  bool? get no;
-
   @BuiltValueField(wireName: 'Url')
   String? get url;
 
@@ -31,18 +28,21 @@ abstract class HisBangaloreRecord
 
   String? get image;
 
+  @BuiltValueField(wireName: 'No')
+  int? get no;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
 
   static void _initializeBuilder(HisBangaloreRecordBuilder builder) => builder
-    ..no = false
     ..url = ''
     ..name = ''
     ..rate = false
     ..review = false
     ..type = ''
-    ..image = '';
+    ..image = ''
+    ..no = 0;
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('hisBangalore');
@@ -67,25 +67,25 @@ abstract class HisBangaloreRecord
 }
 
 Map<String, dynamic> createHisBangaloreRecordData({
-  bool? no,
   String? url,
   String? name,
   bool? rate,
   bool? review,
   String? type,
   String? image,
+  int? no,
 }) {
   final firestoreData = serializers.toFirestore(
     HisBangaloreRecord.serializer,
     HisBangaloreRecord(
       (h) => h
-        ..no = no
         ..url = url
         ..name = name
         ..rate = rate
         ..review = review
         ..type = type
-        ..image = image,
+        ..image = image
+        ..no = no,
     ),
   );
 

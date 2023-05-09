@@ -10,9 +10,6 @@ abstract class HoliGoaRecord
     implements Built<HoliGoaRecord, HoliGoaRecordBuilder> {
   static Serializer<HoliGoaRecord> get serializer => _$holiGoaRecordSerializer;
 
-  @BuiltValueField(wireName: 'No')
-  bool? get no;
-
   @BuiltValueField(wireName: 'Name-of-Place')
   String? get nameOfPlace;
 
@@ -36,12 +33,14 @@ abstract class HoliGoaRecord
   @BuiltValueField(wireName: 'Image')
   String? get image;
 
+  @BuiltValueField(wireName: 'No')
+  int? get no;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
 
   static void _initializeBuilder(HoliGoaRecordBuilder builder) => builder
-    ..no = false
     ..nameOfPlace = ''
     ..review = false
     ..type = ''
@@ -49,7 +48,8 @@ abstract class HoliGoaRecord
     ..openingTime = ''
     ..closingTime = ''
     ..thingsYouCanSeeInThere = ''
-    ..image = '';
+    ..image = ''
+    ..no = 0;
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('holiGoa');
@@ -73,7 +73,6 @@ abstract class HoliGoaRecord
 }
 
 Map<String, dynamic> createHoliGoaRecordData({
-  bool? no,
   String? nameOfPlace,
   bool? review,
   String? type,
@@ -82,12 +81,12 @@ Map<String, dynamic> createHoliGoaRecordData({
   String? closingTime,
   String? thingsYouCanSeeInThere,
   String? image,
+  int? no,
 }) {
   final firestoreData = serializers.toFirestore(
     HoliGoaRecord.serializer,
     HoliGoaRecord(
       (h) => h
-        ..no = no
         ..nameOfPlace = nameOfPlace
         ..review = review
         ..type = type
@@ -95,7 +94,8 @@ Map<String, dynamic> createHoliGoaRecordData({
         ..openingTime = openingTime
         ..closingTime = closingTime
         ..thingsYouCanSeeInThere = thingsYouCanSeeInThere
-        ..image = image,
+        ..image = image
+        ..no = no,
     ),
   );
 

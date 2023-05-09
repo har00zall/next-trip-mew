@@ -10,9 +10,6 @@ abstract class HisGoaRecord
     implements Built<HisGoaRecord, HisGoaRecordBuilder> {
   static Serializer<HisGoaRecord> get serializer => _$hisGoaRecordSerializer;
 
-  @BuiltValueField(wireName: 'No')
-  bool? get no;
-
   @BuiltValueField(wireName: 'Url')
   String? get url;
 
@@ -30,18 +27,21 @@ abstract class HisGoaRecord
 
   String? get image;
 
+  @BuiltValueField(wireName: 'No')
+  int? get no;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
 
   static void _initializeBuilder(HisGoaRecordBuilder builder) => builder
-    ..no = false
     ..url = ''
     ..name = ''
     ..rate = false
     ..review = false
     ..type = ''
-    ..image = '';
+    ..image = ''
+    ..no = 0;
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('hisGoa');
@@ -65,25 +65,25 @@ abstract class HisGoaRecord
 }
 
 Map<String, dynamic> createHisGoaRecordData({
-  bool? no,
   String? url,
   String? name,
   bool? rate,
   bool? review,
   String? type,
   String? image,
+  int? no,
 }) {
   final firestoreData = serializers.toFirestore(
     HisGoaRecord.serializer,
     HisGoaRecord(
       (h) => h
-        ..no = no
         ..url = url
         ..name = name
         ..rate = rate
         ..review = review
         ..type = type
-        ..image = image,
+        ..image = image
+        ..no = no,
     ),
   );
 

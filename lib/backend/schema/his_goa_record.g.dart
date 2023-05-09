@@ -20,13 +20,6 @@ class _$HisGoaRecordSerializer implements StructuredSerializer<HisGoaRecord> {
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
-    value = object.no;
-    if (value != null) {
-      result
-        ..add('No')
-        ..add(
-            serializers.serialize(value, specifiedType: const FullType(bool)));
-    }
     value = object.url;
     if (value != null) {
       result
@@ -69,6 +62,12 @@ class _$HisGoaRecordSerializer implements StructuredSerializer<HisGoaRecord> {
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
+    value = object.no;
+    if (value != null) {
+      result
+        ..add('No')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -92,10 +91,6 @@ class _$HisGoaRecordSerializer implements StructuredSerializer<HisGoaRecord> {
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
-        case 'No':
-          result.no = serializers.deserialize(value,
-              specifiedType: const FullType(bool)) as bool?;
-          break;
         case 'Url':
           result.url = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
@@ -120,6 +115,10 @@ class _$HisGoaRecordSerializer implements StructuredSerializer<HisGoaRecord> {
           result.image = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
+        case 'No':
+          result.no = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -135,8 +134,6 @@ class _$HisGoaRecordSerializer implements StructuredSerializer<HisGoaRecord> {
 
 class _$HisGoaRecord extends HisGoaRecord {
   @override
-  final bool? no;
-  @override
   final String? url;
   @override
   final String? name;
@@ -149,19 +146,21 @@ class _$HisGoaRecord extends HisGoaRecord {
   @override
   final String? image;
   @override
+  final int? no;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$HisGoaRecord([void Function(HisGoaRecordBuilder)? updates]) =>
       (new HisGoaRecordBuilder()..update(updates))._build();
 
   _$HisGoaRecord._(
-      {this.no,
-      this.url,
+      {this.url,
       this.name,
       this.rate,
       this.review,
       this.type,
       this.image,
+      this.no,
       this.ffRef})
       : super._();
 
@@ -176,26 +175,26 @@ class _$HisGoaRecord extends HisGoaRecord {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is HisGoaRecord &&
-        no == other.no &&
         url == other.url &&
         name == other.name &&
         rate == other.rate &&
         review == other.review &&
         type == other.type &&
         image == other.image &&
+        no == other.no &&
         ffRef == other.ffRef;
   }
 
   @override
   int get hashCode {
     var _$hash = 0;
-    _$hash = $jc(_$hash, no.hashCode);
     _$hash = $jc(_$hash, url.hashCode);
     _$hash = $jc(_$hash, name.hashCode);
     _$hash = $jc(_$hash, rate.hashCode);
     _$hash = $jc(_$hash, review.hashCode);
     _$hash = $jc(_$hash, type.hashCode);
     _$hash = $jc(_$hash, image.hashCode);
+    _$hash = $jc(_$hash, no.hashCode);
     _$hash = $jc(_$hash, ffRef.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -204,13 +203,13 @@ class _$HisGoaRecord extends HisGoaRecord {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'HisGoaRecord')
-          ..add('no', no)
           ..add('url', url)
           ..add('name', name)
           ..add('rate', rate)
           ..add('review', review)
           ..add('type', type)
           ..add('image', image)
+          ..add('no', no)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -219,10 +218,6 @@ class _$HisGoaRecord extends HisGoaRecord {
 class HisGoaRecordBuilder
     implements Builder<HisGoaRecord, HisGoaRecordBuilder> {
   _$HisGoaRecord? _$v;
-
-  bool? _no;
-  bool? get no => _$this._no;
-  set no(bool? no) => _$this._no = no;
 
   String? _url;
   String? get url => _$this._url;
@@ -248,6 +243,10 @@ class HisGoaRecordBuilder
   String? get image => _$this._image;
   set image(String? image) => _$this._image = image;
 
+  int? _no;
+  int? get no => _$this._no;
+  set no(int? no) => _$this._no = no;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -259,13 +258,13 @@ class HisGoaRecordBuilder
   HisGoaRecordBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _no = $v.no;
       _url = $v.url;
       _name = $v.name;
       _rate = $v.rate;
       _review = $v.review;
       _type = $v.type;
       _image = $v.image;
+      _no = $v.no;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -289,13 +288,13 @@ class HisGoaRecordBuilder
   _$HisGoaRecord _build() {
     final _$result = _$v ??
         new _$HisGoaRecord._(
-            no: no,
             url: url,
             name: name,
             rate: rate,
             review: review,
             type: type,
             image: image,
+            no: no,
             ffRef: ffRef);
     replace(_$result);
     return _$result;

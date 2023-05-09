@@ -22,13 +22,6 @@ class _$HisBangaloreRecordSerializer
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
-    value = object.no;
-    if (value != null) {
-      result
-        ..add('No')
-        ..add(
-            serializers.serialize(value, specifiedType: const FullType(bool)));
-    }
     value = object.url;
     if (value != null) {
       result
@@ -94,10 +87,6 @@ class _$HisBangaloreRecordSerializer
       iterator.moveNext();
       final Object? value = iterator.current;
       switch (key) {
-        case 'No':
-          result.no = serializers.deserialize(value,
-              specifiedType: const FullType(bool)) as bool?;
-          break;
         case 'Url':
           result.url = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
@@ -137,8 +126,6 @@ class _$HisBangaloreRecordSerializer
 
 class _$HisBangaloreRecord extends HisBangaloreRecord {
   @override
-  final bool? no;
-  @override
   final String? url;
   @override
   final String? name;
@@ -158,8 +145,7 @@ class _$HisBangaloreRecord extends HisBangaloreRecord {
       (new HisBangaloreRecordBuilder()..update(updates))._build();
 
   _$HisBangaloreRecord._(
-      {this.no,
-      this.url,
+      {this.url,
       this.name,
       this.rate,
       this.review,
@@ -181,7 +167,6 @@ class _$HisBangaloreRecord extends HisBangaloreRecord {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is HisBangaloreRecord &&
-        no == other.no &&
         url == other.url &&
         name == other.name &&
         rate == other.rate &&
@@ -194,7 +179,6 @@ class _$HisBangaloreRecord extends HisBangaloreRecord {
   @override
   int get hashCode {
     var _$hash = 0;
-    _$hash = $jc(_$hash, no.hashCode);
     _$hash = $jc(_$hash, url.hashCode);
     _$hash = $jc(_$hash, name.hashCode);
     _$hash = $jc(_$hash, rate.hashCode);
@@ -209,7 +193,6 @@ class _$HisBangaloreRecord extends HisBangaloreRecord {
   @override
   String toString() {
     return (newBuiltValueToStringHelper(r'HisBangaloreRecord')
-          ..add('no', no)
           ..add('url', url)
           ..add('name', name)
           ..add('rate', rate)
@@ -224,10 +207,6 @@ class _$HisBangaloreRecord extends HisBangaloreRecord {
 class HisBangaloreRecordBuilder
     implements Builder<HisBangaloreRecord, HisBangaloreRecordBuilder> {
   _$HisBangaloreRecord? _$v;
-
-  bool? _no;
-  bool? get no => _$this._no;
-  set no(bool? no) => _$this._no = no;
 
   String? _url;
   String? get url => _$this._url;
@@ -264,7 +243,6 @@ class HisBangaloreRecordBuilder
   HisBangaloreRecordBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
-      _no = $v.no;
       _url = $v.url;
       _name = $v.name;
       _rate = $v.rate;
@@ -294,7 +272,6 @@ class HisBangaloreRecordBuilder
   _$HisBangaloreRecord _build() {
     final _$result = _$v ??
         new _$HisBangaloreRecord._(
-            no: no,
             url: url,
             name: name,
             rate: rate,

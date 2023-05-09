@@ -9,9 +9,6 @@ part 'ef_goa_record.g.dart';
 abstract class EfGoaRecord implements Built<EfGoaRecord, EfGoaRecordBuilder> {
   static Serializer<EfGoaRecord> get serializer => _$efGoaRecordSerializer;
 
-  @BuiltValueField(wireName: 'No')
-  bool? get no;
-
   @BuiltValueField(wireName: 'Name-of-festival')
   String? get nameOfFestival;
 
@@ -30,18 +27,21 @@ abstract class EfGoaRecord implements Built<EfGoaRecord, EfGoaRecordBuilder> {
   @BuiltValueField(wireName: 'Images')
   String? get images;
 
+  @BuiltValueField(wireName: 'No')
+  int? get no;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
 
   static void _initializeBuilder(EfGoaRecordBuilder builder) => builder
-    ..no = false
     ..nameOfFestival = ''
     ..when = ''
     ..where = ''
     ..duration = ''
     ..famousFor = ''
-    ..images = '';
+    ..images = ''
+    ..no = 0;
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('efGoa');
@@ -65,25 +65,25 @@ abstract class EfGoaRecord implements Built<EfGoaRecord, EfGoaRecordBuilder> {
 }
 
 Map<String, dynamic> createEfGoaRecordData({
-  bool? no,
   String? nameOfFestival,
   String? when,
   String? where,
   String? duration,
   String? famousFor,
   String? images,
+  int? no,
 }) {
   final firestoreData = serializers.toFirestore(
     EfGoaRecord.serializer,
     EfGoaRecord(
       (e) => e
-        ..no = no
         ..nameOfFestival = nameOfFestival
         ..when = when
         ..where = where
         ..duration = duration
         ..famousFor = famousFor
-        ..images = images,
+        ..images = images
+        ..no = no,
     ),
   );
 

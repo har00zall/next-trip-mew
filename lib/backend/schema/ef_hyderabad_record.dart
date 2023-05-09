@@ -11,9 +11,6 @@ abstract class EfHyderabadRecord
   static Serializer<EfHyderabadRecord> get serializer =>
       _$efHyderabadRecordSerializer;
 
-  @BuiltValueField(wireName: 'No')
-  bool? get no;
-
   @BuiltValueField(wireName: 'Name-of-festival')
   String? get nameOfFestival;
 
@@ -32,18 +29,21 @@ abstract class EfHyderabadRecord
   @BuiltValueField(wireName: 'Images')
   String? get images;
 
+  @BuiltValueField(wireName: 'No')
+  int? get no;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
 
   static void _initializeBuilder(EfHyderabadRecordBuilder builder) => builder
-    ..no = false
     ..nameOfFestival = ''
     ..when = ''
     ..where = ''
     ..duration = ''
     ..famousFor = ''
-    ..images = '';
+    ..images = ''
+    ..no = 0;
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('efHyderabad');
@@ -67,25 +67,25 @@ abstract class EfHyderabadRecord
 }
 
 Map<String, dynamic> createEfHyderabadRecordData({
-  bool? no,
   String? nameOfFestival,
   String? when,
   String? where,
   String? duration,
   String? famousFor,
   String? images,
+  int? no,
 }) {
   final firestoreData = serializers.toFirestore(
     EfHyderabadRecord.serializer,
     EfHyderabadRecord(
       (e) => e
-        ..no = no
         ..nameOfFestival = nameOfFestival
         ..when = when
         ..where = where
         ..duration = duration
         ..famousFor = famousFor
-        ..images = images,
+        ..images = images
+        ..no = no,
     ),
   );
 

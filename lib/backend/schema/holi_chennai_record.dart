@@ -11,9 +11,6 @@ abstract class HoliChennaiRecord
   static Serializer<HoliChennaiRecord> get serializer =>
       _$holiChennaiRecordSerializer;
 
-  @BuiltValueField(wireName: 'No')
-  bool? get no;
-
   @BuiltValueField(wireName: 'Name-of-Place')
   String? get nameOfPlace;
 
@@ -37,12 +34,14 @@ abstract class HoliChennaiRecord
   @BuiltValueField(wireName: 'Image')
   String? get image;
 
+  @BuiltValueField(wireName: 'No')
+  int? get no;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
 
   static void _initializeBuilder(HoliChennaiRecordBuilder builder) => builder
-    ..no = false
     ..nameOfPlace = ''
     ..review = false
     ..type = ''
@@ -50,7 +49,8 @@ abstract class HoliChennaiRecord
     ..openingTime = ''
     ..closingTime = ''
     ..thingsYouCanSeeInThere = ''
-    ..image = '';
+    ..image = ''
+    ..no = 0;
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('holiChennai');
@@ -74,7 +74,6 @@ abstract class HoliChennaiRecord
 }
 
 Map<String, dynamic> createHoliChennaiRecordData({
-  bool? no,
   String? nameOfPlace,
   bool? review,
   String? type,
@@ -83,12 +82,12 @@ Map<String, dynamic> createHoliChennaiRecordData({
   String? closingTime,
   String? thingsYouCanSeeInThere,
   String? image,
+  int? no,
 }) {
   final firestoreData = serializers.toFirestore(
     HoliChennaiRecord.serializer,
     HoliChennaiRecord(
       (h) => h
-        ..no = no
         ..nameOfPlace = nameOfPlace
         ..review = review
         ..type = type
@@ -96,7 +95,8 @@ Map<String, dynamic> createHoliChennaiRecordData({
         ..openingTime = openingTime
         ..closingTime = closingTime
         ..thingsYouCanSeeInThere = thingsYouCanSeeInThere
-        ..image = image,
+        ..image = image
+        ..no = no,
     ),
   );
 
