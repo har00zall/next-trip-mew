@@ -92,6 +92,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
           child: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.max,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
               children: [
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 20.0),
@@ -117,16 +118,15 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                           ),
                         );
                       }
-                      List<ChennaiRecord> listViewChennaiRecordList =
+                      List<ChennaiRecord> columnChennaiRecordList =
                           snapshot.data!;
-                      return ListView.builder(
-                        padding: EdgeInsets.zero,
-                        shrinkWrap: true,
-                        scrollDirection: Axis.vertical,
-                        itemCount: listViewChennaiRecordList.length,
-                        itemBuilder: (context, listViewIndex) {
-                          final listViewChennaiRecord =
-                              listViewChennaiRecordList[listViewIndex];
+                      return Column(
+                        mainAxisSize: MainAxisSize.max,
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: List.generate(columnChennaiRecordList.length,
+                            (columnIndex) {
+                          final columnChennaiRecord =
+                              columnChennaiRecordList[columnIndex];
                           return Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 10.0, 10.0, 10.0, 20.0),
@@ -172,7 +172,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                           imageUrl:
                                               'https://nexttrip123.000webhostapp.com/${(String images) {
                                             return images.split('"')[1];
-                                          }(listViewChennaiRecord.images!)}',
+                                          }(columnChennaiRecord.images!)}',
                                           width: double.infinity,
                                           height: 200.0,
                                           fit: BoxFit.cover,
@@ -189,7 +189,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                               onPressed: () {
                                                 print('Button pressed ...');
                                               },
-                                              text: listViewChennaiRecord.rate!
+                                              text: columnChennaiRecord.rate!
                                                   .toString(),
                                               icon: Icon(
                                                 Icons.star,
@@ -235,7 +235,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     6.0, 0.0, 179.0, 0.0),
                                             child: Text(
-                                              listViewChennaiRecord.star!,
+                                              columnChennaiRecord.star!,
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
@@ -277,7 +277,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     10.0, 0.0, 0.0, 0.0),
                                             child: Text(
-                                              listViewChennaiRecord.hotelName!,
+                                              columnChennaiRecord.hotelName!,
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
@@ -299,8 +299,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     10.0, 0.0, 0.0, 0.0),
                                             child: AutoSizeText(
-                                              listViewChennaiRecord
-                                                  .hotelAddress!
+                                              columnChennaiRecord.hotelAddress!
                                                   .maybeHandleOverflow(
                                                       maxChars: 25),
                                               style:
@@ -317,7 +316,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 10.0, 0.0),
                                             child: Text(
-                                              listViewChennaiRecord.price!
+                                              columnChennaiRecord.price!
                                                   .toString(),
                                               style:
                                                   FlutterFlowTheme.of(context)
@@ -361,10 +360,9 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 10.0, 0.0),
                                             child: Text(
-                                              (double.parse(
-                                                      listViewChennaiRecord
-                                                          .price!
-                                                          .toString()))
+                                              (double.parse(columnChennaiRecord
+                                                      .price!
+                                                      .toString()))
                                                   .toString(),
                                               style:
                                                   FlutterFlowTheme.of(context)
@@ -383,7 +381,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                               ),
                             ),
                           );
-                        },
+                        }),
                       );
                     },
                   ),
@@ -411,16 +409,15 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                           ),
                         );
                       }
-                      List<JaipurRecord> listViewJaipurRecordList =
+                      List<JaipurRecord> columnJaipurRecordList =
                           snapshot.data!;
-                      return ListView.builder(
-                        padding: EdgeInsets.zero,
-                        shrinkWrap: true,
-                        scrollDirection: Axis.vertical,
-                        itemCount: listViewJaipurRecordList.length,
-                        itemBuilder: (context, listViewIndex) {
-                          final listViewJaipurRecord =
-                              listViewJaipurRecordList[listViewIndex];
+                      return Column(
+                        mainAxisSize: MainAxisSize.max,
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: List.generate(columnJaipurRecordList.length,
+                            (columnIndex) {
+                          final columnJaipurRecord =
+                              columnJaipurRecordList[columnIndex];
                           return Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 10.0, 10.0, 10.0, 20.0),
@@ -466,7 +463,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                           imageUrl:
                                               'https://nexttrip123.000webhostapp.com/${(String images) {
                                             return images.split('"')[1];
-                                          }(listViewJaipurRecord.images!)}',
+                                          }(columnJaipurRecord.images!)}',
                                           width: double.infinity,
                                           height: 200.0,
                                           fit: BoxFit.cover,
@@ -483,7 +480,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                               onPressed: () {
                                                 print('Button pressed ...');
                                               },
-                                              text: listViewJaipurRecord.rate!
+                                              text: columnJaipurRecord.rate!
                                                   .toString(),
                                               icon: Icon(
                                                 Icons.star,
@@ -529,7 +526,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     6.0, 0.0, 179.0, 0.0),
                                             child: Text(
-                                              listViewJaipurRecord.star!,
+                                              columnJaipurRecord.star!,
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
@@ -571,7 +568,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     10.0, 0.0, 0.0, 0.0),
                                             child: AutoSizeText(
-                                              listViewJaipurRecord.hotelName!,
+                                              columnJaipurRecord.hotelName!,
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
@@ -593,7 +590,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     10.0, 0.0, 0.0, 0.0),
                                             child: AutoSizeText(
-                                              listViewJaipurRecord.hotelAddress!
+                                              columnJaipurRecord.hotelAddress!
                                                   .maybeHandleOverflow(
                                                       maxChars: 25),
                                               style:
@@ -610,7 +607,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 10.0, 0.0),
                                             child: Text(
-                                              listViewJaipurRecord.price!
+                                              columnJaipurRecord.price!
                                                   .toString(),
                                               style:
                                                   FlutterFlowTheme.of(context)
@@ -674,7 +671,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                               ),
                             ),
                           );
-                        },
+                        }),
                       );
                     },
                   ),
@@ -702,16 +699,15 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                           ),
                         );
                       }
-                      List<HyderabadRecord> listViewHyderabadRecordList =
+                      List<HyderabadRecord> columnHyderabadRecordList =
                           snapshot.data!;
-                      return ListView.builder(
-                        padding: EdgeInsets.zero,
-                        shrinkWrap: true,
-                        scrollDirection: Axis.vertical,
-                        itemCount: listViewHyderabadRecordList.length,
-                        itemBuilder: (context, listViewIndex) {
-                          final listViewHyderabadRecord =
-                              listViewHyderabadRecordList[listViewIndex];
+                      return Column(
+                        mainAxisSize: MainAxisSize.max,
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: List.generate(
+                            columnHyderabadRecordList.length, (columnIndex) {
+                          final columnHyderabadRecord =
+                              columnHyderabadRecordList[columnIndex];
                           return Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 10.0, 10.0, 10.0, 20.0),
@@ -756,7 +752,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                         child: Image.network(
                                           'https://nexttrip123.000webhostapp.com/${(String var1) {
                                             return var1.split('"')[1];
-                                          }(listViewHyderabadRecord.images!)}',
+                                          }(columnHyderabadRecord.images!)}',
                                           width: double.infinity,
                                           height: 200.0,
                                           fit: BoxFit.cover,
@@ -773,8 +769,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                               onPressed: () {
                                                 print('Button pressed ...');
                                               },
-                                              text: listViewHyderabadRecord
-                                                  .rate!
+                                              text: columnHyderabadRecord.rate!
                                                   .toString(),
                                               icon: Icon(
                                                 Icons.star,
@@ -820,7 +815,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     6.0, 0.0, 179.0, 0.0),
                                             child: Text(
-                                              listViewHyderabadRecord.star!,
+                                              columnHyderabadRecord.star!,
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
@@ -862,8 +857,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     10.0, 0.0, 0.0, 0.0),
                                             child: AutoSizeText(
-                                              listViewHyderabadRecord
-                                                  .hotelName!,
+                                              columnHyderabadRecord.hotelName!,
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
@@ -885,7 +879,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     10.0, 0.0, 0.0, 0.0),
                                             child: AutoSizeText(
-                                              listViewHyderabadRecord
+                                              columnHyderabadRecord
                                                   .hotelAddress!
                                                   .maybeHandleOverflow(
                                                       maxChars: 25),
@@ -903,7 +897,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 10.0, 0.0),
                                             child: Text(
-                                              listViewHyderabadRecord.price!
+                                              columnHyderabadRecord.price!
                                                   .toString(),
                                               style:
                                                   FlutterFlowTheme.of(context)
@@ -948,7 +942,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                     0.0, 0.0, 10.0, 0.0),
                                             child: Text(
                                               (double.parse(
-                                                          listViewHyderabadRecord
+                                                          columnHyderabadRecord
                                                               .price!
                                                               .toString()!) +
                                                       500)
@@ -970,7 +964,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                               ),
                             ),
                           );
-                        },
+                        }),
                       );
                     },
                   ),
@@ -998,16 +992,15 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                           ),
                         );
                       }
-                      List<BangaloreRecord> listViewBangaloreRecordList =
+                      List<BangaloreRecord> columnBangaloreRecordList =
                           snapshot.data!;
-                      return ListView.builder(
-                        padding: EdgeInsets.zero,
-                        shrinkWrap: true,
-                        scrollDirection: Axis.vertical,
-                        itemCount: listViewBangaloreRecordList.length,
-                        itemBuilder: (context, listViewIndex) {
-                          final listViewBangaloreRecord =
-                              listViewBangaloreRecordList[listViewIndex];
+                      return Column(
+                        mainAxisSize: MainAxisSize.max,
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: List.generate(
+                            columnBangaloreRecordList.length, (columnIndex) {
+                          final columnBangaloreRecord =
+                              columnBangaloreRecordList[columnIndex];
                           return Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 10.0, 10.0, 10.0, 20.0),
@@ -1053,7 +1046,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                           imageUrl:
                                               'https://nexttrip123.000webhostapp.com/${(String images) {
                                             return images.split('"')[1];
-                                          }(listViewBangaloreRecord.images!)}',
+                                          }(columnBangaloreRecord.images!)}',
                                           width: double.infinity,
                                           height: 200.0,
                                           fit: BoxFit.cover,
@@ -1070,8 +1063,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                               onPressed: () {
                                                 print('Button pressed ...');
                                               },
-                                              text: listViewBangaloreRecord
-                                                  .rate!
+                                              text: columnBangaloreRecord.rate!
                                                   .toString(),
                                               icon: Icon(
                                                 Icons.star,
@@ -1117,7 +1109,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     6.0, 0.0, 179.0, 0.0),
                                             child: Text(
-                                              listViewBangaloreRecord.star!,
+                                              columnBangaloreRecord.star!,
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
@@ -1159,8 +1151,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     10.0, 0.0, 0.0, 0.0),
                                             child: AutoSizeText(
-                                              listViewBangaloreRecord
-                                                  .hotelName!,
+                                              columnBangaloreRecord.hotelName!,
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
@@ -1182,7 +1173,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     10.0, 0.0, 0.0, 0.0),
                                             child: AutoSizeText(
-                                              listViewBangaloreRecord
+                                              columnBangaloreRecord
                                                   .hotelAddress!
                                                   .maybeHandleOverflow(
                                                       maxChars: 25),
@@ -1200,7 +1191,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 10.0, 0.0),
                                             child: Text(
-                                              listViewBangaloreRecord.price!
+                                              columnBangaloreRecord.price!
                                                   .toString(),
                                               style:
                                                   FlutterFlowTheme.of(context)
@@ -1245,7 +1236,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                     0.0, 0.0, 10.0, 0.0),
                                             child: Text(
                                               (double.parse(
-                                                          listViewBangaloreRecord
+                                                          columnBangaloreRecord
                                                               .price!
                                                               .toString()!) +
                                                       500)
@@ -1267,7 +1258,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                               ),
                             ),
                           );
-                        },
+                        }),
                       );
                     },
                   ),
@@ -1295,15 +1286,14 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                           ),
                         );
                       }
-                      List<GoaRecord> listViewGoaRecordList = snapshot.data!;
-                      return ListView.builder(
-                        padding: EdgeInsets.zero,
-                        shrinkWrap: true,
-                        scrollDirection: Axis.vertical,
-                        itemCount: listViewGoaRecordList.length,
-                        itemBuilder: (context, listViewIndex) {
-                          final listViewGoaRecord =
-                              listViewGoaRecordList[listViewIndex];
+                      List<GoaRecord> columnGoaRecordList = snapshot.data!;
+                      return Column(
+                        mainAxisSize: MainAxisSize.max,
+                        crossAxisAlignment: CrossAxisAlignment.stretch,
+                        children: List.generate(columnGoaRecordList.length,
+                            (columnIndex) {
+                          final columnGoaRecord =
+                              columnGoaRecordList[columnIndex];
                           return Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 10.0, 10.0, 10.0, 20.0),
@@ -1349,7 +1339,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                           imageUrl:
                                               'https://nexttrip123.000webhostapp.com/${(String var1) {
                                             return var1.split('"')[1];
-                                          }(listViewGoaRecord.images!)}',
+                                          }(columnGoaRecord.images!)}',
                                           width: double.infinity,
                                           height: 200.0,
                                           fit: BoxFit.cover,
@@ -1366,7 +1356,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                               onPressed: () {
                                                 print('Button pressed ...');
                                               },
-                                              text: listViewGoaRecord.rate!
+                                              text: columnGoaRecord.rate!
                                                   .toString(),
                                               icon: Icon(
                                                 Icons.star,
@@ -1412,7 +1402,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     6.0, 0.0, 179.0, 0.0),
                                             child: Text(
-                                              listViewGoaRecord.star!,
+                                              columnGoaRecord.star!,
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
@@ -1454,7 +1444,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     10.0, 0.0, 0.0, 0.0),
                                             child: AutoSizeText(
-                                              listViewGoaRecord.hotelName!
+                                              columnGoaRecord.hotelName!
                                                   .maybeHandleOverflow(
                                                       maxChars: 25),
                                               style:
@@ -1478,7 +1468,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     10.0, 0.0, 0.0, 0.0),
                                             child: AutoSizeText(
-                                              listViewGoaRecord.hotelAddress!
+                                              columnGoaRecord.hotelAddress!
                                                   .maybeHandleOverflow(
                                                       maxChars: 25),
                                               style:
@@ -1495,8 +1485,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 10.0, 0.0),
                                             child: Text(
-                                              listViewGoaRecord.price!
-                                                  .toString(),
+                                              columnGoaRecord.price!.toString(),
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium,
@@ -1539,7 +1528,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 10.0, 0.0),
                                             child: Text(
-                                              (double.parse(listViewGoaRecord
+                                              (double.parse(columnGoaRecord
                                                       .price!
                                                       .toString()))
                                                   .toString(),
@@ -1560,17 +1549,16 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                               ),
                             ),
                           );
-                        },
+                        }),
                       );
                     },
                   ),
                 ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 0.0),
-                  child: ListView(
-                    padding: EdgeInsets.zero,
-                    shrinkWrap: true,
-                    scrollDirection: Axis.vertical,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Material(
                         color: Colors.transparent,
@@ -1762,10 +1750,9 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                 ),
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 0.0),
-                  child: ListView(
-                    padding: EdgeInsets.zero,
-                    shrinkWrap: true,
-                    scrollDirection: Axis.vertical,
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
                     children: [
                       Material(
                         color: Colors.transparent,
@@ -2069,10 +2056,9 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                     ],
                   ),
                 ),
-                ListView(
-                  padding: EdgeInsets.zero,
-                  shrinkWrap: true,
-                  scrollDirection: Axis.vertical,
+                Column(
+                  mainAxisSize: MainAxisSize.max,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: [
                     Padding(
                       padding:
