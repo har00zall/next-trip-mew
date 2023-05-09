@@ -123,16 +123,7 @@ class _F2HistoricalWidgetState extends State<F2HistoricalWidget> {
                                   'yulmtzkp' /* Bengalore */,
                                 ),
                                 FFLocalizations.of(context).getText(
-                                  '5oexuw9e' /* Kolkata */,
-                                ),
-                                FFLocalizations.of(context).getText(
                                   'eof4cgnu' /* Hyderabad */,
-                                ),
-                                FFLocalizations.of(context).getText(
-                                  'ojrelzjh' /* Pune */,
-                                ),
-                                FFLocalizations.of(context).getText(
-                                  '20atk66u' /* New Delhi */,
                                 ),
                                 FFLocalizations.of(context).getText(
                                   '8q24mqff' /* Chennai */,
@@ -141,13 +132,7 @@ class _F2HistoricalWidgetState extends State<F2HistoricalWidget> {
                                   'gmq0cg81' /* Goa */,
                                 ),
                                 FFLocalizations.of(context).getText(
-                                  'kf74hefv' /* Mumbai */,
-                                ),
-                                FFLocalizations.of(context).getText(
                                   'h09kxo2m' /* Jaipur */,
-                                ),
-                                FFLocalizations.of(context).getText(
-                                  'se7s0qap' /* Manali */,
                                 )
                               ],
                               onChanged: (val) =>

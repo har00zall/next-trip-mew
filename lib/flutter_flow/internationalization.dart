@@ -6482,14 +6482,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ta': 'பெங்களூரு',
       'te': 'బెంగుళూరు',
     },
-    '5oexuw9e': {
-      'en': 'Kolkata',
-      'hi': 'कोलकाता',
-      'kn': 'ಕೋಲ್ಕತ್ತಾ',
-      'pa': 'ਕੋਲਕਾਤਾ',
-      'ta': 'கொல்கத்தா',
-      'te': 'కోల్‌కతా',
-    },
     'eof4cgnu': {
       'en': 'Hyderabad',
       'hi': 'हैदराबाद',
@@ -6497,22 +6489,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'pa': 'ਹੈਦਰਾਬਾਦ',
       'ta': 'ஹைதராபாத்',
       'te': 'హైదరాబాద్',
-    },
-    'ojrelzjh': {
-      'en': 'Pune',
-      'hi': 'पुणे',
-      'kn': 'ಪುಣೆ',
-      'pa': 'ਪੁਣੇ',
-      'ta': 'புனே',
-      'te': 'పూణే',
-    },
-    '20atk66u': {
-      'en': 'New Delhi',
-      'hi': 'नयी दिल्ली',
-      'kn': 'ನವ ದೆಹಲಿ',
-      'pa': 'ਨਵੀਂ ਦਿੱਲੀ',
-      'ta': 'புது தில்லி',
-      'te': 'న్యూఢిల్లీ',
     },
     '8q24mqff': {
       'en': 'Chennai',
@@ -6530,14 +6506,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ta': 'கோவா',
       'te': 'గోవా',
     },
-    'kf74hefv': {
-      'en': 'Mumbai',
-      'hi': 'मुंबई',
-      'kn': 'ಮುಂಬೈ',
-      'pa': 'ਮੁੰਬਈ',
-      'ta': 'மும்பை',
-      'te': 'ముంబై',
-    },
     'h09kxo2m': {
       'en': 'Jaipur',
       'hi': 'जयपुर',
@@ -6545,14 +6513,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'pa': 'ਜੈਪੁਰ',
       'ta': 'ஜெய்ப்பூர்',
       'te': 'జైపూర్',
-    },
-    'se7s0qap': {
-      'en': 'Manali',
-      'hi': 'मनाली',
-      'kn': 'ಮನಾಲಿ',
-      'pa': 'ਮਨਾਲੀ',
-      'ta': 'மணாலி',
-      'te': 'మనాలి',
     },
     'b35p1uc9': {
       'en': 'Destination...',
