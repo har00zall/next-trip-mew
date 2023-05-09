@@ -9224,6 +9224,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ta': '',
       'te': '',
     },
+    '24ekpq01': {
+      'en': 'Expense Percentage From Budget (0-100%)',
+      'hi': '',
+      'kn': '',
+      'pa': '',
+      'ta': '',
+      'te': '',
+    },
     'ej2207da': {
       'en': 'Do you want transportation ?',
       'hi': '',

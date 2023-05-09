@@ -15,6 +15,9 @@ class BudgetSearchBottomSheetModel extends FlutterFlowModel {
   // State field(s) for TextField widget.
   TextEditingController? textController2;
   String? Function(BuildContext, String?)? textController2Validator;
+  // State field(s) for TextField widget.
+  TextEditingController? textController3;
+  String? Function(BuildContext, String?)? textController3Validator;
   // State field(s) for Checkbox widget.
   bool? checkboxValue;
 
@@ -25,6 +28,7 @@ class BudgetSearchBottomSheetModel extends FlutterFlowModel {
   void dispose() {
     textController1?.dispose();
     textController2?.dispose();
+    textController3?.dispose();
   }
 
   /// Additional helper methods are added here.

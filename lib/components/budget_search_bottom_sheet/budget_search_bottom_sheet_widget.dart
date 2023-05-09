@@ -33,6 +33,7 @@ class _BudgetSearchBottomSheetWidgetState
 
     _model.textController1 ??= TextEditingController();
     _model.textController2 ??= TextEditingController();
+    _model.textController3 ??= TextEditingController();
   }
 
   @override
@@ -72,7 +73,6 @@ class _BudgetSearchBottomSheetWidgetState
                       ),
                       child: Container(
                         width: double.infinity,
-                        height: 110.0,
                         decoration: BoxDecoration(
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
@@ -246,6 +246,86 @@ class _BudgetSearchBottomSheetWidgetState
                                 ),
                               ],
                             ),
+                            Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Expanded(
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        5.0, 10.0, 3.0, 0.0),
+                                    child: Container(
+                                      width: 170.0,
+                                      child: TextFormField(
+                                        controller: _model.textController3,
+                                        obscureText: false,
+                                        decoration: InputDecoration(
+                                          hintText: FFLocalizations.of(context)
+                                              .getText(
+                                            '24ekpq01' /* Expense Percentage From Budget... */,
+                                          ),
+                                          hintStyle:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodySmall
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    color: Colors.black,
+                                                    fontSize: 16.0,
+                                                  ),
+                                          enabledBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                              width: 1.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(10.0),
+                                          ),
+                                          focusedBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color: Color(0x00000000),
+                                              width: 1.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(10.0),
+                                          ),
+                                          errorBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color: Color(0x00000000),
+                                              width: 1.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(10.0),
+                                          ),
+                                          focusedErrorBorder:
+                                              OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color: Color(0x00000000),
+                                              width: 1.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(10.0),
+                                          ),
+                                          contentPadding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  15.0, 0.0, 0.0, 0.0),
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              color: Colors.black,
+                                              fontSize: 18.0,
+                                            ),
+                                        validator: _model
+                                            .textController3Validator
+                                            .asValidator(context),
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   0.0, 15.0, 0.0, 0.0),
@@ -307,6 +387,14 @@ class _BudgetSearchBottomSheetWidgetState
                             'days': serializeParam(
                               int.tryParse(_model.textController2.text),
                               ParamType.int,
+                            ),
+                            'transportation': serializeParam(
+                              _model.checkboxValue,
+                              ParamType.bool,
+                            ),
+                            'percentageToExpense': serializeParam(
+                              double.tryParse(_model.textController3.text),
+                              ParamType.double,
                             ),
                           }.withoutNulls,
                         );

@@ -7,6 +7,7 @@ import 'package:styled_divider/styled_divider.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -19,12 +20,18 @@ class A6BudgetSearchWidget extends StatefulWidget {
     Key? key,
     double? budget,
     int? days,
+    bool? transportation,
+    double? percentageToExpense,
   })  : this.budget = budget ?? 0.0,
         this.days = days ?? 0,
+        this.transportation = transportation ?? false,
+        this.percentageToExpense = percentageToExpense ?? 0.0,
         super(key: key);
 
   final double budget;
   final int days;
+  final bool transportation;
+  final double percentageToExpense;
 
   @override
   _A6BudgetSearchWidgetState createState() => _A6BudgetSearchWidgetState();
@@ -40,6 +47,11 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => A6BudgetSearchModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      if (widget.transportation) {}
+    });
   }
 
   @override
@@ -100,8 +112,11 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                     stream: queryChennaiRecord(
                       queryBuilder: (chennaiRecord) => chennaiRecord
                           .where('Price',
-                              isLessThanOrEqualTo:
-                                  (widget.budget / widget.days))
+                              isLessThanOrEqualTo: ((widget.budget -
+                                      (widget.budget *
+                                          widget.percentageToExpense /
+                                          100)) /
+                                  widget.days))
                           .orderBy('Price'),
                     ),
                     builder: (context, snapshot) {
@@ -392,7 +407,11 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                     stream: queryJaipurRecord(
                       queryBuilder: (jaipurRecord) => jaipurRecord
                           .where('Price',
-                              isLessThanOrEqualTo: widget.budget / widget.days)
+                              isLessThanOrEqualTo: ((widget.budget -
+                                      (widget.budget *
+                                          widget.percentageToExpense /
+                                          100)) /
+                                  widget.days))
                           .orderBy('Price'),
                     ),
                     builder: (context, snapshot) {
@@ -682,7 +701,11 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                     stream: queryHyderabadRecord(
                       queryBuilder: (hyderabadRecord) => hyderabadRecord
                           .where('Price',
-                              isLessThanOrEqualTo: widget.budget / widget.days)
+                              isLessThanOrEqualTo: ((widget.budget -
+                                      (widget.budget *
+                                          widget.percentageToExpense /
+                                          100)) /
+                                  widget.days))
                           .orderBy('Price'),
                     ),
                     builder: (context, snapshot) {
@@ -975,7 +998,11 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                     stream: queryBangaloreRecord(
                       queryBuilder: (bangaloreRecord) => bangaloreRecord
                           .where('Price',
-                              isLessThanOrEqualTo: widget.budget / widget.days)
+                              isLessThanOrEqualTo: ((widget.budget -
+                                      (widget.budget *
+                                          widget.percentageToExpense /
+                                          100)) /
+                                  widget.days))
                           .orderBy('Price', descending: true),
                     ),
                     builder: (context, snapshot) {
@@ -1269,7 +1296,11 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                     stream: queryGoaRecord(
                       queryBuilder: (goaRecord) => goaRecord
                           .where('Price',
-                              isLessThanOrEqualTo: widget.budget / widget.days)
+                              isLessThanOrEqualTo: ((widget.budget -
+                                      (widget.budget *
+                                          widget.percentageToExpense /
+                                          100)) /
+                                  widget.days))
                           .orderBy('Price'),
                     ),
                     builder: (context, snapshot) {
@@ -1555,7 +1586,8 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 0.0),
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 20.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -1749,7 +1781,8 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 0.0),
+                  padding:
+                      EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 20.0),
                   child: Column(
                     mainAxisSize: MainAxisSize.max,
                     crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -2056,122 +2089,53 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                     ],
                   ),
                 ),
-                Column(
-                  mainAxisSize: MainAxisSize.max,
-                  crossAxisAlignment: CrossAxisAlignment.stretch,
-                  children: [
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
-                      child: Material(
-                        color: Colors.transparent,
-                        elevation: 5.0,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
-                        child: Container(
-                          width: double.infinity,
-                          height: 180.0,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 5.0, 0.0, 20.0),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children: [
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            10.0, 0.0, 10.0, 0.0),
+                        child: Material(
+                          color: Colors.transparent,
+                          elevation: 5.0,
+                          shape: RoundedRectangleBorder(
                             borderRadius: BorderRadius.circular(10.0),
                           ),
-                          child: SingleChildScrollView(
-                            child: Column(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Row(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          10.0, 0.0, 0.0, 0.0),
-                                      child: FlutterFlowIconButton(
-                                        borderColor: Colors.transparent,
-                                        borderRadius: 30.0,
-                                        borderWidth: 1.0,
-                                        buttonSize: 45.0,
-                                        icon: Icon(
-                                          Icons.directions_bus_rounded,
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryText,
-                                          size: 30.0,
-                                        ),
-                                        onPressed: () {
-                                          print('IconButton pressed ...');
-                                        },
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          10.0, 0.0, 0.0, 0.0),
-                                      child: Text(
-                                        FFLocalizations.of(context).getText(
-                                          'f1zuhq7t' /* Bus Name */,
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              fontSize: 18.0,
-                                            ),
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          162.0, 0.0, 10.0, 0.0),
-                                      child: FlutterFlowIconButton(
-                                        borderColor: Colors.transparent,
-                                        borderRadius: 30.0,
-                                        borderWidth: 1.0,
-                                        buttonSize: 50.0,
-                                        icon: Icon(
-                                          Icons.favorite_border_rounded,
-                                          color: FlutterFlowTheme.of(context)
-                                              .primaryText,
-                                          size: 30.0,
-                                        ),
-                                        onPressed: () {
-                                          print('IconButton pressed ...');
-                                        },
-                                      ),
-                                    ),
-                                  ],
-                                ),
-                                Divider(
-                                  thickness: 1.0,
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryText,
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 5.0, 0.0, 0.0),
-                                  child: Row(
+                          child: Container(
+                            width: double.infinity,
+                            height: 180.0,
+                            decoration: BoxDecoration(
+                              color: FlutterFlowTheme.of(context)
+                                  .secondaryBackground,
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                            child: SingleChildScrollView(
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Row(
                                     mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             10.0, 0.0, 0.0, 0.0),
-                                        child: RatingBar.builder(
-                                          onRatingUpdate: (newValue) =>
-                                              setState(() => _model
-                                                  .ratingBarValue = newValue),
-                                          itemBuilder: (context, index) => Icon(
-                                            Icons.star_rounded,
+                                        child: FlutterFlowIconButton(
+                                          borderColor: Colors.transparent,
+                                          borderRadius: 30.0,
+                                          borderWidth: 1.0,
+                                          buttonSize: 45.0,
+                                          icon: Icon(
+                                            Icons.directions_bus_rounded,
                                             color: FlutterFlowTheme.of(context)
-                                                .secondary,
+                                                .primaryText,
+                                            size: 30.0,
                                           ),
-                                          direction: Axis.horizontal,
-                                          initialRating:
-                                              _model.ratingBarValue ??= 3.0,
-                                          unratedColor: Color(0xFF9E9E9E),
-                                          itemCount: 4,
-                                          itemSize: 15.0,
-                                          glowColor:
-                                              FlutterFlowTheme.of(context)
-                                                  .secondary,
+                                          onPressed: () {
+                                            print('IconButton pressed ...');
+                                          },
                                         ),
                                       ),
                                       Padding(
@@ -2179,85 +2143,163 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                             10.0, 0.0, 0.0, 0.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
-                                            'udxxggcn' /* Bus Type */,
+                                            'f1zuhq7t' /* Bus Name */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
                                                 fontFamily: 'Poppins',
-                                                fontSize: 16.0,
+                                                fontSize: 18.0,
                                               ),
                                         ),
                                       ),
-                                    ],
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 10.0, 0.0, 0.0),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    mainAxisAlignment:
-                                        MainAxisAlignment.spaceAround,
-                                    children: [
-                                      Text(
-                                        FFLocalizations.of(context).getText(
-                                          'nxjrjqns' /* Boarding */,
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
-                                      ),
-                                      Text(
-                                        FFLocalizations.of(context).getText(
-                                          'xsppv2gd' /* Duration */,
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
-                                      ),
-                                      Text(
-                                        FFLocalizations.of(context).getText(
-                                          'odtmi1qs' /* Arrival */,
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
-                                      ),
-                                      Text(
-                                        FFLocalizations.of(context).getText(
-                                          'q6on0ii3' /* Price */,
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium,
-                                      ),
-                                    ],
-                                  ),
-                                ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 10.0, 0.0, 0.0),
-                                  child: Row(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            20.0, 0.0, 0.0, 0.0),
-                                        child: Text(
+                                            162.0, 0.0, 10.0, 0.0),
+                                        child: FlutterFlowIconButton(
+                                          borderColor: Colors.transparent,
+                                          borderRadius: 30.0,
+                                          borderWidth: 1.0,
+                                          buttonSize: 50.0,
+                                          icon: Icon(
+                                            Icons.favorite_border_rounded,
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                            size: 30.0,
+                                          ),
+                                          onPressed: () {
+                                            print('IconButton pressed ...');
+                                          },
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                  Divider(
+                                    thickness: 1.0,
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryText,
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 5.0, 0.0, 0.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  10.0, 0.0, 0.0, 0.0),
+                                          child: RatingBar.builder(
+                                            onRatingUpdate: (newValue) =>
+                                                setState(() => _model
+                                                    .ratingBarValue = newValue),
+                                            itemBuilder: (context, index) =>
+                                                Icon(
+                                              Icons.star_rounded,
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .secondary,
+                                            ),
+                                            direction: Axis.horizontal,
+                                            initialRating:
+                                                _model.ratingBarValue ??= 3.0,
+                                            unratedColor: Color(0xFF9E9E9E),
+                                            itemCount: 4,
+                                            itemSize: 15.0,
+                                            glowColor:
+                                                FlutterFlowTheme.of(context)
+                                                    .secondary,
+                                          ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  10.0, 0.0, 0.0, 0.0),
+                                          child: Text(
+                                            FFLocalizations.of(context).getText(
+                                              'udxxggcn' /* Bus Type */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  fontSize: 16.0,
+                                                ),
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 10.0, 0.0, 0.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceAround,
+                                      children: [
+                                        Text(
                                           FFLocalizations.of(context).getText(
-                                            'zn8ly7l5' /* Facilities */,
+                                            'nxjrjqns' /* Boarding */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium,
                                         ),
-                                      ),
-                                    ],
+                                        Text(
+                                          FFLocalizations.of(context).getText(
+                                            'xsppv2gd' /* Duration */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium,
+                                        ),
+                                        Text(
+                                          FFLocalizations.of(context).getText(
+                                            'odtmi1qs' /* Arrival */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium,
+                                        ),
+                                        Text(
+                                          FFLocalizations.of(context).getText(
+                                            'q6on0ii3' /* Price */,
+                                          ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium,
+                                        ),
+                                      ],
+                                    ),
                                   ),
-                                ),
-                              ],
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 10.0, 0.0, 0.0),
+                                    child: Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  20.0, 0.0, 0.0, 0.0),
+                                          child: Text(
+                                            FFLocalizations.of(context).getText(
+                                              'zn8ly7l5' /* Facilities */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium,
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                           ),
                         ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
               ],
             ),

@@ -333,6 +333,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => A6BudgetSearchWidget(
                 budget: params.getParam('budget', ParamType.double),
                 days: params.getParam('days', ParamType.int),
+                transportation:
+                    params.getParam('transportation', ParamType.bool),
+                percentageToExpense:
+                    params.getParam('percentageToExpense', ParamType.double),
               ),
             ),
             FFRoute(
