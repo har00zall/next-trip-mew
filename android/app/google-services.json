@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "121477432287",
+    "firebase_url": "https://next-trip-a22d1-default-rtdb.firebaseio.com",
+    "project_id": "next-trip-a22d1",
+    "storage_bucket": "next-trip-a22d1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:121477432287:android:d1f69b066b33736105ba6a",
+        "android_client_info": {
+          "package_name": "com.mycompany.nexttrip"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "121477432287-t8pmmnaht84d6co72gsjv460vgg323f6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.mycompany.nexttrip",
+            "certificate_hash": "9bbb3186b2189ef16d8f272bdab59362c395cbb4"
+          }
+        },
+        {
+          "client_id": "121477432287-prtcrlckbet9pofvrvv2ibslsi9toprn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA4fUYL-zR51M_OUqQdn-KIbvmgNrayNZc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "121477432287-lundoeo2rq4lu5jkf471dtk5b8vkfp6b.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "121477432287-8u1gicltvs1fifp1p2anomrjlggd2583.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.mycompany.nexttrip"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
