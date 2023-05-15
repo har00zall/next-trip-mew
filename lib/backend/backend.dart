@@ -30,6 +30,7 @@ import 'schema/economy_class_flight_record.dart';
 import 'schema/non_ac_bus_record.dart';
 import 'schema/train_record.dart';
 import 'schema/holi_jaipur_record.dart';
+import 'schema/bangalore_facilities_record.dart';
 import 'schema/serializers.dart';
 
 export 'dart:async' show StreamSubscription;
@@ -62,6 +63,7 @@ export 'schema/economy_class_flight_record.dart';
 export 'schema/non_ac_bus_record.dart';
 export 'schema/train_record.dart';
 export 'schema/holi_jaipur_record.dart';
+export 'schema/bangalore_facilities_record.dart';
 
 /// Functions to query UserRecords (as a Stream and as a Future).
 Future<int> queryUserRecordCount({
@@ -1364,6 +1366,59 @@ Future<FFFirestorePage<HoliJaipurRecord>> queryHoliJaipurRecordPage({
       pageSize: pageSize,
       isStream: isStream,
     );
+
+/// Functions to query BangaloreFacilitiesRecords (as a Stream and as a Future).
+Future<int> queryBangaloreFacilitiesRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      BangaloreFacilitiesRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<BangaloreFacilitiesRecord>> queryBangaloreFacilitiesRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      BangaloreFacilitiesRecord.collection,
+      BangaloreFacilitiesRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<BangaloreFacilitiesRecord>> queryBangaloreFacilitiesRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      BangaloreFacilitiesRecord.collection,
+      BangaloreFacilitiesRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<BangaloreFacilitiesRecord>>
+    queryBangaloreFacilitiesRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+        queryCollectionPage(
+          BangaloreFacilitiesRecord.collection,
+          BangaloreFacilitiesRecord.serializer,
+          queryBuilder: queryBuilder,
+          nextPageMarker: nextPageMarker,
+          pageSize: pageSize,
+          isStream: isStream,
+        );
 
 Future<int> queryCollectionCount(
   Query collection, {

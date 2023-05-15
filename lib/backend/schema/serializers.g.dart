@@ -8,6 +8,7 @@ part of 'serializers.dart';
 
 Serializers _$serializers = (new Serializers().toBuilder()
       ..add(AcbusRecord.serializer)
+      ..add(BangaloreFacilitiesRecord.serializer)
       ..add(BangaloreRecord.serializer)
       ..add(BusinessClassFlightRecord.serializer)
       ..add(ChennaiRecord.serializer)

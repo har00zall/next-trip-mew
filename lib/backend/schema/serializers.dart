@@ -26,6 +26,7 @@ import 'economy_class_flight_record.dart';
 import 'non_ac_bus_record.dart';
 import 'train_record.dart';
 import 'holi_jaipur_record.dart';
+import 'bangalore_facilities_record.dart';
 
 import 'index.dart';
 
@@ -61,6 +62,7 @@ const kDocumentReferenceField = 'Document__Reference__Field';
   NonAcBusRecord,
   TrainRecord,
   HoliJaipurRecord,
+  BangaloreFacilitiesRecord,
 ])
 final Serializers serializers = (_$serializers.toBuilder()
       ..add(DocumentReferenceSerializer())
