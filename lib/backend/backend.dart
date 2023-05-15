@@ -31,6 +31,8 @@ import 'schema/non_ac_bus_record.dart';
 import 'schema/train_record.dart';
 import 'schema/holi_jaipur_record.dart';
 import 'schema/bangalore_facilities_record.dart';
+import 'schema/bangalore_policies_rules_record.dart';
+import 'schema/chennai_faciliteis_record.dart';
 import 'schema/serializers.dart';
 
 export 'dart:async' show StreamSubscription;
@@ -64,6 +66,8 @@ export 'schema/non_ac_bus_record.dart';
 export 'schema/train_record.dart';
 export 'schema/holi_jaipur_record.dart';
 export 'schema/bangalore_facilities_record.dart';
+export 'schema/bangalore_policies_rules_record.dart';
+export 'schema/chennai_faciliteis_record.dart';
 
 /// Functions to query UserRecords (as a Stream and as a Future).
 Future<int> queryUserRecordCount({
@@ -1414,6 +1418,113 @@ Future<FFFirestorePage<BangaloreFacilitiesRecord>>
         queryCollectionPage(
           BangaloreFacilitiesRecord.collection,
           BangaloreFacilitiesRecord.serializer,
+          queryBuilder: queryBuilder,
+          nextPageMarker: nextPageMarker,
+          pageSize: pageSize,
+          isStream: isStream,
+        );
+
+/// Functions to query BangalorePoliciesRulesRecords (as a Stream and as a Future).
+Future<int> queryBangalorePoliciesRulesRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      BangalorePoliciesRulesRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<BangalorePoliciesRulesRecord>> queryBangalorePoliciesRulesRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      BangalorePoliciesRulesRecord.collection,
+      BangalorePoliciesRulesRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<BangalorePoliciesRulesRecord>>
+    queryBangalorePoliciesRulesRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+        queryCollectionOnce(
+          BangalorePoliciesRulesRecord.collection,
+          BangalorePoliciesRulesRecord.serializer,
+          queryBuilder: queryBuilder,
+          limit: limit,
+          singleRecord: singleRecord,
+        );
+
+Future<FFFirestorePage<BangalorePoliciesRulesRecord>>
+    queryBangalorePoliciesRulesRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+        queryCollectionPage(
+          BangalorePoliciesRulesRecord.collection,
+          BangalorePoliciesRulesRecord.serializer,
+          queryBuilder: queryBuilder,
+          nextPageMarker: nextPageMarker,
+          pageSize: pageSize,
+          isStream: isStream,
+        );
+
+/// Functions to query ChennaiFaciliteisRecords (as a Stream and as a Future).
+Future<int> queryChennaiFaciliteisRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      ChennaiFaciliteisRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<ChennaiFaciliteisRecord>> queryChennaiFaciliteisRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      ChennaiFaciliteisRecord.collection,
+      ChennaiFaciliteisRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<ChennaiFaciliteisRecord>> queryChennaiFaciliteisRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      ChennaiFaciliteisRecord.collection,
+      ChennaiFaciliteisRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<ChennaiFaciliteisRecord>>
+    queryChennaiFaciliteisRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+        queryCollectionPage(
+          ChennaiFaciliteisRecord.collection,
+          ChennaiFaciliteisRecord.serializer,
           queryBuilder: queryBuilder,
           nextPageMarker: nextPageMarker,
           pageSize: pageSize,

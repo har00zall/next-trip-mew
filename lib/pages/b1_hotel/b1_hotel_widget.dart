@@ -804,7 +804,27 @@ class _B1HotelWidgetState extends State<B1HotelWidget> {
                 padding: EdgeInsetsDirectional.fromSTEB(0.0, 40.0, 0.0, 0.0),
                 child: FFButtonWidget(
                   onPressed: () async {
-                    context.pushNamed('B2HotelMain');
+                    context.pushNamed(
+                      'B2HotelMain',
+                      queryParams: {
+                        'cityName': serializeParam(
+                          _model.dropDownValue1,
+                          ParamType.String,
+                        ),
+                        'noAdults': serializeParam(
+                          _model.dropDownValue3,
+                          ParamType.String,
+                        ),
+                        'noRooms': serializeParam(
+                          _model.dropDownValue2,
+                          ParamType.String,
+                        ),
+                        'bDate': serializeParam(
+                          _model.textController1.text,
+                          ParamType.String,
+                        ),
+                      }.withoutNulls,
+                    );
                   },
                   text: FFLocalizations.of(context).getText(
                     '2nzjop5n' /* Search */,

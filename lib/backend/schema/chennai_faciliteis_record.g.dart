@@ -1,27 +1,27 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'bangalore_facilities_record.dart';
+part of 'chennai_faciliteis_record.dart';
 
 // **************************************************************************
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<BangaloreFacilitiesRecord> _$bangaloreFacilitiesRecordSerializer =
-    new _$BangaloreFacilitiesRecordSerializer();
+Serializer<ChennaiFaciliteisRecord> _$chennaiFaciliteisRecordSerializer =
+    new _$ChennaiFaciliteisRecordSerializer();
 
-class _$BangaloreFacilitiesRecordSerializer
-    implements StructuredSerializer<BangaloreFacilitiesRecord> {
+class _$ChennaiFaciliteisRecordSerializer
+    implements StructuredSerializer<ChennaiFaciliteisRecord> {
   @override
   final Iterable<Type> types = const [
-    BangaloreFacilitiesRecord,
-    _$BangaloreFacilitiesRecord
+    ChennaiFaciliteisRecord,
+    _$ChennaiFaciliteisRecord
   ];
   @override
-  final String wireName = 'BangaloreFacilitiesRecord';
+  final String wireName = 'ChennaiFaciliteisRecord';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, BangaloreFacilitiesRecord object,
+      Serializers serializers, ChennaiFaciliteisRecord object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
@@ -501,26 +501,6 @@ class _$BangaloreFacilitiesRecordSerializer
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    value = object.column8;
-    if (value != null) {
-      result
-        ..add('Column8')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
-    value = object.column9;
-    if (value != null) {
-      result
-        ..add('Column9')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
-    value = object.hotelNo;
-    if (value != null) {
-      result
-        ..add('HotelNo')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -533,10 +513,10 @@ class _$BangaloreFacilitiesRecordSerializer
   }
 
   @override
-  BangaloreFacilitiesRecord deserialize(
+  ChennaiFaciliteisRecord deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new BangaloreFacilitiesRecordBuilder();
+    final result = new ChennaiFaciliteisRecordBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -816,18 +796,6 @@ class _$BangaloreFacilitiesRecordSerializer
           result.column71 = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
-        case 'Column8':
-          result.column8 = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
-          break;
-        case 'Column9':
-          result.column9 = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
-          break;
-        case 'HotelNo':
-          result.hotelNo = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
-          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -841,7 +809,7 @@ class _$BangaloreFacilitiesRecordSerializer
   }
 }
 
-class _$BangaloreFacilitiesRecord extends BangaloreFacilitiesRecord {
+class _$ChennaiFaciliteisRecord extends ChennaiFaciliteisRecord {
   @override
   final String? column10;
   @override
@@ -979,19 +947,13 @@ class _$BangaloreFacilitiesRecord extends BangaloreFacilitiesRecord {
   @override
   final String? column71;
   @override
-  final String? column8;
-  @override
-  final String? column9;
-  @override
-  final int? hotelNo;
-  @override
   final DocumentReference<Object?>? ffRef;
 
-  factory _$BangaloreFacilitiesRecord(
-          [void Function(BangaloreFacilitiesRecordBuilder)? updates]) =>
-      (new BangaloreFacilitiesRecordBuilder()..update(updates))._build();
+  factory _$ChennaiFaciliteisRecord(
+          [void Function(ChennaiFaciliteisRecordBuilder)? updates]) =>
+      (new ChennaiFaciliteisRecordBuilder()..update(updates))._build();
 
-  _$BangaloreFacilitiesRecord._(
+  _$ChennaiFaciliteisRecord._(
       {this.column10,
       this.column11,
       this.column12,
@@ -1060,25 +1022,22 @@ class _$BangaloreFacilitiesRecord extends BangaloreFacilitiesRecord {
       this.column7,
       this.column70,
       this.column71,
-      this.column8,
-      this.column9,
-      this.hotelNo,
       this.ffRef})
       : super._();
 
   @override
-  BangaloreFacilitiesRecord rebuild(
-          void Function(BangaloreFacilitiesRecordBuilder) updates) =>
+  ChennaiFaciliteisRecord rebuild(
+          void Function(ChennaiFaciliteisRecordBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  BangaloreFacilitiesRecordBuilder toBuilder() =>
-      new BangaloreFacilitiesRecordBuilder()..replace(this);
+  ChennaiFaciliteisRecordBuilder toBuilder() =>
+      new ChennaiFaciliteisRecordBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is BangaloreFacilitiesRecord &&
+    return other is ChennaiFaciliteisRecord &&
         column10 == other.column10 &&
         column11 == other.column11 &&
         column12 == other.column12 &&
@@ -1147,9 +1106,6 @@ class _$BangaloreFacilitiesRecord extends BangaloreFacilitiesRecord {
         column7 == other.column7 &&
         column70 == other.column70 &&
         column71 == other.column71 &&
-        column8 == other.column8 &&
-        column9 == other.column9 &&
-        hotelNo == other.hotelNo &&
         ffRef == other.ffRef;
   }
 
@@ -1224,9 +1180,6 @@ class _$BangaloreFacilitiesRecord extends BangaloreFacilitiesRecord {
     _$hash = $jc(_$hash, column7.hashCode);
     _$hash = $jc(_$hash, column70.hashCode);
     _$hash = $jc(_$hash, column71.hashCode);
-    _$hash = $jc(_$hash, column8.hashCode);
-    _$hash = $jc(_$hash, column9.hashCode);
-    _$hash = $jc(_$hash, hotelNo.hashCode);
     _$hash = $jc(_$hash, ffRef.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -1234,7 +1187,7 @@ class _$BangaloreFacilitiesRecord extends BangaloreFacilitiesRecord {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'BangaloreFacilitiesRecord')
+    return (newBuiltValueToStringHelper(r'ChennaiFaciliteisRecord')
           ..add('column10', column10)
           ..add('column11', column11)
           ..add('column12', column12)
@@ -1303,18 +1256,15 @@ class _$BangaloreFacilitiesRecord extends BangaloreFacilitiesRecord {
           ..add('column7', column7)
           ..add('column70', column70)
           ..add('column71', column71)
-          ..add('column8', column8)
-          ..add('column9', column9)
-          ..add('hotelNo', hotelNo)
           ..add('ffRef', ffRef))
         .toString();
   }
 }
 
-class BangaloreFacilitiesRecordBuilder
+class ChennaiFaciliteisRecordBuilder
     implements
-        Builder<BangaloreFacilitiesRecord, BangaloreFacilitiesRecordBuilder> {
-  _$BangaloreFacilitiesRecord? _$v;
+        Builder<ChennaiFaciliteisRecord, ChennaiFaciliteisRecordBuilder> {
+  _$ChennaiFaciliteisRecord? _$v;
 
   String? _column10;
   String? get column10 => _$this._column10;
@@ -1588,27 +1538,15 @@ class BangaloreFacilitiesRecordBuilder
   String? get column71 => _$this._column71;
   set column71(String? column71) => _$this._column71 = column71;
 
-  String? _column8;
-  String? get column8 => _$this._column8;
-  set column8(String? column8) => _$this._column8 = column8;
-
-  String? _column9;
-  String? get column9 => _$this._column9;
-  set column9(String? column9) => _$this._column9 = column9;
-
-  int? _hotelNo;
-  int? get hotelNo => _$this._hotelNo;
-  set hotelNo(int? hotelNo) => _$this._hotelNo = hotelNo;
-
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
 
-  BangaloreFacilitiesRecordBuilder() {
-    BangaloreFacilitiesRecord._initializeBuilder(this);
+  ChennaiFaciliteisRecordBuilder() {
+    ChennaiFaciliteisRecord._initializeBuilder(this);
   }
 
-  BangaloreFacilitiesRecordBuilder get _$this {
+  ChennaiFaciliteisRecordBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _column10 = $v.column10;
@@ -1679,9 +1617,6 @@ class BangaloreFacilitiesRecordBuilder
       _column7 = $v.column7;
       _column70 = $v.column70;
       _column71 = $v.column71;
-      _column8 = $v.column8;
-      _column9 = $v.column9;
-      _hotelNo = $v.hotelNo;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -1689,22 +1624,22 @@ class BangaloreFacilitiesRecordBuilder
   }
 
   @override
-  void replace(BangaloreFacilitiesRecord other) {
+  void replace(ChennaiFaciliteisRecord other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$BangaloreFacilitiesRecord;
+    _$v = other as _$ChennaiFaciliteisRecord;
   }
 
   @override
-  void update(void Function(BangaloreFacilitiesRecordBuilder)? updates) {
+  void update(void Function(ChennaiFaciliteisRecordBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  BangaloreFacilitiesRecord build() => _build();
+  ChennaiFaciliteisRecord build() => _build();
 
-  _$BangaloreFacilitiesRecord _build() {
+  _$ChennaiFaciliteisRecord _build() {
     final _$result = _$v ??
-        new _$BangaloreFacilitiesRecord._(
+        new _$ChennaiFaciliteisRecord._(
             column10: column10,
             column11: column11,
             column12: column12,
@@ -1773,9 +1708,6 @@ class BangaloreFacilitiesRecordBuilder
             column7: column7,
             column70: column70,
             column71: column71,
-            column8: column8,
-            column9: column9,
-            hotelNo: hotelNo,
             ffRef: ffRef);
     replace(_$result);
     return _$result;

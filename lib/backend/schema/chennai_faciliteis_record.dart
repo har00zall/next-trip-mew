@@ -4,13 +4,12 @@ import 'index.dart';
 import 'serializers.dart';
 import 'package:built_value/built_value.dart';
 
-part 'bangalore_facilities_record.g.dart';
+part 'chennai_faciliteis_record.g.dart';
 
-abstract class BangaloreFacilitiesRecord
-    implements
-        Built<BangaloreFacilitiesRecord, BangaloreFacilitiesRecordBuilder> {
-  static Serializer<BangaloreFacilitiesRecord> get serializer =>
-      _$bangaloreFacilitiesRecordSerializer;
+abstract class ChennaiFaciliteisRecord
+    implements Built<ChennaiFaciliteisRecord, ChennaiFaciliteisRecordBuilder> {
+  static Serializer<ChennaiFaciliteisRecord> get serializer =>
+      _$chennaiFaciliteisRecordSerializer;
 
   @BuiltValueField(wireName: 'Column10')
   String? get column10;
@@ -216,20 +215,71 @@ abstract class BangaloreFacilitiesRecord
   @BuiltValueField(wireName: 'Column71')
   String? get column71;
 
+  @BuiltValueField(wireName: 'Column72')
+  String? get column72;
+
+  @BuiltValueField(wireName: 'Column73')
+  String? get column73;
+
+  @BuiltValueField(wireName: 'Column74')
+  String? get column74;
+
+  @BuiltValueField(wireName: 'Column75')
+  String? get column75;
+
+  @BuiltValueField(wireName: 'Column76')
+  String? get column76;
+
+  @BuiltValueField(wireName: 'Column77')
+  String? get column77;
+
+  @BuiltValueField(wireName: 'Column78')
+  String? get column78;
+
+  @BuiltValueField(wireName: 'Column79')
+  String? get column79;
+
   @BuiltValueField(wireName: 'Column8')
   String? get column8;
+
+  @BuiltValueField(wireName: 'Column80')
+  String? get column80;
+
+  @BuiltValueField(wireName: 'Column81')
+  String? get column81;
+
+  @BuiltValueField(wireName: 'Column82')
+  String? get column82;
+
+  @BuiltValueField(wireName: 'Column83')
+  String? get column83;
+
+  @BuiltValueField(wireName: 'Column84')
+  String? get column84;
+
+  @BuiltValueField(wireName: 'Column85')
+  String? get column85;
+
+  @BuiltValueField(wireName: 'Column86')
+  String? get column86;
+
+  @BuiltValueField(wireName: 'Column87')
+  String? get column87;
+
+  @BuiltValueField(wireName: 'Column88')
+  String? get column88;
 
   @BuiltValueField(wireName: 'Column9')
   String? get column9;
 
-  @BuiltValueField(wireName: 'HotelNo')
-  int? get hotelNo;
+  @BuiltValueField(wireName: 'Hotel_NO')
+  int? get hotelNO;
 
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
 
-  static void _initializeBuilder(BangaloreFacilitiesRecordBuilder builder) =>
+  static void _initializeBuilder(ChennaiFaciliteisRecordBuilder builder) =>
       builder
         ..column10 = ''
         ..column11 = ''
@@ -299,34 +349,51 @@ abstract class BangaloreFacilitiesRecord
         ..column7 = ''
         ..column70 = ''
         ..column71 = ''
+        ..column72 = ''
+        ..column73 = ''
+        ..column74 = ''
+        ..column75 = ''
+        ..column76 = ''
+        ..column77 = ''
+        ..column78 = ''
+        ..column79 = ''
         ..column8 = ''
+        ..column80 = ''
+        ..column81 = ''
+        ..column82 = ''
+        ..column83 = ''
+        ..column84 = ''
+        ..column85 = ''
+        ..column86 = ''
+        ..column87 = ''
+        ..column88 = ''
         ..column9 = ''
-        ..hotelNo = 0;
+        ..hotelNO = 0;
 
   static CollectionReference get collection =>
-      FirebaseFirestore.instance.collection('bangaloreFacilities');
+      FirebaseFirestore.instance.collection('chennaiFaciliteis');
 
-  static Stream<BangaloreFacilitiesRecord> getDocument(DocumentReference ref) =>
+  static Stream<ChennaiFaciliteisRecord> getDocument(DocumentReference ref) =>
       ref.snapshots().map(
           (s) => serializers.deserializeWith(serializer, serializedData(s))!);
 
-  static Future<BangaloreFacilitiesRecord> getDocumentOnce(
+  static Future<ChennaiFaciliteisRecord> getDocumentOnce(
           DocumentReference ref) =>
       ref.get().then(
           (s) => serializers.deserializeWith(serializer, serializedData(s))!);
 
-  BangaloreFacilitiesRecord._();
-  factory BangaloreFacilitiesRecord(
-          [void Function(BangaloreFacilitiesRecordBuilder) updates]) =
-      _$BangaloreFacilitiesRecord;
+  ChennaiFaciliteisRecord._();
+  factory ChennaiFaciliteisRecord(
+          [void Function(ChennaiFaciliteisRecordBuilder) updates]) =
+      _$ChennaiFaciliteisRecord;
 
-  static BangaloreFacilitiesRecord getDocumentFromData(
+  static ChennaiFaciliteisRecord getDocumentFromData(
           Map<String, dynamic> data, DocumentReference reference) =>
       serializers.deserializeWith(serializer,
           {...mapFromFirestore(data), kDocumentReferenceField: reference})!;
 }
 
-Map<String, dynamic> createBangaloreFacilitiesRecordData({
+Map<String, dynamic> createChennaiFaciliteisRecordData({
   String? column10,
   String? column11,
   String? column12,
@@ -395,14 +462,31 @@ Map<String, dynamic> createBangaloreFacilitiesRecordData({
   String? column7,
   String? column70,
   String? column71,
+  String? column72,
+  String? column73,
+  String? column74,
+  String? column75,
+  String? column76,
+  String? column77,
+  String? column78,
+  String? column79,
   String? column8,
+  String? column80,
+  String? column81,
+  String? column82,
+  String? column83,
+  String? column84,
+  String? column85,
+  String? column86,
+  String? column87,
+  String? column88,
   String? column9,
-  int? hotelNo,
+  int? hotelNO,
 }) {
   final firestoreData = serializers.toFirestore(
-    BangaloreFacilitiesRecord.serializer,
-    BangaloreFacilitiesRecord(
-      (b) => b
+    ChennaiFaciliteisRecord.serializer,
+    ChennaiFaciliteisRecord(
+      (c) => c
         ..column10 = column10
         ..column11 = column11
         ..column12 = column12
@@ -471,9 +555,26 @@ Map<String, dynamic> createBangaloreFacilitiesRecordData({
         ..column7 = column7
         ..column70 = column70
         ..column71 = column71
+        ..column72 = column72
+        ..column73 = column73
+        ..column74 = column74
+        ..column75 = column75
+        ..column76 = column76
+        ..column77 = column77
+        ..column78 = column78
+        ..column79 = column79
         ..column8 = column8
+        ..column80 = column80
+        ..column81 = column81
+        ..column82 = column82
+        ..column83 = column83
+        ..column84 = column84
+        ..column85 = column85
+        ..column86 = column86
+        ..column87 = column87
+        ..column88 = column88
         ..column9 = column9
-        ..hotelNo = hotelNo,
+        ..hotelNO = hotelNO,
     ),
   );
 

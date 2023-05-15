@@ -182,5 +182,19 @@ service cloud.firestore {
       allow write: if true;
       allow delete: if true;
     }
+
+    match /bangalorePoliciesRules/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if true;
+    }
+
+    match /chennaiFaciliteis/{document} {
+      allow create: if true;
+      allow read: if true;
+      allow write: if true;
+      allow delete: if true;
+    }
   }
 }

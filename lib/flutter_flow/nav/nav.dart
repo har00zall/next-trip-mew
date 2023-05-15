@@ -132,7 +132,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'B2HotelMain',
               path: 'b2HotelMain',
-              builder: (context, params) => B2HotelMainWidget(),
+              builder: (context, params) => B2HotelMainWidget(
+                cityName: params.getParam('cityName', ParamType.String),
+                noAdults: params.getParam('noAdults', ParamType.String),
+                noRooms: params.getParam('noRooms', ParamType.String),
+                bDate: params.getParam('bDate', ParamType.String),
+              ),
             ),
             FFRoute(
               name: 'C2FlightsMain',

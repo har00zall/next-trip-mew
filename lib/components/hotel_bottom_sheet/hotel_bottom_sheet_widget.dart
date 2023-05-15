@@ -545,8 +545,8 @@ class _HotelBottomSheetWidgetState extends State<HotelBottomSheetWidget> {
                     padding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 30.0, 0.0, 0.0),
                     child: FFButtonWidget(
-                      onPressed: () async {
-                        context.pushNamed('B2HotelMain');
+                      onPressed: () {
+                        print('Button pressed ...');
                       },
                       text: FFLocalizations.of(context).getText(
                         'awrpgrz0' /* Update */,

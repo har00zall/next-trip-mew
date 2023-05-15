@@ -18,7 +18,18 @@ import 'b2_hotel_main_model.dart';
 export 'b2_hotel_main_model.dart';
 
 class B2HotelMainWidget extends StatefulWidget {
-  const B2HotelMainWidget({Key? key}) : super(key: key);
+  const B2HotelMainWidget({
+    Key? key,
+    required this.cityName,
+    required this.noAdults,
+    required this.noRooms,
+    required this.bDate,
+  }) : super(key: key);
+
+  final String? cityName;
+  final String? noAdults;
+  final String? noRooms;
+  final String? bDate;
 
   @override
   _B2HotelMainWidgetState createState() => _B2HotelMainWidgetState();
@@ -79,9 +90,7 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                   Align(
                     alignment: AlignmentDirectional(-0.25, 0.0),
                     child: Text(
-                      FFLocalizations.of(context).getText(
-                        '05lpwubf' /* City Name */,
-                      ),
+                      widget.cityName!,
                       style: FlutterFlowTheme.of(context).titleMedium.override(
                             fontFamily: 'Poppins',
                             color: Colors.white,
@@ -96,9 +105,7 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                       mainAxisSize: MainAxisSize.max,
                       children: [
                         Text(
-                          FFLocalizations.of(context).getText(
-                            'pgajnilk' /* Bdate */,
-                          ),
+                          widget.bDate!,
                           style:
                               FlutterFlowTheme.of(context).titleSmall.override(
                                     fontFamily: 'Poppins',
@@ -116,9 +123,7 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                   ),
                         ),
                         Text(
-                          FFLocalizations.of(context).getText(
-                            'uk3uv03x' /* NoAdults */,
-                          ),
+                          widget.noAdults!,
                           style:
                               FlutterFlowTheme.of(context).titleSmall.override(
                                     fontFamily: 'Poppins',
@@ -521,9 +526,7 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                               borderRadius:
                                                   BorderRadius.circular(10.0),
                                               child: Image.network(
-                                                'https://nexttrip123.000webhostapp.com/${(String image) {
-                                                  return image.split('"')[1];
-                                                }(bangaloreBangaloreRecord.images!)}',
+                                                'https://picsum.photos/seed/663/600',
                                                 width: double.infinity,
                                                 height: 200.0,
                                                 fit: BoxFit.cover,
@@ -553,10 +556,11 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                             print(
                                                                 'Button pressed ...');
                                                           },
-                                                          text:
-                                                              bangaloreBangaloreRecord
-                                                                  .rate!
-                                                                  .toString(),
+                                                          text: FFLocalizations
+                                                                  .of(context)
+                                                              .getText(
+                                                            'fh2k080m' /* Rate */,
+                                                          ),
                                                           icon: Icon(
                                                             Icons.star,
                                                             size: 13.0,
@@ -621,8 +625,11 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                                     179.0,
                                                                     0.0),
                                                         child: Text(
-                                                          bangaloreBangaloreRecord
-                                                              .star!,
+                                                          FFLocalizations.of(
+                                                                  context)
+                                                              .getText(
+                                                            'go4szi1y' /* Hotel Star */,
+                                                          ),
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyMedium
@@ -681,8 +688,11 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                                   5.0,
                                                                   0.0),
                                                       child: AutoSizeText(
-                                                        bangaloreBangaloreRecord
-                                                            .hotelName!,
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          '39j2i08j' /* Hotel Name */,
+                                                        ),
                                                         textAlign:
                                                             TextAlign.start,
                                                         maxLines: 4,
@@ -719,8 +729,11 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                                   5.0,
                                                                   0.0),
                                                       child: AutoSizeText(
-                                                        bangaloreBangaloreRecord
-                                                            .hotelAddress!,
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          '55tlqoi9' /* Hotel Address */,
+                                                        ),
                                                         textAlign:
                                                             TextAlign.start,
                                                         maxLines: 4,
@@ -749,9 +762,10 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                       .fromSTEB(
                                                           0.0, 0.0, 10.0, 0.0),
                                                   child: Text(
-                                                    bangaloreBangaloreRecord
-                                                        .price!
-                                                        .toString(),
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                      'w8jfzn8y' /* Price */,
+                                                    ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyMedium
