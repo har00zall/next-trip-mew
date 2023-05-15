@@ -1,27 +1,27 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'chennai_faciliteis_record.dart';
+part of 'chennai_policies_rules_record.dart';
 
 // **************************************************************************
 // BuiltValueGenerator
 // **************************************************************************
 
-Serializer<ChennaiFaciliteisRecord> _$chennaiFaciliteisRecordSerializer =
-    new _$ChennaiFaciliteisRecordSerializer();
+Serializer<ChennaiPoliciesRulesRecord> _$chennaiPoliciesRulesRecordSerializer =
+    new _$ChennaiPoliciesRulesRecordSerializer();
 
-class _$ChennaiFaciliteisRecordSerializer
-    implements StructuredSerializer<ChennaiFaciliteisRecord> {
+class _$ChennaiPoliciesRulesRecordSerializer
+    implements StructuredSerializer<ChennaiPoliciesRulesRecord> {
   @override
   final Iterable<Type> types = const [
-    ChennaiFaciliteisRecord,
-    _$ChennaiFaciliteisRecord
+    ChennaiPoliciesRulesRecord,
+    _$ChennaiPoliciesRulesRecord
   ];
   @override
-  final String wireName = 'ChennaiFaciliteisRecord';
+  final String wireName = 'ChennaiPoliciesRulesRecord';
 
   @override
   Iterable<Object?> serialize(
-      Serializers serializers, ChennaiFaciliteisRecord object,
+      Serializers serializers, ChennaiPoliciesRulesRecord object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object?>[];
     Object? value;
@@ -487,143 +487,10 @@ class _$ChennaiFaciliteisRecordSerializer
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    value = object.column70;
-    if (value != null) {
-      result
-        ..add('Column70')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
-    value = object.column71;
-    if (value != null) {
-      result
-        ..add('Column71')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
-    value = object.column72;
-    if (value != null) {
-      result
-        ..add('Column72')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
-    value = object.column73;
-    if (value != null) {
-      result
-        ..add('Column73')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
-    value = object.column74;
-    if (value != null) {
-      result
-        ..add('Column74')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
-    value = object.column75;
-    if (value != null) {
-      result
-        ..add('Column75')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
-    value = object.column76;
-    if (value != null) {
-      result
-        ..add('Column76')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
-    value = object.column77;
-    if (value != null) {
-      result
-        ..add('Column77')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
-    value = object.column78;
-    if (value != null) {
-      result
-        ..add('Column78')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
-    value = object.column79;
-    if (value != null) {
-      result
-        ..add('Column79')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
     value = object.column8;
     if (value != null) {
       result
         ..add('Column8')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
-    value = object.column80;
-    if (value != null) {
-      result
-        ..add('Column80')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
-    value = object.column81;
-    if (value != null) {
-      result
-        ..add('Column81')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
-    value = object.column82;
-    if (value != null) {
-      result
-        ..add('Column82')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
-    value = object.column83;
-    if (value != null) {
-      result
-        ..add('Column83')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
-    value = object.column84;
-    if (value != null) {
-      result
-        ..add('Column84')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
-    value = object.column85;
-    if (value != null) {
-      result
-        ..add('Column85')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
-    value = object.column86;
-    if (value != null) {
-      result
-        ..add('Column86')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
-    value = object.column87;
-    if (value != null) {
-      result
-        ..add('Column87')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
-    value = object.column88;
-    if (value != null) {
-      result
-        ..add('Column88')
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
@@ -638,7 +505,8 @@ class _$ChennaiFaciliteisRecordSerializer
     if (value != null) {
       result
         ..add('Hotel_NO')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
     }
     value = object.ffRef;
     if (value != null) {
@@ -652,10 +520,10 @@ class _$ChennaiFaciliteisRecordSerializer
   }
 
   @override
-  ChennaiFaciliteisRecord deserialize(
+  ChennaiPoliciesRulesRecord deserialize(
       Serializers serializers, Iterable<Object?> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new ChennaiFaciliteisRecordBuilder();
+    final result = new ChennaiPoliciesRulesRecordBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -927,84 +795,8 @@ class _$ChennaiFaciliteisRecordSerializer
           result.column7 = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
-        case 'Column70':
-          result.column70 = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
-          break;
-        case 'Column71':
-          result.column71 = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
-          break;
-        case 'Column72':
-          result.column72 = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
-          break;
-        case 'Column73':
-          result.column73 = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
-          break;
-        case 'Column74':
-          result.column74 = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
-          break;
-        case 'Column75':
-          result.column75 = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
-          break;
-        case 'Column76':
-          result.column76 = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
-          break;
-        case 'Column77':
-          result.column77 = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
-          break;
-        case 'Column78':
-          result.column78 = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
-          break;
-        case 'Column79':
-          result.column79 = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
-          break;
         case 'Column8':
           result.column8 = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
-          break;
-        case 'Column80':
-          result.column80 = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
-          break;
-        case 'Column81':
-          result.column81 = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
-          break;
-        case 'Column82':
-          result.column82 = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
-          break;
-        case 'Column83':
-          result.column83 = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
-          break;
-        case 'Column84':
-          result.column84 = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
-          break;
-        case 'Column85':
-          result.column85 = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
-          break;
-        case 'Column86':
-          result.column86 = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
-          break;
-        case 'Column87':
-          result.column87 = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
-          break;
-        case 'Column88':
-          result.column88 = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
         case 'Column9':
@@ -1013,7 +805,7 @@ class _$ChennaiFaciliteisRecordSerializer
           break;
         case 'Hotel_NO':
           result.hotelNO = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
@@ -1028,7 +820,7 @@ class _$ChennaiFaciliteisRecordSerializer
   }
 }
 
-class _$ChennaiFaciliteisRecord extends ChennaiFaciliteisRecord {
+class _$ChennaiPoliciesRulesRecord extends ChennaiPoliciesRulesRecord {
   @override
   final String? column10;
   @override
@@ -1162,57 +954,19 @@ class _$ChennaiFaciliteisRecord extends ChennaiFaciliteisRecord {
   @override
   final String? column7;
   @override
-  final String? column70;
-  @override
-  final String? column71;
-  @override
-  final String? column72;
-  @override
-  final String? column73;
-  @override
-  final String? column74;
-  @override
-  final String? column75;
-  @override
-  final String? column76;
-  @override
-  final String? column77;
-  @override
-  final String? column78;
-  @override
-  final String? column79;
-  @override
   final String? column8;
-  @override
-  final String? column80;
-  @override
-  final String? column81;
-  @override
-  final String? column82;
-  @override
-  final String? column83;
-  @override
-  final String? column84;
-  @override
-  final String? column85;
-  @override
-  final String? column86;
-  @override
-  final String? column87;
-  @override
-  final String? column88;
   @override
   final String? column9;
   @override
-  final int? hotelNO;
+  final String? hotelNO;
   @override
   final DocumentReference<Object?>? ffRef;
 
-  factory _$ChennaiFaciliteisRecord(
-          [void Function(ChennaiFaciliteisRecordBuilder)? updates]) =>
-      (new ChennaiFaciliteisRecordBuilder()..update(updates))._build();
+  factory _$ChennaiPoliciesRulesRecord(
+          [void Function(ChennaiPoliciesRulesRecordBuilder)? updates]) =>
+      (new ChennaiPoliciesRulesRecordBuilder()..update(updates))._build();
 
-  _$ChennaiFaciliteisRecord._(
+  _$ChennaiPoliciesRulesRecord._(
       {this.column10,
       this.column11,
       this.column12,
@@ -1279,44 +1033,25 @@ class _$ChennaiFaciliteisRecord extends ChennaiFaciliteisRecord {
       this.column68,
       this.column69,
       this.column7,
-      this.column70,
-      this.column71,
-      this.column72,
-      this.column73,
-      this.column74,
-      this.column75,
-      this.column76,
-      this.column77,
-      this.column78,
-      this.column79,
       this.column8,
-      this.column80,
-      this.column81,
-      this.column82,
-      this.column83,
-      this.column84,
-      this.column85,
-      this.column86,
-      this.column87,
-      this.column88,
       this.column9,
       this.hotelNO,
       this.ffRef})
       : super._();
 
   @override
-  ChennaiFaciliteisRecord rebuild(
-          void Function(ChennaiFaciliteisRecordBuilder) updates) =>
+  ChennaiPoliciesRulesRecord rebuild(
+          void Function(ChennaiPoliciesRulesRecordBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  ChennaiFaciliteisRecordBuilder toBuilder() =>
-      new ChennaiFaciliteisRecordBuilder()..replace(this);
+  ChennaiPoliciesRulesRecordBuilder toBuilder() =>
+      new ChennaiPoliciesRulesRecordBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is ChennaiFaciliteisRecord &&
+    return other is ChennaiPoliciesRulesRecord &&
         column10 == other.column10 &&
         column11 == other.column11 &&
         column12 == other.column12 &&
@@ -1383,26 +1118,7 @@ class _$ChennaiFaciliteisRecord extends ChennaiFaciliteisRecord {
         column68 == other.column68 &&
         column69 == other.column69 &&
         column7 == other.column7 &&
-        column70 == other.column70 &&
-        column71 == other.column71 &&
-        column72 == other.column72 &&
-        column73 == other.column73 &&
-        column74 == other.column74 &&
-        column75 == other.column75 &&
-        column76 == other.column76 &&
-        column77 == other.column77 &&
-        column78 == other.column78 &&
-        column79 == other.column79 &&
         column8 == other.column8 &&
-        column80 == other.column80 &&
-        column81 == other.column81 &&
-        column82 == other.column82 &&
-        column83 == other.column83 &&
-        column84 == other.column84 &&
-        column85 == other.column85 &&
-        column86 == other.column86 &&
-        column87 == other.column87 &&
-        column88 == other.column88 &&
         column9 == other.column9 &&
         hotelNO == other.hotelNO &&
         ffRef == other.ffRef;
@@ -1477,26 +1193,7 @@ class _$ChennaiFaciliteisRecord extends ChennaiFaciliteisRecord {
     _$hash = $jc(_$hash, column68.hashCode);
     _$hash = $jc(_$hash, column69.hashCode);
     _$hash = $jc(_$hash, column7.hashCode);
-    _$hash = $jc(_$hash, column70.hashCode);
-    _$hash = $jc(_$hash, column71.hashCode);
-    _$hash = $jc(_$hash, column72.hashCode);
-    _$hash = $jc(_$hash, column73.hashCode);
-    _$hash = $jc(_$hash, column74.hashCode);
-    _$hash = $jc(_$hash, column75.hashCode);
-    _$hash = $jc(_$hash, column76.hashCode);
-    _$hash = $jc(_$hash, column77.hashCode);
-    _$hash = $jc(_$hash, column78.hashCode);
-    _$hash = $jc(_$hash, column79.hashCode);
     _$hash = $jc(_$hash, column8.hashCode);
-    _$hash = $jc(_$hash, column80.hashCode);
-    _$hash = $jc(_$hash, column81.hashCode);
-    _$hash = $jc(_$hash, column82.hashCode);
-    _$hash = $jc(_$hash, column83.hashCode);
-    _$hash = $jc(_$hash, column84.hashCode);
-    _$hash = $jc(_$hash, column85.hashCode);
-    _$hash = $jc(_$hash, column86.hashCode);
-    _$hash = $jc(_$hash, column87.hashCode);
-    _$hash = $jc(_$hash, column88.hashCode);
     _$hash = $jc(_$hash, column9.hashCode);
     _$hash = $jc(_$hash, hotelNO.hashCode);
     _$hash = $jc(_$hash, ffRef.hashCode);
@@ -1506,7 +1203,7 @@ class _$ChennaiFaciliteisRecord extends ChennaiFaciliteisRecord {
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper(r'ChennaiFaciliteisRecord')
+    return (newBuiltValueToStringHelper(r'ChennaiPoliciesRulesRecord')
           ..add('column10', column10)
           ..add('column11', column11)
           ..add('column12', column12)
@@ -1573,26 +1270,7 @@ class _$ChennaiFaciliteisRecord extends ChennaiFaciliteisRecord {
           ..add('column68', column68)
           ..add('column69', column69)
           ..add('column7', column7)
-          ..add('column70', column70)
-          ..add('column71', column71)
-          ..add('column72', column72)
-          ..add('column73', column73)
-          ..add('column74', column74)
-          ..add('column75', column75)
-          ..add('column76', column76)
-          ..add('column77', column77)
-          ..add('column78', column78)
-          ..add('column79', column79)
           ..add('column8', column8)
-          ..add('column80', column80)
-          ..add('column81', column81)
-          ..add('column82', column82)
-          ..add('column83', column83)
-          ..add('column84', column84)
-          ..add('column85', column85)
-          ..add('column86', column86)
-          ..add('column87', column87)
-          ..add('column88', column88)
           ..add('column9', column9)
           ..add('hotelNO', hotelNO)
           ..add('ffRef', ffRef))
@@ -1600,10 +1278,10 @@ class _$ChennaiFaciliteisRecord extends ChennaiFaciliteisRecord {
   }
 }
 
-class ChennaiFaciliteisRecordBuilder
+class ChennaiPoliciesRulesRecordBuilder
     implements
-        Builder<ChennaiFaciliteisRecord, ChennaiFaciliteisRecordBuilder> {
-  _$ChennaiFaciliteisRecord? _$v;
+        Builder<ChennaiPoliciesRulesRecord, ChennaiPoliciesRulesRecordBuilder> {
+  _$ChennaiPoliciesRulesRecord? _$v;
 
   String? _column10;
   String? get column10 => _$this._column10;
@@ -1869,103 +1547,27 @@ class ChennaiFaciliteisRecordBuilder
   String? get column7 => _$this._column7;
   set column7(String? column7) => _$this._column7 = column7;
 
-  String? _column70;
-  String? get column70 => _$this._column70;
-  set column70(String? column70) => _$this._column70 = column70;
-
-  String? _column71;
-  String? get column71 => _$this._column71;
-  set column71(String? column71) => _$this._column71 = column71;
-
-  String? _column72;
-  String? get column72 => _$this._column72;
-  set column72(String? column72) => _$this._column72 = column72;
-
-  String? _column73;
-  String? get column73 => _$this._column73;
-  set column73(String? column73) => _$this._column73 = column73;
-
-  String? _column74;
-  String? get column74 => _$this._column74;
-  set column74(String? column74) => _$this._column74 = column74;
-
-  String? _column75;
-  String? get column75 => _$this._column75;
-  set column75(String? column75) => _$this._column75 = column75;
-
-  String? _column76;
-  String? get column76 => _$this._column76;
-  set column76(String? column76) => _$this._column76 = column76;
-
-  String? _column77;
-  String? get column77 => _$this._column77;
-  set column77(String? column77) => _$this._column77 = column77;
-
-  String? _column78;
-  String? get column78 => _$this._column78;
-  set column78(String? column78) => _$this._column78 = column78;
-
-  String? _column79;
-  String? get column79 => _$this._column79;
-  set column79(String? column79) => _$this._column79 = column79;
-
   String? _column8;
   String? get column8 => _$this._column8;
   set column8(String? column8) => _$this._column8 = column8;
-
-  String? _column80;
-  String? get column80 => _$this._column80;
-  set column80(String? column80) => _$this._column80 = column80;
-
-  String? _column81;
-  String? get column81 => _$this._column81;
-  set column81(String? column81) => _$this._column81 = column81;
-
-  String? _column82;
-  String? get column82 => _$this._column82;
-  set column82(String? column82) => _$this._column82 = column82;
-
-  String? _column83;
-  String? get column83 => _$this._column83;
-  set column83(String? column83) => _$this._column83 = column83;
-
-  String? _column84;
-  String? get column84 => _$this._column84;
-  set column84(String? column84) => _$this._column84 = column84;
-
-  String? _column85;
-  String? get column85 => _$this._column85;
-  set column85(String? column85) => _$this._column85 = column85;
-
-  String? _column86;
-  String? get column86 => _$this._column86;
-  set column86(String? column86) => _$this._column86 = column86;
-
-  String? _column87;
-  String? get column87 => _$this._column87;
-  set column87(String? column87) => _$this._column87 = column87;
-
-  String? _column88;
-  String? get column88 => _$this._column88;
-  set column88(String? column88) => _$this._column88 = column88;
 
   String? _column9;
   String? get column9 => _$this._column9;
   set column9(String? column9) => _$this._column9 = column9;
 
-  int? _hotelNO;
-  int? get hotelNO => _$this._hotelNO;
-  set hotelNO(int? hotelNO) => _$this._hotelNO = hotelNO;
+  String? _hotelNO;
+  String? get hotelNO => _$this._hotelNO;
+  set hotelNO(String? hotelNO) => _$this._hotelNO = hotelNO;
 
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
 
-  ChennaiFaciliteisRecordBuilder() {
-    ChennaiFaciliteisRecord._initializeBuilder(this);
+  ChennaiPoliciesRulesRecordBuilder() {
+    ChennaiPoliciesRulesRecord._initializeBuilder(this);
   }
 
-  ChennaiFaciliteisRecordBuilder get _$this {
+  ChennaiPoliciesRulesRecordBuilder get _$this {
     final $v = _$v;
     if ($v != null) {
       _column10 = $v.column10;
@@ -2034,26 +1636,7 @@ class ChennaiFaciliteisRecordBuilder
       _column68 = $v.column68;
       _column69 = $v.column69;
       _column7 = $v.column7;
-      _column70 = $v.column70;
-      _column71 = $v.column71;
-      _column72 = $v.column72;
-      _column73 = $v.column73;
-      _column74 = $v.column74;
-      _column75 = $v.column75;
-      _column76 = $v.column76;
-      _column77 = $v.column77;
-      _column78 = $v.column78;
-      _column79 = $v.column79;
       _column8 = $v.column8;
-      _column80 = $v.column80;
-      _column81 = $v.column81;
-      _column82 = $v.column82;
-      _column83 = $v.column83;
-      _column84 = $v.column84;
-      _column85 = $v.column85;
-      _column86 = $v.column86;
-      _column87 = $v.column87;
-      _column88 = $v.column88;
       _column9 = $v.column9;
       _hotelNO = $v.hotelNO;
       _ffRef = $v.ffRef;
@@ -2063,22 +1646,22 @@ class ChennaiFaciliteisRecordBuilder
   }
 
   @override
-  void replace(ChennaiFaciliteisRecord other) {
+  void replace(ChennaiPoliciesRulesRecord other) {
     ArgumentError.checkNotNull(other, 'other');
-    _$v = other as _$ChennaiFaciliteisRecord;
+    _$v = other as _$ChennaiPoliciesRulesRecord;
   }
 
   @override
-  void update(void Function(ChennaiFaciliteisRecordBuilder)? updates) {
+  void update(void Function(ChennaiPoliciesRulesRecordBuilder)? updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  ChennaiFaciliteisRecord build() => _build();
+  ChennaiPoliciesRulesRecord build() => _build();
 
-  _$ChennaiFaciliteisRecord _build() {
+  _$ChennaiPoliciesRulesRecord _build() {
     final _$result = _$v ??
-        new _$ChennaiFaciliteisRecord._(
+        new _$ChennaiPoliciesRulesRecord._(
             column10: column10,
             column11: column11,
             column12: column12,
@@ -2145,26 +1728,7 @@ class ChennaiFaciliteisRecordBuilder
             column68: column68,
             column69: column69,
             column7: column7,
-            column70: column70,
-            column71: column71,
-            column72: column72,
-            column73: column73,
-            column74: column74,
-            column75: column75,
-            column76: column76,
-            column77: column77,
-            column78: column78,
-            column79: column79,
             column8: column8,
-            column80: column80,
-            column81: column81,
-            column82: column82,
-            column83: column83,
-            column84: column84,
-            column85: column85,
-            column86: column86,
-            column87: column87,
-            column88: column88,
             column9: column9,
             hotelNO: hotelNO,
             ffRef: ffRef);

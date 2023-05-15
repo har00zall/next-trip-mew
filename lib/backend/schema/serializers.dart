@@ -29,6 +29,7 @@ import 'holi_jaipur_record.dart';
 import 'bangalore_facilities_record.dart';
 import 'bangalore_policies_rules_record.dart';
 import 'chennai_faciliteis_record.dart';
+import 'chennai_policies_rules_record.dart';
 
 import 'index.dart';
 
@@ -67,6 +68,7 @@ const kDocumentReferenceField = 'Document__Reference__Field';
   BangaloreFacilitiesRecord,
   BangalorePoliciesRulesRecord,
   ChennaiFaciliteisRecord,
+  ChennaiPoliciesRulesRecord,
 ])
 final Serializers serializers = (_$serializers.toBuilder()
       ..add(DocumentReferenceSerializer())

@@ -456,7 +456,15 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                     mainAxisSize: MainAxisSize.max,
                     children: [
                       StreamBuilder<List<BangaloreRecord>>(
-                        stream: queryBangaloreRecord(),
+                        stream: queryBangaloreRecord(
+                          queryBuilder: (bangaloreRecord) =>
+                              bangaloreRecord.where('Price',
+                                  isLessThanOrEqualTo: (String city) {
+                                    return city == "Bangalore"
+                                        ? double.infinity
+                                        : 0;
+                                  }(widget.cityName!)),
+                        ),
                         builder: (context, snapshot) {
                           // Customize what your widget looks like when it's loading.
                           if (!snapshot.hasData) {
@@ -847,7 +855,13 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                         },
                       ),
                       StreamBuilder<List<ChennaiRecord>>(
-                        stream: queryChennaiRecord(),
+                        stream: queryChennaiRecord(
+                          queryBuilder: (chennaiRecord) => chennaiRecord.where(
+                              'Price',
+                              isLessThanOrEqualTo: (String city) {
+                                return city == "Chennai" ? double.infinity : 0;
+                              }(widget.cityName!)),
+                        ),
                         builder: (context, snapshot) {
                           // Customize what your widget looks like when it's loading.
                           if (!snapshot.hasData) {
@@ -1219,7 +1233,12 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                         },
                       ),
                       StreamBuilder<List<GoaRecord>>(
-                        stream: queryGoaRecord(),
+                        stream: queryGoaRecord(
+                          queryBuilder: (goaRecord) => goaRecord.where('Price',
+                              isLessThanOrEqualTo: (String city) {
+                                return city == "Goa" ? double.infinity : 0;
+                              }(widget.cityName!)),
+                        ),
                         builder: (context, snapshot) {
                           // Customize what your widget looks like when it's loading.
                           if (!snapshot.hasData) {
@@ -1586,7 +1605,15 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                         },
                       ),
                       StreamBuilder<List<HyderabadRecord>>(
-                        stream: queryHyderabadRecord(),
+                        stream: queryHyderabadRecord(
+                          queryBuilder: (hyderabadRecord) =>
+                              hyderabadRecord.where('Price',
+                                  isLessThanOrEqualTo: (String city) {
+                                    return city == "Hyderabad"
+                                        ? double.infinity
+                                        : 0;
+                                  }(widget.cityName!)),
+                        ),
                         builder: (context, snapshot) {
                           // Customize what your widget looks like when it's loading.
                           if (!snapshot.hasData) {
@@ -1961,7 +1988,13 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                         },
                       ),
                       StreamBuilder<List<JaipurRecord>>(
-                        stream: queryJaipurRecord(),
+                        stream: queryJaipurRecord(
+                          queryBuilder: (jaipurRecord) => jaipurRecord.where(
+                              'Price',
+                              isLessThanOrEqualTo: (String city) {
+                                return city == "Jaipur" ? double.infinity : 0;
+                              }(widget.cityName!)),
+                        ),
                         builder: (context, snapshot) {
                           // Customize what your widget looks like when it's loading.
                           if (!snapshot.hasData) {

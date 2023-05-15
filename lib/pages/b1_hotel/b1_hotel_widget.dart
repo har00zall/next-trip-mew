@@ -122,19 +122,10 @@ class _B1HotelWidgetState extends State<B1HotelWidget> {
                                   FormFieldController<String>(null),
                               options: [
                                 FFLocalizations.of(context).getText(
-                                  '02d51nnv' /* Bengalore */,
-                                ),
-                                FFLocalizations.of(context).getText(
-                                  'ao2zotnb' /* Kolkata */,
+                                  '02d51nnv' /* Bangalore */,
                                 ),
                                 FFLocalizations.of(context).getText(
                                   'qtdhss8a' /* Hyderabad */,
-                                ),
-                                FFLocalizations.of(context).getText(
-                                  'ivuegpz7' /* Pune */,
-                                ),
-                                FFLocalizations.of(context).getText(
-                                  'y1v04rls' /* New Delhi */,
                                 ),
                                 FFLocalizations.of(context).getText(
                                   'gwn972nu' /* Chennai */,
@@ -143,13 +134,7 @@ class _B1HotelWidgetState extends State<B1HotelWidget> {
                                   'wgt51t3s' /* Goa */,
                                 ),
                                 FFLocalizations.of(context).getText(
-                                  'jwc4hjh7' /* Mumbai */,
-                                ),
-                                FFLocalizations.of(context).getText(
                                   'jhp5639p' /* Jaipur */,
-                                ),
-                                FFLocalizations.of(context).getText(
-                                  '7pkqp2zk' /* Manali */,
                                 )
                               ],
                               onChanged: (val) =>
