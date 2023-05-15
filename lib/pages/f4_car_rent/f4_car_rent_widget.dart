@@ -69,7 +69,7 @@ class _F4CarRentWidgetState extends State<F4CarRentWidget> {
             alignment: AlignmentDirectional(-0.25, 0.0),
             child: Text(
               FFLocalizations.of(context).getText(
-                'c3zdbmc5' /* Page Title */,
+                'c3zdbmc5' /* Car Booking */,
               ),
               style: FlutterFlowTheme.of(context).titleMedium.override(
                     fontFamily: 'Poppins',

@@ -12,26 +12,41 @@ abstract class TrainRecord implements Built<TrainRecord, TrainRecordBuilder> {
   @BuiltValueField(wireName: 'No')
   int? get no;
 
-  @BuiltValueField(wireName: 'TrainName')
-  String? get trainName;
-
-  @BuiltValueField(wireName: 'TrainNo')
-  String? get trainNo;
-
   @BuiltValueField(wireName: 'From')
   String? get from;
 
   @BuiltValueField(wireName: 'To')
   String? get to;
 
-  @BuiltValueField(wireName: 'BoardingStation')
-  String? get boardingStation;
-
-  @BuiltValueField(wireName: 'Destination')
-  String? get destination;
-
   @BuiltValueField(wireName: 'Sleeper')
   int? get sleeper;
+
+  @BuiltValueField(wireName: 'AC_1A-Tier')
+  int? get aC1ATier;
+
+  @BuiltValueField(wireName: 'AC_2A-Tier')
+  int? get aC2ATier;
+
+  @BuiltValueField(wireName: 'Arrival_Station')
+  String? get arrivalStation;
+
+  @BuiltValueField(wireName: 'Time')
+  String? get time;
+
+  @BuiltValueField(wireName: 'Duration')
+  String? get duration;
+
+  @BuiltValueField(wireName: 'Train_Name')
+  String? get trainName;
+
+  @BuiltValueField(wireName: 'Boarding_Station')
+  String? get boardingStation;
+
+  @BuiltValueField(wireName: 'Train_No')
+  int? get trainNo;
+
+  @BuiltValueField(wireName: 'AC_3A-Tier')
+  int? get aC3ATier;
 
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
@@ -39,13 +54,18 @@ abstract class TrainRecord implements Built<TrainRecord, TrainRecordBuilder> {
 
   static void _initializeBuilder(TrainRecordBuilder builder) => builder
     ..no = 0
-    ..trainName = ''
-    ..trainNo = ''
     ..from = ''
     ..to = ''
+    ..sleeper = 0
+    ..aC1ATier = 0
+    ..aC2ATier = 0
+    ..arrivalStation = ''
+    ..time = ''
+    ..duration = ''
+    ..trainName = ''
     ..boardingStation = ''
-    ..destination = ''
-    ..sleeper = 0;
+    ..trainNo = 0
+    ..aC3ATier = 0;
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('train');
@@ -70,26 +90,36 @@ abstract class TrainRecord implements Built<TrainRecord, TrainRecordBuilder> {
 
 Map<String, dynamic> createTrainRecordData({
   int? no,
-  String? trainName,
-  String? trainNo,
   String? from,
   String? to,
-  String? boardingStation,
-  String? destination,
   int? sleeper,
+  int? aC1ATier,
+  int? aC2ATier,
+  String? arrivalStation,
+  String? time,
+  String? duration,
+  String? trainName,
+  String? boardingStation,
+  int? trainNo,
+  int? aC3ATier,
 }) {
   final firestoreData = serializers.toFirestore(
     TrainRecord.serializer,
     TrainRecord(
       (t) => t
         ..no = no
-        ..trainName = trainName
-        ..trainNo = trainNo
         ..from = from
         ..to = to
+        ..sleeper = sleeper
+        ..aC1ATier = aC1ATier
+        ..aC2ATier = aC2ATier
+        ..arrivalStation = arrivalStation
+        ..time = time
+        ..duration = duration
+        ..trainName = trainName
         ..boardingStation = boardingStation
-        ..destination = destination
-        ..sleeper = sleeper,
+        ..trainNo = trainNo
+        ..aC3ATier = aC3ATier,
     ),
   );
 

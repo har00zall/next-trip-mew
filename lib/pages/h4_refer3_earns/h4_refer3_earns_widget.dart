@@ -56,7 +56,7 @@ class _H4Refer3EarnsWidgetState extends State<H4Refer3EarnsWidget> {
               size: 30.0,
             ),
             onPressed: () async {
-              context.pushNamed('C1Flights');
+              context.safePop();
             },
           ),
           title: Align(

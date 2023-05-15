@@ -19,6 +19,9 @@ class D1TrainModel extends FlutterFlowModel {
   // State field(s) for DropDown widget.
   String? dropDownValue2;
   FormFieldController<String>? dropDownValueController2;
+  // State field(s) for DropDown widget.
+  String? dropDownValue3;
+  FormFieldController<String>? dropDownValueController3;
   DateTime? datePicked;
   // State field(s) for TextField widget.
   TextEditingController? textController;

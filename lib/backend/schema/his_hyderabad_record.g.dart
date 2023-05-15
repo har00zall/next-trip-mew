@@ -62,6 +62,13 @@ class _$HisHyderabadRecordSerializer
         ..add('Review')
         ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
+    value = object.rate;
+    if (value != null) {
+      result
+        ..add('Rate')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(double)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -109,6 +116,10 @@ class _$HisHyderabadRecordSerializer
           result.review = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int?;
           break;
+        case 'Rate':
+          result.rate = serializers.deserialize(value,
+              specifiedType: const FullType(double)) as double?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -136,6 +147,8 @@ class _$HisHyderabadRecord extends HisHyderabadRecord {
   @override
   final int? review;
   @override
+  final double? rate;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$HisHyderabadRecord(
@@ -149,6 +162,7 @@ class _$HisHyderabadRecord extends HisHyderabadRecord {
       this.images,
       this.no,
       this.review,
+      this.rate,
       this.ffRef})
       : super._();
 
@@ -171,6 +185,7 @@ class _$HisHyderabadRecord extends HisHyderabadRecord {
         images == other.images &&
         no == other.no &&
         review == other.review &&
+        rate == other.rate &&
         ffRef == other.ffRef;
   }
 
@@ -183,6 +198,7 @@ class _$HisHyderabadRecord extends HisHyderabadRecord {
     _$hash = $jc(_$hash, images.hashCode);
     _$hash = $jc(_$hash, no.hashCode);
     _$hash = $jc(_$hash, review.hashCode);
+    _$hash = $jc(_$hash, rate.hashCode);
     _$hash = $jc(_$hash, ffRef.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -197,6 +213,7 @@ class _$HisHyderabadRecord extends HisHyderabadRecord {
           ..add('images', images)
           ..add('no', no)
           ..add('review', review)
+          ..add('rate', rate)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -230,6 +247,10 @@ class HisHyderabadRecordBuilder
   int? get review => _$this._review;
   set review(int? review) => _$this._review = review;
 
+  double? _rate;
+  double? get rate => _$this._rate;
+  set rate(double? rate) => _$this._rate = rate;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -247,6 +268,7 @@ class HisHyderabadRecordBuilder
       _images = $v.images;
       _no = $v.no;
       _review = $v.review;
+      _rate = $v.rate;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -276,6 +298,7 @@ class HisHyderabadRecordBuilder
             images: images,
             no: no,
             review: review,
+            rate: rate,
             ffRef: ffRef);
     replace(_$result);
     return _$result;

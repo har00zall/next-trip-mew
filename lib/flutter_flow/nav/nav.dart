@@ -340,9 +340,9 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               ),
             ),
             FFRoute(
-              name: 'A7BudgeSearch',
-              path: 'a7BudgeSearch',
-              builder: (context, params) => A7BudgeSearchWidget(),
+              name: 'Simole',
+              path: 'simole',
+              builder: (context, params) => SimoleWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),

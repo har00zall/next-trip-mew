@@ -4,18 +4,18 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'a7_budge_search_model.dart';
-export 'a7_budge_search_model.dart';
+import 'simole_model.dart';
+export 'simole_model.dart';
 
-class A7BudgeSearchWidget extends StatefulWidget {
-  const A7BudgeSearchWidget({Key? key}) : super(key: key);
+class SimoleWidget extends StatefulWidget {
+  const SimoleWidget({Key? key}) : super(key: key);
 
   @override
-  _A7BudgeSearchWidgetState createState() => _A7BudgeSearchWidgetState();
+  _SimoleWidgetState createState() => _SimoleWidgetState();
 }
 
-class _A7BudgeSearchWidgetState extends State<A7BudgeSearchWidget> {
-  late A7BudgeSearchModel _model;
+class _SimoleWidgetState extends State<SimoleWidget> {
+  late SimoleModel _model;
 
   final scaffoldKey = GlobalKey<ScaffoldState>();
   final _unfocusNode = FocusNode();
@@ -23,7 +23,7 @@ class _A7BudgeSearchWidgetState extends State<A7BudgeSearchWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => A7BudgeSearchModel());
+    _model = createModel(context, () => SimoleModel());
   }
 
   @override
@@ -46,7 +46,7 @@ class _A7BudgeSearchWidgetState extends State<A7BudgeSearchWidget> {
           automaticallyImplyLeading: false,
           title: Text(
             FFLocalizations.of(context).getText(
-              'cj8iq3sh' /* Page Title */,
+              '1ypzdehp' /* Page Title */,
             ),
             style: FlutterFlowTheme.of(context).headlineMedium.override(
                   fontFamily: 'Poppins',
@@ -61,7 +61,22 @@ class _A7BudgeSearchWidgetState extends State<A7BudgeSearchWidget> {
         body: SafeArea(
           child: Column(
             mainAxisSize: MainAxisSize.max,
-            children: [],
+            children: [
+              SingleChildScrollView(
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Align(
+                      alignment: AlignmentDirectional(0.0, 0.0),
+                      child: Stack(
+                        alignment: AlignmentDirectional(0.0, 0.0),
+                        children: [],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
         ),
       ),

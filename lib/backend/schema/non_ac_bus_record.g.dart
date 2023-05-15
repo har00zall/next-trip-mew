@@ -55,13 +55,6 @@ class _$NonAcBusRecordSerializer
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    value = object.destination;
-    if (value != null) {
-      result
-        ..add('Destination')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
     value = object.nonACSeater;
     if (value != null) {
       result
@@ -85,6 +78,13 @@ class _$NonAcBusRecordSerializer
     if (value != null) {
       result
         ..add('Duration')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.arrival;
+    if (value != null) {
+      result
+        ..add('Arrival')
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
@@ -131,10 +131,6 @@ class _$NonAcBusRecordSerializer
           result.boarding = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
-        case 'Destination':
-          result.destination = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
-          break;
         case 'NonAC_Seater':
           result.nonACSeater = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int?;
@@ -149,6 +145,10 @@ class _$NonAcBusRecordSerializer
           break;
         case 'Duration':
           result.duration = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'Arrival':
+          result.arrival = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
         case 'Document__Reference__Field':
@@ -176,8 +176,6 @@ class _$NonAcBusRecord extends NonAcBusRecord {
   @override
   final String? boarding;
   @override
-  final String? destination;
-  @override
   final int? nonACSeater;
   @override
   final int? nonAcSleeper;
@@ -185,6 +183,8 @@ class _$NonAcBusRecord extends NonAcBusRecord {
   final String? time;
   @override
   final String? duration;
+  @override
+  final String? arrival;
   @override
   final DocumentReference<Object?>? ffRef;
 
@@ -197,11 +197,11 @@ class _$NonAcBusRecord extends NonAcBusRecord {
       this.from,
       this.to,
       this.boarding,
-      this.destination,
       this.nonACSeater,
       this.nonAcSleeper,
       this.time,
       this.duration,
+      this.arrival,
       this.ffRef})
       : super._();
 
@@ -222,11 +222,11 @@ class _$NonAcBusRecord extends NonAcBusRecord {
         from == other.from &&
         to == other.to &&
         boarding == other.boarding &&
-        destination == other.destination &&
         nonACSeater == other.nonACSeater &&
         nonAcSleeper == other.nonAcSleeper &&
         time == other.time &&
         duration == other.duration &&
+        arrival == other.arrival &&
         ffRef == other.ffRef;
   }
 
@@ -238,11 +238,11 @@ class _$NonAcBusRecord extends NonAcBusRecord {
     _$hash = $jc(_$hash, from.hashCode);
     _$hash = $jc(_$hash, to.hashCode);
     _$hash = $jc(_$hash, boarding.hashCode);
-    _$hash = $jc(_$hash, destination.hashCode);
     _$hash = $jc(_$hash, nonACSeater.hashCode);
     _$hash = $jc(_$hash, nonAcSleeper.hashCode);
     _$hash = $jc(_$hash, time.hashCode);
     _$hash = $jc(_$hash, duration.hashCode);
+    _$hash = $jc(_$hash, arrival.hashCode);
     _$hash = $jc(_$hash, ffRef.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -256,11 +256,11 @@ class _$NonAcBusRecord extends NonAcBusRecord {
           ..add('from', from)
           ..add('to', to)
           ..add('boarding', boarding)
-          ..add('destination', destination)
           ..add('nonACSeater', nonACSeater)
           ..add('nonAcSleeper', nonAcSleeper)
           ..add('time', time)
           ..add('duration', duration)
+          ..add('arrival', arrival)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -290,10 +290,6 @@ class NonAcBusRecordBuilder
   String? get boarding => _$this._boarding;
   set boarding(String? boarding) => _$this._boarding = boarding;
 
-  String? _destination;
-  String? get destination => _$this._destination;
-  set destination(String? destination) => _$this._destination = destination;
-
   int? _nonACSeater;
   int? get nonACSeater => _$this._nonACSeater;
   set nonACSeater(int? nonACSeater) => _$this._nonACSeater = nonACSeater;
@@ -309,6 +305,10 @@ class NonAcBusRecordBuilder
   String? _duration;
   String? get duration => _$this._duration;
   set duration(String? duration) => _$this._duration = duration;
+
+  String? _arrival;
+  String? get arrival => _$this._arrival;
+  set arrival(String? arrival) => _$this._arrival = arrival;
 
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
@@ -326,11 +326,11 @@ class NonAcBusRecordBuilder
       _from = $v.from;
       _to = $v.to;
       _boarding = $v.boarding;
-      _destination = $v.destination;
       _nonACSeater = $v.nonACSeater;
       _nonAcSleeper = $v.nonAcSleeper;
       _time = $v.time;
       _duration = $v.duration;
+      _arrival = $v.arrival;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -359,11 +359,11 @@ class NonAcBusRecordBuilder
             from: from,
             to: to,
             boarding: boarding,
-            destination: destination,
             nonACSeater: nonACSeater,
             nonAcSleeper: nonAcSleeper,
             time: time,
             duration: duration,
+            arrival: arrival,
             ffRef: ffRef);
     replace(_$result);
     return _$result;

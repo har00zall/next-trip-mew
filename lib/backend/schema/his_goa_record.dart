@@ -24,11 +24,11 @@ abstract class HisGoaRecord
   @BuiltValueField(wireName: 'No')
   int? get no;
 
-  @BuiltValueField(wireName: 'Rate')
-  int? get rate;
-
   @BuiltValueField(wireName: 'Review')
   int? get review;
+
+  @BuiltValueField(wireName: 'Rate')
+  double? get rate;
 
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
@@ -40,8 +40,8 @@ abstract class HisGoaRecord
     ..type = ''
     ..image = ''
     ..no = 0
-    ..rate = 0
-    ..review = 0;
+    ..review = 0
+    ..rate = 0.0;
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('hisGoa');
@@ -70,8 +70,8 @@ Map<String, dynamic> createHisGoaRecordData({
   String? type,
   String? image,
   int? no,
-  int? rate,
   int? review,
+  double? rate,
 }) {
   final firestoreData = serializers.toFirestore(
     HisGoaRecord.serializer,
@@ -82,8 +82,8 @@ Map<String, dynamic> createHisGoaRecordData({
         ..type = type
         ..image = image
         ..no = no
-        ..rate = rate
-        ..review = review,
+        ..review = review
+        ..rate = rate,
     ),
   );
 

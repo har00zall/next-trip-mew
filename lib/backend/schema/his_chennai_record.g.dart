@@ -55,17 +55,18 @@ class _$HisChennaiRecordSerializer
         ..add('No')
         ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
-    value = object.rate;
-    if (value != null) {
-      result
-        ..add('Rate')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
     value = object.review;
     if (value != null) {
       result
         ..add('Review')
         ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    value = object.rate;
+    if (value != null) {
+      result
+        ..add('Rate')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(double)));
     }
     value = object.ffRef;
     if (value != null) {
@@ -110,13 +111,13 @@ class _$HisChennaiRecordSerializer
           result.no = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int?;
           break;
-        case 'Rate':
-          result.rate = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
-          break;
         case 'Review':
           result.review = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int?;
+          break;
+        case 'Rate':
+          result.rate = serializers.deserialize(value,
+              specifiedType: const FullType(double)) as double?;
           break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
@@ -143,9 +144,9 @@ class _$HisChennaiRecord extends HisChennaiRecord {
   @override
   final int? no;
   @override
-  final int? rate;
-  @override
   final int? review;
+  @override
+  final double? rate;
   @override
   final DocumentReference<Object?>? ffRef;
 
@@ -159,8 +160,8 @@ class _$HisChennaiRecord extends HisChennaiRecord {
       this.type,
       this.images,
       this.no,
-      this.rate,
       this.review,
+      this.rate,
       this.ffRef})
       : super._();
 
@@ -181,8 +182,8 @@ class _$HisChennaiRecord extends HisChennaiRecord {
         type == other.type &&
         images == other.images &&
         no == other.no &&
-        rate == other.rate &&
         review == other.review &&
+        rate == other.rate &&
         ffRef == other.ffRef;
   }
 
@@ -194,8 +195,8 @@ class _$HisChennaiRecord extends HisChennaiRecord {
     _$hash = $jc(_$hash, type.hashCode);
     _$hash = $jc(_$hash, images.hashCode);
     _$hash = $jc(_$hash, no.hashCode);
-    _$hash = $jc(_$hash, rate.hashCode);
     _$hash = $jc(_$hash, review.hashCode);
+    _$hash = $jc(_$hash, rate.hashCode);
     _$hash = $jc(_$hash, ffRef.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -209,8 +210,8 @@ class _$HisChennaiRecord extends HisChennaiRecord {
           ..add('type', type)
           ..add('images', images)
           ..add('no', no)
-          ..add('rate', rate)
           ..add('review', review)
+          ..add('rate', rate)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -240,13 +241,13 @@ class HisChennaiRecordBuilder
   int? get no => _$this._no;
   set no(int? no) => _$this._no = no;
 
-  int? _rate;
-  int? get rate => _$this._rate;
-  set rate(int? rate) => _$this._rate = rate;
-
   int? _review;
   int? get review => _$this._review;
   set review(int? review) => _$this._review = review;
+
+  double? _rate;
+  double? get rate => _$this._rate;
+  set rate(double? rate) => _$this._rate = rate;
 
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
@@ -264,8 +265,8 @@ class HisChennaiRecordBuilder
       _type = $v.type;
       _images = $v.images;
       _no = $v.no;
-      _rate = $v.rate;
       _review = $v.review;
+      _rate = $v.rate;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -294,8 +295,8 @@ class HisChennaiRecordBuilder
             type: type,
             images: images,
             no: no,
-            rate: rate,
             review: review,
+            rate: rate,
             ffRef: ffRef);
     replace(_$result);
     return _$result;

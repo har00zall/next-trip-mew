@@ -141,10 +141,7 @@ class _D1TrainWidgetState extends State<D1TrainWidget> {
                                     FormFieldController<String>(null),
                                 options: [
                                   FFLocalizations.of(context).getText(
-                                    'c4ylk559' /* Bangalore */,
-                                  ),
-                                  FFLocalizations.of(context).getText(
-                                    '16k6yay1' /* New Dehli */,
+                                    'c4ylk559' /* Bengaluru */,
                                   ),
                                   FFLocalizations.of(context).getText(
                                     '8uj5crq4' /* Chennai */,
@@ -153,22 +150,22 @@ class _D1TrainWidgetState extends State<D1TrainWidget> {
                                     'wctqms0i' /* Goa */,
                                   ),
                                   FFLocalizations.of(context).getText(
-                                    'l43lf4ir' /* Mumbai */,
-                                  ),
-                                  FFLocalizations.of(context).getText(
-                                    'utqzghsi' /* Kolkata */,
-                                  ),
-                                  FFLocalizations.of(context).getText(
-                                    'jobxjn2i' /* Pune */,
-                                  ),
-                                  FFLocalizations.of(context).getText(
                                     's26ip7g0' /* Hyderabad */,
                                   ),
                                   FFLocalizations.of(context).getText(
                                     '654my6d1' /* Jaipur */,
                                   ),
                                   FFLocalizations.of(context).getText(
-                                    '2mn8vl23' /* Manali */,
+                                    'p1d2cpk7' /* New Delhi */,
+                                  ),
+                                  FFLocalizations.of(context).getText(
+                                    'pifi4668' /* Kolkata */,
+                                  ),
+                                  FFLocalizations.of(context).getText(
+                                    'f03sp8vl' /* Pune */,
+                                  ),
+                                  FFLocalizations.of(context).getText(
+                                    'cr2e8cpq' /* Mumbai */,
                                   )
                                 ],
                                 onChanged: (val) =>
@@ -254,10 +251,7 @@ class _D1TrainWidgetState extends State<D1TrainWidget> {
                                     FormFieldController<String>(null),
                                 options: [
                                   FFLocalizations.of(context).getText(
-                                    'kwqti8p6' /* Bangalore */,
-                                  ),
-                                  FFLocalizations.of(context).getText(
-                                    '8qqmkpnh' /* New Dehli */,
+                                    'kwqti8p6' /* Bengaluru */,
                                   ),
                                   FFLocalizations.of(context).getText(
                                     'd1on23og' /* Chennai */,
@@ -266,22 +260,22 @@ class _D1TrainWidgetState extends State<D1TrainWidget> {
                                     '98fdu2tp' /* Goa */,
                                   ),
                                   FFLocalizations.of(context).getText(
-                                    'fihkmw01' /* Mumbai */,
-                                  ),
-                                  FFLocalizations.of(context).getText(
-                                    'afpih3pp' /* Kolkata */,
-                                  ),
-                                  FFLocalizations.of(context).getText(
-                                    'dwepqfer' /* Pune */,
-                                  ),
-                                  FFLocalizations.of(context).getText(
                                     'syl5eys0' /* Hyderabad */,
                                   ),
                                   FFLocalizations.of(context).getText(
                                     'br3qsbb8' /* Jaipur */,
                                   ),
                                   FFLocalizations.of(context).getText(
-                                    '9444yqq6' /* Manali */,
+                                    'nsm97y95' /* New Delhi */,
+                                  ),
+                                  FFLocalizations.of(context).getText(
+                                    'j2daui1s' /* Pune */,
+                                  ),
+                                  FFLocalizations.of(context).getText(
+                                    'lfutctww' /* Mumbai */,
+                                  ),
+                                  FFLocalizations.of(context).getText(
+                                    'd1phq6z7' /* Kolkata */,
                                   )
                                 ],
                                 onChanged: (val) =>
@@ -301,6 +295,119 @@ class _D1TrainWidgetState extends State<D1TrainWidget> {
                                 fillColor: Colors.white,
                                 elevation: 2.0,
                                 borderColor: Color(0xFF0C0C0C),
+                                borderWidth: 0.0,
+                                borderRadius: 10.0,
+                                margin: EdgeInsetsDirectional.fromSTEB(
+                                    12.0, 4.0, 12.0, 4.0),
+                                hidesUnderline: true,
+                                isSearchable: false,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 0.0),
+                    child: Material(
+                      color: Colors.transparent,
+                      elevation: 5.0,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      child: Container(
+                        width: double.infinity,
+                        height: 70.0,
+                        decoration: BoxDecoration(
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            FlutterFlowIconButton(
+                              borderColor: Colors.transparent,
+                              borderRadius: 30.0,
+                              borderWidth: 1.0,
+                              buttonSize: 60.0,
+                              icon: Icon(
+                                Icons.group_rounded,
+                                color: FlutterFlowTheme.of(context).primaryText,
+                                size: 30.0,
+                              ),
+                              onPressed: () {
+                                print('IconButton pressed ...');
+                              },
+                            ),
+                            Text(
+                              FFLocalizations.of(context).getText(
+                                '4sn8sf9z' /* No of Adults */,
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    fontSize: 18.0,
+                                  ),
+                            ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  85.0, 0.0, 0.0, 0.0),
+                              child: FlutterFlowDropDown<String>(
+                                controller: _model.dropDownValueController3 ??=
+                                    FormFieldController<String>(null),
+                                options: [
+                                  FFLocalizations.of(context).getText(
+                                    'a7ury2kt' /* 1 */,
+                                  ),
+                                  FFLocalizations.of(context).getText(
+                                    'yr8q92ao' /* 2 */,
+                                  ),
+                                  FFLocalizations.of(context).getText(
+                                    'mfhbbyao' /* 3 */,
+                                  ),
+                                  FFLocalizations.of(context).getText(
+                                    'znybm965' /* 4 */,
+                                  ),
+                                  FFLocalizations.of(context).getText(
+                                    '31mc0c6l' /* 5 */,
+                                  )
+                                ],
+                                onChanged: (val) =>
+                                    setState(() => _model.dropDownValue3 = val),
+                                width: 100.0,
+                                height: 50.0,
+                                searchHintTextStyle:
+                                    FlutterFlowTheme.of(context)
+                                        .bodyLarge
+                                        .override(
+                                          fontFamily:
+                                              FlutterFlowTheme.of(context)
+                                                  .bodyLargeFamily,
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                        ),
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      fontSize: 18.0,
+                                    ),
+                                hintText: FFLocalizations.of(context).getText(
+                                  'f6tir9d7' /* No */,
+                                ),
+                                searchHintText:
+                                    FFLocalizations.of(context).getText(
+                                  'f7w01y70' /* Search for an item... */,
+                                ),
+                                fillColor: FlutterFlowTheme.of(context)
+                                    .secondaryBackground,
+                                elevation: 2.0,
+                                borderColor:
+                                    FlutterFlowTheme.of(context).primaryText,
                                 borderWidth: 0.0,
                                 borderRadius: 10.0,
                                 margin: EdgeInsetsDirectional.fromSTEB(

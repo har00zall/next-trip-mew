@@ -25,20 +25,6 @@ class _$TrainRecordSerializer implements StructuredSerializer<TrainRecord> {
         ..add('No')
         ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
-    value = object.trainName;
-    if (value != null) {
-      result
-        ..add('TrainName')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
-    value = object.trainNo;
-    if (value != null) {
-      result
-        ..add('TrainNo')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
     value = object.from;
     if (value != null) {
       result
@@ -53,24 +39,69 @@ class _$TrainRecordSerializer implements StructuredSerializer<TrainRecord> {
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    value = object.boardingStation;
-    if (value != null) {
-      result
-        ..add('BoardingStation')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
-    value = object.destination;
-    if (value != null) {
-      result
-        ..add('Destination')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
     value = object.sleeper;
     if (value != null) {
       result
         ..add('Sleeper')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    value = object.aC1ATier;
+    if (value != null) {
+      result
+        ..add('AC_1A-Tier')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    value = object.aC2ATier;
+    if (value != null) {
+      result
+        ..add('AC_2A-Tier')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    value = object.arrivalStation;
+    if (value != null) {
+      result
+        ..add('Arrival_Station')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.time;
+    if (value != null) {
+      result
+        ..add('Time')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.duration;
+    if (value != null) {
+      result
+        ..add('Duration')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.trainName;
+    if (value != null) {
+      result
+        ..add('Train_Name')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.boardingStation;
+    if (value != null) {
+      result
+        ..add('Boarding_Station')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
+    value = object.trainNo;
+    if (value != null) {
+      result
+        ..add('Train_No')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    value = object.aC3ATier;
+    if (value != null) {
+      result
+        ..add('AC_3A-Tier')
         ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
     value = object.ffRef;
@@ -99,14 +130,6 @@ class _$TrainRecordSerializer implements StructuredSerializer<TrainRecord> {
           result.no = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int?;
           break;
-        case 'TrainName':
-          result.trainName = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
-          break;
-        case 'TrainNo':
-          result.trainNo = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
-          break;
         case 'From':
           result.from = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
@@ -115,16 +138,44 @@ class _$TrainRecordSerializer implements StructuredSerializer<TrainRecord> {
           result.to = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
-        case 'BoardingStation':
+        case 'Sleeper':
+          result.sleeper = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int?;
+          break;
+        case 'AC_1A-Tier':
+          result.aC1ATier = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int?;
+          break;
+        case 'AC_2A-Tier':
+          result.aC2ATier = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int?;
+          break;
+        case 'Arrival_Station':
+          result.arrivalStation = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'Time':
+          result.time = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'Duration':
+          result.duration = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'Train_Name':
+          result.trainName = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
+        case 'Boarding_Station':
           result.boardingStation = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
-        case 'Destination':
-          result.destination = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
+        case 'Train_No':
+          result.trainNo = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int?;
           break;
-        case 'Sleeper':
-          result.sleeper = serializers.deserialize(value,
+        case 'AC_3A-Tier':
+          result.aC3ATier = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int?;
           break;
         case 'Document__Reference__Field':
@@ -144,19 +195,29 @@ class _$TrainRecord extends TrainRecord {
   @override
   final int? no;
   @override
-  final String? trainName;
-  @override
-  final String? trainNo;
-  @override
   final String? from;
   @override
   final String? to;
   @override
+  final int? sleeper;
+  @override
+  final int? aC1ATier;
+  @override
+  final int? aC2ATier;
+  @override
+  final String? arrivalStation;
+  @override
+  final String? time;
+  @override
+  final String? duration;
+  @override
+  final String? trainName;
+  @override
   final String? boardingStation;
   @override
-  final String? destination;
+  final int? trainNo;
   @override
-  final int? sleeper;
+  final int? aC3ATier;
   @override
   final DocumentReference<Object?>? ffRef;
 
@@ -165,13 +226,18 @@ class _$TrainRecord extends TrainRecord {
 
   _$TrainRecord._(
       {this.no,
-      this.trainName,
-      this.trainNo,
       this.from,
       this.to,
-      this.boardingStation,
-      this.destination,
       this.sleeper,
+      this.aC1ATier,
+      this.aC2ATier,
+      this.arrivalStation,
+      this.time,
+      this.duration,
+      this.trainName,
+      this.boardingStation,
+      this.trainNo,
+      this.aC3ATier,
       this.ffRef})
       : super._();
 
@@ -187,13 +253,18 @@ class _$TrainRecord extends TrainRecord {
     if (identical(other, this)) return true;
     return other is TrainRecord &&
         no == other.no &&
-        trainName == other.trainName &&
-        trainNo == other.trainNo &&
         from == other.from &&
         to == other.to &&
-        boardingStation == other.boardingStation &&
-        destination == other.destination &&
         sleeper == other.sleeper &&
+        aC1ATier == other.aC1ATier &&
+        aC2ATier == other.aC2ATier &&
+        arrivalStation == other.arrivalStation &&
+        time == other.time &&
+        duration == other.duration &&
+        trainName == other.trainName &&
+        boardingStation == other.boardingStation &&
+        trainNo == other.trainNo &&
+        aC3ATier == other.aC3ATier &&
         ffRef == other.ffRef;
   }
 
@@ -201,13 +272,18 @@ class _$TrainRecord extends TrainRecord {
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, no.hashCode);
-    _$hash = $jc(_$hash, trainName.hashCode);
-    _$hash = $jc(_$hash, trainNo.hashCode);
     _$hash = $jc(_$hash, from.hashCode);
     _$hash = $jc(_$hash, to.hashCode);
-    _$hash = $jc(_$hash, boardingStation.hashCode);
-    _$hash = $jc(_$hash, destination.hashCode);
     _$hash = $jc(_$hash, sleeper.hashCode);
+    _$hash = $jc(_$hash, aC1ATier.hashCode);
+    _$hash = $jc(_$hash, aC2ATier.hashCode);
+    _$hash = $jc(_$hash, arrivalStation.hashCode);
+    _$hash = $jc(_$hash, time.hashCode);
+    _$hash = $jc(_$hash, duration.hashCode);
+    _$hash = $jc(_$hash, trainName.hashCode);
+    _$hash = $jc(_$hash, boardingStation.hashCode);
+    _$hash = $jc(_$hash, trainNo.hashCode);
+    _$hash = $jc(_$hash, aC3ATier.hashCode);
     _$hash = $jc(_$hash, ffRef.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -217,13 +293,18 @@ class _$TrainRecord extends TrainRecord {
   String toString() {
     return (newBuiltValueToStringHelper(r'TrainRecord')
           ..add('no', no)
-          ..add('trainName', trainName)
-          ..add('trainNo', trainNo)
           ..add('from', from)
           ..add('to', to)
-          ..add('boardingStation', boardingStation)
-          ..add('destination', destination)
           ..add('sleeper', sleeper)
+          ..add('aC1ATier', aC1ATier)
+          ..add('aC2ATier', aC2ATier)
+          ..add('arrivalStation', arrivalStation)
+          ..add('time', time)
+          ..add('duration', duration)
+          ..add('trainName', trainName)
+          ..add('boardingStation', boardingStation)
+          ..add('trainNo', trainNo)
+          ..add('aC3ATier', aC3ATier)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -236,14 +317,6 @@ class TrainRecordBuilder implements Builder<TrainRecord, TrainRecordBuilder> {
   int? get no => _$this._no;
   set no(int? no) => _$this._no = no;
 
-  String? _trainName;
-  String? get trainName => _$this._trainName;
-  set trainName(String? trainName) => _$this._trainName = trainName;
-
-  String? _trainNo;
-  String? get trainNo => _$this._trainNo;
-  set trainNo(String? trainNo) => _$this._trainNo = trainNo;
-
   String? _from;
   String? get from => _$this._from;
   set from(String? from) => _$this._from = from;
@@ -252,18 +325,47 @@ class TrainRecordBuilder implements Builder<TrainRecord, TrainRecordBuilder> {
   String? get to => _$this._to;
   set to(String? to) => _$this._to = to;
 
+  int? _sleeper;
+  int? get sleeper => _$this._sleeper;
+  set sleeper(int? sleeper) => _$this._sleeper = sleeper;
+
+  int? _aC1ATier;
+  int? get aC1ATier => _$this._aC1ATier;
+  set aC1ATier(int? aC1ATier) => _$this._aC1ATier = aC1ATier;
+
+  int? _aC2ATier;
+  int? get aC2ATier => _$this._aC2ATier;
+  set aC2ATier(int? aC2ATier) => _$this._aC2ATier = aC2ATier;
+
+  String? _arrivalStation;
+  String? get arrivalStation => _$this._arrivalStation;
+  set arrivalStation(String? arrivalStation) =>
+      _$this._arrivalStation = arrivalStation;
+
+  String? _time;
+  String? get time => _$this._time;
+  set time(String? time) => _$this._time = time;
+
+  String? _duration;
+  String? get duration => _$this._duration;
+  set duration(String? duration) => _$this._duration = duration;
+
+  String? _trainName;
+  String? get trainName => _$this._trainName;
+  set trainName(String? trainName) => _$this._trainName = trainName;
+
   String? _boardingStation;
   String? get boardingStation => _$this._boardingStation;
   set boardingStation(String? boardingStation) =>
       _$this._boardingStation = boardingStation;
 
-  String? _destination;
-  String? get destination => _$this._destination;
-  set destination(String? destination) => _$this._destination = destination;
+  int? _trainNo;
+  int? get trainNo => _$this._trainNo;
+  set trainNo(int? trainNo) => _$this._trainNo = trainNo;
 
-  int? _sleeper;
-  int? get sleeper => _$this._sleeper;
-  set sleeper(int? sleeper) => _$this._sleeper = sleeper;
+  int? _aC3ATier;
+  int? get aC3ATier => _$this._aC3ATier;
+  set aC3ATier(int? aC3ATier) => _$this._aC3ATier = aC3ATier;
 
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
@@ -277,13 +379,18 @@ class TrainRecordBuilder implements Builder<TrainRecord, TrainRecordBuilder> {
     final $v = _$v;
     if ($v != null) {
       _no = $v.no;
-      _trainName = $v.trainName;
-      _trainNo = $v.trainNo;
       _from = $v.from;
       _to = $v.to;
-      _boardingStation = $v.boardingStation;
-      _destination = $v.destination;
       _sleeper = $v.sleeper;
+      _aC1ATier = $v.aC1ATier;
+      _aC2ATier = $v.aC2ATier;
+      _arrivalStation = $v.arrivalStation;
+      _time = $v.time;
+      _duration = $v.duration;
+      _trainName = $v.trainName;
+      _boardingStation = $v.boardingStation;
+      _trainNo = $v.trainNo;
+      _aC3ATier = $v.aC3ATier;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -308,13 +415,18 @@ class TrainRecordBuilder implements Builder<TrainRecord, TrainRecordBuilder> {
     final _$result = _$v ??
         new _$TrainRecord._(
             no: no,
-            trainName: trainName,
-            trainNo: trainNo,
             from: from,
             to: to,
-            boardingStation: boardingStation,
-            destination: destination,
             sleeper: sleeper,
+            aC1ATier: aC1ATier,
+            aC2ATier: aC2ATier,
+            arrivalStation: arrivalStation,
+            time: time,
+            duration: duration,
+            trainName: trainName,
+            boardingStation: boardingStation,
+            trainNo: trainNo,
+            aC3ATier: aC3ATier,
             ffRef: ffRef);
     replace(_$result);
     return _$result;

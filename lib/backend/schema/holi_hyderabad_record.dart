@@ -22,6 +22,9 @@ abstract class HoliHyderabadRecord
   @BuiltValueField(wireName: 'No')
   int? get no;
 
+  @BuiltValueField(wireName: 'Image')
+  String? get image;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
@@ -30,7 +33,8 @@ abstract class HoliHyderabadRecord
     ..nameOfPlace = ''
     ..type = ''
     ..openingTime = ''
-    ..no = 0;
+    ..no = 0
+    ..image = '';
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('holiHyderabad');
@@ -59,6 +63,7 @@ Map<String, dynamic> createHoliHyderabadRecordData({
   String? type,
   String? openingTime,
   int? no,
+  String? image,
 }) {
   final firestoreData = serializers.toFirestore(
     HoliHyderabadRecord.serializer,
@@ -67,7 +72,8 @@ Map<String, dynamic> createHoliHyderabadRecordData({
         ..nameOfPlace = nameOfPlace
         ..type = type
         ..openingTime = openingTime
-        ..no = no,
+        ..no = no
+        ..image = image,
     ),
   );
 

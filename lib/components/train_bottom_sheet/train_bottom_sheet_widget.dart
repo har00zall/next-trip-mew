@@ -92,7 +92,7 @@ class _TrainBottomSheetWidgetState extends State<TrainBottomSheetWidget> {
                             borderWidth: 1.0,
                             buttonSize: 60.0,
                             icon: Icon(
-                              Icons.add,
+                              Icons.train_rounded,
                               color: FlutterFlowTheme.of(context).primaryText,
                               size: 30.0,
                             ),
@@ -210,7 +210,7 @@ class _TrainBottomSheetWidgetState extends State<TrainBottomSheetWidget> {
                             borderWidth: 1.0,
                             buttonSize: 60.0,
                             icon: Icon(
-                              Icons.add,
+                              Icons.train_rounded,
                               color: FlutterFlowTheme.of(context).primaryText,
                               size: 30.0,
                             ),
@@ -594,8 +594,8 @@ class _TrainBottomSheetWidgetState extends State<TrainBottomSheetWidget> {
                         Align(
                           alignment: AlignmentDirectional(0.0, 0.0),
                           child: FFButtonWidget(
-                            onPressed: () async {
-                              context.pushNamed('D2Train1');
+                            onPressed: () {
+                              print('Button pressed ...');
                             },
                             text: FFLocalizations.of(context).getText(
                               'j41bspg4' /* Search */,

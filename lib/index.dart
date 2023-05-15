@@ -77,4 +77,4 @@ export '/pages/h9_rate_us/h9_rate_us_widget.dart' show H9RateUsWidget;
 export '/pages/a3_login_page/a3_login_page_widget.dart' show A3LoginPageWidget;
 export '/pages/a6_budget_search/a6_budget_search_widget.dart'
     show A6BudgetSearchWidget;
-export '/a7_budge_search/a7_budge_search_widget.dart' show A7BudgeSearchWidget;
+export '/pages/simole/simole_widget.dart' show SimoleWidget;

@@ -1161,7 +1161,7 @@ class _A4MainPageWidgetState extends State<A4MainPageWidget> {
                               children: [
                                 Text(
                                   FFLocalizations.of(context).getText(
-                                    'ij38fgqq' /* Cities */,
+                                    'ij38fgqq' /* Hotel */,
                                   ),
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium

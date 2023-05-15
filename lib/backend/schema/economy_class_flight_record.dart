@@ -24,11 +24,11 @@ abstract class EconomyClassFlightRecord
   @BuiltValueField(wireName: 'To')
   String? get to;
 
-  @BuiltValueField(wireName: 'Price')
-  int? get price;
-
   @BuiltValueField(wireName: 'Time')
   String? get time;
+
+  @BuiltValueField(wireName: 'Price')
+  double? get price;
 
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
@@ -40,8 +40,8 @@ abstract class EconomyClassFlightRecord
         ..flightName = ''
         ..from = ''
         ..to = ''
-        ..price = 0
-        ..time = '';
+        ..time = ''
+        ..price = 0.0;
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('economyClassFlight');
@@ -71,8 +71,8 @@ Map<String, dynamic> createEconomyClassFlightRecordData({
   String? flightName,
   String? from,
   String? to,
-  int? price,
   String? time,
+  double? price,
 }) {
   final firestoreData = serializers.toFirestore(
     EconomyClassFlightRecord.serializer,
@@ -82,8 +82,8 @@ Map<String, dynamic> createEconomyClassFlightRecordData({
         ..flightName = flightName
         ..from = from
         ..to = to
-        ..price = price
-        ..time = time,
+        ..time = time
+        ..price = price,
     ),
   );
 

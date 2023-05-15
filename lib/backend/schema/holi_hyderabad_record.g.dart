@@ -52,6 +52,13 @@ class _$HoliHyderabadRecordSerializer
         ..add('No')
         ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
+    value = object.image;
+    if (value != null) {
+      result
+        ..add('Image')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -91,6 +98,10 @@ class _$HoliHyderabadRecordSerializer
           result.no = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int?;
           break;
+        case 'Image':
+          result.image = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -114,6 +125,8 @@ class _$HoliHyderabadRecord extends HoliHyderabadRecord {
   @override
   final int? no;
   @override
+  final String? image;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$HoliHyderabadRecord(
@@ -121,7 +134,12 @@ class _$HoliHyderabadRecord extends HoliHyderabadRecord {
       (new HoliHyderabadRecordBuilder()..update(updates))._build();
 
   _$HoliHyderabadRecord._(
-      {this.nameOfPlace, this.type, this.openingTime, this.no, this.ffRef})
+      {this.nameOfPlace,
+      this.type,
+      this.openingTime,
+      this.no,
+      this.image,
+      this.ffRef})
       : super._();
 
   @override
@@ -141,6 +159,7 @@ class _$HoliHyderabadRecord extends HoliHyderabadRecord {
         type == other.type &&
         openingTime == other.openingTime &&
         no == other.no &&
+        image == other.image &&
         ffRef == other.ffRef;
   }
 
@@ -151,6 +170,7 @@ class _$HoliHyderabadRecord extends HoliHyderabadRecord {
     _$hash = $jc(_$hash, type.hashCode);
     _$hash = $jc(_$hash, openingTime.hashCode);
     _$hash = $jc(_$hash, no.hashCode);
+    _$hash = $jc(_$hash, image.hashCode);
     _$hash = $jc(_$hash, ffRef.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -163,6 +183,7 @@ class _$HoliHyderabadRecord extends HoliHyderabadRecord {
           ..add('type', type)
           ..add('openingTime', openingTime)
           ..add('no', no)
+          ..add('image', image)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -188,6 +209,10 @@ class HoliHyderabadRecordBuilder
   int? get no => _$this._no;
   set no(int? no) => _$this._no = no;
 
+  String? _image;
+  String? get image => _$this._image;
+  set image(String? image) => _$this._image = image;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -203,6 +228,7 @@ class HoliHyderabadRecordBuilder
       _type = $v.type;
       _openingTime = $v.openingTime;
       _no = $v.no;
+      _image = $v.image;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -230,6 +256,7 @@ class HoliHyderabadRecordBuilder
             type: type,
             openingTime: openingTime,
             no: no,
+            image: image,
             ffRef: ffRef);
     replace(_$result);
     return _$result;

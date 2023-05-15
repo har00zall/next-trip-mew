@@ -28,6 +28,9 @@ abstract class HisHyderabadRecord
   @BuiltValueField(wireName: 'Review')
   int? get review;
 
+  @BuiltValueField(wireName: 'Rate')
+  double? get rate;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
@@ -38,7 +41,8 @@ abstract class HisHyderabadRecord
     ..type = ''
     ..images = ''
     ..no = 0
-    ..review = 0;
+    ..review = 0
+    ..rate = 0.0;
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('hisHyderabad');
@@ -69,6 +73,7 @@ Map<String, dynamic> createHisHyderabadRecordData({
   String? images,
   int? no,
   int? review,
+  double? rate,
 }) {
   final firestoreData = serializers.toFirestore(
     HisHyderabadRecord.serializer,
@@ -79,7 +84,8 @@ Map<String, dynamic> createHisHyderabadRecordData({
         ..type = type
         ..images = images
         ..no = no
-        ..review = review,
+        ..review = review
+        ..rate = rate,
     ),
   );
 

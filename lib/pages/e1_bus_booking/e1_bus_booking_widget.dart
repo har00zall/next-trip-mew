@@ -463,8 +463,8 @@ class _E1BusBookingWidgetState extends State<E1BusBookingWidget> {
                       Align(
                         alignment: AlignmentDirectional(0.0, 0.0),
                         child: FFButtonWidget(
-                          onPressed: () {
-                            print('Button pressed ...');
+                          onPressed: () async {
+                            context.pushNamed('E2BusBooking1');
                           },
                           text: FFLocalizations.of(context).getText(
                             'shh386aq' /* Search */,

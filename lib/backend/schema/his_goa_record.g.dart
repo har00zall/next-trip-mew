@@ -54,17 +54,18 @@ class _$HisGoaRecordSerializer implements StructuredSerializer<HisGoaRecord> {
         ..add('No')
         ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
-    value = object.rate;
-    if (value != null) {
-      result
-        ..add('Rate')
-        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
-    }
     value = object.review;
     if (value != null) {
       result
         ..add('Review')
         ..add(serializers.serialize(value, specifiedType: const FullType(int)));
+    }
+    value = object.rate;
+    if (value != null) {
+      result
+        ..add('Rate')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(double)));
     }
     value = object.ffRef;
     if (value != null) {
@@ -109,13 +110,13 @@ class _$HisGoaRecordSerializer implements StructuredSerializer<HisGoaRecord> {
           result.no = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int?;
           break;
-        case 'Rate':
-          result.rate = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int?;
-          break;
         case 'Review':
           result.review = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int?;
+          break;
+        case 'Rate':
+          result.rate = serializers.deserialize(value,
+              specifiedType: const FullType(double)) as double?;
           break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
@@ -142,9 +143,9 @@ class _$HisGoaRecord extends HisGoaRecord {
   @override
   final int? no;
   @override
-  final int? rate;
-  @override
   final int? review;
+  @override
+  final double? rate;
   @override
   final DocumentReference<Object?>? ffRef;
 
@@ -157,8 +158,8 @@ class _$HisGoaRecord extends HisGoaRecord {
       this.type,
       this.image,
       this.no,
-      this.rate,
       this.review,
+      this.rate,
       this.ffRef})
       : super._();
 
@@ -178,8 +179,8 @@ class _$HisGoaRecord extends HisGoaRecord {
         type == other.type &&
         image == other.image &&
         no == other.no &&
-        rate == other.rate &&
         review == other.review &&
+        rate == other.rate &&
         ffRef == other.ffRef;
   }
 
@@ -191,8 +192,8 @@ class _$HisGoaRecord extends HisGoaRecord {
     _$hash = $jc(_$hash, type.hashCode);
     _$hash = $jc(_$hash, image.hashCode);
     _$hash = $jc(_$hash, no.hashCode);
-    _$hash = $jc(_$hash, rate.hashCode);
     _$hash = $jc(_$hash, review.hashCode);
+    _$hash = $jc(_$hash, rate.hashCode);
     _$hash = $jc(_$hash, ffRef.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -206,8 +207,8 @@ class _$HisGoaRecord extends HisGoaRecord {
           ..add('type', type)
           ..add('image', image)
           ..add('no', no)
-          ..add('rate', rate)
           ..add('review', review)
+          ..add('rate', rate)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -237,13 +238,13 @@ class HisGoaRecordBuilder
   int? get no => _$this._no;
   set no(int? no) => _$this._no = no;
 
-  int? _rate;
-  int? get rate => _$this._rate;
-  set rate(int? rate) => _$this._rate = rate;
-
   int? _review;
   int? get review => _$this._review;
   set review(int? review) => _$this._review = review;
+
+  double? _rate;
+  double? get rate => _$this._rate;
+  set rate(double? rate) => _$this._rate = rate;
 
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
@@ -261,8 +262,8 @@ class HisGoaRecordBuilder
       _type = $v.type;
       _image = $v.image;
       _no = $v.no;
-      _rate = $v.rate;
       _review = $v.review;
+      _rate = $v.rate;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -291,8 +292,8 @@ class HisGoaRecordBuilder
             type: type,
             image: image,
             no: no,
-            rate: rate,
             review: review,
+            rate: rate,
             ffRef: ffRef);
     replace(_$result);
     return _$result;

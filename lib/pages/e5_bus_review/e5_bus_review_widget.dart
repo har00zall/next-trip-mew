@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -77,8 +78,7 @@ class _E5BusReviewWidgetState extends State<E5BusReviewWidget> {
           elevation: 2.0,
         ),
         body: SafeArea(
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
+          child: Stack(
             children: [
               Column(
                 mainAxisSize: MainAxisSize.max,
@@ -112,7 +112,7 @@ class _E5BusReviewWidgetState extends State<E5BusReviewWidget> {
                                       15.0, 10.0, 0.0, 0.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
-                                      'c2ujbq41' /* Bus Name */,
+                                      '7tdbasao' /* Bus Name */,
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -142,7 +142,7 @@ class _E5BusReviewWidgetState extends State<E5BusReviewWidget> {
                                         10.0, 0.0, 0.0, 0.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
-                                        'eg1in9w2' /* DepTime */,
+                                        'qhwchkng' /* DepTime */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
@@ -155,7 +155,7 @@ class _E5BusReviewWidgetState extends State<E5BusReviewWidget> {
                                   ),
                                   Text(
                                     FFLocalizations.of(context).getText(
-                                      'ncx8qo8u' /* Duration */,
+                                      '1qpq52dg' /* Duration */,
                                     ),
                                     style:
                                         FlutterFlowTheme.of(context).bodyMedium,
@@ -167,7 +167,7 @@ class _E5BusReviewWidgetState extends State<E5BusReviewWidget> {
                                           0.0, 0.0, 10.0, 0.0),
                                       child: Text(
                                         FFLocalizations.of(context).getText(
-                                          'bpwe89lo' /* AriTime */,
+                                          '59m1bewe' /* AriTime */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
@@ -195,7 +195,7 @@ class _E5BusReviewWidgetState extends State<E5BusReviewWidget> {
                                         15.0, 0.0, 0.0, 0.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
-                                        'wa29a96r' /* Boarding Station */,
+                                        '3bphxcji' /* Boarding Station */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium,
@@ -206,7 +206,7 @@ class _E5BusReviewWidgetState extends State<E5BusReviewWidget> {
                                         0.0, 0.0, 15.0, 0.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
-                                        'pbv77bad' /* Arrival Station */,
+                                        'inz8721y' /* Arrival Station */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium,
@@ -226,7 +226,7 @@ class _E5BusReviewWidgetState extends State<E5BusReviewWidget> {
                                         5.0, 0.0, 0.0, 0.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
-                                        'qxk8yjc2' /*  Class: */,
+                                        'yn5h3ngp' /*  Class: */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium,
@@ -237,7 +237,7 @@ class _E5BusReviewWidgetState extends State<E5BusReviewWidget> {
                                         5.0, 0.0, 0.0, 0.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
-                                        'kv785ws3' /* ClassType */,
+                                        '6d50ue84' /* ClassType */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
@@ -290,7 +290,7 @@ class _E5BusReviewWidgetState extends State<E5BusReviewWidget> {
                                       15.0, 10.0, 0.0, 0.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
-                                      'kme09vqx' /* Offers & Coupons */,
+                                      'jls2sd5b' /* Offers & Coupons */,
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -315,7 +315,7 @@ class _E5BusReviewWidgetState extends State<E5BusReviewWidget> {
                                       10.0, 0.0, 0.0, 0.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
-                                      'blba6e51' /* Coupons */,
+                                      'mbv642pj' /* Coupons */,
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -338,7 +338,7 @@ class _E5BusReviewWidgetState extends State<E5BusReviewWidget> {
                                         10.0, 0.0, 0.0, 0.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
-                                        'ia9kv4eo' /* Coupons */,
+                                        '45j39h2l' /* Coupons */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium,
@@ -358,7 +358,7 @@ class _E5BusReviewWidgetState extends State<E5BusReviewWidget> {
                                         10.0, 0.0, 0.0, 0.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
-                                        'wdxzbxyz' /* Coupons
+                                        '074pprgz' /* Coupons
  */
                                         ,
                                       ),
@@ -409,7 +409,7 @@ class _E5BusReviewWidgetState extends State<E5BusReviewWidget> {
                                       15.0, 10.0, 0.0, 0.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
-                                      't21j0tmz' /* Traveller Details */,
+                                      '1panyz9y' /* Traveller Details */,
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -434,7 +434,7 @@ class _E5BusReviewWidgetState extends State<E5BusReviewWidget> {
                                       10.0, 0.0, 0.0, 0.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
-                                      '3r44hxrw' /* Name: */,
+                                      '5flmx08a' /* Name: */,
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -450,7 +450,7 @@ class _E5BusReviewWidgetState extends State<E5BusReviewWidget> {
                                       8.0, 0.0, 0.0, 0.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
-                                      '6mxp1yqq' /* User Name */,
+                                      'pyn5ua63' /* User Name */,
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -474,7 +474,7 @@ class _E5BusReviewWidgetState extends State<E5BusReviewWidget> {
                                         10.0, 0.0, 0.0, 0.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
-                                        'aa5oa03o' /* Phone: */,
+                                        '3xx5b8w0' /* Phone: */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
@@ -490,7 +490,7 @@ class _E5BusReviewWidgetState extends State<E5BusReviewWidget> {
                                         6.0, 0.0, 0.0, 0.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
-                                        'n67l6iwm' /* User Moblie No */,
+                                        'rf9us0pa' /* User Moblie No */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
@@ -514,7 +514,7 @@ class _E5BusReviewWidgetState extends State<E5BusReviewWidget> {
                                         10.0, 0.0, 0.0, 0.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
-                                        'no56y1w3' /* Email: */,
+                                        'wvm2n11b' /* Email: */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
@@ -529,7 +529,7 @@ class _E5BusReviewWidgetState extends State<E5BusReviewWidget> {
                                         12.0, 0.0, 0.0, 0.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
-                                        'kfvlpb4w' /* User Email */,
+                                        'bycrbuf5' /* User Email */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
@@ -553,7 +553,7 @@ class _E5BusReviewWidgetState extends State<E5BusReviewWidget> {
                                         10.0, 0.0, 0.0, 0.0),
                                     child: Text(
                                       FFLocalizations.of(context).getText(
-                                        '31872jpd' /* The Booking info will be send ... */,
+                                        'h6v385df' /* The Booking info will be send ... */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
@@ -580,7 +580,7 @@ class _E5BusReviewWidgetState extends State<E5BusReviewWidget> {
                                 children: [
                                   Text(
                                     FFLocalizations.of(context).getText(
-                                      '9jtbjwu4' /* Add Traveller Name... */,
+                                      'tytzn4jb' /* Add Traveller Name... */,
                                     ),
                                     style: FlutterFlowTheme.of(context)
                                         .bodyMedium
@@ -598,6 +598,85 @@ class _E5BusReviewWidgetState extends State<E5BusReviewWidget> {
                     ),
                   ),
                 ],
+              ),
+              Padding(
+                padding: EdgeInsetsDirectional.fromSTEB(10.0, 700.0, 10.0, 0.0),
+                child: Material(
+                  color: Colors.transparent,
+                  elevation: 10.0,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                  ),
+                  child: Container(
+                    width: double.infinity,
+                    height: 65.0,
+                    decoration: BoxDecoration(
+                      color: FlutterFlowTheme.of(context).secondaryBackground,
+                      boxShadow: [
+                        BoxShadow(
+                          blurRadius: 4.0,
+                          color: Color(0x33000000),
+                          offset: Offset(0.0, 2.0),
+                        )
+                      ],
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              15.0, 0.0, 0.0, 0.0),
+                          child: Text(
+                            FFLocalizations.of(context).getText(
+                              'ms53gt3o' /* Price */,
+                            ),
+                            style: FlutterFlowTheme.of(context)
+                                .bodyMedium
+                                .override(
+                                  fontFamily: 'Poppins',
+                                  fontSize: 20.0,
+                                ),
+                          ),
+                        ),
+                        Padding(
+                          padding: EdgeInsetsDirectional.fromSTEB(
+                              0.0, 0.0, 20.0, 0.0),
+                          child: FFButtonWidget(
+                            onPressed: () async {
+                              context.pushNamed('E8BusPayment');
+                            },
+                            text: FFLocalizations.of(context).getText(
+                              'grwy02vt' /* Continue */,
+                            ),
+                            options: FFButtonOptions(
+                              width: 130.0,
+                              height: 45.0,
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 0.0, 0.0, 0.0),
+                              color: Color(0xFFFA4918),
+                              textStyle: FlutterFlowTheme.of(context)
+                                  .titleSmall
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    color: Colors.white,
+                                    fontSize: 18.0,
+                                  ),
+                              borderSide: BorderSide(
+                                color: Colors.transparent,
+                                width: 1.0,
+                              ),
+                              borderRadius: BorderRadius.circular(10.0),
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
               ),
             ],
           ),

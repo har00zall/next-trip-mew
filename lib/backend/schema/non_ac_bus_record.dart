@@ -26,9 +26,6 @@ abstract class NonAcBusRecord
   @BuiltValueField(wireName: 'Boarding')
   String? get boarding;
 
-  @BuiltValueField(wireName: 'Destination')
-  String? get destination;
-
   @BuiltValueField(wireName: 'NonAC_Seater')
   int? get nonACSeater;
 
@@ -41,6 +38,9 @@ abstract class NonAcBusRecord
   @BuiltValueField(wireName: 'Duration')
   String? get duration;
 
+  @BuiltValueField(wireName: 'Arrival')
+  String? get arrival;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
@@ -51,11 +51,11 @@ abstract class NonAcBusRecord
     ..from = ''
     ..to = ''
     ..boarding = ''
-    ..destination = ''
     ..nonACSeater = 0
     ..nonAcSleeper = 0
     ..time = ''
-    ..duration = '';
+    ..duration = ''
+    ..arrival = '';
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('nonAcBus');
@@ -84,11 +84,11 @@ Map<String, dynamic> createNonAcBusRecordData({
   String? from,
   String? to,
   String? boarding,
-  String? destination,
   int? nonACSeater,
   int? nonAcSleeper,
   String? time,
   String? duration,
+  String? arrival,
 }) {
   final firestoreData = serializers.toFirestore(
     NonAcBusRecord.serializer,
@@ -99,11 +99,11 @@ Map<String, dynamic> createNonAcBusRecordData({
         ..from = from
         ..to = to
         ..boarding = boarding
-        ..destination = destination
         ..nonACSeater = nonACSeater
         ..nonAcSleeper = nonAcSleeper
         ..time = time
-        ..duration = duration,
+        ..duration = duration
+        ..arrival = arrival,
     ),
   );
 

@@ -448,8 +448,8 @@ class _D5TrainsortWidgetState extends State<D5TrainsortWidget> {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         FFButtonWidget(
-                          onPressed: () async {
-                            context.pushNamed('D2Train1');
+                          onPressed: () {
+                            print('Button pressed ...');
                           },
                           text: FFLocalizations.of(context).getText(
                             'bmg5uwy8' /* Search */,

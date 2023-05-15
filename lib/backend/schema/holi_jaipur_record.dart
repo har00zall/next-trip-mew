@@ -14,9 +14,6 @@ abstract class HoliJaipurRecord
   @BuiltValueField(wireName: 'Name-of-Place')
   String? get nameOfPlace;
 
-  @BuiltValueField(wireName: 'Review')
-  bool? get review;
-
   String? get type;
 
   @BuiltValueField(wireName: 'Near-by-address')
@@ -37,20 +34,23 @@ abstract class HoliJaipurRecord
   @BuiltValueField(wireName: 'No')
   int? get no;
 
+  @BuiltValueField(wireName: 'Review')
+  int? get review;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
 
   static void _initializeBuilder(HoliJaipurRecordBuilder builder) => builder
     ..nameOfPlace = ''
-    ..review = false
     ..type = ''
     ..nearByAddress = ''
     ..openingTime = ''
     ..closingTime = ''
     ..thingsYouCanSeeInThere = ''
     ..image = ''
-    ..no = 0;
+    ..no = 0
+    ..review = 0;
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('holiJaipur');
@@ -75,7 +75,6 @@ abstract class HoliJaipurRecord
 
 Map<String, dynamic> createHoliJaipurRecordData({
   String? nameOfPlace,
-  bool? review,
   String? type,
   String? nearByAddress,
   String? openingTime,
@@ -83,20 +82,21 @@ Map<String, dynamic> createHoliJaipurRecordData({
   String? thingsYouCanSeeInThere,
   String? image,
   int? no,
+  int? review,
 }) {
   final firestoreData = serializers.toFirestore(
     HoliJaipurRecord.serializer,
     HoliJaipurRecord(
       (h) => h
         ..nameOfPlace = nameOfPlace
-        ..review = review
         ..type = type
         ..nearByAddress = nearByAddress
         ..openingTime = openingTime
         ..closingTime = closingTime
         ..thingsYouCanSeeInThere = thingsYouCanSeeInThere
         ..image = image
-        ..no = no,
+        ..no = no
+        ..review = review,
     ),
   );
 
