@@ -1051,61 +1051,81 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                 ),
                                               ],
                                             ),
-                                            Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Expanded(
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(10.0, 0.0,
-                                                                0.0, 0.0),
-                                                    child: AutoSizeText(
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        '2elyg2k0' /* Hotel Name */,
-                                                      ),
-                                                      maxLines: 4,
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 18.0,
-                                                              ),
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                            Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              children: [
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          10.0, 0.0, 0.0, 0.0),
-                                                  child: AutoSizeText(
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                      '65g0l0jz' /* Hotel Address */,
-                                                    ),
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color: Colors.black,
+                                            Expanded(
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Expanded(
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  10.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: AutoSizeText(
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          '2elyg2k0' /* Hotel Name */,
                                                         ),
+                                                        maxLines: 4,
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Poppins',
+                                                              fontSize: 18.0,
+                                                            ),
+                                                      ),
+                                                    ),
                                                   ),
-                                                ),
-                                              ],
+                                                ],
+                                              ),
+                                            ),
+                                            Expanded(
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Expanded(
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  10.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: AutoSizeText(
+                                                        FFLocalizations.of(
+                                                                context)
+                                                            .getText(
+                                                          '65g0l0jz' /* Hotel Address */,
+                                                        ),
+                                                        maxLines: 4,
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Poppins',
+                                                              color:
+                                                                  Colors.black,
+                                                            ),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
                                             ),
                                             Row(
                                               mainAxisSize: MainAxisSize.max,
@@ -1249,107 +1269,131 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                             fit: BoxFit.cover,
                                           ),
                                         ),
-                                        Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(5.0, 0.0, 0.0, 0.0),
-                                              child: FFButtonWidget(
-                                                onPressed: () {
-                                                  print('Button pressed ...');
-                                                },
-                                                text:
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                  'wpsxa989' /* Rate */,
-                                                ),
-                                                icon: Icon(
-                                                  Icons.star,
-                                                  size: 13.0,
-                                                ),
-                                                options: FFButtonOptions(
-                                                  width: 75.0,
-                                                  height: 30.0,
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 0.0, 0.0),
-                                                  iconPadding:
-                                                      EdgeInsetsDirectional
-                                                          .fromSTEB(0.0, 0.0,
-                                                              0.0, 0.0),
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .tertiary,
-                                                  textStyle: FlutterFlowTheme
-                                                          .of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
+                                        Expanded(
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(5.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: FFButtonWidget(
+                                                      onPressed: () {
+                                                        print(
+                                                            'Button pressed ...');
+                                                      },
+                                                      text: FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        'wpsxa989' /* Rate */,
+                                                      ),
+                                                      icon: Icon(
+                                                        Icons.star,
+                                                        size: 13.0,
+                                                      ),
+                                                      options: FFButtonOptions(
+                                                        width: 75.0,
+                                                        height: 30.0,
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
+                                                        iconPadding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0,
+                                                                    0.0),
                                                         color:
                                                             FlutterFlowTheme.of(
                                                                     context)
-                                                                .primaryBtnText,
-                                                        fontSize: 14.0,
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                      ),
-                                                  elevation: 2.0,
-                                                  borderSide: BorderSide(
-                                                    color: Colors.transparent,
-                                                    width: 1.0,
-                                                  ),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          30.0),
-                                                ),
-                                              ),
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      6.0, 0.0, 179.0, 0.0),
-                                              child: Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  '0tq5nsl0' /* Hotel Star */,
-                                                ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color: Colors.black,
-                                                          fontSize: 14.0,
+                                                                .tertiary,
+                                                        textStyle:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium
+                                                                .override(
+                                                                  fontFamily:
+                                                                      'Poppins',
+                                                                  color: FlutterFlowTheme.of(
+                                                                          context)
+                                                                      .primaryBtnText,
+                                                                  fontSize:
+                                                                      14.0,
+                                                                  fontWeight:
+                                                                      FontWeight
+                                                                          .w600,
+                                                                ),
+                                                        elevation: 2.0,
+                                                        borderSide: BorderSide(
+                                                          color: Colors
+                                                              .transparent,
+                                                          width: 1.0,
                                                         ),
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(30.0),
+                                                      ),
+                                                    ),
+                                                  ),
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(6.0, 0.0,
+                                                                179.0, 0.0),
+                                                    child: Text(
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        '0tq5nsl0' /* Hotel Star */,
+                                                      ),
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            color: Colors.black,
+                                                            fontSize: 14.0,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                ],
                                               ),
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 5.0, 0.0),
-                                              child: FlutterFlowIconButton(
-                                                borderColor: Colors.transparent,
-                                                borderRadius: 30.0,
-                                                borderWidth: 1.0,
-                                                buttonSize: 50.0,
-                                                icon: Icon(
-                                                  Icons.favorite_border_rounded,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryText,
-                                                  size: 30.0,
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 5.0, 0.0),
+                                                child: FlutterFlowIconButton(
+                                                  borderColor:
+                                                      Colors.transparent,
+                                                  borderRadius: 30.0,
+                                                  borderWidth: 1.0,
+                                                  buttonSize: 50.0,
+                                                  icon: Icon(
+                                                    Icons
+                                                        .favorite_border_rounded,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryText,
+                                                    size: 30.0,
+                                                  ),
+                                                  onPressed: () {
+                                                    print(
+                                                        'IconButton pressed ...');
+                                                  },
                                                 ),
-                                                onPressed: () {
-                                                  print(
-                                                      'IconButton pressed ...');
-                                                },
                                               ),
-                                            ),
-                                            Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [],
-                                            ),
-                                          ],
+                                            ],
+                                          ),
                                         ),
                                         Row(
                                           mainAxisSize: MainAxisSize.max,
@@ -1458,562 +1502,6 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                 FFLocalizations.of(context)
                                                     .getText(
                                                   '6z60cahg' /* Total Price PerNight */,
-                                                ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 14.0,
-                                                        ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      SingleChildScrollView(
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  10.0, 0.0, 10.0, 0.0),
-                              child: InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  context.pushNamed('B3HotelBooking');
-                                },
-                                child: Material(
-                                  color: Colors.transparent,
-                                  elevation: 5.0,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  ),
-                                  child: Container(
-                                    width: double.infinity,
-                                    height: 365.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      boxShadow: [
-                                        BoxShadow(
-                                          blurRadius: 4.0,
-                                          color: Color(0x33000000),
-                                          offset: Offset(0.0, 2.0),
-                                        )
-                                      ],
-                                      borderRadius: BorderRadius.circular(10.0),
-                                      border: Border.all(
-                                        color: Color(0xFFEBE9E9),
-                                      ),
-                                    ),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(10.0),
-                                          child: Image.network(
-                                            'https://picsum.photos/seed/663/600',
-                                            width: double.infinity,
-                                            height: 200.0,
-                                            fit: BoxFit.cover,
-                                          ),
-                                        ),
-                                        Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(5.0, 0.0, 0.0, 0.0),
-                                              child: FFButtonWidget(
-                                                onPressed: () {
-                                                  print('Button pressed ...');
-                                                },
-                                                text:
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                  '0p3zsce9' /* Rate */,
-                                                ),
-                                                icon: Icon(
-                                                  Icons.star,
-                                                  size: 13.0,
-                                                ),
-                                                options: FFButtonOptions(
-                                                  width: 75.0,
-                                                  height: 30.0,
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 0.0, 0.0),
-                                                  iconPadding:
-                                                      EdgeInsetsDirectional
-                                                          .fromSTEB(0.0, 0.0,
-                                                              0.0, 0.0),
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .tertiary,
-                                                  textStyle: FlutterFlowTheme
-                                                          .of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryBtnText,
-                                                        fontSize: 14.0,
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                      ),
-                                                  elevation: 2.0,
-                                                  borderSide: BorderSide(
-                                                    color: Colors.transparent,
-                                                    width: 1.0,
-                                                  ),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          30.0),
-                                                ),
-                                              ),
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      6.0, 0.0, 179.0, 0.0),
-                                              child: Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'zwhz1jhm' /* Hotel Star */,
-                                                ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color: Colors.black,
-                                                          fontSize: 14.0,
-                                                        ),
-                                              ),
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 5.0, 0.0),
-                                              child: FlutterFlowIconButton(
-                                                borderColor: Colors.transparent,
-                                                borderRadius: 30.0,
-                                                borderWidth: 1.0,
-                                                buttonSize: 50.0,
-                                                icon: Icon(
-                                                  Icons.favorite_border_rounded,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryText,
-                                                  size: 30.0,
-                                                ),
-                                                onPressed: () {
-                                                  print(
-                                                      'IconButton pressed ...');
-                                                },
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                        Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      10.0, 0.0, 0.0, 0.0),
-                                              child: Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'il3zi1ji' /* Hotel Name */,
-                                                ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 18.0,
-                                                        ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                        Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      10.0, 0.0, 0.0, 0.0),
-                                              child: AutoSizeText(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'rsl28jqj' /* Hotel Address */,
-                                                ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color: Colors.black,
-                                                        ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                        Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.end,
-                                          children: [
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 0.0, 10.0, 0.0),
-                                              child: Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  '45ucqrn0' /* Price */,
-                                                ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                        Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.end,
-                                          children: [
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 0.0, 10.0, 0.0),
-                                              child: Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  '83pe88m4' /* Taxes */,
-                                                ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 12.0,
-                                                        ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                        Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.end,
-                                          children: [
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 0.0, 10.0, 0.0),
-                                              child: Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  '5tmf00zi' /* Total Price PerNight */,
-                                                ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 14.0,
-                                                        ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ],
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      ),
-                      SingleChildScrollView(
-                        child: Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  10.0, 0.0, 10.0, 0.0),
-                              child: InkWell(
-                                splashColor: Colors.transparent,
-                                focusColor: Colors.transparent,
-                                hoverColor: Colors.transparent,
-                                highlightColor: Colors.transparent,
-                                onTap: () async {
-                                  context.pushNamed('B3HotelBooking');
-                                },
-                                child: Material(
-                                  color: Colors.transparent,
-                                  elevation: 5.0,
-                                  shape: RoundedRectangleBorder(
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  ),
-                                  child: Container(
-                                    width: double.infinity,
-                                    height: 365.0,
-                                    decoration: BoxDecoration(
-                                      color: FlutterFlowTheme.of(context)
-                                          .secondaryBackground,
-                                      boxShadow: [
-                                        BoxShadow(
-                                          blurRadius: 4.0,
-                                          color: Color(0x33000000),
-                                          offset: Offset(0.0, 2.0),
-                                        )
-                                      ],
-                                      borderRadius: BorderRadius.circular(10.0),
-                                      border: Border.all(
-                                        color: Color(0xFFEBE9E9),
-                                      ),
-                                    ),
-                                    child: Column(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        ClipRRect(
-                                          borderRadius:
-                                              BorderRadius.circular(10.0),
-                                          child: Image.network(
-                                            'https://picsum.photos/seed/663/600',
-                                            width: double.infinity,
-                                            height: 200.0,
-                                            fit: BoxFit.cover,
-                                          ),
-                                        ),
-                                        Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(5.0, 0.0, 0.0, 0.0),
-                                              child: FFButtonWidget(
-                                                onPressed: () {
-                                                  print('Button pressed ...');
-                                                },
-                                                text:
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                  'hm0juhtp' /* Rate */,
-                                                ),
-                                                icon: Icon(
-                                                  Icons.star,
-                                                  size: 13.0,
-                                                ),
-                                                options: FFButtonOptions(
-                                                  width: 75.0,
-                                                  height: 30.0,
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          0.0, 0.0, 0.0, 0.0),
-                                                  iconPadding:
-                                                      EdgeInsetsDirectional
-                                                          .fromSTEB(0.0, 0.0,
-                                                              0.0, 0.0),
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .tertiary,
-                                                  textStyle: FlutterFlowTheme
-                                                          .of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color:
-                                                            FlutterFlowTheme.of(
-                                                                    context)
-                                                                .primaryBtnText,
-                                                        fontSize: 14.0,
-                                                        fontWeight:
-                                                            FontWeight.w600,
-                                                      ),
-                                                  elevation: 2.0,
-                                                  borderSide: BorderSide(
-                                                    color: Colors.transparent,
-                                                    width: 1.0,
-                                                  ),
-                                                  borderRadius:
-                                                      BorderRadius.circular(
-                                                          30.0),
-                                                ),
-                                              ),
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      6.0, 0.0, 179.0, 0.0),
-                                              child: Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'x95j2s2t' /* Hotel Star */,
-                                                ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color: Colors.black,
-                                                          fontSize: 14.0,
-                                                        ),
-                                              ),
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 5.0, 0.0),
-                                              child: FlutterFlowIconButton(
-                                                borderColor: Colors.transparent,
-                                                borderRadius: 30.0,
-                                                borderWidth: 1.0,
-                                                buttonSize: 50.0,
-                                                icon: Icon(
-                                                  Icons.favorite_border_rounded,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryText,
-                                                  size: 30.0,
-                                                ),
-                                                onPressed: () {
-                                                  print(
-                                                      'IconButton pressed ...');
-                                                },
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                        Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      10.0, 0.0, 0.0, 0.0),
-                                              child: Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  '4s2466bq' /* Hotel Name */,
-                                                ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 18.0,
-                                                        ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                        Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          children: [
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      10.0, 0.0, 0.0, 0.0),
-                                              child: AutoSizeText(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'rwyrqsfs' /* Hotel Address */,
-                                                ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color: Colors.black,
-                                                        ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                        Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.end,
-                                          children: [
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 0.0, 10.0, 0.0),
-                                              child: Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'hle50sjq' /* Price */,
-                                                ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium,
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                        Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.end,
-                                          children: [
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 0.0, 10.0, 0.0),
-                                              child: Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'h8sa54et' /* Taxes */,
-                                                ),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 12.0,
-                                                        ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                        Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.end,
-                                          children: [
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 0.0, 10.0, 0.0),
-                                              child: Text(
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                                  'ytkl7fwk' /* Total Price PerNight */,
                                                 ),
                                                 style:
                                                     FlutterFlowTheme.of(context)

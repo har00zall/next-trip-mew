@@ -24,14 +24,14 @@ abstract class BusinessClassFlightRecord
   @BuiltValueField(wireName: 'To')
   String? get to;
 
-  @BuiltValueField(wireName: 'Price')
-  String? get price;
-
   @BuiltValueField(wireName: 'Duration')
   String? get duration;
 
   @BuiltValueField(wireName: 'Time')
   String? get time;
+
+  @BuiltValueField(wireName: 'Price')
+  int? get price;
 
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
@@ -43,9 +43,9 @@ abstract class BusinessClassFlightRecord
         ..flightName = ''
         ..from = ''
         ..to = ''
-        ..price = ''
         ..duration = ''
-        ..time = '';
+        ..time = ''
+        ..price = 0;
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('businessClassFlight');
@@ -75,9 +75,9 @@ Map<String, dynamic> createBusinessClassFlightRecordData({
   String? flightName,
   String? from,
   String? to,
-  String? price,
   String? duration,
   String? time,
+  int? price,
 }) {
   final firestoreData = serializers.toFirestore(
     BusinessClassFlightRecord.serializer,
@@ -87,9 +87,9 @@ Map<String, dynamic> createBusinessClassFlightRecordData({
         ..flightName = flightName
         ..from = from
         ..to = to
-        ..price = price
         ..duration = duration
-        ..time = time,
+        ..time = time
+        ..price = price,
     ),
   );
 

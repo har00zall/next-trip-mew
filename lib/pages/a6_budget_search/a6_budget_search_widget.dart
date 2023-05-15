@@ -1639,23 +1639,24 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                     stream: queryBusinessClassFlightRecord(
                       queryBuilder: (businessClassFlightRecord) =>
                           businessClassFlightRecord.where('Price',
-                              isLessThanOrEqualTo: ((double budget,
-                                          int days,
-                                          bool transportation,
-                                          double expensePercentage) {
-                                return !transportation
-                                    ? 0
-                                    : (budget -
-                                            (budget *
-                                                expensePercentage /
-                                                100)) /
-                                        days;
+                              isLessThanOrEqualTo: (double budget,
+                                      int days,
+                                      bool transportation,
+                                      double expensePercentage) {
+                                return (!transportation
+                                        ? 0
+                                        : (budget -
+                                                (budget *
+                                                    expensePercentage /
+                                                    100)) /
+                                            days)
+                                    .round();
                               }(
-                                      widget.budget,
-                                      widget.days,
-                                      widget.transportation,
-                                      widget.percentageToExpense))
-                                  .toString()),
+                                  widget.budget,
+                                  widget.days,
+                                  widget.transportation,
+                                  widget.percentageToExpense)),
+                      limit: 10,
                     ),
                     builder: (context, snapshot) {
                       // Customize what your widget looks like when it's loading.
@@ -1962,7 +1963,8 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                       0.0, 0.0, 20.0, 0.0),
                                               child: Text(
                                                 bcfBusinessClassFlightRecord
-                                                    .price!,
+                                                    .price!
+                                                    .toString(),
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -2009,6 +2011,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                   widget.days,
                                   widget.percentageToExpense,
                                   widget.transportation)),
+                      limit: 10,
                     ),
                     builder: (context, snapshot) {
                       // Customize what your widget looks like when it's loading.
@@ -2363,6 +2366,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                               widget.days,
                               widget.percentageToExpense,
                               widget.transportation)),
+                      limit: 10,
                     ),
                     builder: (context, snapshot) {
                       // Customize what your widget looks like when it's loading.
@@ -2595,10 +2599,8 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                           onPressed: () {
                                             print('Button pressed ...');
                                           },
-                                          text: FFLocalizations.of(context)
-                                              .getText(
-                                            'nc6s21ou' /* 1 Class AC */,
-                                          ),
+                                          text: traiTrainRecord.aC1ATier!
+                                              .toString(),
                                           options: FFButtonOptions(
                                             width: 110.0,
                                             height: 45.0,
@@ -2630,10 +2632,8 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                           onPressed: () {
                                             print('Button pressed ...');
                                           },
-                                          text: FFLocalizations.of(context)
-                                              .getText(
-                                            'rm56fgm7' /* 2 Tier AC */,
-                                          ),
+                                          text: traiTrainRecord.aC2ATier!
+                                              .toString(),
                                           options: FFButtonOptions(
                                             width: 110.0,
                                             height: 45.0,
@@ -2665,10 +2665,8 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                           onPressed: () {
                                             print('Button pressed ...');
                                           },
-                                          text: FFLocalizations.of(context)
-                                              .getText(
-                                            'rscuumu8' /* 3 Tier AC */,
-                                          ),
+                                          text: traiTrainRecord.aC3ATier!
+                                              .toString(),
                                           options: FFButtonOptions(
                                             width: 110.0,
                                             height: 45.0,
@@ -2731,6 +2729,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                               widget.days,
                               widget.percentageToExpense,
                               widget.transportation)),
+                      limit: 10,
                     ),
                     builder: (context, snapshot) {
                       // Customize what your widget looks like when it's loading.
@@ -2930,7 +2929,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                               child: Text(
                                                 FFLocalizations.of(context)
                                                     .getText(
-                                                  'zn8ly7l5' /* AC with Seater and Sleeper */,
+                                                  'zn8ly7l5' /* AC */,
                                                 ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
@@ -2974,6 +2973,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                               widget.days,
                               widget.percentageToExpense,
                               widget.transportation)),
+                      limit: 10,
                     ),
                     builder: (context, snapshot) {
                       // Customize what your widget looks like when it's loading.
@@ -3174,7 +3174,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                               child: Text(
                                                 FFLocalizations.of(context)
                                                     .getText(
-                                                  '4rc2kxrv' /* Seater and Sleeper */,
+                                                  '4rc2kxrv' /* Seat and Sleeper */,
                                                 ),
                                                 style:
                                                     FlutterFlowTheme.of(context)

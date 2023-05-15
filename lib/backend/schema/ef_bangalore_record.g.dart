@@ -28,13 +28,6 @@ class _$EfBangaloreRecordSerializer
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    value = object.when;
-    if (value != null) {
-      result
-        ..add('when')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
     value = object.where;
     if (value != null) {
       result
@@ -69,6 +62,13 @@ class _$EfBangaloreRecordSerializer
         ..add('No')
         ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
+    value = object.when;
+    if (value != null) {
+      result
+        ..add('when')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -96,10 +96,6 @@ class _$EfBangaloreRecordSerializer
           result.nameOfFestival = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
-        case 'when':
-          result.when = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
-          break;
         case 'where':
           result.where = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
@@ -120,6 +116,10 @@ class _$EfBangaloreRecordSerializer
           result.no = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int?;
           break;
+        case 'when':
+          result.when = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -137,8 +137,6 @@ class _$EfBangaloreRecord extends EfBangaloreRecord {
   @override
   final String? nameOfFestival;
   @override
-  final String? when;
-  @override
   final String? where;
   @override
   final String? duration;
@@ -149,6 +147,8 @@ class _$EfBangaloreRecord extends EfBangaloreRecord {
   @override
   final int? no;
   @override
+  final String? when;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$EfBangaloreRecord(
@@ -157,12 +157,12 @@ class _$EfBangaloreRecord extends EfBangaloreRecord {
 
   _$EfBangaloreRecord._(
       {this.nameOfFestival,
-      this.when,
       this.where,
       this.duration,
       this.famousFor,
       this.images,
       this.no,
+      this.when,
       this.ffRef})
       : super._();
 
@@ -179,12 +179,12 @@ class _$EfBangaloreRecord extends EfBangaloreRecord {
     if (identical(other, this)) return true;
     return other is EfBangaloreRecord &&
         nameOfFestival == other.nameOfFestival &&
-        when == other.when &&
         where == other.where &&
         duration == other.duration &&
         famousFor == other.famousFor &&
         images == other.images &&
         no == other.no &&
+        when == other.when &&
         ffRef == other.ffRef;
   }
 
@@ -192,12 +192,12 @@ class _$EfBangaloreRecord extends EfBangaloreRecord {
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, nameOfFestival.hashCode);
-    _$hash = $jc(_$hash, when.hashCode);
     _$hash = $jc(_$hash, where.hashCode);
     _$hash = $jc(_$hash, duration.hashCode);
     _$hash = $jc(_$hash, famousFor.hashCode);
     _$hash = $jc(_$hash, images.hashCode);
     _$hash = $jc(_$hash, no.hashCode);
+    _$hash = $jc(_$hash, when.hashCode);
     _$hash = $jc(_$hash, ffRef.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -207,12 +207,12 @@ class _$EfBangaloreRecord extends EfBangaloreRecord {
   String toString() {
     return (newBuiltValueToStringHelper(r'EfBangaloreRecord')
           ..add('nameOfFestival', nameOfFestival)
-          ..add('when', when)
           ..add('where', where)
           ..add('duration', duration)
           ..add('famousFor', famousFor)
           ..add('images', images)
           ..add('no', no)
+          ..add('when', when)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -226,10 +226,6 @@ class EfBangaloreRecordBuilder
   String? get nameOfFestival => _$this._nameOfFestival;
   set nameOfFestival(String? nameOfFestival) =>
       _$this._nameOfFestival = nameOfFestival;
-
-  String? _when;
-  String? get when => _$this._when;
-  set when(String? when) => _$this._when = when;
 
   String? _where;
   String? get where => _$this._where;
@@ -251,6 +247,10 @@ class EfBangaloreRecordBuilder
   int? get no => _$this._no;
   set no(int? no) => _$this._no = no;
 
+  String? _when;
+  String? get when => _$this._when;
+  set when(String? when) => _$this._when = when;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -263,12 +263,12 @@ class EfBangaloreRecordBuilder
     final $v = _$v;
     if ($v != null) {
       _nameOfFestival = $v.nameOfFestival;
-      _when = $v.when;
       _where = $v.where;
       _duration = $v.duration;
       _famousFor = $v.famousFor;
       _images = $v.images;
       _no = $v.no;
+      _when = $v.when;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -293,12 +293,12 @@ class EfBangaloreRecordBuilder
     final _$result = _$v ??
         new _$EfBangaloreRecord._(
             nameOfFestival: nameOfFestival,
-            when: when,
             where: where,
             duration: duration,
             famousFor: famousFor,
             images: images,
             no: no,
+            when: when,
             ffRef: ffRef);
     replace(_$result);
     return _$result;

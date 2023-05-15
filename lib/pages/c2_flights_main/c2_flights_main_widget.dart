@@ -616,7 +616,8 @@ class _C2FlightsMainWidgetState extends State<C2FlightsMainWidget> {
                                                     0.0, 0.0, 20.0, 0.0),
                                             child: Text(
                                               listViewBusinessClassFlightRecord
-                                                  .price!,
+                                                  .price!
+                                                  .toString(),
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium

@@ -31,13 +31,6 @@ class _$EconomyClassFlightRecordSerializer
         ..add('No')
         ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
-    value = object.flightName;
-    if (value != null) {
-      result
-        ..add('FlightName')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
     value = object.from;
     if (value != null) {
       result
@@ -66,6 +59,13 @@ class _$EconomyClassFlightRecordSerializer
         ..add(serializers.serialize(value,
             specifiedType: const FullType(double)));
     }
+    value = object.flightName;
+    if (value != null) {
+      result
+        ..add('Flight_Name')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -93,10 +93,6 @@ class _$EconomyClassFlightRecordSerializer
           result.no = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int?;
           break;
-        case 'FlightName':
-          result.flightName = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
-          break;
         case 'From':
           result.from = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
@@ -112,6 +108,10 @@ class _$EconomyClassFlightRecordSerializer
         case 'Price':
           result.price = serializers.deserialize(value,
               specifiedType: const FullType(double)) as double?;
+          break;
+        case 'Flight_Name':
+          result.flightName = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
           break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
@@ -130,8 +130,6 @@ class _$EconomyClassFlightRecord extends EconomyClassFlightRecord {
   @override
   final int? no;
   @override
-  final String? flightName;
-  @override
   final String? from;
   @override
   final String? to;
@@ -139,6 +137,8 @@ class _$EconomyClassFlightRecord extends EconomyClassFlightRecord {
   final String? time;
   @override
   final double? price;
+  @override
+  final String? flightName;
   @override
   final DocumentReference<Object?>? ffRef;
 
@@ -148,11 +148,11 @@ class _$EconomyClassFlightRecord extends EconomyClassFlightRecord {
 
   _$EconomyClassFlightRecord._(
       {this.no,
-      this.flightName,
       this.from,
       this.to,
       this.time,
       this.price,
+      this.flightName,
       this.ffRef})
       : super._();
 
@@ -170,11 +170,11 @@ class _$EconomyClassFlightRecord extends EconomyClassFlightRecord {
     if (identical(other, this)) return true;
     return other is EconomyClassFlightRecord &&
         no == other.no &&
-        flightName == other.flightName &&
         from == other.from &&
         to == other.to &&
         time == other.time &&
         price == other.price &&
+        flightName == other.flightName &&
         ffRef == other.ffRef;
   }
 
@@ -182,11 +182,11 @@ class _$EconomyClassFlightRecord extends EconomyClassFlightRecord {
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, no.hashCode);
-    _$hash = $jc(_$hash, flightName.hashCode);
     _$hash = $jc(_$hash, from.hashCode);
     _$hash = $jc(_$hash, to.hashCode);
     _$hash = $jc(_$hash, time.hashCode);
     _$hash = $jc(_$hash, price.hashCode);
+    _$hash = $jc(_$hash, flightName.hashCode);
     _$hash = $jc(_$hash, ffRef.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -196,11 +196,11 @@ class _$EconomyClassFlightRecord extends EconomyClassFlightRecord {
   String toString() {
     return (newBuiltValueToStringHelper(r'EconomyClassFlightRecord')
           ..add('no', no)
-          ..add('flightName', flightName)
           ..add('from', from)
           ..add('to', to)
           ..add('time', time)
           ..add('price', price)
+          ..add('flightName', flightName)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -214,10 +214,6 @@ class EconomyClassFlightRecordBuilder
   int? _no;
   int? get no => _$this._no;
   set no(int? no) => _$this._no = no;
-
-  String? _flightName;
-  String? get flightName => _$this._flightName;
-  set flightName(String? flightName) => _$this._flightName = flightName;
 
   String? _from;
   String? get from => _$this._from;
@@ -235,6 +231,10 @@ class EconomyClassFlightRecordBuilder
   double? get price => _$this._price;
   set price(double? price) => _$this._price = price;
 
+  String? _flightName;
+  String? get flightName => _$this._flightName;
+  set flightName(String? flightName) => _$this._flightName = flightName;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -247,11 +247,11 @@ class EconomyClassFlightRecordBuilder
     final $v = _$v;
     if ($v != null) {
       _no = $v.no;
-      _flightName = $v.flightName;
       _from = $v.from;
       _to = $v.to;
       _time = $v.time;
       _price = $v.price;
+      _flightName = $v.flightName;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -276,11 +276,11 @@ class EconomyClassFlightRecordBuilder
     final _$result = _$v ??
         new _$EconomyClassFlightRecord._(
             no: no,
-            flightName: flightName,
             from: from,
             to: to,
             time: time,
             price: price,
+            flightName: flightName,
             ffRef: ffRef);
     replace(_$result);
     return _$result;

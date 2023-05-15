@@ -52,13 +52,6 @@ class _$BusinessClassFlightRecordSerializer
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    value = object.price;
-    if (value != null) {
-      result
-        ..add('Price')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
     value = object.duration;
     if (value != null) {
       result
@@ -72,6 +65,12 @@ class _$BusinessClassFlightRecordSerializer
         ..add('Time')
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
+    }
+    value = object.price;
+    if (value != null) {
+      result
+        ..add('Price')
+        ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
     value = object.ffRef;
     if (value != null) {
@@ -112,10 +111,6 @@ class _$BusinessClassFlightRecordSerializer
           result.to = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
-        case 'Price':
-          result.price = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
-          break;
         case 'Duration':
           result.duration = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
@@ -123,6 +118,10 @@ class _$BusinessClassFlightRecordSerializer
         case 'Time':
           result.time = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
+          break;
+        case 'Price':
+          result.price = serializers.deserialize(value,
+              specifiedType: const FullType(int)) as int?;
           break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
@@ -147,11 +146,11 @@ class _$BusinessClassFlightRecord extends BusinessClassFlightRecord {
   @override
   final String? to;
   @override
-  final String? price;
-  @override
   final String? duration;
   @override
   final String? time;
+  @override
+  final int? price;
   @override
   final DocumentReference<Object?>? ffRef;
 
@@ -164,9 +163,9 @@ class _$BusinessClassFlightRecord extends BusinessClassFlightRecord {
       this.flightName,
       this.from,
       this.to,
-      this.price,
       this.duration,
       this.time,
+      this.price,
       this.ffRef})
       : super._();
 
@@ -187,9 +186,9 @@ class _$BusinessClassFlightRecord extends BusinessClassFlightRecord {
         flightName == other.flightName &&
         from == other.from &&
         to == other.to &&
-        price == other.price &&
         duration == other.duration &&
         time == other.time &&
+        price == other.price &&
         ffRef == other.ffRef;
   }
 
@@ -200,9 +199,9 @@ class _$BusinessClassFlightRecord extends BusinessClassFlightRecord {
     _$hash = $jc(_$hash, flightName.hashCode);
     _$hash = $jc(_$hash, from.hashCode);
     _$hash = $jc(_$hash, to.hashCode);
-    _$hash = $jc(_$hash, price.hashCode);
     _$hash = $jc(_$hash, duration.hashCode);
     _$hash = $jc(_$hash, time.hashCode);
+    _$hash = $jc(_$hash, price.hashCode);
     _$hash = $jc(_$hash, ffRef.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -215,9 +214,9 @@ class _$BusinessClassFlightRecord extends BusinessClassFlightRecord {
           ..add('flightName', flightName)
           ..add('from', from)
           ..add('to', to)
-          ..add('price', price)
           ..add('duration', duration)
           ..add('time', time)
+          ..add('price', price)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -244,10 +243,6 @@ class BusinessClassFlightRecordBuilder
   String? get to => _$this._to;
   set to(String? to) => _$this._to = to;
 
-  String? _price;
-  String? get price => _$this._price;
-  set price(String? price) => _$this._price = price;
-
   String? _duration;
   String? get duration => _$this._duration;
   set duration(String? duration) => _$this._duration = duration;
@@ -255,6 +250,10 @@ class BusinessClassFlightRecordBuilder
   String? _time;
   String? get time => _$this._time;
   set time(String? time) => _$this._time = time;
+
+  int? _price;
+  int? get price => _$this._price;
+  set price(int? price) => _$this._price = price;
 
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
@@ -271,9 +270,9 @@ class BusinessClassFlightRecordBuilder
       _flightName = $v.flightName;
       _from = $v.from;
       _to = $v.to;
-      _price = $v.price;
       _duration = $v.duration;
       _time = $v.time;
+      _price = $v.price;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -301,9 +300,9 @@ class BusinessClassFlightRecordBuilder
             flightName: flightName,
             from: from,
             to: to,
-            price: price,
             duration: duration,
             time: time,
+            price: price,
             ffRef: ffRef);
     replace(_$result);
     return _$result;

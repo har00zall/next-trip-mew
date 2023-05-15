@@ -14,8 +14,6 @@ abstract class EfBangaloreRecord
   @BuiltValueField(wireName: 'Name-of-festival')
   String? get nameOfFestival;
 
-  String? get when;
-
   String? get where;
 
   String? get duration;
@@ -29,18 +27,20 @@ abstract class EfBangaloreRecord
   @BuiltValueField(wireName: 'No')
   int? get no;
 
+  String? get when;
+
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference? get ffRef;
   DocumentReference get reference => ffRef!;
 
   static void _initializeBuilder(EfBangaloreRecordBuilder builder) => builder
     ..nameOfFestival = ''
-    ..when = ''
     ..where = ''
     ..duration = ''
     ..famousFor = ''
     ..images = ''
-    ..no = 0;
+    ..no = 0
+    ..when = '';
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('efBangalore');
@@ -65,24 +65,24 @@ abstract class EfBangaloreRecord
 
 Map<String, dynamic> createEfBangaloreRecordData({
   String? nameOfFestival,
-  String? when,
   String? where,
   String? duration,
   String? famousFor,
   String? images,
   int? no,
+  String? when,
 }) {
   final firestoreData = serializers.toFirestore(
     EfBangaloreRecord.serializer,
     EfBangaloreRecord(
       (e) => e
         ..nameOfFestival = nameOfFestival
-        ..when = when
         ..where = where
         ..duration = duration
         ..famousFor = famousFor
         ..images = images
-        ..no = no,
+        ..no = no
+        ..when = when,
     ),
   );
 
