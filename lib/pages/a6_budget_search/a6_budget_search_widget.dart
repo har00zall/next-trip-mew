@@ -151,358 +151,425 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                           return Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 10.0, 5.0, 10.0, 5.0),
-                            child: InkWell(
-                              splashColor: Colors.transparent,
-                              focusColor: Colors.transparent,
-                              hoverColor: Colors.transparent,
-                              highlightColor: Colors.transparent,
-                              onTap: () async {
-                                context.pushNamed(
-                                  'B3HotelBooking',
-                                  queryParams: {
-                                    'hotelName': serializeParam(
-                                      chennaiChennaiRecord.hotelName,
-                                      ParamType.String,
+                            child: StreamBuilder<List<ChennaiRecord>>(
+                              stream: queryChennaiRecord(
+                                queryBuilder: (chennaiRecord) => chennaiRecord
+                                    .where('Price',
+                                        isLessThanOrEqualTo: (double budget,
+                                                int days,
+                                                double expensePercentage,
+                                                String currentCity) {
+                                          return currentCity == "Chennai"
+                                              ? 0
+                                              : ((budget -
+                                                      (budget *
+                                                          expensePercentage /
+                                                          100)) /
+                                                  days);
+                                        }(
+                                            widget.budget,
+                                            widget.days,
+                                            widget.percentageToExpense,
+                                            widget.currentCity!))
+                                    .orderBy('Price'),
+                              ),
+                              builder: (context, snapshot) {
+                                // Customize what your widget looks like when it's loading.
+                                if (!snapshot.hasData) {
+                                  return Center(
+                                    child: SizedBox(
+                                      width: 50.0,
+                                      height: 50.0,
+                                      child: SpinKitCircle(
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                        size: 50.0,
+                                      ),
                                     ),
-                                    'noAdults': serializeParam(
-                                      '',
-                                      ParamType.String,
+                                  );
+                                }
+                                List<ChennaiRecord> containerChennaiRecordList =
+                                    snapshot.data!;
+                                return InkWell(
+                                  splashColor: Colors.transparent,
+                                  focusColor: Colors.transparent,
+                                  hoverColor: Colors.transparent,
+                                  highlightColor: Colors.transparent,
+                                  onTap: () async {
+                                    context.pushNamed(
+                                      'B3HotelBooking',
+                                      queryParams: {
+                                        'hotelName': serializeParam(
+                                          chennaiChennaiRecord.hotelName,
+                                          ParamType.String,
+                                        ),
+                                        'noAdults': serializeParam(
+                                          '',
+                                          ParamType.String,
+                                        ),
+                                        'bDate': serializeParam(
+                                          '',
+                                          ParamType.String,
+                                        ),
+                                        'noRooms': serializeParam(
+                                          '',
+                                          ParamType.String,
+                                        ),
+                                        'rate': serializeParam(
+                                          chennaiChennaiRecord.rate,
+                                          ParamType.double,
+                                        ),
+                                        'star': serializeParam(
+                                          chennaiChennaiRecord.star,
+                                          ParamType.String,
+                                        ),
+                                        'hotelAddress': serializeParam(
+                                          chennaiChennaiRecord.hotelAddress,
+                                          ParamType.String,
+                                        ),
+                                        'facility': serializeParam(
+                                          chennaiChennaiRecord.facility,
+                                          ParamType.String,
+                                        ),
+                                        'facility1': serializeParam(
+                                          chennaiChennaiRecord.facility2,
+                                          ParamType.String,
+                                        ),
+                                        'facility2': serializeParam(
+                                          chennaiChennaiRecord.facility3,
+                                          ParamType.String,
+                                        ),
+                                        'image': serializeParam(
+                                          chennaiChennaiRecord.images,
+                                          ParamType.String,
+                                        ),
+                                      }.withoutNulls,
+                                    );
+                                  },
+                                  child: Material(
+                                    color: Colors.transparent,
+                                    elevation: 7.0,
+                                    shape: RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(10.0),
                                     ),
-                                    'bDate': serializeParam(
-                                      '',
-                                      ParamType.String,
-                                    ),
-                                    'noRooms': serializeParam(
-                                      '',
-                                      ParamType.String,
-                                    ),
-                                    'rate': serializeParam(
-                                      chennaiChennaiRecord.rate,
-                                      ParamType.double,
-                                    ),
-                                    'star': serializeParam(
-                                      chennaiChennaiRecord.star,
-                                      ParamType.String,
-                                    ),
-                                    'hotelAddress': serializeParam(
-                                      chennaiChennaiRecord.hotelAddress,
-                                      ParamType.String,
-                                    ),
-                                    'facility': serializeParam(
-                                      chennaiChennaiRecord.facility,
-                                      ParamType.String,
-                                    ),
-                                    'facility1': serializeParam(
-                                      chennaiChennaiRecord.facility2,
-                                      ParamType.String,
-                                    ),
-                                    'facility2': serializeParam(
-                                      chennaiChennaiRecord.facility3,
-                                      ParamType.String,
-                                    ),
-                                    'image': serializeParam(
-                                      chennaiChennaiRecord.images,
-                                      ParamType.String,
-                                    ),
-                                  }.withoutNulls,
-                                );
-                              },
-                              child: Material(
-                                color: Colors.transparent,
-                                elevation: 7.0,
-                                shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(10.0),
-                                ),
-                                child: Container(
-                                  width: double.infinity,
-                                  height: 420.0,
-                                  decoration: BoxDecoration(
-                                    color: FlutterFlowTheme.of(context)
-                                        .secondaryBackground,
-                                    boxShadow: [
-                                      BoxShadow(
-                                        blurRadius: 4.0,
-                                        color: Color(0x33000000),
-                                        offset: Offset(0.0, 2.0),
-                                      )
-                                    ],
-                                    borderRadius: BorderRadius.circular(10.0),
-                                    border: Border.all(
-                                      color: Color(0xFFEBE9E9),
-                                    ),
-                                  ),
-                                  child: Column(
-                                    mainAxisSize: MainAxisSize.max,
-                                    children: [
-                                      ClipRRect(
+                                    child: Container(
+                                      width: double.infinity,
+                                      height: 420.0,
+                                      decoration: BoxDecoration(
+                                        color: FlutterFlowTheme.of(context)
+                                            .secondaryBackground,
+                                        boxShadow: [
+                                          BoxShadow(
+                                            blurRadius: 4.0,
+                                            color: Color(0x33000000),
+                                            offset: Offset(0.0, 2.0),
+                                          )
+                                        ],
                                         borderRadius:
                                             BorderRadius.circular(10.0),
-                                        child: CachedNetworkImage(
-                                          imageUrl:
-                                              'https://nexttrip123.000webhostapp.com/${(String images) {
-                                            return images.split('"')[1];
-                                          }(chennaiChennaiRecord.images!)}',
-                                          width: double.infinity,
-                                          height: 200.0,
-                                          fit: BoxFit.cover,
+                                        border: Border.all(
+                                          color: Color(0xFFEBE9E9),
                                         ),
                                       ),
-                                      Row(
+                                      child: Column(
                                         mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
                                         children: [
-                                          Expanded(
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          5.0, 0.0, 0.0, 0.0),
-                                                  child: FFButtonWidget(
-                                                    onPressed: () {
-                                                      print(
-                                                          'Button pressed ...');
-                                                    },
-                                                    text: chennaiChennaiRecord
-                                                        .rate!
-                                                        .toString(),
-                                                    icon: Icon(
-                                                      Icons.star,
-                                                      size: 13.0,
-                                                    ),
-                                                    options: FFButtonOptions(
-                                                      width: 75.0,
-                                                      height: 30.0,
+                                          ClipRRect(
+                                            borderRadius:
+                                                BorderRadius.circular(10.0),
+                                            child: CachedNetworkImage(
+                                              imageUrl:
+                                                  'https://nexttrip123.000webhostapp.com/${(String images) {
+                                                return images.split('"')[1];
+                                              }(chennaiChennaiRecord.images!)}',
+                                              width: double.infinity,
+                                              height: 200.0,
+                                              fit: BoxFit.cover,
+                                            ),
+                                          ),
+                                          Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            children: [
+                                              Expanded(
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  children: [
+                                                    Padding(
                                                       padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0.0,
+                                                                  5.0,
                                                                   0.0,
                                                                   0.0,
                                                                   0.0),
-                                                      iconPadding:
+                                                      child: FFButtonWidget(
+                                                        onPressed: () {
+                                                          print(
+                                                              'Button pressed ...');
+                                                        },
+                                                        text:
+                                                            chennaiChennaiRecord
+                                                                .rate!
+                                                                .toString(),
+                                                        icon: Icon(
+                                                          Icons.star,
+                                                          size: 13.0,
+                                                        ),
+                                                        options:
+                                                            FFButtonOptions(
+                                                          width: 75.0,
+                                                          height: 30.0,
+                                                          padding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          iconPadding:
+                                                              EdgeInsetsDirectional
+                                                                  .fromSTEB(
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0,
+                                                                      0.0),
+                                                          color: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .tertiary,
+                                                          textStyle:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .bodyMedium
+                                                                  .override(
+                                                                    fontFamily:
+                                                                        'Poppins',
+                                                                    color: FlutterFlowTheme.of(
+                                                                            context)
+                                                                        .primaryBtnText,
+                                                                    fontSize:
+                                                                        14.0,
+                                                                    fontWeight:
+                                                                        FontWeight
+                                                                            .w600,
+                                                                  ),
+                                                          elevation: 2.0,
+                                                          borderSide:
+                                                              BorderSide(
+                                                            color: Colors
+                                                                .transparent,
+                                                            width: 1.0,
+                                                          ),
+                                                          borderRadius:
+                                                              BorderRadius
+                                                                  .circular(
+                                                                      30.0),
+                                                        ),
+                                                      ),
+                                                    ),
+                                                    Padding(
+                                                      padding:
                                                           EdgeInsetsDirectional
                                                               .fromSTEB(
-                                                                  0.0,
+                                                                  6.0,
                                                                   0.0,
                                                                   0.0,
                                                                   0.0),
-                                                      color:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .tertiary,
-                                                      textStyle:
+                                                      child: Text(
+                                                        chennaiChennaiRecord
+                                                            .star!,
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Poppins',
+                                                              color:
+                                                                  Colors.black,
+                                                              fontSize: 14.0,
+                                                            ),
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                              ),
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 5.0, 0.0),
+                                                child: FlutterFlowIconButton(
+                                                  borderColor:
+                                                      Colors.transparent,
+                                                  borderRadius: 30.0,
+                                                  borderWidth: 1.0,
+                                                  buttonSize: 50.0,
+                                                  icon: Icon(
+                                                    Icons
+                                                        .favorite_border_rounded,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryText,
+                                                    size: 30.0,
+                                                  ),
+                                                  onPressed: () {
+                                                    print(
+                                                        'IconButton pressed ...');
+                                                  },
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          Expanded(
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Expanded(
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(5.0, 0.0,
+                                                                5.0, 0.0),
+                                                    child: AutoSizeText(
+                                                      chennaiChennaiRecord
+                                                          .hotelName!,
+                                                      maxLines: 4,
+                                                      style:
                                                           FlutterFlowTheme.of(
                                                                   context)
                                                               .bodyMedium
                                                               .override(
                                                                 fontFamily:
                                                                     'Poppins',
-                                                                color: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .primaryBtnText,
-                                                                fontSize: 14.0,
-                                                                fontWeight:
-                                                                    FontWeight
-                                                                        .w600,
+                                                                fontSize: 18.0,
                                                               ),
-                                                      elevation: 2.0,
-                                                      borderSide: BorderSide(
-                                                        color:
-                                                            Colors.transparent,
-                                                        width: 1.0,
-                                                      ),
-                                                      borderRadius:
-                                                          BorderRadius.circular(
-                                                              30.0),
                                                     ),
                                                   ),
                                                 ),
+                                              ],
+                                            ),
+                                          ),
+                                          Expanded(
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment
+                                                      .spaceBetween,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Expanded(
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(5.0, 0.0,
+                                                                5.0, 0.0),
+                                                    child: AutoSizeText(
+                                                      chennaiChennaiRecord
+                                                          .hotelAddress!,
+                                                      maxLines: 4,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            color: Colors.black,
+                                                          ),
+                                                    ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ),
+                                          Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.end,
+                                            children: [
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 10.0, 0.0),
+                                                child: Text(
+                                                  chennaiChennaiRecord.price!
+                                                      .toString(),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 16.0,
+                                                      ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.end,
+                                            children: [
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 10.0, 0.0),
+                                                child: Text(
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'b3xxhi23' /* 500 */,
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 14.0,
+                                                      ),
+                                                ),
+                                              ),
+                                            ],
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 0.0, 5.0),
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              mainAxisAlignment:
+                                                  MainAxisAlignment.end,
+                                              children: [
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
-                                                          6.0, 0.0, 0.0, 0.0),
+                                                          0.0, 0.0, 10.0, 0.0),
                                                   child: Text(
-                                                    chennaiChennaiRecord.star!,
+                                                    (double.parse(chennaiChennaiRecord
+                                                                .price!
+                                                                .toString()) +
+                                                            500)
+                                                        .toString(),
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Poppins',
-                                                          color: Colors.black,
-                                                          fontSize: 14.0,
+                                                          fontSize: 16.0,
                                                         ),
                                                   ),
                                                 ),
                                               ],
                                             ),
                                           ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 5.0, 0.0),
-                                            child: FlutterFlowIconButton(
-                                              borderColor: Colors.transparent,
-                                              borderRadius: 30.0,
-                                              borderWidth: 1.0,
-                                              buttonSize: 50.0,
-                                              icon: Icon(
-                                                Icons.favorite_border_rounded,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
-                                                size: 30.0,
-                                              ),
-                                              onPressed: () {
-                                                print('IconButton pressed ...');
-                                              },
-                                            ),
-                                          ),
                                         ],
                                       ),
-                                      Expanded(
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Expanded(
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        5.0, 0.0, 5.0, 0.0),
-                                                child: AutoSizeText(
-                                                  chennaiChennaiRecord
-                                                      .hotelName!,
-                                                  maxLines: 4,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        fontSize: 18.0,
-                                                      ),
-                                                ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      Expanded(
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Expanded(
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        5.0, 0.0, 5.0, 0.0),
-                                                child: AutoSizeText(
-                                                  chennaiChennaiRecord
-                                                      .hotelAddress!,
-                                                  maxLines: 4,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color: Colors.black,
-                                                      ),
-                                                ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                      Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.end,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 10.0, 0.0),
-                                            child: Text(
-                                              chennaiChennaiRecord.price!
-                                                  .toString(),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        fontSize: 16.0,
-                                                      ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.end,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 10.0, 0.0),
-                                            child: Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                'b3xxhi23' /* 500 */,
-                                              ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        fontSize: 14.0,
-                                                      ),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 0.0, 5.0),
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.end,
-                                          children: [
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      0.0, 0.0, 10.0, 0.0),
-                                              child: Text(
-                                                (double.parse(
-                                                            chennaiChennaiRecord
-                                                                .price!
-                                                                .toString()) +
-                                                        500)
-                                                    .toString(),
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          fontSize: 16.0,
-                                                        ),
-                                              ),
-                                            ),
-                                          ],
-                                        ),
-                                      ),
-                                    ],
+                                    ),
                                   ),
-                                ),
-                              ),
+                                );
+                              },
                             ),
                           );
                         }),
