@@ -2132,24 +2132,26 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                   child: StreamBuilder<List<BusinessClassFlightRecord>>(
                     stream: queryBusinessClassFlightRecord(
                       queryBuilder: (businessClassFlightRecord) =>
-                          businessClassFlightRecord.where('Price',
-                              isLessThanOrEqualTo: (double budget,
-                                      int days,
-                                      bool transportation,
-                                      double expensePercentage) {
-                                return (!transportation
-                                        ? 0
-                                        : (budget -
-                                                (budget *
-                                                    expensePercentage /
-                                                    100)) /
-                                            days)
-                                    .round();
-                              }(
-                                  widget.budget,
-                                  widget.days,
-                                  widget.transportation,
-                                  widget.percentageToExpense)),
+                          businessClassFlightRecord
+                              .where('Price',
+                                  isLessThanOrEqualTo: (double budget,
+                                          int days,
+                                          bool transportation,
+                                          double expensePercentage) {
+                                    return (!transportation
+                                            ? 0
+                                            : (budget -
+                                                    (budget *
+                                                        expensePercentage /
+                                                        100)) /
+                                                days)
+                                        .round();
+                                  }(
+                                      widget.budget,
+                                      widget.days,
+                                      widget.transportation,
+                                      widget.percentageToExpense))
+                              .where('From', isEqualTo: widget.currentCity),
                       limit: 10,
                     ),
                     builder: (context, snapshot) {

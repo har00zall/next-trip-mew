@@ -61,13 +61,6 @@ class _$UserRecordSerializer implements StructuredSerializer<UserRecord> {
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    value = object.fullName;
-    if (value != null) {
-      result
-        ..add('full_name')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -114,10 +107,6 @@ class _$UserRecordSerializer implements StructuredSerializer<UserRecord> {
           result.phoneNumber = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
-        case 'full_name':
-          result.fullName = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
-          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -145,8 +134,6 @@ class _$UserRecord extends UserRecord {
   @override
   final String? phoneNumber;
   @override
-  final String? fullName;
-  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$UserRecord([void Function(UserRecordBuilder)? updates]) =>
@@ -159,7 +146,6 @@ class _$UserRecord extends UserRecord {
       this.uid,
       this.createdTime,
       this.phoneNumber,
-      this.fullName,
       this.ffRef})
       : super._();
 
@@ -180,7 +166,6 @@ class _$UserRecord extends UserRecord {
         uid == other.uid &&
         createdTime == other.createdTime &&
         phoneNumber == other.phoneNumber &&
-        fullName == other.fullName &&
         ffRef == other.ffRef;
   }
 
@@ -193,7 +178,6 @@ class _$UserRecord extends UserRecord {
     _$hash = $jc(_$hash, uid.hashCode);
     _$hash = $jc(_$hash, createdTime.hashCode);
     _$hash = $jc(_$hash, phoneNumber.hashCode);
-    _$hash = $jc(_$hash, fullName.hashCode);
     _$hash = $jc(_$hash, ffRef.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -208,7 +192,6 @@ class _$UserRecord extends UserRecord {
           ..add('uid', uid)
           ..add('createdTime', createdTime)
           ..add('phoneNumber', phoneNumber)
-          ..add('fullName', fullName)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -241,10 +224,6 @@ class UserRecordBuilder implements Builder<UserRecord, UserRecordBuilder> {
   String? get phoneNumber => _$this._phoneNumber;
   set phoneNumber(String? phoneNumber) => _$this._phoneNumber = phoneNumber;
 
-  String? _fullName;
-  String? get fullName => _$this._fullName;
-  set fullName(String? fullName) => _$this._fullName = fullName;
-
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -262,7 +241,6 @@ class UserRecordBuilder implements Builder<UserRecord, UserRecordBuilder> {
       _uid = $v.uid;
       _createdTime = $v.createdTime;
       _phoneNumber = $v.phoneNumber;
-      _fullName = $v.fullName;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -292,7 +270,6 @@ class UserRecordBuilder implements Builder<UserRecord, UserRecordBuilder> {
             uid: uid,
             createdTime: createdTime,
             phoneNumber: phoneNumber,
-            fullName: fullName,
             ffRef: ffRef);
     replace(_$result);
     return _$result;
