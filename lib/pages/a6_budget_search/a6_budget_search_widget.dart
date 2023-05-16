@@ -1397,7 +1397,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                       int days,
                                       double expensePercentage,
                                       String currentCity) {
-                                return currentCity == "Bangalore"
+                                return currentCity == "Bengaluru"
                                     ? 0
                                     : ((budget -
                                             (budget *
