@@ -103,18 +103,20 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                         EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Text(
-                          widget.bDate!,
+                        AutoSizeText(
+                          widget.bDate!.maybeHandleOverflow(maxChars: 11),
                           style:
                               FlutterFlowTheme.of(context).titleSmall.override(
                                     fontFamily: 'Poppins',
                                     color: Colors.white,
+                                    fontSize: 14.0,
                                   ),
                         ),
                         Text(
                           FFLocalizations.of(context).getText(
-                            'wnyox3yb' /* - */,
+                            'wnyox3yb' /* _ */,
                           ),
                           style:
                               FlutterFlowTheme.of(context).titleSmall.override(
@@ -128,11 +130,12 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                               FlutterFlowTheme.of(context).titleSmall.override(
                                     fontFamily: 'Poppins',
                                     color: Colors.white,
+                                    fontSize: 14.0,
                                   ),
                         ),
                         Text(
                           FFLocalizations.of(context).getText(
-                            'sbu459hp' /* - */,
+                            'sbu459hp' /* _ */,
                           ),
                           style:
                               FlutterFlowTheme.of(context).titleSmall.override(
@@ -141,13 +144,12 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                   ),
                         ),
                         Text(
-                          FFLocalizations.of(context).getText(
-                            'r55b680o' /* NoRooms */,
-                          ),
+                          widget.noRooms!,
                           style:
                               FlutterFlowTheme.of(context).titleSmall.override(
                                     fontFamily: 'Poppins',
                                     color: Colors.white,
+                                    fontSize: 14.0,
                                   ),
                         ),
                       ],
@@ -499,7 +501,58 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                     hoverColor: Colors.transparent,
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
-                                      context.pushNamed('B3HotelBooking');
+                                      context.pushNamed(
+                                        'B3HotelBooking',
+                                        queryParams: {
+                                          'hotelName': serializeParam(
+                                            bangaloreBangaloreRecord.hotelName,
+                                            ParamType.String,
+                                          ),
+                                          'noAdults': serializeParam(
+                                            widget.noAdults,
+                                            ParamType.String,
+                                          ),
+                                          'bDate': serializeParam(
+                                            widget.bDate,
+                                            ParamType.String,
+                                          ),
+                                          'noRooms': serializeParam(
+                                            widget.noRooms,
+                                            ParamType.String,
+                                          ),
+                                          'rate': serializeParam(
+                                            bangaloreBangaloreRecord.rate,
+                                            ParamType.double,
+                                          ),
+                                          'star': serializeParam(
+                                            bangaloreBangaloreRecord.star,
+                                            ParamType.String,
+                                          ),
+                                          'hotelAddress': serializeParam(
+                                            bangaloreBangaloreRecord
+                                                .hotelAddress,
+                                            ParamType.String,
+                                          ),
+                                          'facility': serializeParam(
+                                            bangaloreBangaloreRecord.facility,
+                                            ParamType.String,
+                                          ),
+                                          'facility1': serializeParam(
+                                            bangaloreBangaloreRecord.facility2,
+                                            ParamType.String,
+                                          ),
+                                          'facility2': serializeParam(
+                                            bangaloreBangaloreRecord.facility3,
+                                            ParamType.String,
+                                          ),
+                                          'image': serializeParam(
+                                            (String image) {
+                                              return "https://nexttrip123.000webhostapp.com/${image.split('"')[1]}";
+                                            }(bangaloreBangaloreRecord.images!),
+                                            ParamType.String,
+                                          ),
+                                        }.withoutNulls,
+                                      );
                                     },
                                     child: Material(
                                       color: Colors.transparent,
@@ -534,7 +587,9 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                               borderRadius:
                                                   BorderRadius.circular(10.0),
                                               child: Image.network(
-                                                'https://picsum.photos/seed/663/600',
+                                                'https://nexttrip123.000webhostapp.com/${(String image) {
+                                                  return image.split('"')[1];
+                                                }(bangaloreBangaloreRecord.images!)}',
                                                 width: double.infinity,
                                                 height: 200.0,
                                                 fit: BoxFit.cover,
@@ -564,11 +619,10 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                             print(
                                                                 'Button pressed ...');
                                                           },
-                                                          text: FFLocalizations
-                                                                  .of(context)
-                                                              .getText(
-                                                            'fh2k080m' /* Rate */,
-                                                          ),
+                                                          text:
+                                                              bangaloreBangaloreRecord
+                                                                  .rate!
+                                                                  .toString(),
                                                           icon: Icon(
                                                             Icons.star,
                                                             size: 13.0,
@@ -633,11 +687,8 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                                     179.0,
                                                                     0.0),
                                                         child: Text(
-                                                          FFLocalizations.of(
-                                                                  context)
-                                                              .getText(
-                                                            'go4szi1y' /* Hotel Star */,
-                                                          ),
+                                                          bangaloreBangaloreRecord
+                                                              .star!,
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyMedium
@@ -696,11 +747,8 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                                   5.0,
                                                                   0.0),
                                                       child: AutoSizeText(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          '39j2i08j' /* Hotel Name */,
-                                                        ),
+                                                        bangaloreBangaloreRecord
+                                                            .hotelName!,
                                                         textAlign:
                                                             TextAlign.start,
                                                         maxLines: 4,
@@ -737,11 +785,8 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                                   5.0,
                                                                   0.0),
                                                       child: AutoSizeText(
-                                                        FFLocalizations.of(
-                                                                context)
-                                                            .getText(
-                                                          '55tlqoi9' /* Hotel Address */,
-                                                        ),
+                                                        bangaloreBangaloreRecord
+                                                            .hotelAddress!,
                                                         textAlign:
                                                             TextAlign.start,
                                                         maxLines: 4,
@@ -770,10 +815,9 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                       .fromSTEB(
                                                           0.0, 0.0, 10.0, 0.0),
                                                   child: Text(
-                                                    FFLocalizations.of(context)
-                                                        .getText(
-                                                      'w8jfzn8y' /* Price */,
-                                                    ),
+                                                    bangaloreBangaloreRecord
+                                                        .price!
+                                                        .toString(),
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyMedium
@@ -797,7 +841,7 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                   child: Text(
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                      '5rb3ssr0' /* Taxes */,
+                                                      '5rb3ssr0' /* 500 */,
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -824,11 +868,11 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                             .fromSTEB(0.0, 0.0,
                                                                 10.0, 0.0),
                                                     child: Text(
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        'rtwoqhh6' /* Total Price PerNight */,
-                                                      ),
+                                                      (double.parse(bangaloreBangaloreRecord
+                                                                  .price!
+                                                                  .toString()) +
+                                                              500)
+                                                          .toString(),
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -895,7 +939,55 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                     hoverColor: Colors.transparent,
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
-                                      context.pushNamed('B3HotelBooking');
+                                      context.pushNamed(
+                                        'B3HotelBooking',
+                                        queryParams: {
+                                          'hotelName': serializeParam(
+                                            chennaiChennaiRecord.hotelName,
+                                            ParamType.String,
+                                          ),
+                                          'noAdults': serializeParam(
+                                            widget.noAdults,
+                                            ParamType.String,
+                                          ),
+                                          'bDate': serializeParam(
+                                            widget.bDate,
+                                            ParamType.String,
+                                          ),
+                                          'noRooms': serializeParam(
+                                            widget.noRooms,
+                                            ParamType.String,
+                                          ),
+                                          'rate': serializeParam(
+                                            chennaiChennaiRecord.rate,
+                                            ParamType.double,
+                                          ),
+                                          'star': serializeParam(
+                                            chennaiChennaiRecord.star,
+                                            ParamType.String,
+                                          ),
+                                          'hotelAddress': serializeParam(
+                                            chennaiChennaiRecord.hotelAddress,
+                                            ParamType.String,
+                                          ),
+                                          'facility': serializeParam(
+                                            chennaiChennaiRecord.facility,
+                                            ParamType.String,
+                                          ),
+                                          'facility1': serializeParam(
+                                            chennaiChennaiRecord.facility2,
+                                            ParamType.String,
+                                          ),
+                                          'facility2': serializeParam(
+                                            chennaiChennaiRecord.facility3,
+                                            ParamType.String,
+                                          ),
+                                          'image': serializeParam(
+                                            chennaiChennaiRecord.images,
+                                            ParamType.String,
+                                          ),
+                                        }.withoutNulls,
+                                      );
                                     },
                                     child: Material(
                                       color: Colors.transparent,
@@ -1175,7 +1267,7 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                   child: Text(
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                      '7g2vgpq7' /* Taxes */,
+                                                      '7g2vgpq7' /* 500 */,
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -1202,11 +1294,11 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                             .fromSTEB(0.0, 0.0,
                                                                 10.0, 0.0),
                                                     child: Text(
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        'mxz82bdm' /* Total Price PerNight */,
-                                                      ),
+                                                      (double.parse(chennaiChennaiRecord
+                                                                  .price!
+                                                                  .toString()) +
+                                                              500)
+                                                          .toString(),
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -1269,7 +1361,55 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                     hoverColor: Colors.transparent,
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
-                                      context.pushNamed('B3HotelBooking');
+                                      context.pushNamed(
+                                        'B3HotelBooking',
+                                        queryParams: {
+                                          'hotelName': serializeParam(
+                                            goaGoaRecord.hotelName,
+                                            ParamType.String,
+                                          ),
+                                          'noAdults': serializeParam(
+                                            widget.noAdults,
+                                            ParamType.String,
+                                          ),
+                                          'bDate': serializeParam(
+                                            widget.bDate,
+                                            ParamType.String,
+                                          ),
+                                          'noRooms': serializeParam(
+                                            widget.noRooms,
+                                            ParamType.String,
+                                          ),
+                                          'rate': serializeParam(
+                                            goaGoaRecord.rate,
+                                            ParamType.double,
+                                          ),
+                                          'star': serializeParam(
+                                            goaGoaRecord.star,
+                                            ParamType.String,
+                                          ),
+                                          'hotelAddress': serializeParam(
+                                            goaGoaRecord.hotelAddress,
+                                            ParamType.String,
+                                          ),
+                                          'facility': serializeParam(
+                                            goaGoaRecord.facility,
+                                            ParamType.String,
+                                          ),
+                                          'facility1': serializeParam(
+                                            goaGoaRecord.facility2,
+                                            ParamType.String,
+                                          ),
+                                          'facility2': serializeParam(
+                                            goaGoaRecord.facility3,
+                                            ParamType.String,
+                                          ),
+                                          'image': serializeParam(
+                                            goaGoaRecord.images,
+                                            ParamType.String,
+                                          ),
+                                        }.withoutNulls,
+                                      );
                                     },
                                     child: Material(
                                       color: Colors.transparent,
@@ -1547,7 +1687,7 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                   child: Text(
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                      'a2d7dg1g' /* Taxes */,
+                                                      'a2d7dg1g' /* 500 */,
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -1574,11 +1714,11 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                             .fromSTEB(0.0, 0.0,
                                                                 10.0, 0.0),
                                                     child: Text(
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        '6z60cahg' /* Total Price PerNight */,
-                                                      ),
+                                                      (double.parse(goaGoaRecord
+                                                                  .price!
+                                                                  .toString()) +
+                                                              500)
+                                                          .toString(),
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -1648,7 +1788,56 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                     hoverColor: Colors.transparent,
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
-                                      context.pushNamed('B3HotelBooking');
+                                      context.pushNamed(
+                                        'B3HotelBooking',
+                                        queryParams: {
+                                          'hotelName': serializeParam(
+                                            hyderabadHyderabadRecord.hotelName,
+                                            ParamType.String,
+                                          ),
+                                          'noAdults': serializeParam(
+                                            widget.noAdults,
+                                            ParamType.String,
+                                          ),
+                                          'bDate': serializeParam(
+                                            widget.bDate,
+                                            ParamType.String,
+                                          ),
+                                          'noRooms': serializeParam(
+                                            widget.noRooms,
+                                            ParamType.String,
+                                          ),
+                                          'rate': serializeParam(
+                                            hyderabadHyderabadRecord.rate,
+                                            ParamType.double,
+                                          ),
+                                          'star': serializeParam(
+                                            hyderabadHyderabadRecord.star,
+                                            ParamType.String,
+                                          ),
+                                          'hotelAddress': serializeParam(
+                                            hyderabadHyderabadRecord
+                                                .hotelAddress,
+                                            ParamType.String,
+                                          ),
+                                          'facility': serializeParam(
+                                            hyderabadHyderabadRecord.facility,
+                                            ParamType.String,
+                                          ),
+                                          'facility1': serializeParam(
+                                            hyderabadHyderabadRecord.facility2,
+                                            ParamType.String,
+                                          ),
+                                          'facility2': serializeParam(
+                                            hyderabadHyderabadRecord.facility3,
+                                            ParamType.String,
+                                          ),
+                                          'image': serializeParam(
+                                            hyderabadHyderabadRecord.images,
+                                            ParamType.String,
+                                          ),
+                                        }.withoutNulls,
+                                      );
                                     },
                                     child: Material(
                                       color: Colors.transparent,
@@ -1930,7 +2119,7 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                   child: Text(
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                      'x85cavtu' /* Taxes */,
+                                                      'x85cavtu' /* 500 */,
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -1957,11 +2146,11 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                             .fromSTEB(0.0, 0.0,
                                                                 10.0, 0.0),
                                                     child: Text(
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        'v76hlgbj' /* Total Price PerNight */,
-                                                      ),
+                                                      (double.parse(hyderabadHyderabadRecord
+                                                                  .price!
+                                                                  .toString()) +
+                                                              500)
+                                                          .toString(),
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -2027,7 +2216,55 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                     hoverColor: Colors.transparent,
                                     highlightColor: Colors.transparent,
                                     onTap: () async {
-                                      context.pushNamed('B3HotelBooking');
+                                      context.pushNamed(
+                                        'B3HotelBooking',
+                                        queryParams: {
+                                          'hotelName': serializeParam(
+                                            jaipurJaipurRecord.hotelName,
+                                            ParamType.String,
+                                          ),
+                                          'noAdults': serializeParam(
+                                            widget.noAdults,
+                                            ParamType.String,
+                                          ),
+                                          'bDate': serializeParam(
+                                            widget.bDate,
+                                            ParamType.String,
+                                          ),
+                                          'noRooms': serializeParam(
+                                            widget.noRooms,
+                                            ParamType.String,
+                                          ),
+                                          'rate': serializeParam(
+                                            jaipurJaipurRecord.rate,
+                                            ParamType.double,
+                                          ),
+                                          'star': serializeParam(
+                                            jaipurJaipurRecord.star,
+                                            ParamType.String,
+                                          ),
+                                          'hotelAddress': serializeParam(
+                                            jaipurJaipurRecord.hotelAddress,
+                                            ParamType.String,
+                                          ),
+                                          'facility': serializeParam(
+                                            jaipurJaipurRecord.facility,
+                                            ParamType.String,
+                                          ),
+                                          'facility1': serializeParam(
+                                            jaipurJaipurRecord.facility2,
+                                            ParamType.String,
+                                          ),
+                                          'facility2': serializeParam(
+                                            jaipurJaipurRecord.facility3,
+                                            ParamType.String,
+                                          ),
+                                          'image': serializeParam(
+                                            jaipurJaipurRecord.images,
+                                            ParamType.String,
+                                          ),
+                                        }.withoutNulls,
+                                      );
                                     },
                                     child: Material(
                                       color: Colors.transparent,
@@ -2308,7 +2545,7 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                   child: Text(
                                                     FFLocalizations.of(context)
                                                         .getText(
-                                                      's8hxcub3' /* Taxes */,
+                                                      's8hxcub3' /* 500 */,
                                                     ),
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -2335,11 +2572,11 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                             .fromSTEB(0.0, 0.0,
                                                                 10.0, 0.0),
                                                     child: Text(
-                                                      FFLocalizations.of(
-                                                              context)
-                                                          .getText(
-                                                        'awflwf1h' /* Total Price PerNight */,
-                                                      ),
+                                                      (double.parse(jaipurJaipurRecord
+                                                                  .price!
+                                                                  .toString()) +
+                                                              500)
+                                                          .toString(),
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)

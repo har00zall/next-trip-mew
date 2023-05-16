@@ -29,8 +29,6 @@ class _C1FlightsWidgetState extends State<C1FlightsWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => C1FlightsModel());
-
-    _model.textController ??= TextEditingController();
   }
 
   @override
@@ -280,7 +278,11 @@ class _C1FlightsWidgetState extends State<C1FlightsWidget> {
                                           '6nmukwg6' /* From */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .headlineSmall,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              fontSize: 20.0,
+                                            ),
                                       ),
                                       Align(
                                         alignment:
@@ -403,7 +405,11 @@ class _C1FlightsWidgetState extends State<C1FlightsWidget> {
                                           '639tocvc' /* To */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .headlineSmall,
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              fontSize: 20.0,
+                                            ),
                                       ),
                                       Align(
                                         alignment:
@@ -524,11 +530,9 @@ class _C1FlightsWidgetState extends State<C1FlightsWidget> {
                                         'rteotc64' /* No Adult */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
-                                          .headlineMedium
+                                          .bodyMedium
                                           .override(
                                             fontFamily: 'Poppins',
-                                            color: FlutterFlowTheme.of(context)
-                                                .primaryText,
                                             fontSize: 20.0,
                                           ),
                                     ),
@@ -604,19 +608,23 @@ class _C1FlightsWidgetState extends State<C1FlightsWidget> {
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment: MainAxisAlignment.start,
-                                  crossAxisAlignment: CrossAxisAlignment.end,
+                                  crossAxisAlignment: CrossAxisAlignment.center,
                                   children: [
                                     Align(
                                       alignment: AlignmentDirectional(0.0, 0.0),
                                       child: Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 0.0, 0.0, 15.0),
+                                            10.0, 0.0, 0.0, 0.0),
                                         child: Text(
                                           FFLocalizations.of(context).getText(
                                             'yo3fi5n9' /* Departure Date */,
                                           ),
                                           style: FlutterFlowTheme.of(context)
-                                              .titleMedium,
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                fontSize: 16.0,
+                                              ),
                                         ),
                                       ),
                                     ),
@@ -656,72 +664,18 @@ class _C1FlightsWidgetState extends State<C1FlightsWidget> {
                                       ),
                                     ),
                                     Expanded(
-                                      child: Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 0.0, 10.0, 0.0),
-                                        child: TextFormField(
-                                          controller: _model.textController,
-                                          autofocus: true,
-                                          obscureText: false,
-                                          decoration: InputDecoration(
-                                            hintText:
-                                                FFLocalizations.of(context)
-                                                    .getText(
-                                              'tzo1nhdo' /* Date  */,
-                                            ),
-                                            hintStyle:
-                                                FlutterFlowTheme.of(context)
-                                                    .bodySmall
-                                                    .override(
-                                                      fontFamily: 'Poppins',
-                                                      color: Colors.black,
-                                                      fontSize: 16.0,
-                                                    ),
-                                            enabledBorder: OutlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(10.0),
-                                            ),
-                                            focusedBorder: OutlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color: Color(0x00000000),
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(10.0),
-                                            ),
-                                            errorBorder: OutlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color: Color(0x00000000),
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(10.0),
-                                            ),
-                                            focusedErrorBorder:
-                                                OutlineInputBorder(
-                                              borderSide: BorderSide(
-                                                color: Color(0x00000000),
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(10.0),
-                                            ),
-                                            contentPadding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    10.0, 0.0, 0.0, 0.0),
-                                          ),
-                                          style: FlutterFlowTheme.of(context)
-                                              .bodyMedium,
-                                          validator: _model
-                                              .textControllerValidator
-                                              .asValidator(context),
+                                      child: Text(
+                                        valueOrDefault<String>(
+                                          _model.datePicked?.toString(),
+                                          'Date',
                                         ),
+                                        maxLines: 2,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              fontSize: 16.0,
+                                            ),
                                       ),
                                     ),
                                   ],

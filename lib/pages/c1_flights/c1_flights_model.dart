@@ -23,17 +23,12 @@ class C1FlightsModel extends FlutterFlowModel {
   String? dropDownValue3;
   FormFieldController<String>? dropDownValueController3;
   DateTime? datePicked;
-  // State field(s) for TextField widget.
-  TextEditingController? textController;
-  String? Function(BuildContext, String?)? textControllerValidator;
 
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {}
 
-  void dispose() {
-    textController?.dispose();
-  }
+  void dispose() {}
 
   /// Additional helper methods are added here.
 

@@ -333,16 +333,15 @@ class _C2FlightsMainWidgetState extends State<C2FlightsMainWidget> {
                       );
                     }
                     List<BusinessClassFlightRecord>
-                        listViewBusinessClassFlightRecordList = snapshot.data!;
+                        bcfBusinessClassFlightRecordList = snapshot.data!;
                     return ListView.builder(
                       padding: EdgeInsets.zero,
                       shrinkWrap: true,
                       scrollDirection: Axis.vertical,
-                      itemCount: listViewBusinessClassFlightRecordList.length,
-                      itemBuilder: (context, listViewIndex) {
-                        final listViewBusinessClassFlightRecord =
-                            listViewBusinessClassFlightRecordList[
-                                listViewIndex];
+                      itemCount: bcfBusinessClassFlightRecordList.length,
+                      itemBuilder: (context, bcfIndex) {
+                        final bcfBusinessClassFlightRecord =
+                            bcfBusinessClassFlightRecordList[bcfIndex];
                         return Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                               10.0, 5.0, 10.0, 0.0),
@@ -376,48 +375,52 @@ class _C2FlightsMainWidgetState extends State<C2FlightsMainWidget> {
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
                                       children: [
-                                        Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          children: [
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      10.0, 0.0, 0.0, 0.0),
-                                              child: FlutterFlowIconButton(
-                                                borderColor: Colors.transparent,
-                                                borderRadius: 30.0,
-                                                borderWidth: 1.0,
-                                                buttonSize: 45.0,
-                                                icon: Icon(
-                                                  Icons.local_airport_rounded,
-                                                  color: FlutterFlowTheme.of(
-                                                          context)
-                                                      .primaryText,
-                                                  size: 25.0,
+                                        Expanded(
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            children: [
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        10.0, 0.0, 0.0, 0.0),
+                                                child: FlutterFlowIconButton(
+                                                  borderColor:
+                                                      Colors.transparent,
+                                                  borderRadius: 30.0,
+                                                  borderWidth: 1.0,
+                                                  buttonSize: 45.0,
+                                                  icon: Icon(
+                                                    Icons.local_airport_rounded,
+                                                    color: FlutterFlowTheme.of(
+                                                            context)
+                                                        .primaryText,
+                                                    size: 25.0,
+                                                  ),
+                                                  onPressed: () {
+                                                    print(
+                                                        'IconButton pressed ...');
+                                                  },
                                                 ),
-                                                onPressed: () {
-                                                  print(
-                                                      'IconButton pressed ...');
-                                                },
                                               ),
-                                            ),
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(5.0, 0.0, 0.0, 0.0),
-                                              child: Text(
-                                                listViewBusinessClassFlightRecord
-                                                    .flightName!,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color: Colors.black,
-                                                          fontSize: 18.0,
-                                                        ),
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        5.0, 0.0, 0.0, 0.0),
+                                                child: Text(
+                                                  bcfBusinessClassFlightRecord
+                                                      .flightName!,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color: Colors.black,
+                                                        fontSize: 18.0,
+                                                      ),
+                                                ),
                                               ),
-                                            ),
-                                          ],
+                                            ],
+                                          ),
                                         ),
                                         Padding(
                                           padding:
@@ -519,8 +522,7 @@ class _C2FlightsMainWidgetState extends State<C2FlightsMainWidget> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   15.0, 0.0, 0.0, 0.0),
                                           child: Text(
-                                            listViewBusinessClassFlightRecord
-                                                .from!,
+                                            bcfBusinessClassFlightRecord.from!,
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
@@ -534,8 +536,7 @@ class _C2FlightsMainWidgetState extends State<C2FlightsMainWidget> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 15.0, 0.0),
                                           child: Text(
-                                            listViewBusinessClassFlightRecord
-                                                .to!,
+                                            bcfBusinessClassFlightRecord.to!,
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
@@ -581,8 +582,7 @@ class _C2FlightsMainWidgetState extends State<C2FlightsMainWidget> {
                                           MainAxisAlignment.spaceAround,
                                       children: [
                                         Text(
-                                          listViewBusinessClassFlightRecord
-                                              .time!,
+                                          bcfBusinessClassFlightRecord.time!,
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -591,7 +591,7 @@ class _C2FlightsMainWidgetState extends State<C2FlightsMainWidget> {
                                               ),
                                         ),
                                         Text(
-                                          listViewBusinessClassFlightRecord
+                                          bcfBusinessClassFlightRecord
                                               .duration!,
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
@@ -615,7 +615,7 @@ class _C2FlightsMainWidgetState extends State<C2FlightsMainWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 20.0, 0.0),
                                             child: Text(
-                                              listViewBusinessClassFlightRecord
+                                              bcfBusinessClassFlightRecord
                                                   .price!
                                                   .toString(),
                                               style:
@@ -657,15 +657,15 @@ class _C2FlightsMainWidgetState extends State<C2FlightsMainWidget> {
                       );
                     }
                     List<EconomyClassFlightRecord>
-                        listViewEconomyClassFlightRecordList = snapshot.data!;
+                        ecfEconomyClassFlightRecordList = snapshot.data!;
                     return ListView.builder(
                       padding: EdgeInsets.zero,
                       shrinkWrap: true,
                       scrollDirection: Axis.vertical,
-                      itemCount: listViewEconomyClassFlightRecordList.length,
-                      itemBuilder: (context, listViewIndex) {
-                        final listViewEconomyClassFlightRecord =
-                            listViewEconomyClassFlightRecordList[listViewIndex];
+                      itemCount: ecfEconomyClassFlightRecordList.length,
+                      itemBuilder: (context, ecfIndex) {
+                        final ecfEconomyClassFlightRecord =
+                            ecfEconomyClassFlightRecordList[ecfIndex];
                         return Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
                               10.0, 5.0, 10.0, 0.0),
@@ -735,7 +735,7 @@ class _C2FlightsMainWidgetState extends State<C2FlightsMainWidget> {
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(5.0, 0.0, 0.0, 0.0),
                                               child: Text(
-                                                listViewEconomyClassFlightRecord
+                                                ecfEconomyClassFlightRecord
                                                     .flightName!,
                                                 style:
                                                     FlutterFlowTheme.of(context)
@@ -849,8 +849,7 @@ class _C2FlightsMainWidgetState extends State<C2FlightsMainWidget> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   15.0, 0.0, 0.0, 0.0),
                                           child: Text(
-                                            listViewEconomyClassFlightRecord
-                                                .from!,
+                                            ecfEconomyClassFlightRecord.from!,
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
@@ -864,8 +863,7 @@ class _C2FlightsMainWidgetState extends State<C2FlightsMainWidget> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 15.0, 0.0),
                                           child: Text(
-                                            listViewEconomyClassFlightRecord
-                                                .to!,
+                                            ecfEconomyClassFlightRecord.to!,
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
@@ -907,8 +905,7 @@ class _C2FlightsMainWidgetState extends State<C2FlightsMainWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     5.0, 0.0, 0.0, 0.0),
                                             child: Text(
-                                              listViewEconomyClassFlightRecord
-                                                  .time!,
+                                              ecfEconomyClassFlightRecord.time!,
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
@@ -930,8 +927,7 @@ class _C2FlightsMainWidgetState extends State<C2FlightsMainWidget> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 20.0, 0.0),
                                           child: Text(
-                                            listViewEconomyClassFlightRecord
-                                                .time!,
+                                            ecfEconomyClassFlightRecord.time!,
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(

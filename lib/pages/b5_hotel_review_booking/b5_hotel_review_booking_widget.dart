@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -96,7 +97,7 @@ class _B5HotelReviewBookingWidgetState
                         ),
                         child: Container(
                           width: double.infinity,
-                          height: 335.0,
+                          height: 420.0,
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
@@ -209,49 +210,66 @@ class _B5HotelReviewBookingWidgetState
                                       ),
                                     ),
                                   ),
-                                  Align(
-                                    alignment: AlignmentDirectional(0.0, 0.51),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  10.0, 0.0, 0.0, 0.0),
-                                          child: Text(
-                                            FFLocalizations.of(context).getText(
-                                              'tlbnlust' /* Hotel Name */,
-                                            ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium
-                                                .override(
-                                                  fontFamily: 'Poppins',
-                                                  fontSize: 18.0,
-                                                  fontWeight: FontWeight.w600,
+                                  Expanded(
+                                    child: Align(
+                                      alignment:
+                                          AlignmentDirectional(0.0, -0.7),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Expanded(
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(5.0, 0.0, 5.0, 0.0),
+                                              child: AutoSizeText(
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'tlbnlust' /* Hotel Name */,
                                                 ),
+                                                maxLines: 4,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 18.0,
+                                                          fontWeight:
+                                                              FontWeight.w600,
+                                                        ),
+                                              ),
+                                            ),
                                           ),
-                                        ),
-                                      ],
+                                        ],
+                                      ),
                                     ),
                                   ),
-                                  Align(
-                                    alignment: AlignmentDirectional(0.0, 0.63),
-                                    child: Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  10.0, 0.0, 0.0, 0.0),
-                                          child: Text(
-                                            FFLocalizations.of(context).getText(
-                                              'w66o9tby' /* Hotel Address */,
+                                  Expanded(
+                                    child: Align(
+                                      alignment:
+                                          AlignmentDirectional(0.0, -1.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Expanded(
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(5.0, 0.0, 5.0, 0.0),
+                                              child: AutoSizeText(
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'w66o9tby' /* Hotel Address */,
+                                                ),
+                                                maxLines: 4,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium,
+                                              ),
                                             ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium,
                                           ),
-                                        ),
-                                      ],
+                                        ],
+                                      ),
                                     ),
                                   ),
                                   Divider(
@@ -1230,7 +1248,7 @@ class _B5HotelReviewBookingWidgetState
                 ),
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(10.0, 770.0, 10.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(0.0, 770.0, 0.0, 0.0),
                 child: Material(
                   color: Colors.transparent,
                   elevation: 10.0,

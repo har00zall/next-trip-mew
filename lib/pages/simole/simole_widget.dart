@@ -58,27 +58,6 @@ class _SimoleWidgetState extends State<SimoleWidget> {
           centerTitle: false,
           elevation: 2.0,
         ),
-        body: SafeArea(
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              SingleChildScrollView(
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Align(
-                      alignment: AlignmentDirectional(0.0, 0.0),
-                      child: Stack(
-                        alignment: AlignmentDirectional(0.0, 0.0),
-                        children: [],
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-        ),
       ),
     );
   }

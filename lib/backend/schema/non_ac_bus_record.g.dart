@@ -27,13 +27,6 @@ class _$NonAcBusRecordSerializer
         ..add('No')
         ..add(serializers.serialize(value, specifiedType: const FullType(int)));
     }
-    value = object.busName;
-    if (value != null) {
-      result
-        ..add('BusName')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(String)));
-    }
     value = object.from;
     if (value != null) {
       result
@@ -88,6 +81,13 @@ class _$NonAcBusRecordSerializer
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
+    value = object.busName;
+    if (value != null) {
+      result
+        ..add('Bus_Name')
+        ..add(serializers.serialize(value,
+            specifiedType: const FullType(String)));
+    }
     value = object.ffRef;
     if (value != null) {
       result
@@ -114,10 +114,6 @@ class _$NonAcBusRecordSerializer
         case 'No':
           result.no = serializers.deserialize(value,
               specifiedType: const FullType(int)) as int?;
-          break;
-        case 'BusName':
-          result.busName = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String?;
           break;
         case 'From':
           result.from = serializers.deserialize(value,
@@ -151,6 +147,10 @@ class _$NonAcBusRecordSerializer
           result.arrival = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
           break;
+        case 'Bus_Name':
+          result.busName = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String?;
+          break;
         case 'Document__Reference__Field':
           result.ffRef = serializers.deserialize(value,
               specifiedType: const FullType(DocumentReference, const [
@@ -168,8 +168,6 @@ class _$NonAcBusRecord extends NonAcBusRecord {
   @override
   final int? no;
   @override
-  final String? busName;
-  @override
   final String? from;
   @override
   final String? to;
@@ -186,6 +184,8 @@ class _$NonAcBusRecord extends NonAcBusRecord {
   @override
   final String? arrival;
   @override
+  final String? busName;
+  @override
   final DocumentReference<Object?>? ffRef;
 
   factory _$NonAcBusRecord([void Function(NonAcBusRecordBuilder)? updates]) =>
@@ -193,7 +193,6 @@ class _$NonAcBusRecord extends NonAcBusRecord {
 
   _$NonAcBusRecord._(
       {this.no,
-      this.busName,
       this.from,
       this.to,
       this.boarding,
@@ -202,6 +201,7 @@ class _$NonAcBusRecord extends NonAcBusRecord {
       this.time,
       this.duration,
       this.arrival,
+      this.busName,
       this.ffRef})
       : super._();
 
@@ -218,7 +218,6 @@ class _$NonAcBusRecord extends NonAcBusRecord {
     if (identical(other, this)) return true;
     return other is NonAcBusRecord &&
         no == other.no &&
-        busName == other.busName &&
         from == other.from &&
         to == other.to &&
         boarding == other.boarding &&
@@ -227,6 +226,7 @@ class _$NonAcBusRecord extends NonAcBusRecord {
         time == other.time &&
         duration == other.duration &&
         arrival == other.arrival &&
+        busName == other.busName &&
         ffRef == other.ffRef;
   }
 
@@ -234,7 +234,6 @@ class _$NonAcBusRecord extends NonAcBusRecord {
   int get hashCode {
     var _$hash = 0;
     _$hash = $jc(_$hash, no.hashCode);
-    _$hash = $jc(_$hash, busName.hashCode);
     _$hash = $jc(_$hash, from.hashCode);
     _$hash = $jc(_$hash, to.hashCode);
     _$hash = $jc(_$hash, boarding.hashCode);
@@ -243,6 +242,7 @@ class _$NonAcBusRecord extends NonAcBusRecord {
     _$hash = $jc(_$hash, time.hashCode);
     _$hash = $jc(_$hash, duration.hashCode);
     _$hash = $jc(_$hash, arrival.hashCode);
+    _$hash = $jc(_$hash, busName.hashCode);
     _$hash = $jc(_$hash, ffRef.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
@@ -252,7 +252,6 @@ class _$NonAcBusRecord extends NonAcBusRecord {
   String toString() {
     return (newBuiltValueToStringHelper(r'NonAcBusRecord')
           ..add('no', no)
-          ..add('busName', busName)
           ..add('from', from)
           ..add('to', to)
           ..add('boarding', boarding)
@@ -261,6 +260,7 @@ class _$NonAcBusRecord extends NonAcBusRecord {
           ..add('time', time)
           ..add('duration', duration)
           ..add('arrival', arrival)
+          ..add('busName', busName)
           ..add('ffRef', ffRef))
         .toString();
   }
@@ -273,10 +273,6 @@ class NonAcBusRecordBuilder
   int? _no;
   int? get no => _$this._no;
   set no(int? no) => _$this._no = no;
-
-  String? _busName;
-  String? get busName => _$this._busName;
-  set busName(String? busName) => _$this._busName = busName;
 
   String? _from;
   String? get from => _$this._from;
@@ -310,6 +306,10 @@ class NonAcBusRecordBuilder
   String? get arrival => _$this._arrival;
   set arrival(String? arrival) => _$this._arrival = arrival;
 
+  String? _busName;
+  String? get busName => _$this._busName;
+  set busName(String? busName) => _$this._busName = busName;
+
   DocumentReference<Object?>? _ffRef;
   DocumentReference<Object?>? get ffRef => _$this._ffRef;
   set ffRef(DocumentReference<Object?>? ffRef) => _$this._ffRef = ffRef;
@@ -322,7 +322,6 @@ class NonAcBusRecordBuilder
     final $v = _$v;
     if ($v != null) {
       _no = $v.no;
-      _busName = $v.busName;
       _from = $v.from;
       _to = $v.to;
       _boarding = $v.boarding;
@@ -331,6 +330,7 @@ class NonAcBusRecordBuilder
       _time = $v.time;
       _duration = $v.duration;
       _arrival = $v.arrival;
+      _busName = $v.busName;
       _ffRef = $v.ffRef;
       _$v = null;
     }
@@ -355,7 +355,6 @@ class NonAcBusRecordBuilder
     final _$result = _$v ??
         new _$NonAcBusRecord._(
             no: no,
-            busName: busName,
             from: from,
             to: to,
             boarding: boarding,
@@ -364,6 +363,7 @@ class NonAcBusRecordBuilder
             time: time,
             duration: duration,
             arrival: arrival,
+            busName: busName,
             ffRef: ffRef);
     replace(_$result);
     return _$result;

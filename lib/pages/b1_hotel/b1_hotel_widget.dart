@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -29,9 +30,6 @@ class _B1HotelWidgetState extends State<B1HotelWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => B1HotelModel());
-
-    _model.textController1 ??= TextEditingController();
-    _model.textController2 ??= TextEditingController();
   }
 
   @override
@@ -570,106 +568,58 @@ class _B1HotelWidgetState extends State<B1HotelWidget> {
                     ),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
-                      mainAxisAlignment: MainAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        FlutterFlowIconButton(
-                          borderColor: Colors.transparent,
-                          borderRadius: 30.0,
-                          borderWidth: 1.0,
-                          buttonSize: 60.0,
-                          icon: Icon(
-                            Icons.calendar_today_rounded,
-                            color: FlutterFlowTheme.of(context).primaryText,
-                            size: 30.0,
-                          ),
-                          onPressed: () async {
-                            final _datePicked1Date = await showDatePicker(
-                              context: context,
-                              initialDate: getCurrentTimestamp,
-                              firstDate: getCurrentTimestamp,
-                              lastDate: DateTime(2050),
-                            );
-
-                            if (_datePicked1Date != null) {
-                              setState(() {
-                                _model.datePicked1 = DateTime(
-                                  _datePicked1Date.year,
-                                  _datePicked1Date.month,
-                                  _datePicked1Date.day,
-                                );
-                              });
-                            }
-                          },
-                        ),
                         Expanded(
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 5.0, 0.0),
-                            child: TextFormField(
-                              controller: _model.textController1,
-                              autofocus: true,
-                              obscureText: false,
-                              decoration: InputDecoration(
-                                hintText: FFLocalizations.of(context).getText(
-                                  'kjdvmxbq' /* From date */,
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              FlutterFlowIconButton(
+                                borderColor: Colors.transparent,
+                                borderRadius: 30.0,
+                                borderWidth: 1.0,
+                                buttonSize: 60.0,
+                                icon: Icon(
+                                  Icons.calendar_today_rounded,
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  size: 30.0,
                                 ),
-                                hintStyle: FlutterFlowTheme.of(context)
-                                    .bodySmall
-                                    .override(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.black,
-                                      fontSize: 18.0,
-                                    ),
-                                enabledBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0x00000000),
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: const BorderRadius.only(
-                                    topLeft: Radius.circular(4.0),
-                                    topRight: Radius.circular(4.0),
-                                  ),
-                                ),
-                                focusedBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0x00000000),
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: const BorderRadius.only(
-                                    topLeft: Radius.circular(4.0),
-                                    topRight: Radius.circular(4.0),
-                                  ),
-                                ),
-                                errorBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0x00000000),
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: const BorderRadius.only(
-                                    topLeft: Radius.circular(4.0),
-                                    topRight: Radius.circular(4.0),
-                                  ),
-                                ),
-                                focusedErrorBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0x00000000),
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: const BorderRadius.only(
-                                    topLeft: Radius.circular(4.0),
-                                    topRight: Radius.circular(4.0),
-                                  ),
+                                onPressed: () async {
+                                  final _datePicked1Date = await showDatePicker(
+                                    context: context,
+                                    initialDate: getCurrentTimestamp,
+                                    firstDate: getCurrentTimestamp,
+                                    lastDate: DateTime(2050),
+                                  );
+
+                                  if (_datePicked1Date != null) {
+                                    setState(() {
+                                      _model.datePicked1 = DateTime(
+                                        _datePicked1Date.year,
+                                        _datePicked1Date.month,
+                                        _datePicked1Date.day,
+                                      );
+                                    });
+                                  }
+                                },
+                              ),
+                              Expanded(
+                                child: AutoSizeText(
+                                  valueOrDefault<String>(
+                                    _model.datePicked1?.toString(),
+                                    'From Date',
+                                  ).maybeHandleOverflow(maxChars: 11),
+                                  maxLines: 2,
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        fontSize: 16.0,
+                                      ),
                                 ),
                               ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    fontSize: 18.0,
-                                  ),
-                              validator: _model.textController1Validator
-                                  .asValidator(context),
-                            ),
+                            ],
                           ),
                         ),
                         SizedBox(
@@ -679,105 +629,60 @@ class _B1HotelWidgetState extends State<B1HotelWidget> {
                             color: Color(0x53000000),
                           ),
                         ),
-                        FlutterFlowIconButton(
-                          borderColor: Colors.transparent,
-                          borderRadius: 30.0,
-                          borderWidth: 1.0,
-                          buttonSize: 60.0,
-                          icon: Icon(
-                            Icons.calendar_today_rounded,
-                            color: FlutterFlowTheme.of(context).primaryText,
-                            size: 30.0,
-                          ),
-                          onPressed: () async {
-                            final _datePicked2Date = await showDatePicker(
-                              context: context,
-                              initialDate: getCurrentTimestamp,
-                              firstDate: getCurrentTimestamp,
-                              lastDate: DateTime(2050),
-                            );
-
-                            if (_datePicked2Date != null) {
-                              setState(() {
-                                _model.datePicked2 = DateTime(
-                                  _datePicked2Date.year,
-                                  _datePicked2Date.month,
-                                  _datePicked2Date.day,
-                                );
-                              });
-                            }
-                          },
-                        ),
                         Expanded(
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 6.0, 0.0),
-                            child: TextFormField(
-                              controller: _model.textController2,
-                              autofocus: true,
-                              obscureText: false,
-                              decoration: InputDecoration(
-                                hintText: FFLocalizations.of(context).getText(
-                                  'cb4w7fso' /* ToDate */,
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            children: [
+                              FlutterFlowIconButton(
+                                borderColor: Colors.transparent,
+                                borderRadius: 30.0,
+                                borderWidth: 1.0,
+                                buttonSize: 60.0,
+                                icon: Icon(
+                                  Icons.calendar_today_rounded,
+                                  color:
+                                      FlutterFlowTheme.of(context).primaryText,
+                                  size: 30.0,
                                 ),
-                                hintStyle: FlutterFlowTheme.of(context)
-                                    .bodySmall
-                                    .override(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.black,
-                                      fontSize: 18.0,
-                                    ),
-                                enabledBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0x00000000),
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: const BorderRadius.only(
-                                    topLeft: Radius.circular(4.0),
-                                    topRight: Radius.circular(4.0),
-                                  ),
-                                ),
-                                focusedBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0x00000000),
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: const BorderRadius.only(
-                                    topLeft: Radius.circular(4.0),
-                                    topRight: Radius.circular(4.0),
-                                  ),
-                                ),
-                                errorBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0x00000000),
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: const BorderRadius.only(
-                                    topLeft: Radius.circular(4.0),
-                                    topRight: Radius.circular(4.0),
-                                  ),
-                                ),
-                                focusedErrorBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    color: Color(0x00000000),
-                                    width: 1.0,
-                                  ),
-                                  borderRadius: const BorderRadius.only(
-                                    topLeft: Radius.circular(4.0),
-                                    topRight: Radius.circular(4.0),
+                                onPressed: () async {
+                                  final _datePicked2Date = await showDatePicker(
+                                    context: context,
+                                    initialDate: getCurrentTimestamp,
+                                    firstDate: getCurrentTimestamp,
+                                    lastDate: DateTime(2050),
+                                  );
+
+                                  if (_datePicked2Date != null) {
+                                    setState(() {
+                                      _model.datePicked2 = DateTime(
+                                        _datePicked2Date.year,
+                                        _datePicked2Date.month,
+                                        _datePicked2Date.day,
+                                      );
+                                    });
+                                  }
+                                },
+                              ),
+                              Expanded(
+                                child: Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      0.0, 0.0, 10.0, 0.0),
+                                  child: AutoSizeText(
+                                    valueOrDefault<String>(
+                                      _model.datePicked2?.toString(),
+                                      'To Date',
+                                    ).maybeHandleOverflow(maxChars: 11),
+                                    maxLines: 2,
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          fontSize: 16.0,
+                                        ),
                                   ),
                                 ),
                               ),
-                              style: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                    fontSize: 18.0,
-                                  ),
-                              validator: _model.textController2Validator
-                                  .asValidator(context),
-                            ),
+                            ],
                           ),
                         ),
                       ],
@@ -805,7 +710,7 @@ class _B1HotelWidgetState extends State<B1HotelWidget> {
                           ParamType.String,
                         ),
                         'bDate': serializeParam(
-                          _model.textController1.text,
+                          _model.datePicked1?.toString(),
                           ParamType.String,
                         ),
                       }.withoutNulls,

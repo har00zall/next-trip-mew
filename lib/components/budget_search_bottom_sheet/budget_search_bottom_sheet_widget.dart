@@ -34,6 +34,7 @@ class _BudgetSearchBottomSheetWidgetState
     _model.textController1 ??= TextEditingController();
     _model.textController2 ??= TextEditingController();
     _model.textController3 ??= TextEditingController();
+    _model.textController4 ??= TextEditingController();
   }
 
   @override
@@ -46,13 +47,13 @@ class _BudgetSearchBottomSheetWidgetState
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(0.0, 500.0, 0.0, 0.0),
+      padding: EdgeInsetsDirectional.fromSTEB(0.0, 450.0, 0.0, 0.0),
       child: Column(
         mainAxisSize: MainAxisSize.max,
         children: [
           Container(
             width: double.infinity,
-            height: 300.0,
+            height: 400.0,
             decoration: BoxDecoration(
               color: Colors.white,
               borderRadius: BorderRadius.circular(10.0),
@@ -67,12 +68,13 @@ class _BudgetSearchBottomSheetWidgetState
                         EdgeInsetsDirectional.fromSTEB(10.0, 3.0, 10.0, 5.0),
                     child: Material(
                       color: Colors.transparent,
-                      elevation: 5.0,
+                      elevation: 7.0,
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10.0),
                       ),
                       child: Container(
                         width: double.infinity,
+                        height: 290.0,
                         decoration: BoxDecoration(
                           color:
                               FlutterFlowTheme.of(context).secondaryBackground,
@@ -325,6 +327,89 @@ class _BudgetSearchBottomSheetWidgetState
                                   ),
                                 ),
                               ],
+                            ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  0.0, 5.0, 0.0, 0.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Expanded(
+                                    child: Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          5.0, 0.0, 5.0, 0.0),
+                                      child: TextFormField(
+                                        controller: _model.textController4,
+                                        autofocus: true,
+                                        obscureText: false,
+                                        decoration: InputDecoration(
+                                          hintText: FFLocalizations.of(context)
+                                              .getText(
+                                            'pin11h2i' /* Put your Current City */,
+                                          ),
+                                          hintStyle: FlutterFlowTheme.of(
+                                                  context)
+                                              .bodySmall
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                                fontSize: 16.0,
+                                              ),
+                                          enabledBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryText,
+                                              width: 1.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(10.0),
+                                          ),
+                                          focusedBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color: Color(0x00000000),
+                                              width: 1.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(10.0),
+                                          ),
+                                          errorBorder: OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color: Color(0x00000000),
+                                              width: 1.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(10.0),
+                                          ),
+                                          focusedErrorBorder:
+                                              OutlineInputBorder(
+                                            borderSide: BorderSide(
+                                              color: Color(0x00000000),
+                                              width: 1.0,
+                                            ),
+                                            borderRadius:
+                                                BorderRadius.circular(10.0),
+                                          ),
+                                          contentPadding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  5.0, 0.0, 0.0, 0.0),
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              fontSize: 18.0,
+                                            ),
+                                        validator: _model
+                                            .textController4Validator
+                                            .asValidator(context),
+                                      ),
+                                    ),
+                                  ),
+                                ],
+                              ),
                             ),
                             Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(

@@ -107,7 +107,19 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'B3HotelBooking',
               path: 'b3HotelBooking',
-              builder: (context, params) => B3HotelBookingWidget(),
+              builder: (context, params) => B3HotelBookingWidget(
+                hotelName: params.getParam('hotelName', ParamType.String),
+                noAdults: params.getParam('noAdults', ParamType.String),
+                bDate: params.getParam('bDate', ParamType.String),
+                noRooms: params.getParam('noRooms', ParamType.String),
+                rate: params.getParam('rate', ParamType.double),
+                star: params.getParam('star', ParamType.String),
+                hotelAddress: params.getParam('hotelAddress', ParamType.String),
+                facility: params.getParam('facility', ParamType.String),
+                facility1: params.getParam('facility1', ParamType.String),
+                facility2: params.getParam('facility2', ParamType.String),
+                image: params.getParam('image', ParamType.String),
+              ),
             ),
             FFRoute(
               name: 'I1Resturants',

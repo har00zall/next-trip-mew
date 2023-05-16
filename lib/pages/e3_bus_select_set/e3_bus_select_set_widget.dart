@@ -923,7 +923,7 @@ class _E3BusSelectSetWidgetState extends State<E3BusSelectSetWidget> {
                 ],
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(10.0, 700.0, 10.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(10.0, 770.0, 10.0, 0.0),
                 child: Material(
                   color: Colors.transparent,
                   elevation: 10.0,

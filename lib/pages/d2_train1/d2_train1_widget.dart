@@ -340,47 +340,49 @@ class _D2Train1WidgetState extends State<D2Train1Widget> {
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    10.0, 0.0, 0.0, 0.0),
-                                            child: FlutterFlowIconButton(
-                                              borderColor: Colors.transparent,
-                                              borderRadius: 30.0,
-                                              borderWidth: 1.0,
-                                              buttonSize: 45.0,
-                                              icon: Icon(
-                                                Icons.train_sharp,
-                                                color:
-                                                    FlutterFlowTheme.of(context)
-                                                        .primaryText,
-                                                size: 30.0,
+                                      Expanded(
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      10.0, 0.0, 0.0, 0.0),
+                                              child: FlutterFlowIconButton(
+                                                borderColor: Colors.transparent,
+                                                borderRadius: 30.0,
+                                                borderWidth: 1.0,
+                                                buttonSize: 45.0,
+                                                icon: Icon(
+                                                  Icons.train_sharp,
+                                                  color: FlutterFlowTheme.of(
+                                                          context)
+                                                      .primaryText,
+                                                  size: 30.0,
+                                                ),
+                                                onPressed: () {
+                                                  print(
+                                                      'IconButton pressed ...');
+                                                },
                                               ),
-                                              onPressed: () {
-                                                print('IconButton pressed ...');
-                                              },
                                             ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    5.0, 0.0, 0.0, 0.0),
-                                            child: AutoSizeText(
-                                              listViewTrainRecord.trainName!,
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color: Colors.black,
-                                                        fontSize: 18.0,
-                                                      ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(5.0, 0.0, 0.0, 0.0),
+                                              child: AutoSizeText(
+                                                listViewTrainRecord.trainName!,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: Colors.black,
+                                                          fontSize: 18.0,
+                                                        ),
+                                              ),
                                             ),
-                                          ),
-                                        ],
+                                          ],
+                                        ),
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(

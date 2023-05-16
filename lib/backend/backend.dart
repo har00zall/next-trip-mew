@@ -34,6 +34,12 @@ import 'schema/bangalore_facilities_record.dart';
 import 'schema/bangalore_policies_rules_record.dart';
 import 'schema/chennai_faciliteis_record.dart';
 import 'schema/chennai_policies_rules_record.dart';
+import 'schema/goa_facilities_record.dart';
+import 'schema/goa_policies_rules_record.dart';
+import 'schema/hyderabad_facilities_record.dart';
+import 'schema/hyderabad_policies_rules_record.dart';
+import 'schema/jaipur_facilities_record.dart';
+import 'schema/jaipur_policies_record.dart';
 import 'schema/serializers.dart';
 
 export 'dart:async' show StreamSubscription;
@@ -70,6 +76,12 @@ export 'schema/bangalore_facilities_record.dart';
 export 'schema/bangalore_policies_rules_record.dart';
 export 'schema/chennai_faciliteis_record.dart';
 export 'schema/chennai_policies_rules_record.dart';
+export 'schema/goa_facilities_record.dart';
+export 'schema/goa_policies_rules_record.dart';
+export 'schema/hyderabad_facilities_record.dart';
+export 'schema/hyderabad_policies_rules_record.dart';
+export 'schema/jaipur_facilities_record.dart';
+export 'schema/jaipur_policies_record.dart';
 
 /// Functions to query UserRecords (as a Stream and as a Future).
 Future<int> queryUserRecordCount({
@@ -1585,6 +1597,323 @@ Future<FFFirestorePage<ChennaiPoliciesRulesRecord>>
           pageSize: pageSize,
           isStream: isStream,
         );
+
+/// Functions to query GoaFacilitiesRecords (as a Stream and as a Future).
+Future<int> queryGoaFacilitiesRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      GoaFacilitiesRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<GoaFacilitiesRecord>> queryGoaFacilitiesRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      GoaFacilitiesRecord.collection,
+      GoaFacilitiesRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<GoaFacilitiesRecord>> queryGoaFacilitiesRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      GoaFacilitiesRecord.collection,
+      GoaFacilitiesRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<GoaFacilitiesRecord>> queryGoaFacilitiesRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+    queryCollectionPage(
+      GoaFacilitiesRecord.collection,
+      GoaFacilitiesRecord.serializer,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    );
+
+/// Functions to query GoaPoliciesRulesRecords (as a Stream and as a Future).
+Future<int> queryGoaPoliciesRulesRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      GoaPoliciesRulesRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<GoaPoliciesRulesRecord>> queryGoaPoliciesRulesRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      GoaPoliciesRulesRecord.collection,
+      GoaPoliciesRulesRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<GoaPoliciesRulesRecord>> queryGoaPoliciesRulesRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      GoaPoliciesRulesRecord.collection,
+      GoaPoliciesRulesRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<GoaPoliciesRulesRecord>>
+    queryGoaPoliciesRulesRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+        queryCollectionPage(
+          GoaPoliciesRulesRecord.collection,
+          GoaPoliciesRulesRecord.serializer,
+          queryBuilder: queryBuilder,
+          nextPageMarker: nextPageMarker,
+          pageSize: pageSize,
+          isStream: isStream,
+        );
+
+/// Functions to query HyderabadFacilitiesRecords (as a Stream and as a Future).
+Future<int> queryHyderabadFacilitiesRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      HyderabadFacilitiesRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<HyderabadFacilitiesRecord>> queryHyderabadFacilitiesRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      HyderabadFacilitiesRecord.collection,
+      HyderabadFacilitiesRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<HyderabadFacilitiesRecord>> queryHyderabadFacilitiesRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      HyderabadFacilitiesRecord.collection,
+      HyderabadFacilitiesRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<HyderabadFacilitiesRecord>>
+    queryHyderabadFacilitiesRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+        queryCollectionPage(
+          HyderabadFacilitiesRecord.collection,
+          HyderabadFacilitiesRecord.serializer,
+          queryBuilder: queryBuilder,
+          nextPageMarker: nextPageMarker,
+          pageSize: pageSize,
+          isStream: isStream,
+        );
+
+/// Functions to query HyderabadPoliciesRulesRecords (as a Stream and as a Future).
+Future<int> queryHyderabadPoliciesRulesRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      HyderabadPoliciesRulesRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<HyderabadPoliciesRulesRecord>> queryHyderabadPoliciesRulesRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      HyderabadPoliciesRulesRecord.collection,
+      HyderabadPoliciesRulesRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<HyderabadPoliciesRulesRecord>>
+    queryHyderabadPoliciesRulesRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+        queryCollectionOnce(
+          HyderabadPoliciesRulesRecord.collection,
+          HyderabadPoliciesRulesRecord.serializer,
+          queryBuilder: queryBuilder,
+          limit: limit,
+          singleRecord: singleRecord,
+        );
+
+Future<FFFirestorePage<HyderabadPoliciesRulesRecord>>
+    queryHyderabadPoliciesRulesRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+        queryCollectionPage(
+          HyderabadPoliciesRulesRecord.collection,
+          HyderabadPoliciesRulesRecord.serializer,
+          queryBuilder: queryBuilder,
+          nextPageMarker: nextPageMarker,
+          pageSize: pageSize,
+          isStream: isStream,
+        );
+
+/// Functions to query JaipurFacilitiesRecords (as a Stream and as a Future).
+Future<int> queryJaipurFacilitiesRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      JaipurFacilitiesRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<JaipurFacilitiesRecord>> queryJaipurFacilitiesRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      JaipurFacilitiesRecord.collection,
+      JaipurFacilitiesRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<JaipurFacilitiesRecord>> queryJaipurFacilitiesRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      JaipurFacilitiesRecord.collection,
+      JaipurFacilitiesRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<JaipurFacilitiesRecord>>
+    queryJaipurFacilitiesRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+        queryCollectionPage(
+          JaipurFacilitiesRecord.collection,
+          JaipurFacilitiesRecord.serializer,
+          queryBuilder: queryBuilder,
+          nextPageMarker: nextPageMarker,
+          pageSize: pageSize,
+          isStream: isStream,
+        );
+
+/// Functions to query JaipurPoliciesRecords (as a Stream and as a Future).
+Future<int> queryJaipurPoliciesRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      JaipurPoliciesRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<JaipurPoliciesRecord>> queryJaipurPoliciesRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      JaipurPoliciesRecord.collection,
+      JaipurPoliciesRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<JaipurPoliciesRecord>> queryJaipurPoliciesRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      JaipurPoliciesRecord.collection,
+      JaipurPoliciesRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<JaipurPoliciesRecord>> queryJaipurPoliciesRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+    queryCollectionPage(
+      JaipurPoliciesRecord.collection,
+      JaipurPoliciesRecord.serializer,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    );
 
 Future<int> queryCollectionCount(
   Query collection, {

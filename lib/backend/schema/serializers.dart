@@ -30,6 +30,12 @@ import 'bangalore_facilities_record.dart';
 import 'bangalore_policies_rules_record.dart';
 import 'chennai_faciliteis_record.dart';
 import 'chennai_policies_rules_record.dart';
+import 'goa_facilities_record.dart';
+import 'goa_policies_rules_record.dart';
+import 'hyderabad_facilities_record.dart';
+import 'hyderabad_policies_rules_record.dart';
+import 'jaipur_facilities_record.dart';
+import 'jaipur_policies_record.dart';
 
 import 'index.dart';
 
@@ -69,6 +75,12 @@ const kDocumentReferenceField = 'Document__Reference__Field';
   BangalorePoliciesRulesRecord,
   ChennaiFaciliteisRecord,
   ChennaiPoliciesRulesRecord,
+  GoaFacilitiesRecord,
+  GoaPoliciesRulesRecord,
+  HyderabadFacilitiesRecord,
+  HyderabadPoliciesRulesRecord,
+  JaipurFacilitiesRecord,
+  JaipurPoliciesRecord,
 ])
 final Serializers serializers = (_$serializers.toBuilder()
       ..add(DocumentReferenceSerializer())
