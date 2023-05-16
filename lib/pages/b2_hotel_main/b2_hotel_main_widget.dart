@@ -983,7 +983,9 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                             ParamType.String,
                                           ),
                                           'image': serializeParam(
-                                            chennaiChennaiRecord.images,
+                                            (String image) {
+                                              return "https://nexttrip123.000webhostapp.com/${image.split('"')[1]}";
+                                            }(chennaiChennaiRecord.images!),
                                             ParamType.String,
                                           ),
                                         }.withoutNulls,
@@ -1405,7 +1407,9 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                             ParamType.String,
                                           ),
                                           'image': serializeParam(
-                                            goaGoaRecord.images,
+                                            (String image) {
+                                              return "https://nexttrip123.000webhostapp.com/${image.split('"')[1]}";
+                                            }(goaGoaRecord.images!),
                                             ParamType.String,
                                           ),
                                         }.withoutNulls,
@@ -1833,7 +1837,9 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                             ParamType.String,
                                           ),
                                           'image': serializeParam(
-                                            hyderabadHyderabadRecord.images,
+                                            (String image) {
+                                              return "https://nexttrip123.000webhostapp.com/${image.split('"')[1]}";
+                                            }(hyderabadHyderabadRecord.images!),
                                             ParamType.String,
                                           ),
                                         }.withoutNulls,
@@ -2260,7 +2266,9 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                             ParamType.String,
                                           ),
                                           'image': serializeParam(
-                                            jaipurJaipurRecord.images,
+                                            (String image) {
+                                              return "https://nexttrip123.000webhostapp.com/${image.split('"')[1]}";
+                                            }(jaipurJaipurRecord.images!),
                                             ParamType.String,
                                           ),
                                         }.withoutNulls,

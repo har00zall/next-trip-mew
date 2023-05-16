@@ -1,3 +1,60 @@
 {
-  "indexes": []
+  "indexes": [
+    {
+      "collectionGroup": "economyClassFlight",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "From",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "Price",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "train",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "From",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "AC_3A-Tier",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "acbus",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "From",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "Ac_Seater",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "nonAcBus",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "From",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "NonAC_Seater",
+          "order": "ASCENDING"
+        }
+      ]
+    }
+  ]
 }

@@ -351,6 +351,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                     params.getParam('transportation', ParamType.bool),
                 percentageToExpense:
                     params.getParam('percentageToExpense', ParamType.double),
+                currentCity: params.getParam('currentCity', ParamType.String),
               ),
             ),
             FFRoute(

@@ -481,6 +481,10 @@ class _BudgetSearchBottomSheetWidgetState
                               double.tryParse(_model.textController3.text),
                               ParamType.double,
                             ),
+                            'currentCity': serializeParam(
+                              _model.textController4.text,
+                              ParamType.String,
+                            ),
                           }.withoutNulls,
                         );
 

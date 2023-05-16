@@ -5,7 +5,6 @@ import '../auth/firebase_auth/auth_util.dart';
 
 import '../flutter_flow/flutter_flow_util.dart';
 
-import 'schema/user_record.dart';
 import 'schema/bangalore_record.dart';
 import 'schema/ef_bangalore_record.dart';
 import 'schema/ef_chennai_record.dart';
@@ -40,6 +39,7 @@ import 'schema/hyderabad_facilities_record.dart';
 import 'schema/hyderabad_policies_rules_record.dart';
 import 'schema/jaipur_facilities_record.dart';
 import 'schema/jaipur_policies_record.dart';
+import 'schema/user_record.dart';
 import 'schema/serializers.dart';
 
 export 'dart:async' show StreamSubscription;
@@ -47,7 +47,6 @@ export 'package:cloud_firestore/cloud_firestore.dart';
 export 'schema/index.dart';
 export 'schema/serializers.dart';
 
-export 'schema/user_record.dart';
 export 'schema/bangalore_record.dart';
 export 'schema/ef_bangalore_record.dart';
 export 'schema/ef_chennai_record.dart';
@@ -82,58 +81,7 @@ export 'schema/hyderabad_facilities_record.dart';
 export 'schema/hyderabad_policies_rules_record.dart';
 export 'schema/jaipur_facilities_record.dart';
 export 'schema/jaipur_policies_record.dart';
-
-/// Functions to query UserRecords (as a Stream and as a Future).
-Future<int> queryUserRecordCount({
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-}) =>
-    queryCollectionCount(
-      UserRecord.collection,
-      queryBuilder: queryBuilder,
-      limit: limit,
-    );
-
-Stream<List<UserRecord>> queryUserRecord({
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-  bool singleRecord = false,
-}) =>
-    queryCollection(
-      UserRecord.collection,
-      UserRecord.serializer,
-      queryBuilder: queryBuilder,
-      limit: limit,
-      singleRecord: singleRecord,
-    );
-
-Future<List<UserRecord>> queryUserRecordOnce({
-  Query Function(Query)? queryBuilder,
-  int limit = -1,
-  bool singleRecord = false,
-}) =>
-    queryCollectionOnce(
-      UserRecord.collection,
-      UserRecord.serializer,
-      queryBuilder: queryBuilder,
-      limit: limit,
-      singleRecord: singleRecord,
-    );
-
-Future<FFFirestorePage<UserRecord>> queryUserRecordPage({
-  Query Function(Query)? queryBuilder,
-  DocumentSnapshot? nextPageMarker,
-  required int pageSize,
-  required bool isStream,
-}) =>
-    queryCollectionPage(
-      UserRecord.collection,
-      UserRecord.serializer,
-      queryBuilder: queryBuilder,
-      nextPageMarker: nextPageMarker,
-      pageSize: pageSize,
-      isStream: isStream,
-    );
+export 'schema/user_record.dart';
 
 /// Functions to query BangaloreRecords (as a Stream and as a Future).
 Future<int> queryBangaloreRecordCount({
@@ -1909,6 +1857,58 @@ Future<FFFirestorePage<JaipurPoliciesRecord>> queryJaipurPoliciesRecordPage({
     queryCollectionPage(
       JaipurPoliciesRecord.collection,
       JaipurPoliciesRecord.serializer,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    );
+
+/// Functions to query UserRecords (as a Stream and as a Future).
+Future<int> queryUserRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      UserRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<UserRecord>> queryUserRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      UserRecord.collection,
+      UserRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<UserRecord>> queryUserRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      UserRecord.collection,
+      UserRecord.serializer,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<UserRecord>> queryUserRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+    queryCollectionPage(
+      UserRecord.collection,
+      UserRecord.serializer,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,
