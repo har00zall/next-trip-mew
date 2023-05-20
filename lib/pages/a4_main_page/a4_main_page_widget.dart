@@ -701,6 +701,8 @@ class _A4MainPageWidgetState extends State<A4MainPageWidget> {
             primary: false,
             child: Column(
               mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Wrap(
                   spacing: 0.0,

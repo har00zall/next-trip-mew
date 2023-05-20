@@ -388,8 +388,8 @@ class _A3LoginPageWidgetState extends State<A3LoginPageWidget> {
                         padding:
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 24.0),
                         child: FFButtonWidget(
-                          onPressed: () {
-                            print('Button pressed ...');
+                          onPressed: () async {
+                            context.pushNamed('A4MainPage');
                           },
                           text: FFLocalizations.of(context).getText(
                             '7tis7k6y' /* Continue as Guest */,
