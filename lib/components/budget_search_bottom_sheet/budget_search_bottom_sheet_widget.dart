@@ -47,7 +47,7 @@ class _BudgetSearchBottomSheetWidgetState
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsetsDirectional.fromSTEB(0.0, 450.0, 0.0, 0.0),
+      padding: EdgeInsetsDirectional.fromSTEB(0.0, 400.0, 0.0, 0.0),
       child: SingleChildScrollView(
         child: Column(
           mainAxisSize: MainAxisSize.max,
