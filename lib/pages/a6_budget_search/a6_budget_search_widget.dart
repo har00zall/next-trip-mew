@@ -3064,337 +3064,357 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                             (traiIndex) {
                           final traiTrainRecord =
                               traiTrainRecordList[traiIndex];
-                          return InkWell(
-                            splashColor: Colors.transparent,
-                            focusColor: Colors.transparent,
-                            hoverColor: Colors.transparent,
-                            highlightColor: Colors.transparent,
-                            onTap: () async {
-                              context.pushNamed('D3TrainReview');
-                            },
-                            child: Material(
-                              color: Colors.transparent,
-                              elevation: 2.0,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(10.0),
-                              ),
-                              child: Container(
-                                width: 100.0,
-                                height: 220.0,
-                                decoration: BoxDecoration(
-                                  color: FlutterFlowTheme.of(context)
-                                      .secondaryBackground,
+                          return Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 10.0),
+                            child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                context.pushNamed('D3TrainReview');
+                              },
+                              child: Material(
+                                color: Colors.transparent,
+                                elevation: 2.0,
+                                shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(10.0),
                                 ),
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Row(
-                                      mainAxisSize: MainAxisSize.max,
-                                      mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
-                                      children: [
-                                        Expanded(
-                                          child: Row(
-                                            mainAxisSize: MainAxisSize.max,
-                                            children: [
-                                              Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        10.0, 0.0, 0.0, 0.0),
-                                                child: FlutterFlowIconButton(
-                                                  borderColor:
-                                                      Colors.transparent,
-                                                  borderRadius: 30.0,
-                                                  borderWidth: 1.0,
-                                                  buttonSize: 45.0,
-                                                  icon: Icon(
-                                                    Icons.train_sharp,
-                                                    color: FlutterFlowTheme.of(
+                                child: Container(
+                                  width: 100.0,
+                                  height: 220.0,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .secondaryBackground,
+                                    borderRadius: BorderRadius.circular(10.0),
+                                  ),
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.max,
+                                    children: [
+                                      Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceBetween,
+                                        children: [
+                                          Expanded(
+                                            child: Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          10.0, 0.0, 0.0, 0.0),
+                                                  child: FlutterFlowIconButton(
+                                                    borderColor:
+                                                        Colors.transparent,
+                                                    borderRadius: 30.0,
+                                                    borderWidth: 1.0,
+                                                    buttonSize: 45.0,
+                                                    icon: Icon(
+                                                      Icons.train_sharp,
+                                                      color:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .primaryText,
+                                                      size: 30.0,
+                                                    ),
+                                                    onPressed: () {
+                                                      print(
+                                                          'IconButton pressed ...');
+                                                    },
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          5.0, 0.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    traiTrainRecord.trainName,
+                                                    style: FlutterFlowTheme.of(
                                                             context)
-                                                        .primaryText,
-                                                    size: 30.0,
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: Colors.black,
+                                                          fontSize: 18.0,
+                                                        ),
                                                   ),
-                                                  onPressed: () {
-                                                    print(
-                                                        'IconButton pressed ...');
-                                                  },
                                                 ),
+                                              ],
+                                            ),
+                                          ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 10.0, 0.0),
+                                            child: FlutterFlowIconButton(
+                                              borderColor: Colors.transparent,
+                                              borderRadius: 30.0,
+                                              borderWidth: 1.0,
+                                              buttonSize: 50.0,
+                                              icon: Icon(
+                                                Icons.favorite_border_rounded,
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                                size: 30.0,
                                               ),
-                                              Padding(
+                                              onPressed: () {
+                                                print('IconButton pressed ...');
+                                              },
+                                            ),
+                                          ),
+                                        ],
+                                      ),
+                                      Divider(
+                                        thickness: 1.0,
+                                        color: Color(0x53000000),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            5.0, 5.0, 5.0, 0.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      15.0, 0.0, 0.0, 0.0),
+                                              child: Text(
+                                                traiTrainRecord.time,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: Colors.black,
+                                                          fontSize: 16.0,
+                                                        ),
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      0.0, 0.0, 15.0, 0.0),
+                                              child: Text(
+                                                traiTrainRecord.duration,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 5.0, 0.0, 0.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Expanded(
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Expanded(
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  10.0,
+                                                                  0.0,
+                                                                  0.0,
+                                                                  0.0),
+                                                      child: AutoSizeText(
+                                                        traiTrainRecord
+                                                            .boardingStation,
+                                                        maxLines: 2,
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            Expanded(
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment.end,
+                                                children: [
+                                                  Expanded(
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  0.0,
+                                                                  0.0,
+                                                                  10.0,
+                                                                  0.0),
+                                                      child: AutoSizeText(
+                                                        traiTrainRecord
+                                                            .arrivalStation,
+                                                        textAlign:
+                                                            TextAlign.end,
+                                                        maxLines: 2,
+                                                        style:
+                                                            FlutterFlowTheme.of(
+                                                                    context)
+                                                                .bodyMedium,
+                                                      ),
+                                                    ),
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            5.0, 12.0, 0.0, 0.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(5.0, 0.0, 0.0, 0.0),
+                                              child: Text(
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'zmqo3o4m' /* Traveller & Class */,
+                                                ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium,
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 3.0, 0.0, 0.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceEvenly,
+                                          children: [
+                                            FFButtonWidget(
+                                              onPressed: () {
+                                                print('Button pressed ...');
+                                              },
+                                              text: traiTrainRecord.aC1ATier
+                                                  .toString(),
+                                              options: FFButtonOptions(
+                                                width: 110.0,
+                                                height: 45.0,
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
-                                                        5.0, 0.0, 0.0, 0.0),
-                                                child: Text(
-                                                  traiTrainRecord.trainName,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color: Colors.black,
-                                                        fontSize: 18.0,
-                                                      ),
+                                                        0.0, 0.0, 0.0, 0.0),
+                                                iconPadding:
+                                                    EdgeInsetsDirectional
+                                                        .fromSTEB(
+                                                            0.0, 0.0, 0.0, 0.0),
+                                                color: Color(0xFF3000FF),
+                                                textStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: Colors.white,
+                                                          fontSize: 16.0,
+                                                        ),
+                                                elevation: 5.0,
+                                                borderSide: BorderSide(
+                                                  color: Colors.transparent,
+                                                  width: 1.0,
                                                 ),
+                                                borderRadius:
+                                                    BorderRadius.circular(10.0),
                                               ),
-                                            ],
-                                          ),
+                                            ),
+                                            FFButtonWidget(
+                                              onPressed: () {
+                                                print('Button pressed ...');
+                                              },
+                                              text: traiTrainRecord.aC2ATier
+                                                  .toString(),
+                                              options: FFButtonOptions(
+                                                width: 110.0,
+                                                height: 45.0,
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 0.0, 0.0),
+                                                iconPadding:
+                                                    EdgeInsetsDirectional
+                                                        .fromSTEB(
+                                                            0.0, 0.0, 0.0, 0.0),
+                                                color: Color(0xFF3000FF),
+                                                textStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: Colors.white,
+                                                          fontSize: 16.0,
+                                                        ),
+                                                elevation: 5.0,
+                                                borderSide: BorderSide(
+                                                  color: Colors.transparent,
+                                                  width: 0.0,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(10.0),
+                                              ),
+                                            ),
+                                            FFButtonWidget(
+                                              onPressed: () {
+                                                print('Button pressed ...');
+                                              },
+                                              text: traiTrainRecord.aC3ATier
+                                                  .toString(),
+                                              options: FFButtonOptions(
+                                                width: 110.0,
+                                                height: 45.0,
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 0.0, 0.0),
+                                                iconPadding:
+                                                    EdgeInsetsDirectional
+                                                        .fromSTEB(
+                                                            0.0, 0.0, 0.0, 0.0),
+                                                color: Color(0xFF3000FF),
+                                                textStyle:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: Colors.white,
+                                                          fontSize: 16.0,
+                                                        ),
+                                                elevation: 5.0,
+                                                borderSide: BorderSide(
+                                                  color: Colors.transparent,
+                                                  width: 0.0,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(10.0),
+                                              ),
+                                            ),
+                                          ],
                                         ),
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  0.0, 0.0, 10.0, 0.0),
-                                          child: FlutterFlowIconButton(
-                                            borderColor: Colors.transparent,
-                                            borderRadius: 30.0,
-                                            borderWidth: 1.0,
-                                            buttonSize: 50.0,
-                                            icon: Icon(
-                                              Icons.favorite_border_rounded,
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primaryText,
-                                              size: 30.0,
-                                            ),
-                                            onPressed: () {
-                                              print('IconButton pressed ...');
-                                            },
-                                          ),
-                                        ),
-                                      ],
-                                    ),
-                                    Divider(
-                                      thickness: 1.0,
-                                      color: Color(0x53000000),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          5.0, 5.0, 5.0, 0.0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    15.0, 0.0, 0.0, 0.0),
-                                            child: Text(
-                                              traiTrainRecord.time,
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color: Colors.black,
-                                                        fontSize: 16.0,
-                                                      ),
-                                            ),
-                                          ),
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    0.0, 0.0, 15.0, 0.0),
-                                            child: Text(
-                                              traiTrainRecord.duration,
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium,
-                                            ),
-                                          ),
-                                        ],
                                       ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 5.0, 0.0, 0.0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        children: [
-                                          Expanded(
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              children: [
-                                                Expanded(
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(10.0, 0.0,
-                                                                0.0, 0.0),
-                                                    child: AutoSizeText(
-                                                      traiTrainRecord
-                                                          .boardingStation,
-                                                      maxLines: 2,
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                          Expanded(
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment.end,
-                                              children: [
-                                                Expanded(
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(0.0, 0.0,
-                                                                10.0, 0.0),
-                                                    child: AutoSizeText(
-                                                      traiTrainRecord
-                                                          .arrivalStation,
-                                                      textAlign: TextAlign.end,
-                                                      maxLines: 2,
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium,
-                                                    ),
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          5.0, 12.0, 0.0, 0.0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    5.0, 0.0, 0.0, 0.0),
-                                            child: Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                'zmqo3o4m' /* Traveller & Class */,
-                                              ),
-                                              style:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium,
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 3.0, 0.0, 0.0),
-                                      child: Row(
-                                        mainAxisSize: MainAxisSize.max,
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceEvenly,
-                                        children: [
-                                          FFButtonWidget(
-                                            onPressed: () {
-                                              print('Button pressed ...');
-                                            },
-                                            text: traiTrainRecord.aC1ATier
-                                                .toString(),
-                                            options: FFButtonOptions(
-                                              width: 110.0,
-                                              height: 45.0,
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                              iconPadding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                              color: Color(0xFF3000FF),
-                                              textStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color: Colors.white,
-                                                        fontSize: 16.0,
-                                                      ),
-                                              elevation: 5.0,
-                                              borderSide: BorderSide(
-                                                color: Colors.transparent,
-                                                width: 1.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(10.0),
-                                            ),
-                                          ),
-                                          FFButtonWidget(
-                                            onPressed: () {
-                                              print('Button pressed ...');
-                                            },
-                                            text: traiTrainRecord.aC2ATier
-                                                .toString(),
-                                            options: FFButtonOptions(
-                                              width: 110.0,
-                                              height: 45.0,
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                              iconPadding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                              color: Color(0xFF3000FF),
-                                              textStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color: Colors.white,
-                                                        fontSize: 16.0,
-                                                      ),
-                                              elevation: 5.0,
-                                              borderSide: BorderSide(
-                                                color: Colors.transparent,
-                                                width: 0.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(10.0),
-                                            ),
-                                          ),
-                                          FFButtonWidget(
-                                            onPressed: () {
-                                              print('Button pressed ...');
-                                            },
-                                            text: traiTrainRecord.aC3ATier
-                                                .toString(),
-                                            options: FFButtonOptions(
-                                              width: 110.0,
-                                              height: 45.0,
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                              iconPadding: EdgeInsetsDirectional
-                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
-                                              color: Color(0xFF3000FF),
-                                              textStyle:
-                                                  FlutterFlowTheme.of(context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color: Colors.white,
-                                                        fontSize: 16.0,
-                                                      ),
-                                              elevation: 5.0,
-                                              borderSide: BorderSide(
-                                                color: Colors.transparent,
-                                                width: 0.0,
-                                              ),
-                                              borderRadius:
-                                                  BorderRadius.circular(10.0),
-                                            ),
-                                          ),
-                                        ],
-                                      ),
-                                    ),
-                                  ],
+                                    ],
+                                  ),
                                 ),
                               ),
                             ),
