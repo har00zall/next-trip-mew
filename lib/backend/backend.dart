@@ -1,9 +1,9 @@
-import 'package:built_value/serializer.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import '../auth/firebase_auth/auth_util.dart';
 
 import '../flutter_flow/flutter_flow_util.dart';
+import 'schema/util/firestore_util.dart';
 
 import 'schema/bangalore_record.dart';
 import 'schema/ef_bangalore_record.dart';
@@ -40,12 +40,12 @@ import 'schema/hyderabad_policies_rules_record.dart';
 import 'schema/jaipur_facilities_record.dart';
 import 'schema/jaipur_policies_record.dart';
 import 'schema/user_record.dart';
-import 'schema/serializers.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart';
 export 'schema/index.dart';
-export 'schema/serializers.dart';
+export 'schema/util/firestore_util.dart';
+export 'schema/util/schema_util.dart';
 
 export 'schema/bangalore_record.dart';
 export 'schema/ef_bangalore_record.dart';
@@ -101,7 +101,7 @@ Stream<List<BangaloreRecord>> queryBangaloreRecord({
 }) =>
     queryCollection(
       BangaloreRecord.collection,
-      BangaloreRecord.serializer,
+      BangaloreRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -114,7 +114,7 @@ Future<List<BangaloreRecord>> queryBangaloreRecordOnce({
 }) =>
     queryCollectionOnce(
       BangaloreRecord.collection,
-      BangaloreRecord.serializer,
+      BangaloreRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -128,7 +128,7 @@ Future<FFFirestorePage<BangaloreRecord>> queryBangaloreRecordPage({
 }) =>
     queryCollectionPage(
       BangaloreRecord.collection,
-      BangaloreRecord.serializer,
+      BangaloreRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,
@@ -153,7 +153,7 @@ Stream<List<EfBangaloreRecord>> queryEfBangaloreRecord({
 }) =>
     queryCollection(
       EfBangaloreRecord.collection,
-      EfBangaloreRecord.serializer,
+      EfBangaloreRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -166,7 +166,7 @@ Future<List<EfBangaloreRecord>> queryEfBangaloreRecordOnce({
 }) =>
     queryCollectionOnce(
       EfBangaloreRecord.collection,
-      EfBangaloreRecord.serializer,
+      EfBangaloreRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -180,7 +180,7 @@ Future<FFFirestorePage<EfBangaloreRecord>> queryEfBangaloreRecordPage({
 }) =>
     queryCollectionPage(
       EfBangaloreRecord.collection,
-      EfBangaloreRecord.serializer,
+      EfBangaloreRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,
@@ -205,7 +205,7 @@ Stream<List<EfChennaiRecord>> queryEfChennaiRecord({
 }) =>
     queryCollection(
       EfChennaiRecord.collection,
-      EfChennaiRecord.serializer,
+      EfChennaiRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -218,7 +218,7 @@ Future<List<EfChennaiRecord>> queryEfChennaiRecordOnce({
 }) =>
     queryCollectionOnce(
       EfChennaiRecord.collection,
-      EfChennaiRecord.serializer,
+      EfChennaiRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -232,7 +232,7 @@ Future<FFFirestorePage<EfChennaiRecord>> queryEfChennaiRecordPage({
 }) =>
     queryCollectionPage(
       EfChennaiRecord.collection,
-      EfChennaiRecord.serializer,
+      EfChennaiRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,
@@ -257,7 +257,7 @@ Stream<List<EfJaipurRecord>> queryEfJaipurRecord({
 }) =>
     queryCollection(
       EfJaipurRecord.collection,
-      EfJaipurRecord.serializer,
+      EfJaipurRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -270,7 +270,7 @@ Future<List<EfJaipurRecord>> queryEfJaipurRecordOnce({
 }) =>
     queryCollectionOnce(
       EfJaipurRecord.collection,
-      EfJaipurRecord.serializer,
+      EfJaipurRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -284,7 +284,7 @@ Future<FFFirestorePage<EfJaipurRecord>> queryEfJaipurRecordPage({
 }) =>
     queryCollectionPage(
       EfJaipurRecord.collection,
-      EfJaipurRecord.serializer,
+      EfJaipurRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,
@@ -309,7 +309,7 @@ Stream<List<EfGoaRecord>> queryEfGoaRecord({
 }) =>
     queryCollection(
       EfGoaRecord.collection,
-      EfGoaRecord.serializer,
+      EfGoaRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -322,7 +322,7 @@ Future<List<EfGoaRecord>> queryEfGoaRecordOnce({
 }) =>
     queryCollectionOnce(
       EfGoaRecord.collection,
-      EfGoaRecord.serializer,
+      EfGoaRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -336,7 +336,7 @@ Future<FFFirestorePage<EfGoaRecord>> queryEfGoaRecordPage({
 }) =>
     queryCollectionPage(
       EfGoaRecord.collection,
-      EfGoaRecord.serializer,
+      EfGoaRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,
@@ -361,7 +361,7 @@ Stream<List<EfHyderabadRecord>> queryEfHyderabadRecord({
 }) =>
     queryCollection(
       EfHyderabadRecord.collection,
-      EfHyderabadRecord.serializer,
+      EfHyderabadRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -374,7 +374,7 @@ Future<List<EfHyderabadRecord>> queryEfHyderabadRecordOnce({
 }) =>
     queryCollectionOnce(
       EfHyderabadRecord.collection,
-      EfHyderabadRecord.serializer,
+      EfHyderabadRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -388,7 +388,7 @@ Future<FFFirestorePage<EfHyderabadRecord>> queryEfHyderabadRecordPage({
 }) =>
     queryCollectionPage(
       EfHyderabadRecord.collection,
-      EfHyderabadRecord.serializer,
+      EfHyderabadRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,
@@ -413,7 +413,7 @@ Stream<List<HisBangaloreRecord>> queryHisBangaloreRecord({
 }) =>
     queryCollection(
       HisBangaloreRecord.collection,
-      HisBangaloreRecord.serializer,
+      HisBangaloreRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -426,7 +426,7 @@ Future<List<HisBangaloreRecord>> queryHisBangaloreRecordOnce({
 }) =>
     queryCollectionOnce(
       HisBangaloreRecord.collection,
-      HisBangaloreRecord.serializer,
+      HisBangaloreRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -440,7 +440,7 @@ Future<FFFirestorePage<HisBangaloreRecord>> queryHisBangaloreRecordPage({
 }) =>
     queryCollectionPage(
       HisBangaloreRecord.collection,
-      HisBangaloreRecord.serializer,
+      HisBangaloreRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,
@@ -465,7 +465,7 @@ Stream<List<HisChennaiRecord>> queryHisChennaiRecord({
 }) =>
     queryCollection(
       HisChennaiRecord.collection,
-      HisChennaiRecord.serializer,
+      HisChennaiRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -478,7 +478,7 @@ Future<List<HisChennaiRecord>> queryHisChennaiRecordOnce({
 }) =>
     queryCollectionOnce(
       HisChennaiRecord.collection,
-      HisChennaiRecord.serializer,
+      HisChennaiRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -492,7 +492,7 @@ Future<FFFirestorePage<HisChennaiRecord>> queryHisChennaiRecordPage({
 }) =>
     queryCollectionPage(
       HisChennaiRecord.collection,
-      HisChennaiRecord.serializer,
+      HisChennaiRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,
@@ -517,7 +517,7 @@ Stream<List<HisGoaRecord>> queryHisGoaRecord({
 }) =>
     queryCollection(
       HisGoaRecord.collection,
-      HisGoaRecord.serializer,
+      HisGoaRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -530,7 +530,7 @@ Future<List<HisGoaRecord>> queryHisGoaRecordOnce({
 }) =>
     queryCollectionOnce(
       HisGoaRecord.collection,
-      HisGoaRecord.serializer,
+      HisGoaRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -544,7 +544,7 @@ Future<FFFirestorePage<HisGoaRecord>> queryHisGoaRecordPage({
 }) =>
     queryCollectionPage(
       HisGoaRecord.collection,
-      HisGoaRecord.serializer,
+      HisGoaRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,
@@ -569,7 +569,7 @@ Stream<List<HisHyderabadRecord>> queryHisHyderabadRecord({
 }) =>
     queryCollection(
       HisHyderabadRecord.collection,
-      HisHyderabadRecord.serializer,
+      HisHyderabadRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -582,7 +582,7 @@ Future<List<HisHyderabadRecord>> queryHisHyderabadRecordOnce({
 }) =>
     queryCollectionOnce(
       HisHyderabadRecord.collection,
-      HisHyderabadRecord.serializer,
+      HisHyderabadRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -596,7 +596,7 @@ Future<FFFirestorePage<HisHyderabadRecord>> queryHisHyderabadRecordPage({
 }) =>
     queryCollectionPage(
       HisHyderabadRecord.collection,
-      HisHyderabadRecord.serializer,
+      HisHyderabadRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,
@@ -621,7 +621,7 @@ Stream<List<HisJaipurRecord>> queryHisJaipurRecord({
 }) =>
     queryCollection(
       HisJaipurRecord.collection,
-      HisJaipurRecord.serializer,
+      HisJaipurRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -634,7 +634,7 @@ Future<List<HisJaipurRecord>> queryHisJaipurRecordOnce({
 }) =>
     queryCollectionOnce(
       HisJaipurRecord.collection,
-      HisJaipurRecord.serializer,
+      HisJaipurRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -648,7 +648,7 @@ Future<FFFirestorePage<HisJaipurRecord>> queryHisJaipurRecordPage({
 }) =>
     queryCollectionPage(
       HisJaipurRecord.collection,
-      HisJaipurRecord.serializer,
+      HisJaipurRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,
@@ -673,7 +673,7 @@ Stream<List<HoliChennaiRecord>> queryHoliChennaiRecord({
 }) =>
     queryCollection(
       HoliChennaiRecord.collection,
-      HoliChennaiRecord.serializer,
+      HoliChennaiRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -686,7 +686,7 @@ Future<List<HoliChennaiRecord>> queryHoliChennaiRecordOnce({
 }) =>
     queryCollectionOnce(
       HoliChennaiRecord.collection,
-      HoliChennaiRecord.serializer,
+      HoliChennaiRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -700,7 +700,7 @@ Future<FFFirestorePage<HoliChennaiRecord>> queryHoliChennaiRecordPage({
 }) =>
     queryCollectionPage(
       HoliChennaiRecord.collection,
-      HoliChennaiRecord.serializer,
+      HoliChennaiRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,
@@ -725,7 +725,7 @@ Stream<List<HoliGoaRecord>> queryHoliGoaRecord({
 }) =>
     queryCollection(
       HoliGoaRecord.collection,
-      HoliGoaRecord.serializer,
+      HoliGoaRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -738,7 +738,7 @@ Future<List<HoliGoaRecord>> queryHoliGoaRecordOnce({
 }) =>
     queryCollectionOnce(
       HoliGoaRecord.collection,
-      HoliGoaRecord.serializer,
+      HoliGoaRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -752,7 +752,7 @@ Future<FFFirestorePage<HoliGoaRecord>> queryHoliGoaRecordPage({
 }) =>
     queryCollectionPage(
       HoliGoaRecord.collection,
-      HoliGoaRecord.serializer,
+      HoliGoaRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,
@@ -777,7 +777,7 @@ Stream<List<HoliHyderabadRecord>> queryHoliHyderabadRecord({
 }) =>
     queryCollection(
       HoliHyderabadRecord.collection,
-      HoliHyderabadRecord.serializer,
+      HoliHyderabadRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -790,7 +790,7 @@ Future<List<HoliHyderabadRecord>> queryHoliHyderabadRecordOnce({
 }) =>
     queryCollectionOnce(
       HoliHyderabadRecord.collection,
-      HoliHyderabadRecord.serializer,
+      HoliHyderabadRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -804,7 +804,7 @@ Future<FFFirestorePage<HoliHyderabadRecord>> queryHoliHyderabadRecordPage({
 }) =>
     queryCollectionPage(
       HoliHyderabadRecord.collection,
-      HoliHyderabadRecord.serializer,
+      HoliHyderabadRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,
@@ -829,7 +829,7 @@ Stream<List<AcbusRecord>> queryAcbusRecord({
 }) =>
     queryCollection(
       AcbusRecord.collection,
-      AcbusRecord.serializer,
+      AcbusRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -842,7 +842,7 @@ Future<List<AcbusRecord>> queryAcbusRecordOnce({
 }) =>
     queryCollectionOnce(
       AcbusRecord.collection,
-      AcbusRecord.serializer,
+      AcbusRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -856,7 +856,7 @@ Future<FFFirestorePage<AcbusRecord>> queryAcbusRecordPage({
 }) =>
     queryCollectionPage(
       AcbusRecord.collection,
-      AcbusRecord.serializer,
+      AcbusRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,
@@ -881,7 +881,7 @@ Stream<List<ChennaiRecord>> queryChennaiRecord({
 }) =>
     queryCollection(
       ChennaiRecord.collection,
-      ChennaiRecord.serializer,
+      ChennaiRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -894,7 +894,7 @@ Future<List<ChennaiRecord>> queryChennaiRecordOnce({
 }) =>
     queryCollectionOnce(
       ChennaiRecord.collection,
-      ChennaiRecord.serializer,
+      ChennaiRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -908,7 +908,7 @@ Future<FFFirestorePage<ChennaiRecord>> queryChennaiRecordPage({
 }) =>
     queryCollectionPage(
       ChennaiRecord.collection,
-      ChennaiRecord.serializer,
+      ChennaiRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,
@@ -933,7 +933,7 @@ Stream<List<GoaRecord>> queryGoaRecord({
 }) =>
     queryCollection(
       GoaRecord.collection,
-      GoaRecord.serializer,
+      GoaRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -946,7 +946,7 @@ Future<List<GoaRecord>> queryGoaRecordOnce({
 }) =>
     queryCollectionOnce(
       GoaRecord.collection,
-      GoaRecord.serializer,
+      GoaRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -960,7 +960,7 @@ Future<FFFirestorePage<GoaRecord>> queryGoaRecordPage({
 }) =>
     queryCollectionPage(
       GoaRecord.collection,
-      GoaRecord.serializer,
+      GoaRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,
@@ -985,7 +985,7 @@ Stream<List<HyderabadRecord>> queryHyderabadRecord({
 }) =>
     queryCollection(
       HyderabadRecord.collection,
-      HyderabadRecord.serializer,
+      HyderabadRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -998,7 +998,7 @@ Future<List<HyderabadRecord>> queryHyderabadRecordOnce({
 }) =>
     queryCollectionOnce(
       HyderabadRecord.collection,
-      HyderabadRecord.serializer,
+      HyderabadRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -1012,7 +1012,7 @@ Future<FFFirestorePage<HyderabadRecord>> queryHyderabadRecordPage({
 }) =>
     queryCollectionPage(
       HyderabadRecord.collection,
-      HyderabadRecord.serializer,
+      HyderabadRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,
@@ -1037,7 +1037,7 @@ Stream<List<JaipurRecord>> queryJaipurRecord({
 }) =>
     queryCollection(
       JaipurRecord.collection,
-      JaipurRecord.serializer,
+      JaipurRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -1050,7 +1050,7 @@ Future<List<JaipurRecord>> queryJaipurRecordOnce({
 }) =>
     queryCollectionOnce(
       JaipurRecord.collection,
-      JaipurRecord.serializer,
+      JaipurRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -1064,7 +1064,7 @@ Future<FFFirestorePage<JaipurRecord>> queryJaipurRecordPage({
 }) =>
     queryCollectionPage(
       JaipurRecord.collection,
-      JaipurRecord.serializer,
+      JaipurRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,
@@ -1089,7 +1089,7 @@ Stream<List<BusinessClassFlightRecord>> queryBusinessClassFlightRecord({
 }) =>
     queryCollection(
       BusinessClassFlightRecord.collection,
-      BusinessClassFlightRecord.serializer,
+      BusinessClassFlightRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -1102,7 +1102,7 @@ Future<List<BusinessClassFlightRecord>> queryBusinessClassFlightRecordOnce({
 }) =>
     queryCollectionOnce(
       BusinessClassFlightRecord.collection,
-      BusinessClassFlightRecord.serializer,
+      BusinessClassFlightRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -1117,7 +1117,7 @@ Future<FFFirestorePage<BusinessClassFlightRecord>>
 }) =>
         queryCollectionPage(
           BusinessClassFlightRecord.collection,
-          BusinessClassFlightRecord.serializer,
+          BusinessClassFlightRecord.fromSnapshot,
           queryBuilder: queryBuilder,
           nextPageMarker: nextPageMarker,
           pageSize: pageSize,
@@ -1142,7 +1142,7 @@ Stream<List<EconomyClassFlightRecord>> queryEconomyClassFlightRecord({
 }) =>
     queryCollection(
       EconomyClassFlightRecord.collection,
-      EconomyClassFlightRecord.serializer,
+      EconomyClassFlightRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -1155,7 +1155,7 @@ Future<List<EconomyClassFlightRecord>> queryEconomyClassFlightRecordOnce({
 }) =>
     queryCollectionOnce(
       EconomyClassFlightRecord.collection,
-      EconomyClassFlightRecord.serializer,
+      EconomyClassFlightRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -1170,7 +1170,7 @@ Future<FFFirestorePage<EconomyClassFlightRecord>>
 }) =>
         queryCollectionPage(
           EconomyClassFlightRecord.collection,
-          EconomyClassFlightRecord.serializer,
+          EconomyClassFlightRecord.fromSnapshot,
           queryBuilder: queryBuilder,
           nextPageMarker: nextPageMarker,
           pageSize: pageSize,
@@ -1195,7 +1195,7 @@ Stream<List<NonAcBusRecord>> queryNonAcBusRecord({
 }) =>
     queryCollection(
       NonAcBusRecord.collection,
-      NonAcBusRecord.serializer,
+      NonAcBusRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -1208,7 +1208,7 @@ Future<List<NonAcBusRecord>> queryNonAcBusRecordOnce({
 }) =>
     queryCollectionOnce(
       NonAcBusRecord.collection,
-      NonAcBusRecord.serializer,
+      NonAcBusRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -1222,7 +1222,7 @@ Future<FFFirestorePage<NonAcBusRecord>> queryNonAcBusRecordPage({
 }) =>
     queryCollectionPage(
       NonAcBusRecord.collection,
-      NonAcBusRecord.serializer,
+      NonAcBusRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,
@@ -1247,7 +1247,7 @@ Stream<List<TrainRecord>> queryTrainRecord({
 }) =>
     queryCollection(
       TrainRecord.collection,
-      TrainRecord.serializer,
+      TrainRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -1260,7 +1260,7 @@ Future<List<TrainRecord>> queryTrainRecordOnce({
 }) =>
     queryCollectionOnce(
       TrainRecord.collection,
-      TrainRecord.serializer,
+      TrainRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -1274,7 +1274,7 @@ Future<FFFirestorePage<TrainRecord>> queryTrainRecordPage({
 }) =>
     queryCollectionPage(
       TrainRecord.collection,
-      TrainRecord.serializer,
+      TrainRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,
@@ -1299,7 +1299,7 @@ Stream<List<HoliJaipurRecord>> queryHoliJaipurRecord({
 }) =>
     queryCollection(
       HoliJaipurRecord.collection,
-      HoliJaipurRecord.serializer,
+      HoliJaipurRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -1312,7 +1312,7 @@ Future<List<HoliJaipurRecord>> queryHoliJaipurRecordOnce({
 }) =>
     queryCollectionOnce(
       HoliJaipurRecord.collection,
-      HoliJaipurRecord.serializer,
+      HoliJaipurRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -1326,7 +1326,7 @@ Future<FFFirestorePage<HoliJaipurRecord>> queryHoliJaipurRecordPage({
 }) =>
     queryCollectionPage(
       HoliJaipurRecord.collection,
-      HoliJaipurRecord.serializer,
+      HoliJaipurRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,
@@ -1351,7 +1351,7 @@ Stream<List<BangaloreFacilitiesRecord>> queryBangaloreFacilitiesRecord({
 }) =>
     queryCollection(
       BangaloreFacilitiesRecord.collection,
-      BangaloreFacilitiesRecord.serializer,
+      BangaloreFacilitiesRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -1364,7 +1364,7 @@ Future<List<BangaloreFacilitiesRecord>> queryBangaloreFacilitiesRecordOnce({
 }) =>
     queryCollectionOnce(
       BangaloreFacilitiesRecord.collection,
-      BangaloreFacilitiesRecord.serializer,
+      BangaloreFacilitiesRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -1379,7 +1379,7 @@ Future<FFFirestorePage<BangaloreFacilitiesRecord>>
 }) =>
         queryCollectionPage(
           BangaloreFacilitiesRecord.collection,
-          BangaloreFacilitiesRecord.serializer,
+          BangaloreFacilitiesRecord.fromSnapshot,
           queryBuilder: queryBuilder,
           nextPageMarker: nextPageMarker,
           pageSize: pageSize,
@@ -1404,7 +1404,7 @@ Stream<List<BangalorePoliciesRulesRecord>> queryBangalorePoliciesRulesRecord({
 }) =>
     queryCollection(
       BangalorePoliciesRulesRecord.collection,
-      BangalorePoliciesRulesRecord.serializer,
+      BangalorePoliciesRulesRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -1418,7 +1418,7 @@ Future<List<BangalorePoliciesRulesRecord>>
 }) =>
         queryCollectionOnce(
           BangalorePoliciesRulesRecord.collection,
-          BangalorePoliciesRulesRecord.serializer,
+          BangalorePoliciesRulesRecord.fromSnapshot,
           queryBuilder: queryBuilder,
           limit: limit,
           singleRecord: singleRecord,
@@ -1433,7 +1433,7 @@ Future<FFFirestorePage<BangalorePoliciesRulesRecord>>
 }) =>
         queryCollectionPage(
           BangalorePoliciesRulesRecord.collection,
-          BangalorePoliciesRulesRecord.serializer,
+          BangalorePoliciesRulesRecord.fromSnapshot,
           queryBuilder: queryBuilder,
           nextPageMarker: nextPageMarker,
           pageSize: pageSize,
@@ -1458,7 +1458,7 @@ Stream<List<ChennaiFaciliteisRecord>> queryChennaiFaciliteisRecord({
 }) =>
     queryCollection(
       ChennaiFaciliteisRecord.collection,
-      ChennaiFaciliteisRecord.serializer,
+      ChennaiFaciliteisRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -1471,7 +1471,7 @@ Future<List<ChennaiFaciliteisRecord>> queryChennaiFaciliteisRecordOnce({
 }) =>
     queryCollectionOnce(
       ChennaiFaciliteisRecord.collection,
-      ChennaiFaciliteisRecord.serializer,
+      ChennaiFaciliteisRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -1486,7 +1486,7 @@ Future<FFFirestorePage<ChennaiFaciliteisRecord>>
 }) =>
         queryCollectionPage(
           ChennaiFaciliteisRecord.collection,
-          ChennaiFaciliteisRecord.serializer,
+          ChennaiFaciliteisRecord.fromSnapshot,
           queryBuilder: queryBuilder,
           nextPageMarker: nextPageMarker,
           pageSize: pageSize,
@@ -1511,7 +1511,7 @@ Stream<List<ChennaiPoliciesRulesRecord>> queryChennaiPoliciesRulesRecord({
 }) =>
     queryCollection(
       ChennaiPoliciesRulesRecord.collection,
-      ChennaiPoliciesRulesRecord.serializer,
+      ChennaiPoliciesRulesRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -1524,7 +1524,7 @@ Future<List<ChennaiPoliciesRulesRecord>> queryChennaiPoliciesRulesRecordOnce({
 }) =>
     queryCollectionOnce(
       ChennaiPoliciesRulesRecord.collection,
-      ChennaiPoliciesRulesRecord.serializer,
+      ChennaiPoliciesRulesRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -1539,7 +1539,7 @@ Future<FFFirestorePage<ChennaiPoliciesRulesRecord>>
 }) =>
         queryCollectionPage(
           ChennaiPoliciesRulesRecord.collection,
-          ChennaiPoliciesRulesRecord.serializer,
+          ChennaiPoliciesRulesRecord.fromSnapshot,
           queryBuilder: queryBuilder,
           nextPageMarker: nextPageMarker,
           pageSize: pageSize,
@@ -1564,7 +1564,7 @@ Stream<List<GoaFacilitiesRecord>> queryGoaFacilitiesRecord({
 }) =>
     queryCollection(
       GoaFacilitiesRecord.collection,
-      GoaFacilitiesRecord.serializer,
+      GoaFacilitiesRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -1577,7 +1577,7 @@ Future<List<GoaFacilitiesRecord>> queryGoaFacilitiesRecordOnce({
 }) =>
     queryCollectionOnce(
       GoaFacilitiesRecord.collection,
-      GoaFacilitiesRecord.serializer,
+      GoaFacilitiesRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -1591,7 +1591,7 @@ Future<FFFirestorePage<GoaFacilitiesRecord>> queryGoaFacilitiesRecordPage({
 }) =>
     queryCollectionPage(
       GoaFacilitiesRecord.collection,
-      GoaFacilitiesRecord.serializer,
+      GoaFacilitiesRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,
@@ -1616,7 +1616,7 @@ Stream<List<GoaPoliciesRulesRecord>> queryGoaPoliciesRulesRecord({
 }) =>
     queryCollection(
       GoaPoliciesRulesRecord.collection,
-      GoaPoliciesRulesRecord.serializer,
+      GoaPoliciesRulesRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -1629,7 +1629,7 @@ Future<List<GoaPoliciesRulesRecord>> queryGoaPoliciesRulesRecordOnce({
 }) =>
     queryCollectionOnce(
       GoaPoliciesRulesRecord.collection,
-      GoaPoliciesRulesRecord.serializer,
+      GoaPoliciesRulesRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -1644,7 +1644,7 @@ Future<FFFirestorePage<GoaPoliciesRulesRecord>>
 }) =>
         queryCollectionPage(
           GoaPoliciesRulesRecord.collection,
-          GoaPoliciesRulesRecord.serializer,
+          GoaPoliciesRulesRecord.fromSnapshot,
           queryBuilder: queryBuilder,
           nextPageMarker: nextPageMarker,
           pageSize: pageSize,
@@ -1669,7 +1669,7 @@ Stream<List<HyderabadFacilitiesRecord>> queryHyderabadFacilitiesRecord({
 }) =>
     queryCollection(
       HyderabadFacilitiesRecord.collection,
-      HyderabadFacilitiesRecord.serializer,
+      HyderabadFacilitiesRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -1682,7 +1682,7 @@ Future<List<HyderabadFacilitiesRecord>> queryHyderabadFacilitiesRecordOnce({
 }) =>
     queryCollectionOnce(
       HyderabadFacilitiesRecord.collection,
-      HyderabadFacilitiesRecord.serializer,
+      HyderabadFacilitiesRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -1697,7 +1697,7 @@ Future<FFFirestorePage<HyderabadFacilitiesRecord>>
 }) =>
         queryCollectionPage(
           HyderabadFacilitiesRecord.collection,
-          HyderabadFacilitiesRecord.serializer,
+          HyderabadFacilitiesRecord.fromSnapshot,
           queryBuilder: queryBuilder,
           nextPageMarker: nextPageMarker,
           pageSize: pageSize,
@@ -1722,7 +1722,7 @@ Stream<List<HyderabadPoliciesRulesRecord>> queryHyderabadPoliciesRulesRecord({
 }) =>
     queryCollection(
       HyderabadPoliciesRulesRecord.collection,
-      HyderabadPoliciesRulesRecord.serializer,
+      HyderabadPoliciesRulesRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -1736,7 +1736,7 @@ Future<List<HyderabadPoliciesRulesRecord>>
 }) =>
         queryCollectionOnce(
           HyderabadPoliciesRulesRecord.collection,
-          HyderabadPoliciesRulesRecord.serializer,
+          HyderabadPoliciesRulesRecord.fromSnapshot,
           queryBuilder: queryBuilder,
           limit: limit,
           singleRecord: singleRecord,
@@ -1751,7 +1751,7 @@ Future<FFFirestorePage<HyderabadPoliciesRulesRecord>>
 }) =>
         queryCollectionPage(
           HyderabadPoliciesRulesRecord.collection,
-          HyderabadPoliciesRulesRecord.serializer,
+          HyderabadPoliciesRulesRecord.fromSnapshot,
           queryBuilder: queryBuilder,
           nextPageMarker: nextPageMarker,
           pageSize: pageSize,
@@ -1776,7 +1776,7 @@ Stream<List<JaipurFacilitiesRecord>> queryJaipurFacilitiesRecord({
 }) =>
     queryCollection(
       JaipurFacilitiesRecord.collection,
-      JaipurFacilitiesRecord.serializer,
+      JaipurFacilitiesRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -1789,7 +1789,7 @@ Future<List<JaipurFacilitiesRecord>> queryJaipurFacilitiesRecordOnce({
 }) =>
     queryCollectionOnce(
       JaipurFacilitiesRecord.collection,
-      JaipurFacilitiesRecord.serializer,
+      JaipurFacilitiesRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -1804,7 +1804,7 @@ Future<FFFirestorePage<JaipurFacilitiesRecord>>
 }) =>
         queryCollectionPage(
           JaipurFacilitiesRecord.collection,
-          JaipurFacilitiesRecord.serializer,
+          JaipurFacilitiesRecord.fromSnapshot,
           queryBuilder: queryBuilder,
           nextPageMarker: nextPageMarker,
           pageSize: pageSize,
@@ -1829,7 +1829,7 @@ Stream<List<JaipurPoliciesRecord>> queryJaipurPoliciesRecord({
 }) =>
     queryCollection(
       JaipurPoliciesRecord.collection,
-      JaipurPoliciesRecord.serializer,
+      JaipurPoliciesRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -1842,7 +1842,7 @@ Future<List<JaipurPoliciesRecord>> queryJaipurPoliciesRecordOnce({
 }) =>
     queryCollectionOnce(
       JaipurPoliciesRecord.collection,
-      JaipurPoliciesRecord.serializer,
+      JaipurPoliciesRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -1856,7 +1856,7 @@ Future<FFFirestorePage<JaipurPoliciesRecord>> queryJaipurPoliciesRecordPage({
 }) =>
     queryCollectionPage(
       JaipurPoliciesRecord.collection,
-      JaipurPoliciesRecord.serializer,
+      JaipurPoliciesRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,
@@ -1881,7 +1881,7 @@ Stream<List<UserRecord>> queryUserRecord({
 }) =>
     queryCollection(
       UserRecord.collection,
-      UserRecord.serializer,
+      UserRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -1894,7 +1894,7 @@ Future<List<UserRecord>> queryUserRecordOnce({
 }) =>
     queryCollectionOnce(
       UserRecord.collection,
-      UserRecord.serializer,
+      UserRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       limit: limit,
       singleRecord: singleRecord,
@@ -1908,7 +1908,7 @@ Future<FFFirestorePage<UserRecord>> queryUserRecordPage({
 }) =>
     queryCollectionPage(
       UserRecord.collection,
-      UserRecord.serializer,
+      UserRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,
@@ -1931,10 +1931,13 @@ Future<int> queryCollectionCount(
   }).then((value) => value.count);
 }
 
-Stream<List<T>> queryCollection<T>(Query collection, Serializer<T> serializer,
-    {Query Function(Query)? queryBuilder,
-    int limit = -1,
-    bool singleRecord = false}) {
+Stream<List<T>> queryCollection<T>(
+  Query collection,
+  RecordBuilder<T> recordBuilder, {
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) {
   final builder = queryBuilder ?? (q) => q;
   var query = builder(collection);
   if (limit > 0 || singleRecord) {
@@ -1945,7 +1948,7 @@ Stream<List<T>> queryCollection<T>(Query collection, Serializer<T> serializer,
   }).map((s) => s.docs
       .map(
         (d) => safeGet(
-          () => serializers.deserializeWith(serializer, serializedData(d)),
+          () => recordBuilder(d),
           (e) => print('Error serializing doc ${d.reference.path}:\n$e'),
         ),
       )
@@ -1955,10 +1958,12 @@ Stream<List<T>> queryCollection<T>(Query collection, Serializer<T> serializer,
 }
 
 Future<List<T>> queryCollectionOnce<T>(
-    Query collection, Serializer<T> serializer,
-    {Query Function(Query)? queryBuilder,
-    int limit = -1,
-    bool singleRecord = false}) {
+  Query collection,
+  RecordBuilder<T> recordBuilder, {
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) {
   final builder = queryBuilder ?? (q) => q;
   var query = builder(collection);
   if (limit > 0 || singleRecord) {
@@ -1967,7 +1972,7 @@ Future<List<T>> queryCollectionOnce<T>(
   return query.get().then((s) => s.docs
       .map(
         (d) => safeGet(
-          () => serializers.deserializeWith(serializer, serializedData(d)),
+          () => recordBuilder(d),
           (e) => print('Error serializing doc ${d.reference.path}:\n$e'),
         ),
       )
@@ -2001,7 +2006,7 @@ class FFFirestorePage<T> {
 
 Future<FFFirestorePage<T>> queryCollectionPage<T>(
   Query collection,
-  Serializer<T> serializer, {
+  RecordBuilder<T> recordBuilder, {
   Query Function(Query)? queryBuilder,
   DocumentSnapshot? nextPageMarker,
   required int pageSize,
@@ -2023,7 +2028,7 @@ Future<FFFirestorePage<T>> queryCollectionPage<T>(
   final getDocs = (QuerySnapshot s) => s.docs
       .map(
         (d) => safeGet(
-          () => serializers.deserializeWith(serializer, serializedData(d)),
+          () => recordBuilder(d),
           (e) => print('Error serializing doc ${d.reference.path}:\n$e'),
         ),
       )
@@ -2034,27 +2039,4 @@ Future<FFFirestorePage<T>> queryCollectionPage<T>(
   final dataStream = docSnapshotStream?.map(getDocs);
   final nextPageToken = docSnapshot.docs.isEmpty ? null : docSnapshot.docs.last;
   return FFFirestorePage(data, dataStream, nextPageToken);
-}
-
-// Creates a Firestore document representing the logged in user if it doesn't yet exist
-Future maybeCreateUser(User user) async {
-  final userRecord = UserRecord.collection.doc(user.uid);
-  final userExists = await userRecord.get().then((u) => u.exists);
-  if (userExists) {
-    currentUserDocument = await UserRecord.getDocumentOnce(userRecord);
-    return;
-  }
-
-  final userData = createUserRecordData(
-    email: user.email,
-    displayName: user.displayName,
-    photoUrl: user.photoURL,
-    uid: user.uid,
-    phoneNumber: user.phoneNumber,
-    createdTime: getCurrentTimestamp,
-  );
-
-  await userRecord.set(userData);
-  currentUserDocument =
-      serializers.deserializeWith(UserRecord.serializer, userData);
 }

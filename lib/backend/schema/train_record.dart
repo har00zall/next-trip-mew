@@ -1,91 +1,123 @@
 import 'dart:async';
 
+import '/backend/schema/util/firestore_util.dart';
+import '/backend/schema/util/schema_util.dart';
+
 import 'index.dart';
-import 'serializers.dart';
-import 'package:built_value/built_value.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 
-part 'train_record.g.dart';
+class TrainRecord extends FirestoreRecord {
+  TrainRecord._(
+    DocumentReference reference,
+    Map<String, dynamic> data,
+  ) : super(reference, data) {
+    _initializeFields();
+  }
 
-abstract class TrainRecord implements Built<TrainRecord, TrainRecordBuilder> {
-  static Serializer<TrainRecord> get serializer => _$trainRecordSerializer;
+  // "No" field.
+  int? _no;
+  int get no => _no ?? 0;
+  bool hasNo() => _no != null;
 
-  @BuiltValueField(wireName: 'No')
-  int? get no;
+  // "From" field.
+  String? _from;
+  String get from => _from ?? '';
+  bool hasFrom() => _from != null;
 
-  @BuiltValueField(wireName: 'From')
-  String? get from;
+  // "To" field.
+  String? _to;
+  String get to => _to ?? '';
+  bool hasTo() => _to != null;
 
-  @BuiltValueField(wireName: 'To')
-  String? get to;
+  // "Sleeper" field.
+  int? _sleeper;
+  int get sleeper => _sleeper ?? 0;
+  bool hasSleeper() => _sleeper != null;
 
-  @BuiltValueField(wireName: 'Sleeper')
-  int? get sleeper;
+  // "AC_1A-Tier" field.
+  int? _aC1ATier;
+  int get aC1ATier => _aC1ATier ?? 0;
+  bool hasAC1ATier() => _aC1ATier != null;
 
-  @BuiltValueField(wireName: 'AC_1A-Tier')
-  int? get aC1ATier;
+  // "AC_2A-Tier" field.
+  int? _aC2ATier;
+  int get aC2ATier => _aC2ATier ?? 0;
+  bool hasAC2ATier() => _aC2ATier != null;
 
-  @BuiltValueField(wireName: 'AC_2A-Tier')
-  int? get aC2ATier;
+  // "Arrival_Station" field.
+  String? _arrivalStation;
+  String get arrivalStation => _arrivalStation ?? '';
+  bool hasArrivalStation() => _arrivalStation != null;
 
-  @BuiltValueField(wireName: 'Arrival_Station')
-  String? get arrivalStation;
+  // "Time" field.
+  String? _time;
+  String get time => _time ?? '';
+  bool hasTime() => _time != null;
 
-  @BuiltValueField(wireName: 'Time')
-  String? get time;
+  // "Duration" field.
+  String? _duration;
+  String get duration => _duration ?? '';
+  bool hasDuration() => _duration != null;
 
-  @BuiltValueField(wireName: 'Duration')
-  String? get duration;
+  // "Train_Name" field.
+  String? _trainName;
+  String get trainName => _trainName ?? '';
+  bool hasTrainName() => _trainName != null;
 
-  @BuiltValueField(wireName: 'Train_Name')
-  String? get trainName;
+  // "Boarding_Station" field.
+  String? _boardingStation;
+  String get boardingStation => _boardingStation ?? '';
+  bool hasBoardingStation() => _boardingStation != null;
 
-  @BuiltValueField(wireName: 'Boarding_Station')
-  String? get boardingStation;
+  // "Train_No" field.
+  int? _trainNo;
+  int get trainNo => _trainNo ?? 0;
+  bool hasTrainNo() => _trainNo != null;
 
-  @BuiltValueField(wireName: 'Train_No')
-  int? get trainNo;
+  // "AC_3A-Tier" field.
+  int? _aC3ATier;
+  int get aC3ATier => _aC3ATier ?? 0;
+  bool hasAC3ATier() => _aC3ATier != null;
 
-  @BuiltValueField(wireName: 'AC_3A-Tier')
-  int? get aC3ATier;
-
-  @BuiltValueField(wireName: kDocumentReferenceField)
-  DocumentReference? get ffRef;
-  DocumentReference get reference => ffRef!;
-
-  static void _initializeBuilder(TrainRecordBuilder builder) => builder
-    ..no = 0
-    ..from = ''
-    ..to = ''
-    ..sleeper = 0
-    ..aC1ATier = 0
-    ..aC2ATier = 0
-    ..arrivalStation = ''
-    ..time = ''
-    ..duration = ''
-    ..trainName = ''
-    ..boardingStation = ''
-    ..trainNo = 0
-    ..aC3ATier = 0;
+  void _initializeFields() {
+    _no = snapshotData['No'] as int?;
+    _from = snapshotData['From'] as String?;
+    _to = snapshotData['To'] as String?;
+    _sleeper = snapshotData['Sleeper'] as int?;
+    _aC1ATier = snapshotData['AC_1A-Tier'] as int?;
+    _aC2ATier = snapshotData['AC_2A-Tier'] as int?;
+    _arrivalStation = snapshotData['Arrival_Station'] as String?;
+    _time = snapshotData['Time'] as String?;
+    _duration = snapshotData['Duration'] as String?;
+    _trainName = snapshotData['Train_Name'] as String?;
+    _boardingStation = snapshotData['Boarding_Station'] as String?;
+    _trainNo = snapshotData['Train_No'] as int?;
+    _aC3ATier = snapshotData['AC_3A-Tier'] as int?;
+  }
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('train');
 
-  static Stream<TrainRecord> getDocument(DocumentReference ref) => ref
-      .snapshots()
-      .map((s) => serializers.deserializeWith(serializer, serializedData(s))!);
+  static Stream<TrainRecord> getDocument(DocumentReference ref) =>
+      ref.snapshots().map((s) => TrainRecord.fromSnapshot(s));
 
-  static Future<TrainRecord> getDocumentOnce(DocumentReference ref) => ref
-      .get()
-      .then((s) => serializers.deserializeWith(serializer, serializedData(s))!);
+  static Future<TrainRecord> getDocumentOnce(DocumentReference ref) =>
+      ref.get().then((s) => TrainRecord.fromSnapshot(s));
 
-  TrainRecord._();
-  factory TrainRecord([void Function(TrainRecordBuilder) updates]) =
-      _$TrainRecord;
+  static TrainRecord fromSnapshot(DocumentSnapshot snapshot) => TrainRecord._(
+        snapshot.reference,
+        mapFromFirestore(snapshot.data() as Map<String, dynamic>),
+      );
 
   static TrainRecord getDocumentFromData(
-          Map<String, dynamic> data, DocumentReference reference) =>
-      serializers.deserializeWith(serializer,
-          {...mapFromFirestore(data), kDocumentReferenceField: reference})!;
+    Map<String, dynamic> data,
+    DocumentReference reference,
+  ) =>
+      TrainRecord._(reference, mapFromFirestore(data));
+
+  @override
+  String toString() =>
+      'TrainRecord(reference: ${reference.path}, data: $snapshotData)';
 }
 
 Map<String, dynamic> createTrainRecordData({
@@ -103,24 +135,22 @@ Map<String, dynamic> createTrainRecordData({
   int? trainNo,
   int? aC3ATier,
 }) {
-  final firestoreData = serializers.toFirestore(
-    TrainRecord.serializer,
-    TrainRecord(
-      (t) => t
-        ..no = no
-        ..from = from
-        ..to = to
-        ..sleeper = sleeper
-        ..aC1ATier = aC1ATier
-        ..aC2ATier = aC2ATier
-        ..arrivalStation = arrivalStation
-        ..time = time
-        ..duration = duration
-        ..trainName = trainName
-        ..boardingStation = boardingStation
-        ..trainNo = trainNo
-        ..aC3ATier = aC3ATier,
-    ),
+  final firestoreData = mapToFirestore(
+    <String, dynamic>{
+      'No': no,
+      'From': from,
+      'To': to,
+      'Sleeper': sleeper,
+      'AC_1A-Tier': aC1ATier,
+      'AC_2A-Tier': aC2ATier,
+      'Arrival_Station': arrivalStation,
+      'Time': time,
+      'Duration': duration,
+      'Train_Name': trainName,
+      'Boarding_Station': boardingStation,
+      'Train_No': trainNo,
+      'AC_3A-Tier': aC3ATier,
+    }.withoutNulls,
   );
 
   return firestoreData;

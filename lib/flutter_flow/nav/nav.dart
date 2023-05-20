@@ -5,7 +5,7 @@ import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:go_router/go_router.dart';
 import 'package:page_transition/page_transition.dart';
 import '../flutter_flow_theme.dart';
-import '../../backend/backend.dart';
+import '/backend/backend.dart';
 
 import '../../auth/base_auth_user_provider.dart';
 
@@ -70,14 +70,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, _) =>
-          appStateNotifier.loggedIn ? A4MainPageWidget() : A3LoginPageWidget(),
+          appStateNotifier.loggedIn ? A4MainPageWidget() : A1PageWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) => appStateNotifier.loggedIn
-              ? A4MainPageWidget()
-              : A3LoginPageWidget(),
+          builder: (context, _) =>
+              appStateNotifier.loggedIn ? A4MainPageWidget() : A1PageWidget(),
           routes: [
             FFRoute(
               name: 'A1Page',
@@ -102,7 +101,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'B4SelectingHotelRoom',
               path: 'b4SelectingHotelRoom',
-              builder: (context, params) => B4SelectingHotelRoomWidget(),
+              builder: (context, params) => B4SelectingHotelRoomWidget(
+                roomType1: params.getParam('roomType1', ParamType.String),
+                roomView1: params.getParam('roomView1', ParamType.String),
+                bedType1: params.getParam('bedType1', ParamType.String),
+                roomSize1: params.getParam('roomSize1', ParamType.String),
+              ),
             ),
             FFRoute(
               name: 'B3HotelBooking',
@@ -119,6 +123,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 facility1: params.getParam('facility1', ParamType.String),
                 facility2: params.getParam('facility2', ParamType.String),
                 image: params.getParam('image', ParamType.String),
+                roomType1: params.getParam('roomType1', ParamType.String),
+                roomSize1: params.getParam('roomSize1', ParamType.String),
+                roomView1: params.getParam('roomView1', ParamType.String),
+                bedType1: params.getParam('bedType1', ParamType.String),
               ),
             ),
             FFRoute(
@@ -170,11 +178,6 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'C3FlightReview',
               path: 'c3FlightReview',
               builder: (context, params) => C3FlightReviewWidget(),
-            ),
-            FFRoute(
-              name: 'C1Flights',
-              path: 'c1Flights',
-              builder: (context, params) => C1FlightsWidget(),
             ),
             FFRoute(
               name: 'C6FlightPayment',
@@ -358,6 +361,11 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               name: 'Simole',
               path: 'simole',
               builder: (context, params) => SimoleWidget(),
+            ),
+            FFRoute(
+              name: 'C1Flight',
+              path: 'c1Flight',
+              builder: (context, params) => C1FlightWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
@@ -495,7 +503,8 @@ class FFParameters {
       return param;
     }
     // Return serialized value.
-    return deserializeParam<T>(param, type, isList, collectionNamePath);
+    return deserializeParam<T>(param, type, isList,
+        collectionNamePath: collectionNamePath);
   }
 }
 
@@ -528,7 +537,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.location);
-            return '/a3LoginPage';
+            return '/a1Page';
           }
           return null;
         },

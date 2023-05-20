@@ -1,69 +1,88 @@
 import 'dart:async';
 
+import '/backend/schema/util/firestore_util.dart';
+import '/backend/schema/util/schema_util.dart';
+
 import 'index.dart';
-import 'serializers.dart';
-import 'package:built_value/built_value.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 
-part 'his_hyderabad_record.g.dart';
+class HisHyderabadRecord extends FirestoreRecord {
+  HisHyderabadRecord._(
+    DocumentReference reference,
+    Map<String, dynamic> data,
+  ) : super(reference, data) {
+    _initializeFields();
+  }
 
-abstract class HisHyderabadRecord
-    implements Built<HisHyderabadRecord, HisHyderabadRecordBuilder> {
-  static Serializer<HisHyderabadRecord> get serializer =>
-      _$hisHyderabadRecordSerializer;
+  // "Url" field.
+  String? _url;
+  String get url => _url ?? '';
+  bool hasUrl() => _url != null;
 
-  @BuiltValueField(wireName: 'Url')
-  String? get url;
+  // "Name" field.
+  String? _name;
+  String get name => _name ?? '';
+  bool hasName() => _name != null;
 
-  @BuiltValueField(wireName: 'Name')
-  String? get name;
+  // "Type" field.
+  String? _type;
+  String get type => _type ?? '';
+  bool hasType() => _type != null;
 
-  @BuiltValueField(wireName: 'Type')
-  String? get type;
+  // "images" field.
+  String? _images;
+  String get images => _images ?? '';
+  bool hasImages() => _images != null;
 
-  String? get images;
+  // "No" field.
+  int? _no;
+  int get no => _no ?? 0;
+  bool hasNo() => _no != null;
 
-  @BuiltValueField(wireName: 'No')
-  int? get no;
+  // "Review" field.
+  int? _review;
+  int get review => _review ?? 0;
+  bool hasReview() => _review != null;
 
-  @BuiltValueField(wireName: 'Review')
-  int? get review;
+  // "Rate" field.
+  double? _rate;
+  double get rate => _rate ?? 0.0;
+  bool hasRate() => _rate != null;
 
-  @BuiltValueField(wireName: 'Rate')
-  double? get rate;
-
-  @BuiltValueField(wireName: kDocumentReferenceField)
-  DocumentReference? get ffRef;
-  DocumentReference get reference => ffRef!;
-
-  static void _initializeBuilder(HisHyderabadRecordBuilder builder) => builder
-    ..url = ''
-    ..name = ''
-    ..type = ''
-    ..images = ''
-    ..no = 0
-    ..review = 0
-    ..rate = 0.0;
+  void _initializeFields() {
+    _url = snapshotData['Url'] as String?;
+    _name = snapshotData['Name'] as String?;
+    _type = snapshotData['Type'] as String?;
+    _images = snapshotData['images'] as String?;
+    _no = snapshotData['No'] as int?;
+    _review = snapshotData['Review'] as int?;
+    _rate = castToType<double>(snapshotData['Rate']);
+  }
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('hisHyderabad');
 
-  static Stream<HisHyderabadRecord> getDocument(DocumentReference ref) => ref
-      .snapshots()
-      .map((s) => serializers.deserializeWith(serializer, serializedData(s))!);
+  static Stream<HisHyderabadRecord> getDocument(DocumentReference ref) =>
+      ref.snapshots().map((s) => HisHyderabadRecord.fromSnapshot(s));
 
   static Future<HisHyderabadRecord> getDocumentOnce(DocumentReference ref) =>
-      ref.get().then(
-          (s) => serializers.deserializeWith(serializer, serializedData(s))!);
+      ref.get().then((s) => HisHyderabadRecord.fromSnapshot(s));
 
-  HisHyderabadRecord._();
-  factory HisHyderabadRecord(
-          [void Function(HisHyderabadRecordBuilder) updates]) =
-      _$HisHyderabadRecord;
+  static HisHyderabadRecord fromSnapshot(DocumentSnapshot snapshot) =>
+      HisHyderabadRecord._(
+        snapshot.reference,
+        mapFromFirestore(snapshot.data() as Map<String, dynamic>),
+      );
 
   static HisHyderabadRecord getDocumentFromData(
-          Map<String, dynamic> data, DocumentReference reference) =>
-      serializers.deserializeWith(serializer,
-          {...mapFromFirestore(data), kDocumentReferenceField: reference})!;
+    Map<String, dynamic> data,
+    DocumentReference reference,
+  ) =>
+      HisHyderabadRecord._(reference, mapFromFirestore(data));
+
+  @override
+  String toString() =>
+      'HisHyderabadRecord(reference: ${reference.path}, data: $snapshotData)';
 }
 
 Map<String, dynamic> createHisHyderabadRecordData({
@@ -75,18 +94,16 @@ Map<String, dynamic> createHisHyderabadRecordData({
   int? review,
   double? rate,
 }) {
-  final firestoreData = serializers.toFirestore(
-    HisHyderabadRecord.serializer,
-    HisHyderabadRecord(
-      (h) => h
-        ..url = url
-        ..name = name
-        ..type = type
-        ..images = images
-        ..no = no
-        ..review = review
-        ..rate = rate,
-    ),
+  final firestoreData = mapToFirestore(
+    <String, dynamic>{
+      'Url': url,
+      'Name': name,
+      'Type': type,
+      'images': images,
+      'No': no,
+      'Review': review,
+      'Rate': rate,
+    }.withoutNulls,
   );
 
   return firestoreData;

@@ -185,6 +185,7 @@ class _E2BusBooking1WidgetState extends State<E2BusBooking1Widget> {
           elevation: 2.0,
         ),
         body: SafeArea(
+          top: true,
           child: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.max,

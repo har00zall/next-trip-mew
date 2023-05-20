@@ -4,6 +4,7 @@ import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -29,8 +30,6 @@ class _D1TrainWidgetState extends State<D1TrainWidget> {
   void initState() {
     super.initState();
     _model = createModel(context, () => D1TrainModel());
-
-    _model.textController ??= TextEditingController();
   }
 
   @override
@@ -82,6 +81,7 @@ class _D1TrainWidgetState extends State<D1TrainWidget> {
           elevation: 2.0,
         ),
         body: SafeArea(
+          top: true,
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
@@ -148,18 +148,6 @@ class _D1TrainWidgetState extends State<D1TrainWidget> {
                               ),
                               FFLocalizations.of(context).getText(
                                 'n3susmu6' /* Jaipur */,
-                              ),
-                              FFLocalizations.of(context).getText(
-                                'f2xm186p' /* New Delhi */,
-                              ),
-                              FFLocalizations.of(context).getText(
-                                'owo3v7bz' /* Kolkata */,
-                              ),
-                              FFLocalizations.of(context).getText(
-                                'hjnksi7x' /* Pune */,
-                              ),
-                              FFLocalizations.of(context).getText(
-                                'p3cc2u5y' /* Mumbai */,
                               )
                             ],
                             onChanged: (val) =>
@@ -255,18 +243,6 @@ class _D1TrainWidgetState extends State<D1TrainWidget> {
                               ),
                               FFLocalizations.of(context).getText(
                                 'rm3fui3a' /* Jaipur */,
-                              ),
-                              FFLocalizations.of(context).getText(
-                                '1khyvaay' /* New Delhi */,
-                              ),
-                              FFLocalizations.of(context).getText(
-                                'g4ztxv0w' /* Pune */,
-                              ),
-                              FFLocalizations.of(context).getText(
-                                'g1ypddpt' /* Mumbai */,
-                              ),
-                              FFLocalizations.of(context).getText(
-                                'gsvctdmc' /* Kolkata */,
                               )
                             ],
                             onChanged: (val) =>
@@ -561,7 +537,7 @@ class _D1TrainWidgetState extends State<D1TrainWidget> {
                             children: [
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    10.0, 0.0, 0.0, 0.0),
+                                    15.0, 0.0, 0.0, 0.0),
                                 child: Text(
                                   FFLocalizations.of(context).getText(
                                     'k0xxs3m0' /* Date */,
@@ -617,61 +593,16 @@ class _D1TrainWidgetState extends State<D1TrainWidget> {
                                 },
                               ),
                               Expanded(
-                                child: Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 10.0, 0.0),
-                                  child: TextFormField(
-                                    controller: _model.textController,
-                                    autofocus: true,
-                                    obscureText: false,
-                                    decoration: InputDecoration(
-                                      hintText:
-                                          FFLocalizations.of(context).getText(
-                                        'ag735w0o' /* Date&Time */,
-                                      ),
-                                      hintStyle: FlutterFlowTheme.of(context)
-                                          .bodySmall,
-                                      enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: Color(0xFF0C0C0C),
-                                          width: 1.0,
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(10.0),
-                                      ),
-                                      focusedBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: Color(0x00000000),
-                                          width: 1.0,
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(10.0),
-                                      ),
-                                      errorBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: Color(0x00000000),
-                                          width: 1.0,
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(10.0),
-                                      ),
-                                      focusedErrorBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: Color(0x00000000),
-                                          width: 1.0,
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(10.0),
-                                      ),
-                                      contentPadding:
-                                          EdgeInsetsDirectional.fromSTEB(
-                                              10.0, 0.0, 0.0, 0.0),
-                                    ),
-                                    style:
-                                        FlutterFlowTheme.of(context).bodyMedium,
-                                    validator: _model.textControllerValidator
-                                        .asValidator(context),
+                                child: AutoSizeText(
+                                  FFLocalizations.of(context).getText(
+                                    'ldrtxcnz' /* Date */,
                                   ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        fontSize: 18.0,
+                                      ),
                                 ),
                               ),
                             ],

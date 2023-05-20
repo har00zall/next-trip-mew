@@ -59,6 +59,7 @@ class _H8CustomerCareWidgetState extends State<H8CustomerCareWidget> {
           elevation: 2.0,
         ),
         body: SafeArea(
+          top: true,
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [],

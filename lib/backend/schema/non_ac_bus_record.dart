@@ -1,81 +1,106 @@
 import 'dart:async';
 
+import '/backend/schema/util/firestore_util.dart';
+import '/backend/schema/util/schema_util.dart';
+
 import 'index.dart';
-import 'serializers.dart';
-import 'package:built_value/built_value.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 
-part 'non_ac_bus_record.g.dart';
+class NonAcBusRecord extends FirestoreRecord {
+  NonAcBusRecord._(
+    DocumentReference reference,
+    Map<String, dynamic> data,
+  ) : super(reference, data) {
+    _initializeFields();
+  }
 
-abstract class NonAcBusRecord
-    implements Built<NonAcBusRecord, NonAcBusRecordBuilder> {
-  static Serializer<NonAcBusRecord> get serializer =>
-      _$nonAcBusRecordSerializer;
+  // "No" field.
+  int? _no;
+  int get no => _no ?? 0;
+  bool hasNo() => _no != null;
 
-  @BuiltValueField(wireName: 'No')
-  int? get no;
+  // "From" field.
+  String? _from;
+  String get from => _from ?? '';
+  bool hasFrom() => _from != null;
 
-  @BuiltValueField(wireName: 'From')
-  String? get from;
+  // "To" field.
+  String? _to;
+  String get to => _to ?? '';
+  bool hasTo() => _to != null;
 
-  @BuiltValueField(wireName: 'To')
-  String? get to;
+  // "Boarding" field.
+  String? _boarding;
+  String get boarding => _boarding ?? '';
+  bool hasBoarding() => _boarding != null;
 
-  @BuiltValueField(wireName: 'Boarding')
-  String? get boarding;
+  // "NonAC_Seater" field.
+  int? _nonACSeater;
+  int get nonACSeater => _nonACSeater ?? 0;
+  bool hasNonACSeater() => _nonACSeater != null;
 
-  @BuiltValueField(wireName: 'NonAC_Seater')
-  int? get nonACSeater;
+  // "NonAc_Sleeper" field.
+  int? _nonAcSleeper;
+  int get nonAcSleeper => _nonAcSleeper ?? 0;
+  bool hasNonAcSleeper() => _nonAcSleeper != null;
 
-  @BuiltValueField(wireName: 'NonAc_Sleeper')
-  int? get nonAcSleeper;
+  // "Time" field.
+  String? _time;
+  String get time => _time ?? '';
+  bool hasTime() => _time != null;
 
-  @BuiltValueField(wireName: 'Time')
-  String? get time;
+  // "Duration" field.
+  String? _duration;
+  String get duration => _duration ?? '';
+  bool hasDuration() => _duration != null;
 
-  @BuiltValueField(wireName: 'Duration')
-  String? get duration;
+  // "Arrival" field.
+  String? _arrival;
+  String get arrival => _arrival ?? '';
+  bool hasArrival() => _arrival != null;
 
-  @BuiltValueField(wireName: 'Arrival')
-  String? get arrival;
+  // "Bus_Name" field.
+  String? _busName;
+  String get busName => _busName ?? '';
+  bool hasBusName() => _busName != null;
 
-  @BuiltValueField(wireName: 'Bus_Name')
-  String? get busName;
-
-  @BuiltValueField(wireName: kDocumentReferenceField)
-  DocumentReference? get ffRef;
-  DocumentReference get reference => ffRef!;
-
-  static void _initializeBuilder(NonAcBusRecordBuilder builder) => builder
-    ..no = 0
-    ..from = ''
-    ..to = ''
-    ..boarding = ''
-    ..nonACSeater = 0
-    ..nonAcSleeper = 0
-    ..time = ''
-    ..duration = ''
-    ..arrival = ''
-    ..busName = '';
+  void _initializeFields() {
+    _no = snapshotData['No'] as int?;
+    _from = snapshotData['From'] as String?;
+    _to = snapshotData['To'] as String?;
+    _boarding = snapshotData['Boarding'] as String?;
+    _nonACSeater = snapshotData['NonAC_Seater'] as int?;
+    _nonAcSleeper = snapshotData['NonAc_Sleeper'] as int?;
+    _time = snapshotData['Time'] as String?;
+    _duration = snapshotData['Duration'] as String?;
+    _arrival = snapshotData['Arrival'] as String?;
+    _busName = snapshotData['Bus_Name'] as String?;
+  }
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('nonAcBus');
 
-  static Stream<NonAcBusRecord> getDocument(DocumentReference ref) => ref
-      .snapshots()
-      .map((s) => serializers.deserializeWith(serializer, serializedData(s))!);
+  static Stream<NonAcBusRecord> getDocument(DocumentReference ref) =>
+      ref.snapshots().map((s) => NonAcBusRecord.fromSnapshot(s));
 
-  static Future<NonAcBusRecord> getDocumentOnce(DocumentReference ref) => ref
-      .get()
-      .then((s) => serializers.deserializeWith(serializer, serializedData(s))!);
+  static Future<NonAcBusRecord> getDocumentOnce(DocumentReference ref) =>
+      ref.get().then((s) => NonAcBusRecord.fromSnapshot(s));
 
-  NonAcBusRecord._();
-  factory NonAcBusRecord([void Function(NonAcBusRecordBuilder) updates]) =
-      _$NonAcBusRecord;
+  static NonAcBusRecord fromSnapshot(DocumentSnapshot snapshot) =>
+      NonAcBusRecord._(
+        snapshot.reference,
+        mapFromFirestore(snapshot.data() as Map<String, dynamic>),
+      );
 
   static NonAcBusRecord getDocumentFromData(
-          Map<String, dynamic> data, DocumentReference reference) =>
-      serializers.deserializeWith(serializer,
-          {...mapFromFirestore(data), kDocumentReferenceField: reference})!;
+    Map<String, dynamic> data,
+    DocumentReference reference,
+  ) =>
+      NonAcBusRecord._(reference, mapFromFirestore(data));
+
+  @override
+  String toString() =>
+      'NonAcBusRecord(reference: ${reference.path}, data: $snapshotData)';
 }
 
 Map<String, dynamic> createNonAcBusRecordData({
@@ -90,21 +115,19 @@ Map<String, dynamic> createNonAcBusRecordData({
   String? arrival,
   String? busName,
 }) {
-  final firestoreData = serializers.toFirestore(
-    NonAcBusRecord.serializer,
-    NonAcBusRecord(
-      (n) => n
-        ..no = no
-        ..from = from
-        ..to = to
-        ..boarding = boarding
-        ..nonACSeater = nonACSeater
-        ..nonAcSleeper = nonAcSleeper
-        ..time = time
-        ..duration = duration
-        ..arrival = arrival
-        ..busName = busName,
-    ),
+  final firestoreData = mapToFirestore(
+    <String, dynamic>{
+      'No': no,
+      'From': from,
+      'To': to,
+      'Boarding': boarding,
+      'NonAC_Seater': nonACSeater,
+      'NonAc_Sleeper': nonAcSleeper,
+      'Time': time,
+      'Duration': duration,
+      'Arrival': arrival,
+      'Bus_Name': busName,
+    }.withoutNulls,
   );
 
   return firestoreData;

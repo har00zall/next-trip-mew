@@ -12,7 +12,18 @@ import 'b4_selecting_hotel_room_model.dart';
 export 'b4_selecting_hotel_room_model.dart';
 
 class B4SelectingHotelRoomWidget extends StatefulWidget {
-  const B4SelectingHotelRoomWidget({Key? key}) : super(key: key);
+  const B4SelectingHotelRoomWidget({
+    Key? key,
+    required this.roomType1,
+    required this.roomView1,
+    required this.bedType1,
+    required this.roomSize1,
+  }) : super(key: key);
+
+  final String? roomType1;
+  final String? roomView1;
+  final String? bedType1;
+  final String? roomSize1;
 
   @override
   _B4SelectingHotelRoomWidgetState createState() =>
@@ -79,6 +90,7 @@ class _B4SelectingHotelRoomWidgetState
           elevation: 2.0,
         ),
         body: SafeArea(
+          top: true,
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
@@ -124,9 +136,7 @@ class _B4SelectingHotelRoomWidgetState
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           15.0, 10.0, 0.0, 0.0),
                                       child: Text(
-                                        FFLocalizations.of(context).getText(
-                                          '8c5hltmi' /* Room type */,
-                                        ),
+                                        widget.roomType1!,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -181,9 +191,7 @@ class _B4SelectingHotelRoomWidgetState
                                             },
                                           ),
                                           Text(
-                                            FFLocalizations.of(context).getText(
-                                              't1sut9jk' /* Size of room */,
-                                            ),
+                                            widget.roomSize1!,
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
@@ -217,9 +225,7 @@ class _B4SelectingHotelRoomWidgetState
                                             },
                                           ),
                                           Text(
-                                            FFLocalizations.of(context).getText(
-                                              '8td4khzj' /* Room view */,
-                                            ),
+                                            widget.roomView1!,
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
@@ -253,9 +259,7 @@ class _B4SelectingHotelRoomWidgetState
                                             },
                                           ),
                                           Text(
-                                            FFLocalizations.of(context).getText(
-                                              'jkp7uksl' /* Bed type */,
-                                            ),
+                                            widget.bedType1!,
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(

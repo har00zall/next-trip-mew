@@ -82,6 +82,7 @@ class _F2HistoricalWidgetState extends State<F2HistoricalWidget> {
           elevation: 2.0,
         ),
         body: SafeArea(
+          top: true,
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
@@ -330,7 +331,7 @@ class _F2HistoricalWidgetState extends State<F2HistoricalWidget> {
                                         child: Image.network(
                                           'https://nexttrip123.000webhostapp.com/${(String image) {
                                             return image.split('"')[1];
-                                          }(gridViewHisBangaloreRecord.image!)}',
+                                          }(gridViewHisBangaloreRecord.image)}',
                                           width: double.infinity,
                                           height: 200.0,
                                           fit: BoxFit.cover,
@@ -340,7 +341,7 @@ class _F2HistoricalWidgetState extends State<F2HistoricalWidget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             5.0, 150.0, 0.0, 0.0),
                                         child: Text(
-                                          gridViewHisBangaloreRecord.names!,
+                                          gridViewHisBangaloreRecord.names,
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -368,7 +369,7 @@ class _F2HistoricalWidgetState extends State<F2HistoricalWidget> {
                                         onPressed: () {
                                           print('Button pressed ...');
                                         },
-                                        text: gridViewHisBangaloreRecord.rate!
+                                        text: gridViewHisBangaloreRecord.rate
                                             .toString(),
                                         icon: Icon(
                                           Icons.star_rounded,
@@ -405,7 +406,7 @@ class _F2HistoricalWidgetState extends State<F2HistoricalWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           7.0, 0.0, 0.0, 0.0),
                                       child: Text(
-                                        gridViewHisBangaloreRecord.review!
+                                        gridViewHisBangaloreRecord.review
                                             .toString(),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
@@ -430,7 +431,7 @@ class _F2HistoricalWidgetState extends State<F2HistoricalWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           5.0, 0.0, 0.0, 0.0),
                                       child: Text(
-                                        gridViewHisBangaloreRecord.type!,
+                                        gridViewHisBangaloreRecord.type,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
                                       ),
@@ -512,7 +513,7 @@ class _F2HistoricalWidgetState extends State<F2HistoricalWidget> {
                                         child: Image.network(
                                           'https://nexttrip123.000webhostapp.com/${(String image) {
                                             return image.split('"')[1];
-                                          }(gridViewHisChennaiRecord.images!)}',
+                                          }(gridViewHisChennaiRecord.images)}',
                                           width: double.infinity,
                                           height: 200.0,
                                           fit: BoxFit.cover,
@@ -522,7 +523,7 @@ class _F2HistoricalWidgetState extends State<F2HistoricalWidget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             5.0, 150.0, 0.0, 0.0),
                                         child: Text(
-                                          gridViewHisChennaiRecord.name!,
+                                          gridViewHisChennaiRecord.name,
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -550,7 +551,7 @@ class _F2HistoricalWidgetState extends State<F2HistoricalWidget> {
                                         onPressed: () {
                                           print('Button pressed ...');
                                         },
-                                        text: gridViewHisChennaiRecord.rate!
+                                        text: gridViewHisChennaiRecord.rate
                                             .toString(),
                                         icon: Icon(
                                           Icons.star_rounded,
@@ -587,7 +588,7 @@ class _F2HistoricalWidgetState extends State<F2HistoricalWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           7.0, 0.0, 0.0, 0.0),
                                       child: Text(
-                                        gridViewHisChennaiRecord.review!
+                                        gridViewHisChennaiRecord.review
                                             .toString(),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
@@ -612,7 +613,7 @@ class _F2HistoricalWidgetState extends State<F2HistoricalWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           5.0, 0.0, 0.0, 0.0),
                                       child: Text(
-                                        gridViewHisChennaiRecord.type!,
+                                        gridViewHisChennaiRecord.type,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
                                       ),
@@ -694,7 +695,7 @@ class _F2HistoricalWidgetState extends State<F2HistoricalWidget> {
                                         child: Image.network(
                                           'https://nexttrip123.000webhostapp.com/${(String image) {
                                             return image.split('"')[1];
-                                          }(gridViewHisGoaRecord.image!)}',
+                                          }(gridViewHisGoaRecord.image)}',
                                           width: double.infinity,
                                           height: 200.0,
                                           fit: BoxFit.cover,
@@ -704,7 +705,7 @@ class _F2HistoricalWidgetState extends State<F2HistoricalWidget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             5.0, 150.0, 0.0, 0.0),
                                         child: Text(
-                                          gridViewHisGoaRecord.name!,
+                                          gridViewHisGoaRecord.name,
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -771,7 +772,7 @@ class _F2HistoricalWidgetState extends State<F2HistoricalWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           7.0, 0.0, 0.0, 0.0),
                                       child: Text(
-                                        gridViewHisGoaRecord.review!.toString(),
+                                        gridViewHisGoaRecord.review.toString(),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -795,7 +796,7 @@ class _F2HistoricalWidgetState extends State<F2HistoricalWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           5.0, 0.0, 0.0, 0.0),
                                       child: Text(
-                                        gridViewHisGoaRecord.type!,
+                                        gridViewHisGoaRecord.type,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
                                       ),
@@ -877,7 +878,7 @@ class _F2HistoricalWidgetState extends State<F2HistoricalWidget> {
                                         child: Image.network(
                                           'https://nexttrip123.000webhostapp.com/${(String image) {
                                             return image.split('"')[1];
-                                          }(gridViewHisHyderabadRecord.images!)}',
+                                          }(gridViewHisHyderabadRecord.images)}',
                                           width: double.infinity,
                                           height: 200.0,
                                           fit: BoxFit.cover,
@@ -956,7 +957,7 @@ class _F2HistoricalWidgetState extends State<F2HistoricalWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           7.0, 0.0, 0.0, 0.0),
                                       child: Text(
-                                        gridViewHisHyderabadRecord.review!
+                                        gridViewHisHyderabadRecord.review
                                             .toString(),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
@@ -981,7 +982,7 @@ class _F2HistoricalWidgetState extends State<F2HistoricalWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           5.0, 0.0, 0.0, 0.0),
                                       child: Text(
-                                        gridViewHisHyderabadRecord.type!,
+                                        gridViewHisHyderabadRecord.type,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
                                       ),
@@ -1063,7 +1064,7 @@ class _F2HistoricalWidgetState extends State<F2HistoricalWidget> {
                                         child: Image.network(
                                           'https://nexttrip123.000webhostapp.com/${(String image) {
                                             return image.split('"')[1];
-                                          }(gridViewHisJaipurRecord.images!)}',
+                                          }(gridViewHisJaipurRecord.images)}',
                                           width: double.infinity,
                                           height: 200.0,
                                           fit: BoxFit.cover,
@@ -1073,7 +1074,7 @@ class _F2HistoricalWidgetState extends State<F2HistoricalWidget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             5.0, 150.0, 0.0, 0.0),
                                         child: Text(
-                                          gridViewHisJaipurRecord.name!,
+                                          gridViewHisJaipurRecord.name,
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -1101,7 +1102,7 @@ class _F2HistoricalWidgetState extends State<F2HistoricalWidget> {
                                         onPressed: () {
                                           print('Button pressed ...');
                                         },
-                                        text: gridViewHisJaipurRecord.rate!
+                                        text: gridViewHisJaipurRecord.rate
                                             .toString(),
                                         icon: Icon(
                                           Icons.star_rounded,
@@ -1138,7 +1139,7 @@ class _F2HistoricalWidgetState extends State<F2HistoricalWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           7.0, 0.0, 0.0, 0.0),
                                       child: Text(
-                                        gridViewHisJaipurRecord.review!
+                                        gridViewHisJaipurRecord.review
                                             .toString(),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
@@ -1163,7 +1164,7 @@ class _F2HistoricalWidgetState extends State<F2HistoricalWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           5.0, 0.0, 0.0, 0.0),
                                       child: Text(
-                                        gridViewHisJaipurRecord.type!,
+                                        gridViewHisJaipurRecord.type,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium,
                                       ),

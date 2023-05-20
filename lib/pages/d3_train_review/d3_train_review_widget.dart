@@ -78,6 +78,7 @@ class _D3TrainReviewWidgetState extends State<D3TrainReviewWidget> {
           elevation: 2.0,
         ),
         body: SafeArea(
+          top: true,
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [

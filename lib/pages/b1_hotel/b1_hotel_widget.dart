@@ -82,6 +82,7 @@ class _B1HotelWidgetState extends State<B1HotelWidget> {
           elevation: 2.0,
         ),
         body: SafeArea(
+          top: true,
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [

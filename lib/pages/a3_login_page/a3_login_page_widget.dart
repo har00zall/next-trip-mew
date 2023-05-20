@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -26,8 +27,8 @@ class _A3LoginPageWidgetState extends State<A3LoginPageWidget> {
     super.initState();
     _model = createModel(context, () => A3LoginPageModel());
 
-    _model.textController1 ??= TextEditingController();
-    _model.textController2 ??= TextEditingController();
+    _model.emailController ??= TextEditingController();
+    _model.passwordController ??= TextEditingController();
   }
 
   @override
@@ -74,6 +75,7 @@ class _A3LoginPageWidgetState extends State<A3LoginPageWidget> {
         elevation: 2.0,
       ),
       body: SafeArea(
+        top: true,
         child: Visibility(
           visible: responsiveVisibility(
             context: context,
@@ -184,7 +186,7 @@ class _A3LoginPageWidgetState extends State<A3LoginPageWidget> {
                       padding:
                           EdgeInsetsDirectional.fromSTEB(2.0, 2.0, 2.0, 2.0),
                       child: TextFormField(
-                        controller: _model.textController1,
+                        controller: _model.emailController,
                         obscureText: false,
                         decoration: InputDecoration(
                           labelText: FFLocalizations.of(context).getText(
@@ -239,7 +241,7 @@ class _A3LoginPageWidgetState extends State<A3LoginPageWidget> {
                         ),
                         style: FlutterFlowTheme.of(context).bodyMedium,
                         maxLines: null,
-                        validator: _model.textController1Validator
+                        validator: _model.emailControllerValidator
                             .asValidator(context),
                       ),
                     ),
@@ -264,7 +266,7 @@ class _A3LoginPageWidgetState extends State<A3LoginPageWidget> {
                       padding:
                           EdgeInsetsDirectional.fromSTEB(2.0, 2.0, 2.0, 2.0),
                       child: TextFormField(
-                        controller: _model.textController2,
+                        controller: _model.passwordController,
                         obscureText: !_model.passwordVisibility,
                         decoration: InputDecoration(
                           labelText: FFLocalizations.of(context).getText(
@@ -325,7 +327,7 @@ class _A3LoginPageWidgetState extends State<A3LoginPageWidget> {
                           ),
                         ),
                         style: FlutterFlowTheme.of(context).bodyMedium,
-                        validator: _model.textController2Validator
+                        validator: _model.passwordControllerValidator
                             .asValidator(context),
                       ),
                     ),
@@ -342,7 +344,19 @@ class _A3LoginPageWidgetState extends State<A3LoginPageWidget> {
                             EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
                         child: FFButtonWidget(
                           onPressed: () async {
-                            context.pushNamed('A4MainPage');
+                            GoRouter.of(context).prepareAuthEvent();
+
+                            final user = await authManager.signInWithEmail(
+                              context,
+                              _model.emailController.text,
+                              _model.passwordController.text,
+                            );
+                            if (user == null) {
+                              return;
+                            }
+
+                            context.pushNamedAuth(
+                                'A4MainPage', context.mounted);
                           },
                           text: FFLocalizations.of(context).getText(
                             '91fb6zbg' /* Login */,

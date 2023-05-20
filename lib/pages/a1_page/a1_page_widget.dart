@@ -74,6 +74,7 @@ class _A1PageWidgetState extends State<A1PageWidget> {
           elevation: 2.0,
         ),
         body: SafeArea(
+          top: true,
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [

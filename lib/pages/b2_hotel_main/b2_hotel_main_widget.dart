@@ -194,6 +194,7 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
           elevation: 2.0,
         ),
         body: SafeArea(
+          top: true,
           child: Stack(
             children: [
               SingleChildScrollView(
@@ -548,7 +549,23 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                           'image': serializeParam(
                                             (String image) {
                                               return "https://nexttrip123.000webhostapp.com/${image.split('"')[1]}";
-                                            }(bangaloreBangaloreRecord.images!),
+                                            }(bangaloreBangaloreRecord.images),
+                                            ParamType.String,
+                                          ),
+                                          'roomType1': serializeParam(
+                                            bangaloreBangaloreRecord.roomType1,
+                                            ParamType.String,
+                                          ),
+                                          'roomSize1': serializeParam(
+                                            bangaloreBangaloreRecord.roomSize1,
+                                            ParamType.String,
+                                          ),
+                                          'roomView1': serializeParam(
+                                            bangaloreBangaloreRecord.roomView1,
+                                            ParamType.String,
+                                          ),
+                                          'bedType1': serializeParam(
+                                            bangaloreBangaloreRecord.bedType1,
                                             ParamType.String,
                                           ),
                                         }.withoutNulls,
@@ -589,7 +606,7 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                               child: Image.network(
                                                 'https://nexttrip123.000webhostapp.com/${(String image) {
                                                   return image.split('"')[1];
-                                                }(bangaloreBangaloreRecord.images!)}',
+                                                }(bangaloreBangaloreRecord.images)}',
                                                 width: double.infinity,
                                                 height: 200.0,
                                                 fit: BoxFit.cover,
@@ -621,7 +638,7 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                           },
                                                           text:
                                                               bangaloreBangaloreRecord
-                                                                  .rate!
+                                                                  .rate
                                                                   .toString(),
                                                           icon: Icon(
                                                             Icons.star,
@@ -688,7 +705,7 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                                     0.0),
                                                         child: Text(
                                                           bangaloreBangaloreRecord
-                                                              .star!,
+                                                              .star,
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyMedium
@@ -748,7 +765,7 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                                   0.0),
                                                       child: AutoSizeText(
                                                         bangaloreBangaloreRecord
-                                                            .hotelName!,
+                                                            .hotelName,
                                                         textAlign:
                                                             TextAlign.start,
                                                         maxLines: 4,
@@ -786,7 +803,7 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                                   0.0),
                                                       child: AutoSizeText(
                                                         bangaloreBangaloreRecord
-                                                            .hotelAddress!,
+                                                            .hotelAddress,
                                                         textAlign:
                                                             TextAlign.start,
                                                         maxLines: 4,
@@ -816,7 +833,7 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                           0.0, 0.0, 10.0, 0.0),
                                                   child: Text(
                                                     bangaloreBangaloreRecord
-                                                        .price!
+                                                        .price
                                                         .toString(),
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -869,7 +886,7 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                                 10.0, 0.0),
                                                     child: Text(
                                                       (double.parse(bangaloreBangaloreRecord
-                                                                  .price!
+                                                                  .price
                                                                   .toString()) +
                                                               500)
                                                           .toString(),
@@ -985,7 +1002,23 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                           'image': serializeParam(
                                             (String image) {
                                               return "https://nexttrip123.000webhostapp.com/${image.split('"')[1]}";
-                                            }(chennaiChennaiRecord.images!),
+                                            }(chennaiChennaiRecord.images),
+                                            ParamType.String,
+                                          ),
+                                          'roomType1': serializeParam(
+                                            chennaiChennaiRecord.roomType1,
+                                            ParamType.String,
+                                          ),
+                                          'roomSize1': serializeParam(
+                                            chennaiChennaiRecord.roomSize1,
+                                            ParamType.String,
+                                          ),
+                                          'roomView1': serializeParam(
+                                            chennaiChennaiRecord.roomSize1,
+                                            ParamType.String,
+                                          ),
+                                          'bedType1': serializeParam(
+                                            chennaiChennaiRecord.bedType1,
                                             ParamType.String,
                                           ),
                                         }.withoutNulls,
@@ -1026,7 +1059,7 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                               child: Image.network(
                                                 'https://nexttrip123.000webhostapp.com/${(String image) {
                                                   return image.split('"')[1];
-                                                }(chennaiChennaiRecord.images!)}',
+                                                }(chennaiChennaiRecord.images)}',
                                                 width: double.infinity,
                                                 height: 200.0,
                                                 fit: BoxFit.cover,
@@ -1058,7 +1091,7 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                           },
                                                           text:
                                                               chennaiChennaiRecord
-                                                                  .rate!
+                                                                  .rate
                                                                   .toString(),
                                                           icon: Icon(
                                                             Icons.star,
@@ -1125,7 +1158,7 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                                     0.0),
                                                         child: Text(
                                                           chennaiChennaiRecord
-                                                              .star!,
+                                                              .star,
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyMedium
@@ -1185,7 +1218,7 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                                   0.0),
                                                       child: AutoSizeText(
                                                         chennaiChennaiRecord
-                                                            .hotelName!,
+                                                            .hotelName,
                                                         maxLines: 4,
                                                         style: FlutterFlowTheme
                                                                 .of(context)
@@ -1221,7 +1254,7 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                                   0.0),
                                                       child: AutoSizeText(
                                                         chennaiChennaiRecord
-                                                            .hotelAddress!,
+                                                            .hotelAddress,
                                                         maxLines: 4,
                                                         style: FlutterFlowTheme
                                                                 .of(context)
@@ -1248,7 +1281,7 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                       .fromSTEB(
                                                           0.0, 0.0, 10.0, 0.0),
                                                   child: Text(
-                                                    chennaiChennaiRecord.price!
+                                                    chennaiChennaiRecord.price
                                                         .toString(),
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -1297,7 +1330,7 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                                 10.0, 0.0),
                                                     child: Text(
                                                       (double.parse(chennaiChennaiRecord
-                                                                  .price!
+                                                                  .price
                                                                   .toString()) +
                                                               500)
                                                           .toString(),
@@ -1409,7 +1442,23 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                           'image': serializeParam(
                                             (String image) {
                                               return "https://nexttrip123.000webhostapp.com/${image.split('"')[1]}";
-                                            }(goaGoaRecord.images!),
+                                            }(goaGoaRecord.images),
+                                            ParamType.String,
+                                          ),
+                                          'roomType1': serializeParam(
+                                            goaGoaRecord.roomType1,
+                                            ParamType.String,
+                                          ),
+                                          'roomSize1': serializeParam(
+                                            goaGoaRecord.roomSize1,
+                                            ParamType.String,
+                                          ),
+                                          'roomView1': serializeParam(
+                                            goaGoaRecord.roomView1,
+                                            ParamType.String,
+                                          ),
+                                          'bedType1': serializeParam(
+                                            goaGoaRecord.bedType1,
                                             ParamType.String,
                                           ),
                                         }.withoutNulls,
@@ -1450,7 +1499,7 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                               child: Image.network(
                                                 'https://nexttrip123.000webhostapp.com/${(String image) {
                                                   return image.split('"')[1];
-                                                }(goaGoaRecord.images!)}',
+                                                }(goaGoaRecord.images)}',
                                                 width: double.infinity,
                                                 height: 200.0,
                                                 fit: BoxFit.cover,
@@ -1478,7 +1527,7 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                                 'Button pressed ...');
                                                           },
                                                           text: goaGoaRecord
-                                                              .rate!
+                                                              .rate
                                                               .toString(),
                                                           icon: Icon(
                                                             Icons.star,
@@ -1544,7 +1593,7 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                                     179.0,
                                                                     0.0),
                                                         child: Text(
-                                                          goaGoaRecord.star!,
+                                                          goaGoaRecord.star,
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyMedium
@@ -1603,7 +1652,7 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                                   5.0,
                                                                   0.0),
                                                       child: AutoSizeText(
-                                                        goaGoaRecord.hotelName!,
+                                                        goaGoaRecord.hotelName,
                                                         maxLines: 4,
                                                         style: FlutterFlowTheme
                                                                 .of(context)
@@ -1639,7 +1688,7 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                                   0.0),
                                                       child: AutoSizeText(
                                                         goaGoaRecord
-                                                            .hotelAddress!,
+                                                            .hotelAddress,
                                                         maxLines: 4,
                                                         style: FlutterFlowTheme
                                                                 .of(context)
@@ -1666,7 +1715,7 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                       .fromSTEB(
                                                           0.0, 0.0, 10.0, 0.0),
                                                   child: Text(
-                                                    goaGoaRecord.price!
+                                                    goaGoaRecord.price
                                                         .toString(),
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -1719,7 +1768,7 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                                 10.0, 0.0),
                                                     child: Text(
                                                       (double.parse(goaGoaRecord
-                                                                  .price!
+                                                                  .price
                                                                   .toString()) +
                                                               500)
                                                           .toString(),
@@ -1839,7 +1888,23 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                           'image': serializeParam(
                                             (String image) {
                                               return "https://nexttrip123.000webhostapp.com/${image.split('"')[1]}";
-                                            }(hyderabadHyderabadRecord.images!),
+                                            }(hyderabadHyderabadRecord.images),
+                                            ParamType.String,
+                                          ),
+                                          'roomType1': serializeParam(
+                                            hyderabadHyderabadRecord.roomType1,
+                                            ParamType.String,
+                                          ),
+                                          'roomSize1': serializeParam(
+                                            hyderabadHyderabadRecord.roomSize1,
+                                            ParamType.String,
+                                          ),
+                                          'roomView1': serializeParam(
+                                            hyderabadHyderabadRecord.roomView1,
+                                            ParamType.String,
+                                          ),
+                                          'bedType1': serializeParam(
+                                            '',
                                             ParamType.String,
                                           ),
                                         }.withoutNulls,
@@ -1880,7 +1945,7 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                               child: Image.network(
                                                 'https://nexttrip123.000webhostapp.com/${(String image) {
                                                   return image.split('"')[1];
-                                                }(hyderabadHyderabadRecord.images!)}',
+                                                }(hyderabadHyderabadRecord.images)}',
                                                 width: double.infinity,
                                                 height: 200.0,
                                                 fit: BoxFit.cover,
@@ -1909,7 +1974,7 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                           },
                                                           text:
                                                               hyderabadHyderabadRecord
-                                                                  .rate!
+                                                                  .rate
                                                                   .toString(),
                                                           icon: Icon(
                                                             Icons.star,
@@ -1976,7 +2041,7 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                                     0.0),
                                                         child: Text(
                                                           hyderabadHyderabadRecord
-                                                              .star!,
+                                                              .star,
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyMedium
@@ -2036,7 +2101,7 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                                   0.0),
                                                       child: AutoSizeText(
                                                         hyderabadHyderabadRecord
-                                                            .hotelName!,
+                                                            .hotelName,
                                                         maxLines: 4,
                                                         style: FlutterFlowTheme
                                                                 .of(context)
@@ -2072,7 +2137,7 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                                   0.0),
                                                       child: AutoSizeText(
                                                         hyderabadHyderabadRecord
-                                                            .hotelAddress!,
+                                                            .hotelAddress,
                                                         maxLines: 4,
                                                         style: FlutterFlowTheme
                                                                 .of(context)
@@ -2100,7 +2165,7 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                           0.0, 0.0, 10.0, 0.0),
                                                   child: Text(
                                                     hyderabadHyderabadRecord
-                                                        .price!
+                                                        .price
                                                         .toString(),
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -2153,7 +2218,7 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                                 10.0, 0.0),
                                                     child: Text(
                                                       (double.parse(hyderabadHyderabadRecord
-                                                                  .price!
+                                                                  .price
                                                                   .toString()) +
                                                               500)
                                                           .toString(),
@@ -2268,7 +2333,23 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                           'image': serializeParam(
                                             (String image) {
                                               return "https://nexttrip123.000webhostapp.com/${image.split('"')[1]}";
-                                            }(jaipurJaipurRecord.images!),
+                                            }(jaipurJaipurRecord.images),
+                                            ParamType.String,
+                                          ),
+                                          'roomType1': serializeParam(
+                                            jaipurJaipurRecord.roomType1,
+                                            ParamType.String,
+                                          ),
+                                          'roomSize1': serializeParam(
+                                            jaipurJaipurRecord.roomSize1,
+                                            ParamType.String,
+                                          ),
+                                          'roomView1': serializeParam(
+                                            jaipurJaipurRecord.roomView1,
+                                            ParamType.String,
+                                          ),
+                                          'bedType1': serializeParam(
+                                            jaipurJaipurRecord.bedType1,
                                             ParamType.String,
                                           ),
                                         }.withoutNulls,
@@ -2309,7 +2390,7 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                               child: Image.network(
                                                 'https://nexttrip123.000webhostapp.com/${(String image) {
                                                   return image.split('"')[1];
-                                                }(jaipurJaipurRecord.images!)}',
+                                                }(jaipurJaipurRecord.images)}',
                                                 width: double.infinity,
                                                 height: 200.0,
                                                 fit: BoxFit.cover,
@@ -2338,7 +2419,7 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                           },
                                                           text:
                                                               jaipurJaipurRecord
-                                                                  .rate!
+                                                                  .rate
                                                                   .toString(),
                                                           icon: Icon(
                                                             Icons.star,
@@ -2405,7 +2486,7 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                                     0.0),
                                                         child: Text(
                                                           jaipurJaipurRecord
-                                                              .star!,
+                                                              .star,
                                                           style: FlutterFlowTheme
                                                                   .of(context)
                                                               .bodyMedium
@@ -2465,7 +2546,7 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                                   0.0),
                                                       child: AutoSizeText(
                                                         jaipurJaipurRecord
-                                                            .hotelName!,
+                                                            .hotelName,
                                                         maxLines: 4,
                                                         style: FlutterFlowTheme
                                                                 .of(context)
@@ -2501,7 +2582,7 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                                   0.0),
                                                       child: AutoSizeText(
                                                         jaipurJaipurRecord
-                                                            .hotelAddress!,
+                                                            .hotelAddress,
                                                         maxLines: 4,
                                                         style: FlutterFlowTheme
                                                                 .of(context)
@@ -2528,7 +2609,7 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                       .fromSTEB(
                                                           0.0, 0.0, 10.0, 0.0),
                                                   child: Text(
-                                                    jaipurJaipurRecord.price!
+                                                    jaipurJaipurRecord.price
                                                         .toString(),
                                                     style: FlutterFlowTheme.of(
                                                             context)
@@ -2581,7 +2662,7 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                                 10.0, 0.0),
                                                     child: Text(
                                                       (double.parse(jaipurJaipurRecord
-                                                                  .price!
+                                                                  .price
                                                                   .toString()) +
                                                               500)
                                                           .toString(),

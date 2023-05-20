@@ -1,137 +1,190 @@
 import 'dart:async';
 
+import '/backend/schema/util/firestore_util.dart';
+import '/backend/schema/util/schema_util.dart';
+
 import 'index.dart';
-import 'serializers.dart';
-import 'package:built_value/built_value.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 
-part 'bangalore_record.g.dart';
+class BangaloreRecord extends FirestoreRecord {
+  BangaloreRecord._(
+    DocumentReference reference,
+    Map<String, dynamic> data,
+  ) : super(reference, data) {
+    _initializeFields();
+  }
 
-abstract class BangaloreRecord
-    implements Built<BangaloreRecord, BangaloreRecordBuilder> {
-  static Serializer<BangaloreRecord> get serializer =>
-      _$bangaloreRecordSerializer;
+  // "Hotel_Name" field.
+  String? _hotelName;
+  String get hotelName => _hotelName ?? '';
+  bool hasHotelName() => _hotelName != null;
 
-  @BuiltValueField(wireName: 'Hotel_Name')
-  String? get hotelName;
+  // "Hotel_Address" field.
+  String? _hotelAddress;
+  String get hotelAddress => _hotelAddress ?? '';
+  bool hasHotelAddress() => _hotelAddress != null;
 
-  @BuiltValueField(wireName: 'Hotel_Address')
-  String? get hotelAddress;
+  // "Rate" field.
+  double? _rate;
+  double get rate => _rate ?? 0.0;
+  bool hasRate() => _rate != null;
 
-  @BuiltValueField(wireName: 'Rate')
-  double? get rate;
+  // "Images" field.
+  String? _images;
+  String get images => _images ?? '';
+  bool hasImages() => _images != null;
 
-  @BuiltValueField(wireName: 'Images')
-  String? get images;
+  // "Star" field.
+  String? _star;
+  String get star => _star ?? '';
+  bool hasStar() => _star != null;
 
-  @BuiltValueField(wireName: 'Star')
-  String? get star;
+  // "Url" field.
+  String? _url;
+  String get url => _url ?? '';
+  bool hasUrl() => _url != null;
 
-  @BuiltValueField(wireName: 'Url')
-  String? get url;
+  // "Specification" field.
+  String? _specification;
+  String get specification => _specification ?? '';
+  bool hasSpecification() => _specification != null;
 
-  @BuiltValueField(wireName: 'Specification')
-  String? get specification;
+  // "Facility" field.
+  String? _facility;
+  String get facility => _facility ?? '';
+  bool hasFacility() => _facility != null;
 
-  @BuiltValueField(wireName: 'Facility')
-  String? get facility;
+  // "Facility2" field.
+  String? _facility2;
+  String get facility2 => _facility2 ?? '';
+  bool hasFacility2() => _facility2 != null;
 
-  @BuiltValueField(wireName: 'Facility2')
-  String? get facility2;
+  // "Facility3" field.
+  String? _facility3;
+  String get facility3 => _facility3 ?? '';
+  bool hasFacility3() => _facility3 != null;
 
-  @BuiltValueField(wireName: 'Facility3')
-  String? get facility3;
+  // "Facility4" field.
+  String? _facility4;
+  String get facility4 => _facility4 ?? '';
+  bool hasFacility4() => _facility4 != null;
 
-  @BuiltValueField(wireName: 'Facility4')
-  String? get facility4;
+  // "Room_Type1" field.
+  String? _roomType1;
+  String get roomType1 => _roomType1 ?? '';
+  bool hasRoomType1() => _roomType1 != null;
 
-  @BuiltValueField(wireName: 'Room_Type1')
-  String? get roomType1;
+  // "Bed_Type1" field.
+  String? _bedType1;
+  String get bedType1 => _bedType1 ?? '';
+  bool hasBedType1() => _bedType1 != null;
 
-  @BuiltValueField(wireName: 'Bed_Type1')
-  String? get bedType1;
+  // "Room_View1" field.
+  String? _roomView1;
+  String get roomView1 => _roomView1 ?? '';
+  bool hasRoomView1() => _roomView1 != null;
 
-  @BuiltValueField(wireName: 'Room_View1')
-  String? get roomView1;
+  // "Room_Size1" field.
+  String? _roomSize1;
+  String get roomSize1 => _roomSize1 ?? '';
+  bool hasRoomSize1() => _roomSize1 != null;
 
-  @BuiltValueField(wireName: 'Room_Size1')
-  String? get roomSize1;
+  // "Room_Image1" field.
+  String? _roomImage1;
+  String get roomImage1 => _roomImage1 ?? '';
+  bool hasRoomImage1() => _roomImage1 != null;
 
-  @BuiltValueField(wireName: 'Room_Image1')
-  String? get roomImage1;
+  // "Room_Type2" field.
+  String? _roomType2;
+  String get roomType2 => _roomType2 ?? '';
+  bool hasRoomType2() => _roomType2 != null;
 
-  @BuiltValueField(wireName: 'Room_Type2')
-  String? get roomType2;
+  // "Bed_Type2" field.
+  String? _bedType2;
+  String get bedType2 => _bedType2 ?? '';
+  bool hasBedType2() => _bedType2 != null;
 
-  @BuiltValueField(wireName: 'Bed_Type2')
-  String? get bedType2;
+  // "Room_View2" field.
+  String? _roomView2;
+  String get roomView2 => _roomView2 ?? '';
+  bool hasRoomView2() => _roomView2 != null;
 
-  @BuiltValueField(wireName: 'Room_View2')
-  String? get roomView2;
+  // "Room_Size2" field.
+  String? _roomSize2;
+  String get roomSize2 => _roomSize2 ?? '';
+  bool hasRoomSize2() => _roomSize2 != null;
 
-  @BuiltValueField(wireName: 'Room_Size2')
-  String? get roomSize2;
+  // "Room_Image2" field.
+  String? _roomImage2;
+  String get roomImage2 => _roomImage2 ?? '';
+  bool hasRoomImage2() => _roomImage2 != null;
 
-  @BuiltValueField(wireName: 'Room_Image2')
-  String? get roomImage2;
+  // "Check_in" field.
+  String? _checkIn;
+  String get checkIn => _checkIn ?? '';
+  bool hasCheckIn() => _checkIn != null;
 
-  @BuiltValueField(wireName: 'Check_in')
-  String? get checkIn;
+  // "Check_out" field.
+  String? _checkOut;
+  String get checkOut => _checkOut ?? '';
+  bool hasCheckOut() => _checkOut != null;
 
-  @BuiltValueField(wireName: 'Check_out')
-  String? get checkOut;
+  // "Price" field.
+  double? _price;
+  double get price => _price ?? 0.0;
+  bool hasPrice() => _price != null;
 
-  @BuiltValueField(wireName: 'Price')
-  double? get price;
-
-  @BuiltValueField(wireName: kDocumentReferenceField)
-  DocumentReference? get ffRef;
-  DocumentReference get reference => ffRef!;
-
-  static void _initializeBuilder(BangaloreRecordBuilder builder) => builder
-    ..hotelName = ''
-    ..hotelAddress = ''
-    ..rate = 0.0
-    ..images = ''
-    ..star = ''
-    ..url = ''
-    ..specification = ''
-    ..facility = ''
-    ..facility2 = ''
-    ..facility3 = ''
-    ..facility4 = ''
-    ..roomType1 = ''
-    ..bedType1 = ''
-    ..roomView1 = ''
-    ..roomSize1 = ''
-    ..roomImage1 = ''
-    ..roomType2 = ''
-    ..bedType2 = ''
-    ..roomView2 = ''
-    ..roomSize2 = ''
-    ..roomImage2 = ''
-    ..checkIn = ''
-    ..checkOut = ''
-    ..price = 0.0;
+  void _initializeFields() {
+    _hotelName = snapshotData['Hotel_Name'] as String?;
+    _hotelAddress = snapshotData['Hotel_Address'] as String?;
+    _rate = castToType<double>(snapshotData['Rate']);
+    _images = snapshotData['Images'] as String?;
+    _star = snapshotData['Star'] as String?;
+    _url = snapshotData['Url'] as String?;
+    _specification = snapshotData['Specification'] as String?;
+    _facility = snapshotData['Facility'] as String?;
+    _facility2 = snapshotData['Facility2'] as String?;
+    _facility3 = snapshotData['Facility3'] as String?;
+    _facility4 = snapshotData['Facility4'] as String?;
+    _roomType1 = snapshotData['Room_Type1'] as String?;
+    _bedType1 = snapshotData['Bed_Type1'] as String?;
+    _roomView1 = snapshotData['Room_View1'] as String?;
+    _roomSize1 = snapshotData['Room_Size1'] as String?;
+    _roomImage1 = snapshotData['Room_Image1'] as String?;
+    _roomType2 = snapshotData['Room_Type2'] as String?;
+    _bedType2 = snapshotData['Bed_Type2'] as String?;
+    _roomView2 = snapshotData['Room_View2'] as String?;
+    _roomSize2 = snapshotData['Room_Size2'] as String?;
+    _roomImage2 = snapshotData['Room_Image2'] as String?;
+    _checkIn = snapshotData['Check_in'] as String?;
+    _checkOut = snapshotData['Check_out'] as String?;
+    _price = castToType<double>(snapshotData['Price']);
+  }
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('bangalore');
 
-  static Stream<BangaloreRecord> getDocument(DocumentReference ref) => ref
-      .snapshots()
-      .map((s) => serializers.deserializeWith(serializer, serializedData(s))!);
+  static Stream<BangaloreRecord> getDocument(DocumentReference ref) =>
+      ref.snapshots().map((s) => BangaloreRecord.fromSnapshot(s));
 
-  static Future<BangaloreRecord> getDocumentOnce(DocumentReference ref) => ref
-      .get()
-      .then((s) => serializers.deserializeWith(serializer, serializedData(s))!);
+  static Future<BangaloreRecord> getDocumentOnce(DocumentReference ref) =>
+      ref.get().then((s) => BangaloreRecord.fromSnapshot(s));
 
-  BangaloreRecord._();
-  factory BangaloreRecord([void Function(BangaloreRecordBuilder) updates]) =
-      _$BangaloreRecord;
+  static BangaloreRecord fromSnapshot(DocumentSnapshot snapshot) =>
+      BangaloreRecord._(
+        snapshot.reference,
+        mapFromFirestore(snapshot.data() as Map<String, dynamic>),
+      );
 
   static BangaloreRecord getDocumentFromData(
-          Map<String, dynamic> data, DocumentReference reference) =>
-      serializers.deserializeWith(serializer,
-          {...mapFromFirestore(data), kDocumentReferenceField: reference})!;
+    Map<String, dynamic> data,
+    DocumentReference reference,
+  ) =>
+      BangaloreRecord._(reference, mapFromFirestore(data));
+
+  @override
+  String toString() =>
+      'BangaloreRecord(reference: ${reference.path}, data: $snapshotData)';
 }
 
 Map<String, dynamic> createBangaloreRecordData({
@@ -160,35 +213,33 @@ Map<String, dynamic> createBangaloreRecordData({
   String? checkOut,
   double? price,
 }) {
-  final firestoreData = serializers.toFirestore(
-    BangaloreRecord.serializer,
-    BangaloreRecord(
-      (b) => b
-        ..hotelName = hotelName
-        ..hotelAddress = hotelAddress
-        ..rate = rate
-        ..images = images
-        ..star = star
-        ..url = url
-        ..specification = specification
-        ..facility = facility
-        ..facility2 = facility2
-        ..facility3 = facility3
-        ..facility4 = facility4
-        ..roomType1 = roomType1
-        ..bedType1 = bedType1
-        ..roomView1 = roomView1
-        ..roomSize1 = roomSize1
-        ..roomImage1 = roomImage1
-        ..roomType2 = roomType2
-        ..bedType2 = bedType2
-        ..roomView2 = roomView2
-        ..roomSize2 = roomSize2
-        ..roomImage2 = roomImage2
-        ..checkIn = checkIn
-        ..checkOut = checkOut
-        ..price = price,
-    ),
+  final firestoreData = mapToFirestore(
+    <String, dynamic>{
+      'Hotel_Name': hotelName,
+      'Hotel_Address': hotelAddress,
+      'Rate': rate,
+      'Images': images,
+      'Star': star,
+      'Url': url,
+      'Specification': specification,
+      'Facility': facility,
+      'Facility2': facility2,
+      'Facility3': facility3,
+      'Facility4': facility4,
+      'Room_Type1': roomType1,
+      'Bed_Type1': bedType1,
+      'Room_View1': roomView1,
+      'Room_Size1': roomSize1,
+      'Room_Image1': roomImage1,
+      'Room_Type2': roomType2,
+      'Bed_Type2': bedType2,
+      'Room_View2': roomView2,
+      'Room_Size2': roomSize2,
+      'Room_Image2': roomImage2,
+      'Check_in': checkIn,
+      'Check_out': checkOut,
+      'Price': price,
+    }.withoutNulls,
   );
 
   return firestoreData;

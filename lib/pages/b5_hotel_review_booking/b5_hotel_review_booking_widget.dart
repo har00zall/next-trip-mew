@@ -79,6 +79,7 @@ class _B5HotelReviewBookingWidgetState
           elevation: 2.0,
         ),
         body: SafeArea(
+          top: true,
           child: Stack(
             children: [
               SingleChildScrollView(

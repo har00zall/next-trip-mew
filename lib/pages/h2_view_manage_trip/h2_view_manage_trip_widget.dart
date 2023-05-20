@@ -78,6 +78,7 @@ class _H2ViewManageTripWidgetState extends State<H2ViewManageTripWidget> {
           elevation: 2.0,
         ),
         body: SafeArea(
+          top: true,
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [

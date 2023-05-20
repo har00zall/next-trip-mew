@@ -1,67 +1,87 @@
 import 'dart:async';
 
+import '/backend/schema/util/firestore_util.dart';
+import '/backend/schema/util/schema_util.dart';
+
 import 'index.dart';
-import 'serializers.dart';
-import 'package:built_value/built_value.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 
-part 'ef_goa_record.g.dart';
+class EfGoaRecord extends FirestoreRecord {
+  EfGoaRecord._(
+    DocumentReference reference,
+    Map<String, dynamic> data,
+  ) : super(reference, data) {
+    _initializeFields();
+  }
 
-abstract class EfGoaRecord implements Built<EfGoaRecord, EfGoaRecordBuilder> {
-  static Serializer<EfGoaRecord> get serializer => _$efGoaRecordSerializer;
+  // "Name-of-festival" field.
+  String? _nameOfFestival;
+  String get nameOfFestival => _nameOfFestival ?? '';
+  bool hasNameOfFestival() => _nameOfFestival != null;
 
-  @BuiltValueField(wireName: 'Name-of-festival')
-  String? get nameOfFestival;
+  // "When" field.
+  String? _when;
+  String get when => _when ?? '';
+  bool hasWhen() => _when != null;
 
-  @BuiltValueField(wireName: 'When')
-  String? get when;
+  // "Where" field.
+  String? _where;
+  String get where => _where ?? '';
+  bool hasWhere() => _where != null;
 
-  @BuiltValueField(wireName: 'Where')
-  String? get where;
+  // "Duration" field.
+  String? _duration;
+  String get duration => _duration ?? '';
+  bool hasDuration() => _duration != null;
 
-  @BuiltValueField(wireName: 'Duration')
-  String? get duration;
+  // "famous-for" field.
+  String? _famousFor;
+  String get famousFor => _famousFor ?? '';
+  bool hasFamousFor() => _famousFor != null;
 
-  @BuiltValueField(wireName: 'famous-for')
-  String? get famousFor;
+  // "Images" field.
+  String? _images;
+  String get images => _images ?? '';
+  bool hasImages() => _images != null;
 
-  @BuiltValueField(wireName: 'Images')
-  String? get images;
+  // "No" field.
+  int? _no;
+  int get no => _no ?? 0;
+  bool hasNo() => _no != null;
 
-  @BuiltValueField(wireName: 'No')
-  int? get no;
-
-  @BuiltValueField(wireName: kDocumentReferenceField)
-  DocumentReference? get ffRef;
-  DocumentReference get reference => ffRef!;
-
-  static void _initializeBuilder(EfGoaRecordBuilder builder) => builder
-    ..nameOfFestival = ''
-    ..when = ''
-    ..where = ''
-    ..duration = ''
-    ..famousFor = ''
-    ..images = ''
-    ..no = 0;
+  void _initializeFields() {
+    _nameOfFestival = snapshotData['Name-of-festival'] as String?;
+    _when = snapshotData['When'] as String?;
+    _where = snapshotData['Where'] as String?;
+    _duration = snapshotData['Duration'] as String?;
+    _famousFor = snapshotData['famous-for'] as String?;
+    _images = snapshotData['Images'] as String?;
+    _no = snapshotData['No'] as int?;
+  }
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('efGoa');
 
-  static Stream<EfGoaRecord> getDocument(DocumentReference ref) => ref
-      .snapshots()
-      .map((s) => serializers.deserializeWith(serializer, serializedData(s))!);
+  static Stream<EfGoaRecord> getDocument(DocumentReference ref) =>
+      ref.snapshots().map((s) => EfGoaRecord.fromSnapshot(s));
 
-  static Future<EfGoaRecord> getDocumentOnce(DocumentReference ref) => ref
-      .get()
-      .then((s) => serializers.deserializeWith(serializer, serializedData(s))!);
+  static Future<EfGoaRecord> getDocumentOnce(DocumentReference ref) =>
+      ref.get().then((s) => EfGoaRecord.fromSnapshot(s));
 
-  EfGoaRecord._();
-  factory EfGoaRecord([void Function(EfGoaRecordBuilder) updates]) =
-      _$EfGoaRecord;
+  static EfGoaRecord fromSnapshot(DocumentSnapshot snapshot) => EfGoaRecord._(
+        snapshot.reference,
+        mapFromFirestore(snapshot.data() as Map<String, dynamic>),
+      );
 
   static EfGoaRecord getDocumentFromData(
-          Map<String, dynamic> data, DocumentReference reference) =>
-      serializers.deserializeWith(serializer,
-          {...mapFromFirestore(data), kDocumentReferenceField: reference})!;
+    Map<String, dynamic> data,
+    DocumentReference reference,
+  ) =>
+      EfGoaRecord._(reference, mapFromFirestore(data));
+
+  @override
+  String toString() =>
+      'EfGoaRecord(reference: ${reference.path}, data: $snapshotData)';
 }
 
 Map<String, dynamic> createEfGoaRecordData({
@@ -73,18 +93,16 @@ Map<String, dynamic> createEfGoaRecordData({
   String? images,
   int? no,
 }) {
-  final firestoreData = serializers.toFirestore(
-    EfGoaRecord.serializer,
-    EfGoaRecord(
-      (e) => e
-        ..nameOfFestival = nameOfFestival
-        ..when = when
-        ..where = where
-        ..duration = duration
-        ..famousFor = famousFor
-        ..images = images
-        ..no = no,
-    ),
+  final firestoreData = mapToFirestore(
+    <String, dynamic>{
+      'Name-of-festival': nameOfFestival,
+      'When': when,
+      'Where': where,
+      'Duration': duration,
+      'famous-for': famousFor,
+      'Images': images,
+      'No': no,
+    }.withoutNulls,
   );
 
   return firestoreData;

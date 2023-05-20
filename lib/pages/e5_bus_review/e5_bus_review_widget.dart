@@ -78,6 +78,7 @@ class _E5BusReviewWidgetState extends State<E5BusReviewWidget> {
           elevation: 2.0,
         ),
         body: SafeArea(
+          top: true,
           child: Stack(
             children: [
               Column(

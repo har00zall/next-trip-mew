@@ -79,6 +79,7 @@ class _D6TrainPaymentWidgetState extends State<D6TrainPaymentWidget> {
           elevation: 2.0,
         ),
         body: SafeArea(
+          top: true,
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [

@@ -59,6 +59,7 @@ class _H9RateUsWidgetState extends State<H9RateUsWidget> {
           elevation: 2.0,
         ),
         body: SafeArea(
+          top: true,
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [],

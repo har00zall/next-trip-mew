@@ -24,7 +24,6 @@ export '/pages/b6_select_hotel_payment/b6_select_hotel_payment_widget.dart'
     show B6SelectHotelPaymentWidget;
 export '/pages/c3_flight_review/c3_flight_review_widget.dart'
     show C3FlightReviewWidget;
-export '/pages/c1_flights/c1_flights_widget.dart' show C1FlightsWidget;
 export '/pages/c6_flight_payment/c6_flight_payment_widget.dart'
     show C6FlightPaymentWidget;
 export '/pages/d1_train/d1_train_widget.dart' show D1TrainWidget;
@@ -78,3 +77,4 @@ export '/pages/a3_login_page/a3_login_page_widget.dart' show A3LoginPageWidget;
 export '/pages/a6_budget_search/a6_budget_search_widget.dart'
     show A6BudgetSearchWidget;
 export '/pages/simole/simole_widget.dart' show SimoleWidget;
+export '/pages/c1_flight/c1_flight_widget.dart' show C1FlightWidget;

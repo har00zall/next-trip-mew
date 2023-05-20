@@ -86,6 +86,7 @@ class _F3HoneymoonWidgetState extends State<F3HoneymoonWidget> {
           elevation: 2.0,
         ),
         body: SafeArea(
+          top: true,
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
@@ -350,7 +351,7 @@ class _F3HoneymoonWidgetState extends State<F3HoneymoonWidget> {
                                         child: Image.network(
                                           'https://nexttrip123.000webhostapp.com/${(String image) {
                                             return image.split('"')[1];
-                                          }(gridViewHoliJaipurRecord.image!)}',
+                                          }(gridViewHoliJaipurRecord.image)}',
                                           width: double.infinity,
                                           height: 270.0,
                                           fit: BoxFit.cover,
@@ -360,7 +361,7 @@ class _F3HoneymoonWidgetState extends State<F3HoneymoonWidget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             10.0, 220.0, 0.0, 0.0),
                                         child: Text(
-                                          gridViewHoliJaipurRecord.nameOfPlace!,
+                                          gridViewHoliJaipurRecord.nameOfPlace,
                                           maxLines: 4,
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
@@ -386,7 +387,7 @@ class _F3HoneymoonWidgetState extends State<F3HoneymoonWidget> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   10.0, 0.0, 0.0, 0.0),
                                           child: Text(
-                                            gridViewHoliJaipurRecord.type!,
+                                            gridViewHoliJaipurRecord.type,
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
@@ -400,7 +401,7 @@ class _F3HoneymoonWidgetState extends State<F3HoneymoonWidget> {
                                               EdgeInsetsDirectional.fromSTEB(
                                                   0.0, 0.0, 10.0, 0.0),
                                           child: Text(
-                                            gridViewHoliJaipurRecord.review!
+                                            gridViewHoliJaipurRecord.review
                                                 .toString(),
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
@@ -428,7 +429,7 @@ class _F3HoneymoonWidgetState extends State<F3HoneymoonWidget> {
                                                   .fromSTEB(5.0, 0.0, 5.0, 0.0),
                                               child: AutoSizeText(
                                                 gridViewHoliJaipurRecord
-                                                    .nearByAddress!,
+                                                    .nearByAddress,
                                                 maxLines: 4,
                                                 style:
                                                     FlutterFlowTheme.of(context)
@@ -453,7 +454,7 @@ class _F3HoneymoonWidgetState extends State<F3HoneymoonWidget> {
                                           MainAxisAlignment.spaceAround,
                                       children: [
                                         Text(
-                                          gridViewHoliJaipurRecord.openingTime!,
+                                          gridViewHoliJaipurRecord.openingTime,
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -462,7 +463,7 @@ class _F3HoneymoonWidgetState extends State<F3HoneymoonWidget> {
                                               ),
                                         ),
                                         Text(
-                                          gridViewHoliJaipurRecord.closingTime!,
+                                          gridViewHoliJaipurRecord.closingTime,
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -489,7 +490,7 @@ class _F3HoneymoonWidgetState extends State<F3HoneymoonWidget> {
                                                       10.0, 0.0, 0.0, 0.0),
                                               child: AutoSizeText(
                                                 gridViewHoliJaipurRecord
-                                                    .thingsYouCanSeeInThere!,
+                                                    .thingsYouCanSeeInThere,
                                                 maxLines: 4,
                                                 style:
                                                     FlutterFlowTheme.of(context)

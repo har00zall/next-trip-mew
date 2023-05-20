@@ -77,6 +77,7 @@ class _H4Refer3EarnsWidgetState extends State<H4Refer3EarnsWidget> {
           elevation: 2.0,
         ),
         body: SafeArea(
+          top: true,
           child: Align(
             alignment: AlignmentDirectional(0.0, 0.0),
             child: Material(

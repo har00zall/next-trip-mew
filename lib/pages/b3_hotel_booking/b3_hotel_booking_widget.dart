@@ -31,6 +31,10 @@ class B3HotelBookingWidget extends StatefulWidget {
     required this.facility1,
     required this.facility2,
     required this.image,
+    required this.roomType1,
+    required this.roomSize1,
+    required this.roomView1,
+    required this.bedType1,
   }) : super(key: key);
 
   final String? hotelName;
@@ -44,6 +48,10 @@ class B3HotelBookingWidget extends StatefulWidget {
   final String? facility1;
   final String? facility2;
   final String? image;
+  final String? roomType1;
+  final String? roomSize1;
+  final String? roomView1;
+  final String? bedType1;
 
   @override
   _B3HotelBookingWidgetState createState() => _B3HotelBookingWidgetState();
@@ -204,6 +212,7 @@ class _B3HotelBookingWidgetState extends State<B3HotelBookingWidget> {
           elevation: 2.0,
         ),
         body: SafeArea(
+          top: true,
           child: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.max,
@@ -2962,7 +2971,27 @@ class _B3HotelBookingWidgetState extends State<B3HotelBookingWidget> {
                                       0.0, 0.0, 20.0, 0.0),
                                   child: FFButtonWidget(
                                     onPressed: () async {
-                                      context.pushNamed('B4SelectingHotelRoom');
+                                      context.pushNamed(
+                                        'B4SelectingHotelRoom',
+                                        queryParams: {
+                                          'roomType1': serializeParam(
+                                            widget.roomType1,
+                                            ParamType.String,
+                                          ),
+                                          'roomView1': serializeParam(
+                                            widget.roomView1,
+                                            ParamType.String,
+                                          ),
+                                          'bedType1': serializeParam(
+                                            widget.bedType1,
+                                            ParamType.String,
+                                          ),
+                                          'roomSize1': serializeParam(
+                                            widget.roomSize1,
+                                            ParamType.String,
+                                          ),
+                                        }.withoutNulls,
+                                      );
                                     },
                                     text: FFLocalizations.of(context).getText(
                                       'g6br7cb9' /* Continue */,

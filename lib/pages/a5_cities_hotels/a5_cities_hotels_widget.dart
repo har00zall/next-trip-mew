@@ -78,6 +78,7 @@ class _A5CitiesHotelsWidgetState extends State<A5CitiesHotelsWidget> {
           elevation: 2.0,
         ),
         body: SafeArea(
+          top: true,
           child: Column(
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.start,

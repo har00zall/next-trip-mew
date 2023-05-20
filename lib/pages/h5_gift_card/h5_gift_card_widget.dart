@@ -103,6 +103,7 @@ class _H5GiftCardWidgetState extends State<H5GiftCardWidget> {
           elevation: 2.0,
         ),
         body: SafeArea(
+          top: true,
           child: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.max,

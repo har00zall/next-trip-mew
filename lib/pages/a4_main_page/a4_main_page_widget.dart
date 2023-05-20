@@ -1,3 +1,4 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/components/budget_search_bottom_sheet/budget_search_bottom_sheet_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -610,8 +611,12 @@ class _A4MainPageWidgetState extends State<A4MainPageWidget> {
                   ),
                 ),
                 FFButtonWidget(
-                  onPressed: () {
-                    print('Button pressed ...');
+                  onPressed: () async {
+                    GoRouter.of(context).prepareAuthEvent();
+                    await authManager.signOut();
+                    GoRouter.of(context).clearRedirectLocation();
+
+                    context.pushNamedAuth('A3LoginPage', context.mounted);
                   },
                   text: FFLocalizations.of(context).getText(
                     '2cw59lgj' /* Sign out */,
@@ -691,6 +696,7 @@ class _A4MainPageWidgetState extends State<A4MainPageWidget> {
           elevation: 2.0,
         ),
         body: SafeArea(
+          top: true,
           child: SingleChildScrollView(
             primary: false,
             child: Column(
@@ -1109,16 +1115,14 @@ class _A4MainPageWidgetState extends State<A4MainPageWidget> {
                                     borderRadius: 50.0,
                                     borderWidth: 1.0,
                                     buttonSize: 70.0,
-                                    fillColor: FlutterFlowTheme.of(context)
-                                        .primaryBtnText,
                                     icon: Icon(
                                       Icons.flight_rounded,
                                       color: FlutterFlowTheme.of(context)
                                           .primaryText,
-                                      size: 50.0,
+                                      size: 35.0,
                                     ),
                                     onPressed: () async {
-                                      context.pushNamed('C1Flights');
+                                      context.pushNamed('C1Flight');
                                     },
                                   ),
                                   FlutterFlowIconButton(

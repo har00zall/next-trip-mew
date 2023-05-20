@@ -85,6 +85,7 @@ class _F1HolidaysWidgetState extends State<F1HolidaysWidget> {
           elevation: 2.0,
         ),
         body: SafeArea(
+          top: true,
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
@@ -126,16 +127,7 @@ class _F1HolidaysWidgetState extends State<F1HolidaysWidget> {
                                   '4bditm65' /* Bengalore */,
                                 ),
                                 FFLocalizations.of(context).getText(
-                                  'v3yajw65' /* Kolkata */,
-                                ),
-                                FFLocalizations.of(context).getText(
                                   'c5urkgum' /* Hyderabad */,
-                                ),
-                                FFLocalizations.of(context).getText(
-                                  '58grdf7l' /* Pune */,
-                                ),
-                                FFLocalizations.of(context).getText(
-                                  'c0i8ovj5' /* New Delhi */,
                                 ),
                                 FFLocalizations.of(context).getText(
                                   'w4d9c30c' /* Chennai */,
@@ -144,13 +136,7 @@ class _F1HolidaysWidgetState extends State<F1HolidaysWidget> {
                                   'm00w79wo' /* Goa */,
                                 ),
                                 FFLocalizations.of(context).getText(
-                                  '0je5u7pg' /* Mumbai */,
-                                ),
-                                FFLocalizations.of(context).getText(
                                   'fubzidtm' /* Jaipur */,
-                                ),
-                                FFLocalizations.of(context).getText(
-                                  '5n5zl0we' /* Manali */,
                                 )
                               ],
                               onChanged: (val) =>
@@ -286,7 +272,11 @@ class _F1HolidaysWidgetState extends State<F1HolidaysWidget> {
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 0.0),
                   child: StreamBuilder<List<HoliChennaiRecord>>(
-                    stream: queryHoliChennaiRecord(),
+                    stream: queryHoliChennaiRecord(
+                      queryBuilder: (holiChennaiRecord) =>
+                          holiChennaiRecord.where('Name-of-Place',
+                              isEqualTo: 'Chennai${_model.dropDownValue}'),
+                    ),
                     builder: (context, snapshot) {
                       // Customize what your widget looks like when it's loading.
                       if (!snapshot.hasData) {
@@ -301,7 +291,7 @@ class _F1HolidaysWidgetState extends State<F1HolidaysWidget> {
                           ),
                         );
                       }
-                      List<HoliChennaiRecord> gridViewHoliChennaiRecordList =
+                      List<HoliChennaiRecord> holiChennaiHoliChennaiRecordList =
                           snapshot.data!;
                       return GridView.builder(
                         padding: EdgeInsets.zero,
@@ -312,10 +302,11 @@ class _F1HolidaysWidgetState extends State<F1HolidaysWidget> {
                           childAspectRatio: 0.65,
                         ),
                         scrollDirection: Axis.vertical,
-                        itemCount: gridViewHoliChennaiRecordList.length,
-                        itemBuilder: (context, gridViewIndex) {
-                          final gridViewHoliChennaiRecord =
-                              gridViewHoliChennaiRecordList[gridViewIndex];
+                        itemCount: holiChennaiHoliChennaiRecordList.length,
+                        itemBuilder: (context, holiChennaiIndex) {
+                          final holiChennaiHoliChennaiRecord =
+                              holiChennaiHoliChennaiRecordList[
+                                  holiChennaiIndex];
                           return Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -348,7 +339,7 @@ class _F1HolidaysWidgetState extends State<F1HolidaysWidget> {
                                         child: Image.network(
                                           'https://nexttrip123.000webhostapp.com/${(String image) {
                                             return image.split('"')[1];
-                                          }(gridViewHoliChennaiRecord.image!)}',
+                                          }(holiChennaiHoliChennaiRecord.image)}',
                                           width: double.infinity,
                                           height: 200.0,
                                           fit: BoxFit.cover,
@@ -358,8 +349,8 @@ class _F1HolidaysWidgetState extends State<F1HolidaysWidget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             6.0, 150.0, 0.0, 0.0),
                                         child: AutoSizeText(
-                                          gridViewHoliChennaiRecord
-                                              .nameOfPlace!,
+                                          holiChennaiHoliChennaiRecord
+                                              .nameOfPlace,
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -380,8 +371,8 @@ class _F1HolidaysWidgetState extends State<F1HolidaysWidget> {
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(6.0, 0.0, 0.0, 0.0),
                                               child: Text(
-                                                gridViewHoliChennaiRecord
-                                                    .review!
+                                                holiChennaiHoliChennaiRecord
+                                                    .review
                                                     .toString(),
                                                 style:
                                                     FlutterFlowTheme.of(context)
@@ -410,7 +401,7 @@ class _F1HolidaysWidgetState extends State<F1HolidaysWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           5.0, 0.0, 0.0, 0.0),
                                       child: Text(
-                                        gridViewHoliChennaiRecord.type!,
+                                        holiChennaiHoliChennaiRecord.type,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -426,7 +417,7 @@ class _F1HolidaysWidgetState extends State<F1HolidaysWidget> {
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   AutoSizeText(
-                                    gridViewHoliChennaiRecord.nearByAddress!,
+                                    holiChennaiHoliChennaiRecord.nearByAddress,
                                     maxLines: 2,
                                     style:
                                         FlutterFlowTheme.of(context).bodyMedium,
@@ -445,7 +436,11 @@ class _F1HolidaysWidgetState extends State<F1HolidaysWidget> {
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 0.0),
                   child: StreamBuilder<List<HoliGoaRecord>>(
-                    stream: queryHoliGoaRecord(),
+                    stream: queryHoliGoaRecord(
+                      queryBuilder: (holiGoaRecord) => holiGoaRecord.where(
+                          'Name-of-Place',
+                          isEqualTo: 'Goa${_model.dropDownValue}'),
+                    ),
                     builder: (context, snapshot) {
                       // Customize what your widget looks like when it's loading.
                       if (!snapshot.hasData) {
@@ -460,7 +455,7 @@ class _F1HolidaysWidgetState extends State<F1HolidaysWidget> {
                           ),
                         );
                       }
-                      List<HoliGoaRecord> gridViewHoliGoaRecordList =
+                      List<HoliGoaRecord> holiGoaHoliGoaRecordList =
                           snapshot.data!;
                       return GridView.builder(
                         padding: EdgeInsets.zero,
@@ -471,10 +466,10 @@ class _F1HolidaysWidgetState extends State<F1HolidaysWidget> {
                           childAspectRatio: 0.65,
                         ),
                         scrollDirection: Axis.vertical,
-                        itemCount: gridViewHoliGoaRecordList.length,
-                        itemBuilder: (context, gridViewIndex) {
-                          final gridViewHoliGoaRecord =
-                              gridViewHoliGoaRecordList[gridViewIndex];
+                        itemCount: holiGoaHoliGoaRecordList.length,
+                        itemBuilder: (context, holiGoaIndex) {
+                          final holiGoaHoliGoaRecord =
+                              holiGoaHoliGoaRecordList[holiGoaIndex];
                           return Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -507,7 +502,7 @@ class _F1HolidaysWidgetState extends State<F1HolidaysWidget> {
                                         child: Image.network(
                                           'https://nexttrip123.000webhostapp.com/${(String image) {
                                             return image.split('"')[1];
-                                          }(gridViewHoliGoaRecord.image!)}',
+                                          }(holiGoaHoliGoaRecord.image)}',
                                           width: double.infinity,
                                           height: 200.0,
                                           fit: BoxFit.cover,
@@ -517,7 +512,7 @@ class _F1HolidaysWidgetState extends State<F1HolidaysWidget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             6.0, 150.0, 0.0, 0.0),
                                         child: AutoSizeText(
-                                          gridViewHoliGoaRecord.nameOfPlace!,
+                                          holiGoaHoliGoaRecord.nameOfPlace,
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -538,7 +533,7 @@ class _F1HolidaysWidgetState extends State<F1HolidaysWidget> {
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(6.0, 0.0, 0.0, 0.0),
                                               child: Text(
-                                                gridViewHoliGoaRecord.review!
+                                                holiGoaHoliGoaRecord.review
                                                     .toString(),
                                                 style:
                                                     FlutterFlowTheme.of(context)
@@ -567,7 +562,7 @@ class _F1HolidaysWidgetState extends State<F1HolidaysWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           5.0, 0.0, 0.0, 0.0),
                                       child: Text(
-                                        gridViewHoliGoaRecord.type!,
+                                        holiGoaHoliGoaRecord.type,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -583,7 +578,7 @@ class _F1HolidaysWidgetState extends State<F1HolidaysWidget> {
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   AutoSizeText(
-                                    gridViewHoliGoaRecord.nearByAddress!,
+                                    holiGoaHoliGoaRecord.nearByAddress,
                                     maxLines: 2,
                                     style:
                                         FlutterFlowTheme.of(context).bodyMedium,
@@ -618,7 +613,7 @@ class _F1HolidaysWidgetState extends State<F1HolidaysWidget> {
                         );
                       }
                       List<HoliHyderabadRecord>
-                          gridViewHoliHyderabadRecordList = snapshot.data!;
+                          holiHyderabadHoliHyderabadRecordList = snapshot.data!;
                       return GridView.builder(
                         padding: EdgeInsets.zero,
                         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
@@ -628,10 +623,11 @@ class _F1HolidaysWidgetState extends State<F1HolidaysWidget> {
                           childAspectRatio: 0.65,
                         ),
                         scrollDirection: Axis.vertical,
-                        itemCount: gridViewHoliHyderabadRecordList.length,
-                        itemBuilder: (context, gridViewIndex) {
-                          final gridViewHoliHyderabadRecord =
-                              gridViewHoliHyderabadRecordList[gridViewIndex];
+                        itemCount: holiHyderabadHoliHyderabadRecordList.length,
+                        itemBuilder: (context, holiHyderabadIndex) {
+                          final holiHyderabadHoliHyderabadRecord =
+                              holiHyderabadHoliHyderabadRecordList[
+                                  holiHyderabadIndex];
                           return Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -664,7 +660,7 @@ class _F1HolidaysWidgetState extends State<F1HolidaysWidget> {
                                         child: Image.network(
                                           'https://nexttrip123.000webhostapp.com/${(String image) {
                                             return image.split('"')[1];
-                                          }(gridViewHoliHyderabadRecord.image!)}',
+                                          }(holiHyderabadHoliHyderabadRecord.image)}',
                                           width: double.infinity,
                                           height: 200.0,
                                           fit: BoxFit.cover,
@@ -674,8 +670,8 @@ class _F1HolidaysWidgetState extends State<F1HolidaysWidget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             6.0, 150.0, 0.0, 0.0),
                                         child: AutoSizeText(
-                                          gridViewHoliHyderabadRecord
-                                              .nameOfPlace!,
+                                          holiHyderabadHoliHyderabadRecord
+                                              .nameOfPlace,
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -700,7 +696,7 @@ class _F1HolidaysWidgetState extends State<F1HolidaysWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           5.0, 0.0, 0.0, 0.0),
                                       child: Text(
-                                        gridViewHoliHyderabadRecord.type!,
+                                        holiHyderabadHoliHyderabadRecord.type,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -739,7 +735,7 @@ class _F1HolidaysWidgetState extends State<F1HolidaysWidget> {
                           ),
                         );
                       }
-                      List<HoliJaipurRecord> gridViewHoliJaipurRecordList =
+                      List<HoliJaipurRecord> holiJaipurHoliJaipurRecordList =
                           snapshot.data!;
                       return GridView.builder(
                         padding: EdgeInsets.zero,
@@ -750,10 +746,10 @@ class _F1HolidaysWidgetState extends State<F1HolidaysWidget> {
                           childAspectRatio: 0.65,
                         ),
                         scrollDirection: Axis.vertical,
-                        itemCount: gridViewHoliJaipurRecordList.length,
-                        itemBuilder: (context, gridViewIndex) {
-                          final gridViewHoliJaipurRecord =
-                              gridViewHoliJaipurRecordList[gridViewIndex];
+                        itemCount: holiJaipurHoliJaipurRecordList.length,
+                        itemBuilder: (context, holiJaipurIndex) {
+                          final holiJaipurHoliJaipurRecord =
+                              holiJaipurHoliJaipurRecordList[holiJaipurIndex];
                           return Column(
                             mainAxisSize: MainAxisSize.max,
                             children: [
@@ -786,7 +782,7 @@ class _F1HolidaysWidgetState extends State<F1HolidaysWidget> {
                                         child: Image.network(
                                           'https://nexttrip123.000webhostapp.com/${(String image) {
                                             return image.split('"')[1];
-                                          }(gridViewHoliJaipurRecord.image!)}',
+                                          }(holiJaipurHoliJaipurRecord.image)}',
                                           width: double.infinity,
                                           height: 200.0,
                                           fit: BoxFit.cover,
@@ -796,7 +792,8 @@ class _F1HolidaysWidgetState extends State<F1HolidaysWidget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             6.0, 150.0, 0.0, 0.0),
                                         child: AutoSizeText(
-                                          gridViewHoliJaipurRecord.nameOfPlace!,
+                                          holiJaipurHoliJaipurRecord
+                                              .nameOfPlace,
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -817,7 +814,8 @@ class _F1HolidaysWidgetState extends State<F1HolidaysWidget> {
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(6.0, 0.0, 0.0, 0.0),
                                               child: Text(
-                                                gridViewHoliJaipurRecord.review!
+                                                holiJaipurHoliJaipurRecord
+                                                    .review
                                                     .toString(),
                                                 style:
                                                     FlutterFlowTheme.of(context)
@@ -846,7 +844,7 @@ class _F1HolidaysWidgetState extends State<F1HolidaysWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           5.0, 0.0, 0.0, 0.0),
                                       child: Text(
-                                        gridViewHoliJaipurRecord.type!,
+                                        holiJaipurHoliJaipurRecord.type,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -862,7 +860,7 @@ class _F1HolidaysWidgetState extends State<F1HolidaysWidget> {
                                 mainAxisSize: MainAxisSize.max,
                                 children: [
                                   AutoSizeText(
-                                    gridViewHoliJaipurRecord.nearByAddress!,
+                                    holiJaipurHoliJaipurRecord.nearByAddress,
                                     maxLines: 2,
                                     style:
                                         FlutterFlowTheme.of(context).bodyMedium,

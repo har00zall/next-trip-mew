@@ -1,67 +1,87 @@
 import 'dart:async';
 
+import '/backend/schema/util/firestore_util.dart';
+import '/backend/schema/util/schema_util.dart';
+
 import 'index.dart';
-import 'serializers.dart';
-import 'package:built_value/built_value.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 
-part 'his_goa_record.g.dart';
+class HisGoaRecord extends FirestoreRecord {
+  HisGoaRecord._(
+    DocumentReference reference,
+    Map<String, dynamic> data,
+  ) : super(reference, data) {
+    _initializeFields();
+  }
 
-abstract class HisGoaRecord
-    implements Built<HisGoaRecord, HisGoaRecordBuilder> {
-  static Serializer<HisGoaRecord> get serializer => _$hisGoaRecordSerializer;
+  // "Url" field.
+  String? _url;
+  String get url => _url ?? '';
+  bool hasUrl() => _url != null;
 
-  @BuiltValueField(wireName: 'Url')
-  String? get url;
+  // "Name" field.
+  String? _name;
+  String get name => _name ?? '';
+  bool hasName() => _name != null;
 
-  @BuiltValueField(wireName: 'Name')
-  String? get name;
+  // "Type" field.
+  String? _type;
+  String get type => _type ?? '';
+  bool hasType() => _type != null;
 
-  @BuiltValueField(wireName: 'Type')
-  String? get type;
+  // "image" field.
+  String? _image;
+  String get image => _image ?? '';
+  bool hasImage() => _image != null;
 
-  String? get image;
+  // "No" field.
+  int? _no;
+  int get no => _no ?? 0;
+  bool hasNo() => _no != null;
 
-  @BuiltValueField(wireName: 'No')
-  int? get no;
+  // "Review" field.
+  int? _review;
+  int get review => _review ?? 0;
+  bool hasReview() => _review != null;
 
-  @BuiltValueField(wireName: 'Review')
-  int? get review;
+  // "Rate" field.
+  double? _rate;
+  double get rate => _rate ?? 0.0;
+  bool hasRate() => _rate != null;
 
-  @BuiltValueField(wireName: 'Rate')
-  double? get rate;
-
-  @BuiltValueField(wireName: kDocumentReferenceField)
-  DocumentReference? get ffRef;
-  DocumentReference get reference => ffRef!;
-
-  static void _initializeBuilder(HisGoaRecordBuilder builder) => builder
-    ..url = ''
-    ..name = ''
-    ..type = ''
-    ..image = ''
-    ..no = 0
-    ..review = 0
-    ..rate = 0.0;
+  void _initializeFields() {
+    _url = snapshotData['Url'] as String?;
+    _name = snapshotData['Name'] as String?;
+    _type = snapshotData['Type'] as String?;
+    _image = snapshotData['image'] as String?;
+    _no = snapshotData['No'] as int?;
+    _review = snapshotData['Review'] as int?;
+    _rate = castToType<double>(snapshotData['Rate']);
+  }
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('hisGoa');
 
-  static Stream<HisGoaRecord> getDocument(DocumentReference ref) => ref
-      .snapshots()
-      .map((s) => serializers.deserializeWith(serializer, serializedData(s))!);
+  static Stream<HisGoaRecord> getDocument(DocumentReference ref) =>
+      ref.snapshots().map((s) => HisGoaRecord.fromSnapshot(s));
 
-  static Future<HisGoaRecord> getDocumentOnce(DocumentReference ref) => ref
-      .get()
-      .then((s) => serializers.deserializeWith(serializer, serializedData(s))!);
+  static Future<HisGoaRecord> getDocumentOnce(DocumentReference ref) =>
+      ref.get().then((s) => HisGoaRecord.fromSnapshot(s));
 
-  HisGoaRecord._();
-  factory HisGoaRecord([void Function(HisGoaRecordBuilder) updates]) =
-      _$HisGoaRecord;
+  static HisGoaRecord fromSnapshot(DocumentSnapshot snapshot) => HisGoaRecord._(
+        snapshot.reference,
+        mapFromFirestore(snapshot.data() as Map<String, dynamic>),
+      );
 
   static HisGoaRecord getDocumentFromData(
-          Map<String, dynamic> data, DocumentReference reference) =>
-      serializers.deserializeWith(serializer,
-          {...mapFromFirestore(data), kDocumentReferenceField: reference})!;
+    Map<String, dynamic> data,
+    DocumentReference reference,
+  ) =>
+      HisGoaRecord._(reference, mapFromFirestore(data));
+
+  @override
+  String toString() =>
+      'HisGoaRecord(reference: ${reference.path}, data: $snapshotData)';
 }
 
 Map<String, dynamic> createHisGoaRecordData({
@@ -73,18 +93,16 @@ Map<String, dynamic> createHisGoaRecordData({
   int? review,
   double? rate,
 }) {
-  final firestoreData = serializers.toFirestore(
-    HisGoaRecord.serializer,
-    HisGoaRecord(
-      (h) => h
-        ..url = url
-        ..name = name
-        ..type = type
-        ..image = image
-        ..no = no
-        ..review = review
-        ..rate = rate,
-    ),
+  final firestoreData = mapToFirestore(
+    <String, dynamic>{
+      'Url': url,
+      'Name': name,
+      'Type': type,
+      'image': image,
+      'No': no,
+      'Review': review,
+      'Rate': rate,
+    }.withoutNulls,
   );
 
   return firestoreData;

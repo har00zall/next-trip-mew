@@ -78,6 +78,7 @@ class _G3OfferDiscountWidgetState extends State<G3OfferDiscountWidget> {
           elevation: 2.0,
         ),
         body: SafeArea(
+          top: true,
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [

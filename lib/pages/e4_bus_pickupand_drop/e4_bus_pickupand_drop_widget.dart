@@ -79,6 +79,7 @@ class _E4BusPickupandDropWidgetState extends State<E4BusPickupandDropWidget> {
           elevation: 2.0,
         ),
         body: SafeArea(
+          top: true,
           child: Stack(
             children: [
               Column(

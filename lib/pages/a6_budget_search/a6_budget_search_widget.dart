@@ -96,6 +96,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
           elevation: 2.0,
         ),
         body: SafeArea(
+          top: true,
           child: SingleChildScrollView(
             child: Column(
               mainAxisSize: MainAxisSize.max,
@@ -243,6 +244,22 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                           chennaiChennaiRecord.images,
                                           ParamType.String,
                                         ),
+                                        'roomType1': serializeParam(
+                                          chennaiChennaiRecord.roomType1,
+                                          ParamType.String,
+                                        ),
+                                        'roomSize1': serializeParam(
+                                          chennaiChennaiRecord.roomSize1,
+                                          ParamType.String,
+                                        ),
+                                        'roomView1': serializeParam(
+                                          chennaiChennaiRecord.roomView1,
+                                          ParamType.String,
+                                        ),
+                                        'bedType1': serializeParam(
+                                          chennaiChennaiRecord.bedType1,
+                                          ParamType.String,
+                                        ),
                                       }.withoutNulls,
                                     );
                                   },
@@ -281,7 +298,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                               imageUrl:
                                                   'https://nexttrip123.000webhostapp.com/${(String images) {
                                                 return images.split('"')[1];
-                                              }(chennaiChennaiRecord.images!)}',
+                                              }(chennaiChennaiRecord.images)}',
                                               width: double.infinity,
                                               height: 200.0,
                                               fit: BoxFit.cover,
@@ -312,7 +329,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                         },
                                                         text:
                                                             chennaiChennaiRecord
-                                                                .rate!
+                                                                .rate
                                                                 .toString(),
                                                         icon: Icon(
                                                           Icons.star,
@@ -379,7 +396,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                                   0.0),
                                                       child: Text(
                                                         chennaiChennaiRecord
-                                                            .star!,
+                                                            .star,
                                                         style: FlutterFlowTheme
                                                                 .of(context)
                                                             .bodyMedium
@@ -435,7 +452,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                                 5.0, 0.0),
                                                     child: AutoSizeText(
                                                       chennaiChennaiRecord
-                                                          .hotelName!,
+                                                          .hotelName,
                                                       maxLines: 4,
                                                       style:
                                                           FlutterFlowTheme.of(
@@ -469,7 +486,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                                 5.0, 0.0),
                                                     child: AutoSizeText(
                                                       chennaiChennaiRecord
-                                                          .hotelAddress!,
+                                                          .hotelAddress,
                                                       maxLines: 4,
                                                       style: FlutterFlowTheme
                                                               .of(context)
@@ -495,7 +512,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                     .fromSTEB(
                                                         0.0, 0.0, 10.0, 0.0),
                                                 child: Text(
-                                                  chennaiChennaiRecord.price!
+                                                  chennaiChennaiRecord.price
                                                       .toString(),
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -548,7 +565,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                           0.0, 0.0, 10.0, 0.0),
                                                   child: Text(
                                                     (double.parse(chennaiChennaiRecord
-                                                                .price!
+                                                                .price
                                                                 .toString()) +
                                                             500)
                                                         .toString(),
@@ -680,6 +697,22 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                       jaipurJaipurRecord.images,
                                       ParamType.String,
                                     ),
+                                    'roomType1': serializeParam(
+                                      jaipurJaipurRecord.roomType1,
+                                      ParamType.String,
+                                    ),
+                                    'roomSize1': serializeParam(
+                                      jaipurJaipurRecord.roomSize1,
+                                      ParamType.String,
+                                    ),
+                                    'roomView1': serializeParam(
+                                      jaipurJaipurRecord.roomView1,
+                                      ParamType.String,
+                                    ),
+                                    'bedType1': serializeParam(
+                                      jaipurJaipurRecord.bedType1,
+                                      ParamType.String,
+                                    ),
                                   }.withoutNulls,
                                 );
                               },
@@ -717,7 +750,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                           imageUrl:
                                               'https://nexttrip123.000webhostapp.com/${(String images) {
                                             return images.split('"')[1];
-                                          }(jaipurJaipurRecord.images!)}',
+                                          }(jaipurJaipurRecord.images)}',
                                           width: double.infinity,
                                           height: 200.0,
                                           fit: BoxFit.cover,
@@ -740,7 +773,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                           'Button pressed ...');
                                                     },
                                                     text: jaipurJaipurRecord
-                                                        .rate!
+                                                        .rate
                                                         .toString(),
                                                     icon: Icon(
                                                       Icons.star,
@@ -799,7 +832,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                       .fromSTEB(
                                                           6.0, 0.0, 0.0, 0.0),
                                                   child: Text(
-                                                    jaipurJaipurRecord.star!,
+                                                    jaipurJaipurRecord.star,
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyMedium
@@ -848,7 +881,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                     .fromSTEB(
                                                         5.0, 0.0, 5.0, 0.0),
                                                 child: AutoSizeText(
-                                                  jaipurJaipurRecord.hotelName!,
+                                                  jaipurJaipurRecord.hotelName,
                                                   maxLines: 4,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -878,7 +911,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                         5.0, 0.0, 5.0, 0.0),
                                                 child: AutoSizeText(
                                                   jaipurJaipurRecord
-                                                      .hotelAddress!,
+                                                      .hotelAddress,
                                                   maxLines: 4,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -903,7 +936,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 10.0, 0.0),
                                             child: Text(
-                                              jaipurJaipurRecord.price!
+                                              jaipurJaipurRecord.price
                                                   .toString(),
                                               style:
                                                   FlutterFlowTheme.of(context)
@@ -955,7 +988,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                       0.0, 0.0, 10.0, 0.0),
                                               child: Text(
                                                 (double.parse(jaipurJaipurRecord
-                                                            .price!
+                                                            .price
                                                             .toString()!) +
                                                         500)
                                                     .toString(),
@@ -1085,6 +1118,22 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                       hydHyderabadRecord.images,
                                       ParamType.String,
                                     ),
+                                    'roomType1': serializeParam(
+                                      hydHyderabadRecord.roomType1,
+                                      ParamType.String,
+                                    ),
+                                    'roomSize1': serializeParam(
+                                      hydHyderabadRecord.roomSize1,
+                                      ParamType.String,
+                                    ),
+                                    'roomView1': serializeParam(
+                                      hydHyderabadRecord.roomView1,
+                                      ParamType.String,
+                                    ),
+                                    'bedType1': serializeParam(
+                                      hydHyderabadRecord.bedType1,
+                                      ParamType.String,
+                                    ),
                                   }.withoutNulls,
                                 );
                               },
@@ -1122,7 +1171,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                         child: Image.network(
                                           'https://nexttrip123.000webhostapp.com/${(String var1) {
                                             return var1.split('"')[1];
-                                          }(hydHyderabadRecord.images!)}',
+                                          }(hydHyderabadRecord.images)}',
                                           width: double.infinity,
                                           height: 200.0,
                                           fit: BoxFit.cover,
@@ -1145,7 +1194,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                           'Button pressed ...');
                                                     },
                                                     text: hydHyderabadRecord
-                                                        .rate!
+                                                        .rate
                                                         .toString(),
                                                     icon: Icon(
                                                       Icons.star,
@@ -1204,7 +1253,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                       .fromSTEB(
                                                           6.0, 0.0, 0.0, 0.0),
                                                   child: Text(
-                                                    hydHyderabadRecord.star!,
+                                                    hydHyderabadRecord.star,
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyMedium
@@ -1253,7 +1302,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                     .fromSTEB(
                                                         5.0, 0.0, 5.0, 0.0),
                                                 child: AutoSizeText(
-                                                  hydHyderabadRecord.hotelName!,
+                                                  hydHyderabadRecord.hotelName,
                                                   maxLines: 4,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -1283,7 +1332,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                         5.0, 0.0, 5.0, 0.0),
                                                 child: AutoSizeText(
                                                   hydHyderabadRecord
-                                                      .hotelAddress!,
+                                                      .hotelAddress,
                                                   maxLines: 4,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -1308,7 +1357,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 10.0, 0.0),
                                             child: Text(
-                                              hydHyderabadRecord.price!
+                                              hydHyderabadRecord.price
                                                   .toString(),
                                               style:
                                                   FlutterFlowTheme.of(context)
@@ -1360,7 +1409,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                       0.0, 0.0, 10.0, 0.0),
                                               child: Text(
                                                 (double.parse(hydHyderabadRecord
-                                                            .price!
+                                                            .price
                                                             .toString()!) +
                                                         500)
                                                     .toString(),
@@ -1491,6 +1540,22 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                       bangaloreBangaloreRecord.images,
                                       ParamType.String,
                                     ),
+                                    'roomType1': serializeParam(
+                                      bangaloreBangaloreRecord.roomType1,
+                                      ParamType.String,
+                                    ),
+                                    'roomSize1': serializeParam(
+                                      bangaloreBangaloreRecord.roomSize1,
+                                      ParamType.String,
+                                    ),
+                                    'roomView1': serializeParam(
+                                      bangaloreBangaloreRecord.roomView1,
+                                      ParamType.String,
+                                    ),
+                                    'bedType1': serializeParam(
+                                      bangaloreBangaloreRecord.bedType1,
+                                      ParamType.String,
+                                    ),
                                   }.withoutNulls,
                                 );
                               },
@@ -1528,7 +1593,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                           imageUrl:
                                               'https://nexttrip123.000webhostapp.com/${(String images) {
                                             return images.split('"')[1];
-                                          }(bangaloreBangaloreRecord.images!)}',
+                                          }(bangaloreBangaloreRecord.images)}',
                                           width: double.infinity,
                                           height: 200.0,
                                           fit: BoxFit.cover,
@@ -1552,7 +1617,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                     },
                                                     text:
                                                         bangaloreBangaloreRecord
-                                                            .rate!
+                                                            .rate
                                                             .toString(),
                                                     icon: Icon(
                                                       Icons.star,
@@ -1612,7 +1677,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                           6.0, 0.0, 0.0, 0.0),
                                                   child: Text(
                                                     bangaloreBangaloreRecord
-                                                        .star!,
+                                                        .star,
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyMedium
@@ -1662,7 +1727,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                         5.0, 0.0, 5.0, 0.0),
                                                 child: AutoSizeText(
                                                   bangaloreBangaloreRecord
-                                                      .hotelName!,
+                                                      .hotelName,
                                                   maxLines: 4,
                                                   style: FlutterFlowTheme.of(
                                                           context)
@@ -1692,7 +1757,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                         5.0, 0.0, 5.0, 0.0),
                                                 child: AutoSizeText(
                                                   bangaloreBangaloreRecord
-                                                      .hotelAddress!,
+                                                      .hotelAddress,
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
@@ -1716,7 +1781,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 10.0, 0.0),
                                             child: Text(
-                                              bangaloreBangaloreRecord.price!
+                                              bangaloreBangaloreRecord.price
                                                   .toString(),
                                               style:
                                                   FlutterFlowTheme.of(context)
@@ -1769,7 +1834,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                               child: Text(
                                                 (double.parse(
                                                             bangaloreBangaloreRecord
-                                                                .price!
+                                                                .price
                                                                 .toString()!) +
                                                         500)
                                                     .toString(),
@@ -1897,6 +1962,22 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                       goaGoaRecord.images,
                                       ParamType.String,
                                     ),
+                                    'roomType1': serializeParam(
+                                      goaGoaRecord.roomType1,
+                                      ParamType.String,
+                                    ),
+                                    'roomSize1': serializeParam(
+                                      goaGoaRecord.roomSize1,
+                                      ParamType.String,
+                                    ),
+                                    'roomView1': serializeParam(
+                                      goaGoaRecord.roomView1,
+                                      ParamType.String,
+                                    ),
+                                    'bedType1': serializeParam(
+                                      '',
+                                      ParamType.String,
+                                    ),
                                   }.withoutNulls,
                                 );
                               },
@@ -1934,7 +2015,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                           imageUrl:
                                               'https://nexttrip123.000webhostapp.com/${(String var1) {
                                             return var1.split('"')[1];
-                                          }(goaGoaRecord.images!)}',
+                                          }(goaGoaRecord.images)}',
                                           width: double.infinity,
                                           height: 200.0,
                                           fit: BoxFit.cover,
@@ -1956,7 +2037,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                       print(
                                                           'Button pressed ...');
                                                     },
-                                                    text: goaGoaRecord.rate!
+                                                    text: goaGoaRecord.rate
                                                         .toString(),
                                                     icon: Icon(
                                                       Icons.star,
@@ -2015,7 +2096,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                       .fromSTEB(
                                                           6.0, 0.0, 0.0, 0.0),
                                                   child: Text(
-                                                    goaGoaRecord.star!,
+                                                    goaGoaRecord.star,
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyMedium
@@ -2064,7 +2145,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                     .fromSTEB(
                                                         5.0, 0.0, 5.0, 0.0),
                                                 child: AutoSizeText(
-                                                  goaGoaRecord.hotelName!,
+                                                  goaGoaRecord.hotelName,
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
@@ -2092,7 +2173,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                     .fromSTEB(
                                                         5.0, 0.0, 5.0, 0.0),
                                                 child: AutoSizeText(
-                                                  goaGoaRecord.hotelAddress!,
+                                                  goaGoaRecord.hotelAddress,
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
@@ -2116,7 +2197,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 10.0, 0.0),
                                             child: Text(
-                                              goaGoaRecord.price!.toString(),
+                                              goaGoaRecord.price.toString(),
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
@@ -2166,8 +2247,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                   .fromSTEB(
                                                       0.0, 0.0, 10.0, 0.0),
                                               child: Text(
-                                                (double.parse(goaGoaRecord
-                                                            .price!
+                                                (double.parse(goaGoaRecord.price
                                                             .toString()) +
                                                         500)
                                                     .toString(),
@@ -2313,7 +2393,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                           5.0, 0.0, 0.0, 0.0),
                                                   child: Text(
                                                     bcfBusinessClassFlightRecord
-                                                        .flightName!,
+                                                        .flightName,
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyMedium
@@ -2429,8 +2509,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     15.0, 0.0, 0.0, 0.0),
                                             child: Text(
-                                              bcfBusinessClassFlightRecord
-                                                  .from!,
+                                              bcfBusinessClassFlightRecord.from,
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
@@ -2445,7 +2524,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 15.0, 0.0),
                                             child: Text(
-                                              bcfBusinessClassFlightRecord.to!,
+                                              bcfBusinessClassFlightRecord.to,
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
@@ -2496,7 +2575,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                             MainAxisAlignment.spaceAround,
                                         children: [
                                           Text(
-                                            bcfBusinessClassFlightRecord.time!,
+                                            bcfBusinessClassFlightRecord.time,
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
@@ -2506,7 +2585,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                           ),
                                           Text(
                                             bcfBusinessClassFlightRecord
-                                                .duration!,
+                                                .duration,
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
@@ -2548,7 +2627,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                       0.0, 0.0, 20.0, 0.0),
                                               child: Text(
                                                 bcfBusinessClassFlightRecord
-                                                    .price!
+                                                    .price
                                                     .toString(),
                                                 style:
                                                     FlutterFlowTheme.of(context)
@@ -2690,7 +2769,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                           5.0, 0.0, 0.0, 0.0),
                                                   child: Text(
                                                     ecfEconomyClassFlightRecord
-                                                        .flightName!,
+                                                        .flightName,
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyMedium
@@ -2806,7 +2885,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     15.0, 0.0, 0.0, 0.0),
                                             child: Text(
-                                              ecfEconomyClassFlightRecord.from!,
+                                              ecfEconomyClassFlightRecord.from,
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
@@ -2821,7 +2900,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 15.0, 0.0),
                                             child: Text(
-                                              ecfEconomyClassFlightRecord.to!,
+                                              ecfEconomyClassFlightRecord.to,
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
@@ -2911,7 +2990,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                       0.0, 0.0, 20.0, 0.0),
                                               child: Text(
                                                 ecfEconomyClassFlightRecord
-                                                    .price!
+                                                    .price
                                                     .toString(),
                                                 style:
                                                     FlutterFlowTheme.of(context)
@@ -3047,7 +3126,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                     .fromSTEB(
                                                         5.0, 0.0, 0.0, 0.0),
                                                 child: Text(
-                                                  traiTrainRecord.trainName!,
+                                                  traiTrainRecord.trainName,
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
@@ -3101,7 +3180,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     15.0, 0.0, 0.0, 0.0),
                                             child: Text(
-                                              traiTrainRecord.time!,
+                                              traiTrainRecord.time,
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
@@ -3117,7 +3196,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                 EdgeInsetsDirectional.fromSTEB(
                                                     0.0, 0.0, 15.0, 0.0),
                                             child: Text(
-                                              traiTrainRecord.duration!,
+                                              traiTrainRecord.duration,
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium,
@@ -3146,7 +3225,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                                 0.0, 0.0),
                                                     child: AutoSizeText(
                                                       traiTrainRecord
-                                                          .boardingStation!,
+                                                          .boardingStation,
                                                       maxLines: 2,
                                                       style:
                                                           FlutterFlowTheme.of(
@@ -3172,7 +3251,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                                 10.0, 0.0),
                                                     child: AutoSizeText(
                                                       traiTrainRecord
-                                                          .arrivalStation!,
+                                                          .arrivalStation,
                                                       textAlign: TextAlign.end,
                                                       maxLines: 2,
                                                       style:
@@ -3223,7 +3302,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                             onPressed: () {
                                               print('Button pressed ...');
                                             },
-                                            text: traiTrainRecord.aC1ATier!
+                                            text: traiTrainRecord.aC1ATier
                                                 .toString(),
                                             options: FFButtonOptions(
                                               width: 110.0,
@@ -3254,7 +3333,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                             onPressed: () {
                                               print('Button pressed ...');
                                             },
-                                            text: traiTrainRecord.aC2ATier!
+                                            text: traiTrainRecord.aC2ATier
                                                 .toString(),
                                             options: FFButtonOptions(
                                               width: 110.0,
@@ -3285,7 +3364,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                             onPressed: () {
                                               print('Button pressed ...');
                                             },
-                                            text: traiTrainRecord.aC3ATier!
+                                            text: traiTrainRecord.aC3ATier
                                                 .toString(),
                                             options: FFButtonOptions(
                                               width: 110.0,
@@ -3443,7 +3522,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                             .fromSTEB(10.0, 0.0,
                                                                 0.0, 0.0),
                                                     child: Text(
-                                                      acbusAcbusRecord.busName!,
+                                                      acbusAcbusRecord.busName,
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -3543,7 +3622,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                     .fromSTEB(
                                                         5.0, 0.0, 0.0, 0.0),
                                                 child: Text(
-                                                  acbusAcbusRecord.time!,
+                                                  acbusAcbusRecord.time,
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
@@ -3615,7 +3694,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                                   0.0,
                                                                   0.0),
                                                       child: Text(
-                                                        acbusAcbusRecord.from!,
+                                                        acbusAcbusRecord.from,
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -3642,7 +3721,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                                   5.0,
                                                                   0.0),
                                                       child: AutoSizeText(
-                                                        acbusAcbusRecord.to!,
+                                                        acbusAcbusRecord.to,
                                                         textAlign:
                                                             TextAlign.end,
                                                         maxLines: 2,
@@ -3697,7 +3776,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                               onPressed: () {
                                                 print('Button pressed ...');
                                               },
-                                              text: acbusAcbusRecord.acSeater!
+                                              text: acbusAcbusRecord.acSeater
                                                   .toString(),
                                               options: FFButtonOptions(
                                                 width: 130.0,
@@ -3729,7 +3808,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                               onPressed: () {
                                                 print('Button pressed ...');
                                               },
-                                              text: acbusAcbusRecord.acSleeper!
+                                              text: acbusAcbusRecord.acSleeper
                                                   .toString(),
                                               options: FFButtonOptions(
                                                 width: 130.0,
@@ -3891,7 +3970,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                                 0.0, 0.0),
                                                     child: Text(
                                                       nonbusNonAcBusRecord
-                                                          .busName!,
+                                                          .busName,
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -3991,7 +4070,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                     .fromSTEB(
                                                         5.0, 0.0, 0.0, 0.0),
                                                 child: Text(
-                                                  nonbusNonAcBusRecord.time!,
+                                                  nonbusNonAcBusRecord.time,
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
@@ -4064,7 +4143,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                                   0.0),
                                                       child: Text(
                                                         nonbusNonAcBusRecord
-                                                            .from!,
+                                                            .from,
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -4091,8 +4170,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                                   5.0,
                                                                   0.0),
                                                       child: AutoSizeText(
-                                                        nonbusNonAcBusRecord
-                                                            .to!,
+                                                        nonbusNonAcBusRecord.to,
                                                         textAlign:
                                                             TextAlign.end,
                                                         maxLines: 2,
@@ -4148,7 +4226,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                 print('Button pressed ...');
                                               },
                                               text: nonbusNonAcBusRecord
-                                                  .nonACSeater!
+                                                  .nonACSeater
                                                   .toString(),
                                               options: FFButtonOptions(
                                                 width: 130.0,
@@ -4181,7 +4259,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                 print('Button pressed ...');
                                               },
                                               text: nonbusNonAcBusRecord
-                                                  .nonAcSleeper!
+                                                  .nonAcSleeper
                                                   .toString(),
                                               options: FFButtonOptions(
                                                 width: 130.0,

@@ -56,7 +56,7 @@ class _H6MyRewardWidgetState extends State<H6MyRewardWidget> {
               size: 30.0,
             ),
             onPressed: () async {
-              context.pushNamed('C1Flights');
+              context.safePop();
             },
           ),
           title: Align(
@@ -77,6 +77,7 @@ class _H6MyRewardWidgetState extends State<H6MyRewardWidget> {
           elevation: 2.0,
         ),
         body: SafeArea(
+          top: true,
           child: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
             child: Column(

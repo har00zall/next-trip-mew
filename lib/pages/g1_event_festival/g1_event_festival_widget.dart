@@ -61,6 +61,7 @@ class _G1EventFestivalWidgetState extends State<G1EventFestivalWidget> {
           elevation: 2.0,
         ),
         body: SafeArea(
+          top: true,
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [

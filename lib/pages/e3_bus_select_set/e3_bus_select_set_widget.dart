@@ -78,6 +78,7 @@ class _E3BusSelectSetWidgetState extends State<E3BusSelectSetWidget> {
           elevation: 2.0,
         ),
         body: SafeArea(
+          top: true,
           child: Stack(
             children: [
               Column(

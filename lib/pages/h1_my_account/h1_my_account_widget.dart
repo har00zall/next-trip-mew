@@ -78,6 +78,7 @@ class _H1MyAccountWidgetState extends State<H1MyAccountWidget> {
           elevation: 2.0,
         ),
         body: SafeArea(
+          top: true,
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [

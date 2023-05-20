@@ -80,6 +80,7 @@ class _C3FlightReviewWidgetState extends State<C3FlightReviewWidget> {
           elevation: 2.0,
         ),
         body: SafeArea(
+          top: true,
           child: Stack(
             children: [
               Column(
@@ -629,7 +630,7 @@ class _C3FlightReviewWidgetState extends State<C3FlightReviewWidget> {
                 ],
               ),
               Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(10.0, 700.0, 10.0, 0.0),
+                padding: EdgeInsetsDirectional.fromSTEB(10.0, 770.0, 10.0, 0.0),
                 child: Material(
                   color: Colors.transparent,
                   elevation: 10.0,
@@ -673,8 +674,8 @@ class _C3FlightReviewWidgetState extends State<C3FlightReviewWidget> {
                           padding: EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 20.0, 0.0),
                           child: FFButtonWidget(
-                            onPressed: () {
-                              print('Button pressed ...');
+                            onPressed: () async {
+                              context.pushNamed('C6FlightPayment');
                             },
                             text: FFLocalizations.of(context).getText(
                               'xyb0ynrn' /* Continue */,

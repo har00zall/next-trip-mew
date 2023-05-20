@@ -80,6 +80,7 @@ class _I1ResturantsWidgetState extends State<I1ResturantsWidget> {
           elevation: 2.0,
         ),
         body: SafeArea(
+          top: true,
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [

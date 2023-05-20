@@ -1,254 +1,364 @@
 import 'dart:async';
 
+import '/backend/schema/util/firestore_util.dart';
+import '/backend/schema/util/schema_util.dart';
+
 import 'index.dart';
-import 'serializers.dart';
-import 'package:built_value/built_value.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 
-part 'goa_facilities_record.g.dart';
+class GoaFacilitiesRecord extends FirestoreRecord {
+  GoaFacilitiesRecord._(
+    DocumentReference reference,
+    Map<String, dynamic> data,
+  ) : super(reference, data) {
+    _initializeFields();
+  }
 
-abstract class GoaFacilitiesRecord
-    implements Built<GoaFacilitiesRecord, GoaFacilitiesRecordBuilder> {
-  static Serializer<GoaFacilitiesRecord> get serializer =>
-      _$goaFacilitiesRecordSerializer;
+  // "Column10" field.
+  String? _column10;
+  String get column10 => _column10 ?? '';
+  bool hasColumn10() => _column10 != null;
 
-  @BuiltValueField(wireName: 'Column10')
-  String? get column10;
+  // "Column11" field.
+  String? _column11;
+  String get column11 => _column11 ?? '';
+  bool hasColumn11() => _column11 != null;
 
-  @BuiltValueField(wireName: 'Column11')
-  String? get column11;
+  // "Column12" field.
+  String? _column12;
+  String get column12 => _column12 ?? '';
+  bool hasColumn12() => _column12 != null;
 
-  @BuiltValueField(wireName: 'Column12')
-  String? get column12;
+  // "Column13" field.
+  String? _column13;
+  String get column13 => _column13 ?? '';
+  bool hasColumn13() => _column13 != null;
 
-  @BuiltValueField(wireName: 'Column13')
-  String? get column13;
+  // "Column14" field.
+  String? _column14;
+  String get column14 => _column14 ?? '';
+  bool hasColumn14() => _column14 != null;
 
-  @BuiltValueField(wireName: 'Column14')
-  String? get column14;
+  // "Column15" field.
+  String? _column15;
+  String get column15 => _column15 ?? '';
+  bool hasColumn15() => _column15 != null;
 
-  @BuiltValueField(wireName: 'Column15')
-  String? get column15;
+  // "Column16" field.
+  String? _column16;
+  String get column16 => _column16 ?? '';
+  bool hasColumn16() => _column16 != null;
 
-  @BuiltValueField(wireName: 'Column16')
-  String? get column16;
+  // "Column17" field.
+  String? _column17;
+  String get column17 => _column17 ?? '';
+  bool hasColumn17() => _column17 != null;
 
-  @BuiltValueField(wireName: 'Column17')
-  String? get column17;
+  // "Column18" field.
+  String? _column18;
+  String get column18 => _column18 ?? '';
+  bool hasColumn18() => _column18 != null;
 
-  @BuiltValueField(wireName: 'Column18')
-  String? get column18;
+  // "Column19" field.
+  String? _column19;
+  String get column19 => _column19 ?? '';
+  bool hasColumn19() => _column19 != null;
 
-  @BuiltValueField(wireName: 'Column19')
-  String? get column19;
+  // "Column2" field.
+  String? _column2;
+  String get column2 => _column2 ?? '';
+  bool hasColumn2() => _column2 != null;
 
-  @BuiltValueField(wireName: 'Column2')
-  String? get column2;
+  // "Column20" field.
+  String? _column20;
+  String get column20 => _column20 ?? '';
+  bool hasColumn20() => _column20 != null;
 
-  @BuiltValueField(wireName: 'Column20')
-  String? get column20;
+  // "Column21" field.
+  String? _column21;
+  String get column21 => _column21 ?? '';
+  bool hasColumn21() => _column21 != null;
 
-  @BuiltValueField(wireName: 'Column21')
-  String? get column21;
+  // "Column22" field.
+  String? _column22;
+  String get column22 => _column22 ?? '';
+  bool hasColumn22() => _column22 != null;
 
-  @BuiltValueField(wireName: 'Column22')
-  String? get column22;
+  // "Column23" field.
+  String? _column23;
+  String get column23 => _column23 ?? '';
+  bool hasColumn23() => _column23 != null;
 
-  @BuiltValueField(wireName: 'Column23')
-  String? get column23;
+  // "Column24" field.
+  String? _column24;
+  String get column24 => _column24 ?? '';
+  bool hasColumn24() => _column24 != null;
 
-  @BuiltValueField(wireName: 'Column24')
-  String? get column24;
+  // "Column25" field.
+  String? _column25;
+  String get column25 => _column25 ?? '';
+  bool hasColumn25() => _column25 != null;
 
-  @BuiltValueField(wireName: 'Column25')
-  String? get column25;
+  // "Column26" field.
+  String? _column26;
+  String get column26 => _column26 ?? '';
+  bool hasColumn26() => _column26 != null;
 
-  @BuiltValueField(wireName: 'Column26')
-  String? get column26;
+  // "Column27" field.
+  String? _column27;
+  String get column27 => _column27 ?? '';
+  bool hasColumn27() => _column27 != null;
 
-  @BuiltValueField(wireName: 'Column27')
-  String? get column27;
+  // "Column28" field.
+  String? _column28;
+  String get column28 => _column28 ?? '';
+  bool hasColumn28() => _column28 != null;
 
-  @BuiltValueField(wireName: 'Column28')
-  String? get column28;
+  // "Column29" field.
+  String? _column29;
+  String get column29 => _column29 ?? '';
+  bool hasColumn29() => _column29 != null;
 
-  @BuiltValueField(wireName: 'Column29')
-  String? get column29;
+  // "Column3" field.
+  String? _column3;
+  String get column3 => _column3 ?? '';
+  bool hasColumn3() => _column3 != null;
 
-  @BuiltValueField(wireName: 'Column3')
-  String? get column3;
+  // "Column30" field.
+  String? _column30;
+  String get column30 => _column30 ?? '';
+  bool hasColumn30() => _column30 != null;
 
-  @BuiltValueField(wireName: 'Column30')
-  String? get column30;
+  // "Column31" field.
+  String? _column31;
+  String get column31 => _column31 ?? '';
+  bool hasColumn31() => _column31 != null;
 
-  @BuiltValueField(wireName: 'Column31')
-  String? get column31;
+  // "Column32" field.
+  String? _column32;
+  String get column32 => _column32 ?? '';
+  bool hasColumn32() => _column32 != null;
 
-  @BuiltValueField(wireName: 'Column32')
-  String? get column32;
+  // "Column33" field.
+  String? _column33;
+  String get column33 => _column33 ?? '';
+  bool hasColumn33() => _column33 != null;
 
-  @BuiltValueField(wireName: 'Column33')
-  String? get column33;
+  // "Column34" field.
+  String? _column34;
+  String get column34 => _column34 ?? '';
+  bool hasColumn34() => _column34 != null;
 
-  @BuiltValueField(wireName: 'Column34')
-  String? get column34;
+  // "Column35" field.
+  String? _column35;
+  String get column35 => _column35 ?? '';
+  bool hasColumn35() => _column35 != null;
 
-  @BuiltValueField(wireName: 'Column35')
-  String? get column35;
+  // "Column36" field.
+  String? _column36;
+  String get column36 => _column36 ?? '';
+  bool hasColumn36() => _column36 != null;
 
-  @BuiltValueField(wireName: 'Column36')
-  String? get column36;
+  // "Column37" field.
+  String? _column37;
+  String get column37 => _column37 ?? '';
+  bool hasColumn37() => _column37 != null;
 
-  @BuiltValueField(wireName: 'Column37')
-  String? get column37;
+  // "Column38" field.
+  String? _column38;
+  String get column38 => _column38 ?? '';
+  bool hasColumn38() => _column38 != null;
 
-  @BuiltValueField(wireName: 'Column38')
-  String? get column38;
+  // "Column39" field.
+  String? _column39;
+  String get column39 => _column39 ?? '';
+  bool hasColumn39() => _column39 != null;
 
-  @BuiltValueField(wireName: 'Column39')
-  String? get column39;
+  // "Column4" field.
+  String? _column4;
+  String get column4 => _column4 ?? '';
+  bool hasColumn4() => _column4 != null;
 
-  @BuiltValueField(wireName: 'Column4')
-  String? get column4;
+  // "Column40" field.
+  String? _column40;
+  String get column40 => _column40 ?? '';
+  bool hasColumn40() => _column40 != null;
 
-  @BuiltValueField(wireName: 'Column40')
-  String? get column40;
+  // "Column41" field.
+  String? _column41;
+  String get column41 => _column41 ?? '';
+  bool hasColumn41() => _column41 != null;
 
-  @BuiltValueField(wireName: 'Column41')
-  String? get column41;
+  // "Column42" field.
+  String? _column42;
+  String get column42 => _column42 ?? '';
+  bool hasColumn42() => _column42 != null;
 
-  @BuiltValueField(wireName: 'Column42')
-  String? get column42;
+  // "Column43" field.
+  String? _column43;
+  String get column43 => _column43 ?? '';
+  bool hasColumn43() => _column43 != null;
 
-  @BuiltValueField(wireName: 'Column43')
-  String? get column43;
+  // "Column44" field.
+  String? _column44;
+  String get column44 => _column44 ?? '';
+  bool hasColumn44() => _column44 != null;
 
-  @BuiltValueField(wireName: 'Column44')
-  String? get column44;
+  // "Column45" field.
+  String? _column45;
+  String get column45 => _column45 ?? '';
+  bool hasColumn45() => _column45 != null;
 
-  @BuiltValueField(wireName: 'Column45')
-  String? get column45;
+  // "Column46" field.
+  String? _column46;
+  String get column46 => _column46 ?? '';
+  bool hasColumn46() => _column46 != null;
 
-  @BuiltValueField(wireName: 'Column46')
-  String? get column46;
+  // "Column47" field.
+  String? _column47;
+  String get column47 => _column47 ?? '';
+  bool hasColumn47() => _column47 != null;
 
-  @BuiltValueField(wireName: 'Column47')
-  String? get column47;
+  // "Column48" field.
+  String? _column48;
+  String get column48 => _column48 ?? '';
+  bool hasColumn48() => _column48 != null;
 
-  @BuiltValueField(wireName: 'Column48')
-  String? get column48;
+  // "Column49" field.
+  String? _column49;
+  String get column49 => _column49 ?? '';
+  bool hasColumn49() => _column49 != null;
 
-  @BuiltValueField(wireName: 'Column49')
-  String? get column49;
+  // "Column5" field.
+  String? _column5;
+  String get column5 => _column5 ?? '';
+  bool hasColumn5() => _column5 != null;
 
-  @BuiltValueField(wireName: 'Column5')
-  String? get column5;
+  // "Column50" field.
+  String? _column50;
+  String get column50 => _column50 ?? '';
+  bool hasColumn50() => _column50 != null;
 
-  @BuiltValueField(wireName: 'Column50')
-  String? get column50;
+  // "Column6" field.
+  String? _column6;
+  String get column6 => _column6 ?? '';
+  bool hasColumn6() => _column6 != null;
 
-  @BuiltValueField(wireName: 'Column6')
-  String? get column6;
+  // "Column69" field.
+  String? _column69;
+  String get column69 => _column69 ?? '';
+  bool hasColumn69() => _column69 != null;
 
-  @BuiltValueField(wireName: 'Column69')
-  String? get column69;
+  // "Column7" field.
+  String? _column7;
+  String get column7 => _column7 ?? '';
+  bool hasColumn7() => _column7 != null;
 
-  @BuiltValueField(wireName: 'Column7')
-  String? get column7;
+  // "Column70" field.
+  String? _column70;
+  String get column70 => _column70 ?? '';
+  bool hasColumn70() => _column70 != null;
 
-  @BuiltValueField(wireName: 'Column70')
-  String? get column70;
+  // "Column71" field.
+  String? _column71;
+  String get column71 => _column71 ?? '';
+  bool hasColumn71() => _column71 != null;
 
-  @BuiltValueField(wireName: 'Column71')
-  String? get column71;
+  // "Column8" field.
+  String? _column8;
+  String get column8 => _column8 ?? '';
+  bool hasColumn8() => _column8 != null;
 
-  @BuiltValueField(wireName: 'Column8')
-  String? get column8;
+  // "Column9" field.
+  String? _column9;
+  String get column9 => _column9 ?? '';
+  bool hasColumn9() => _column9 != null;
 
-  @BuiltValueField(wireName: 'Column9')
-  String? get column9;
+  // "HotelNo" field.
+  int? _hotelNo;
+  int get hotelNo => _hotelNo ?? 0;
+  bool hasHotelNo() => _hotelNo != null;
 
-  @BuiltValueField(wireName: 'HotelNo')
-  int? get hotelNo;
-
-  @BuiltValueField(wireName: kDocumentReferenceField)
-  DocumentReference? get ffRef;
-  DocumentReference get reference => ffRef!;
-
-  static void _initializeBuilder(GoaFacilitiesRecordBuilder builder) => builder
-    ..column10 = ''
-    ..column11 = ''
-    ..column12 = ''
-    ..column13 = ''
-    ..column14 = ''
-    ..column15 = ''
-    ..column16 = ''
-    ..column17 = ''
-    ..column18 = ''
-    ..column19 = ''
-    ..column2 = ''
-    ..column20 = ''
-    ..column21 = ''
-    ..column22 = ''
-    ..column23 = ''
-    ..column24 = ''
-    ..column25 = ''
-    ..column26 = ''
-    ..column27 = ''
-    ..column28 = ''
-    ..column29 = ''
-    ..column3 = ''
-    ..column30 = ''
-    ..column31 = ''
-    ..column32 = ''
-    ..column33 = ''
-    ..column34 = ''
-    ..column35 = ''
-    ..column36 = ''
-    ..column37 = ''
-    ..column38 = ''
-    ..column39 = ''
-    ..column4 = ''
-    ..column40 = ''
-    ..column41 = ''
-    ..column42 = ''
-    ..column43 = ''
-    ..column44 = ''
-    ..column45 = ''
-    ..column46 = ''
-    ..column47 = ''
-    ..column48 = ''
-    ..column49 = ''
-    ..column5 = ''
-    ..column50 = ''
-    ..column6 = ''
-    ..column69 = ''
-    ..column7 = ''
-    ..column70 = ''
-    ..column71 = ''
-    ..column8 = ''
-    ..column9 = ''
-    ..hotelNo = 0;
+  void _initializeFields() {
+    _column10 = snapshotData['Column10'] as String?;
+    _column11 = snapshotData['Column11'] as String?;
+    _column12 = snapshotData['Column12'] as String?;
+    _column13 = snapshotData['Column13'] as String?;
+    _column14 = snapshotData['Column14'] as String?;
+    _column15 = snapshotData['Column15'] as String?;
+    _column16 = snapshotData['Column16'] as String?;
+    _column17 = snapshotData['Column17'] as String?;
+    _column18 = snapshotData['Column18'] as String?;
+    _column19 = snapshotData['Column19'] as String?;
+    _column2 = snapshotData['Column2'] as String?;
+    _column20 = snapshotData['Column20'] as String?;
+    _column21 = snapshotData['Column21'] as String?;
+    _column22 = snapshotData['Column22'] as String?;
+    _column23 = snapshotData['Column23'] as String?;
+    _column24 = snapshotData['Column24'] as String?;
+    _column25 = snapshotData['Column25'] as String?;
+    _column26 = snapshotData['Column26'] as String?;
+    _column27 = snapshotData['Column27'] as String?;
+    _column28 = snapshotData['Column28'] as String?;
+    _column29 = snapshotData['Column29'] as String?;
+    _column3 = snapshotData['Column3'] as String?;
+    _column30 = snapshotData['Column30'] as String?;
+    _column31 = snapshotData['Column31'] as String?;
+    _column32 = snapshotData['Column32'] as String?;
+    _column33 = snapshotData['Column33'] as String?;
+    _column34 = snapshotData['Column34'] as String?;
+    _column35 = snapshotData['Column35'] as String?;
+    _column36 = snapshotData['Column36'] as String?;
+    _column37 = snapshotData['Column37'] as String?;
+    _column38 = snapshotData['Column38'] as String?;
+    _column39 = snapshotData['Column39'] as String?;
+    _column4 = snapshotData['Column4'] as String?;
+    _column40 = snapshotData['Column40'] as String?;
+    _column41 = snapshotData['Column41'] as String?;
+    _column42 = snapshotData['Column42'] as String?;
+    _column43 = snapshotData['Column43'] as String?;
+    _column44 = snapshotData['Column44'] as String?;
+    _column45 = snapshotData['Column45'] as String?;
+    _column46 = snapshotData['Column46'] as String?;
+    _column47 = snapshotData['Column47'] as String?;
+    _column48 = snapshotData['Column48'] as String?;
+    _column49 = snapshotData['Column49'] as String?;
+    _column5 = snapshotData['Column5'] as String?;
+    _column50 = snapshotData['Column50'] as String?;
+    _column6 = snapshotData['Column6'] as String?;
+    _column69 = snapshotData['Column69'] as String?;
+    _column7 = snapshotData['Column7'] as String?;
+    _column70 = snapshotData['Column70'] as String?;
+    _column71 = snapshotData['Column71'] as String?;
+    _column8 = snapshotData['Column8'] as String?;
+    _column9 = snapshotData['Column9'] as String?;
+    _hotelNo = snapshotData['HotelNo'] as int?;
+  }
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('goaFacilities');
 
-  static Stream<GoaFacilitiesRecord> getDocument(DocumentReference ref) => ref
-      .snapshots()
-      .map((s) => serializers.deserializeWith(serializer, serializedData(s))!);
+  static Stream<GoaFacilitiesRecord> getDocument(DocumentReference ref) =>
+      ref.snapshots().map((s) => GoaFacilitiesRecord.fromSnapshot(s));
 
   static Future<GoaFacilitiesRecord> getDocumentOnce(DocumentReference ref) =>
-      ref.get().then(
-          (s) => serializers.deserializeWith(serializer, serializedData(s))!);
+      ref.get().then((s) => GoaFacilitiesRecord.fromSnapshot(s));
 
-  GoaFacilitiesRecord._();
-  factory GoaFacilitiesRecord(
-          [void Function(GoaFacilitiesRecordBuilder) updates]) =
-      _$GoaFacilitiesRecord;
+  static GoaFacilitiesRecord fromSnapshot(DocumentSnapshot snapshot) =>
+      GoaFacilitiesRecord._(
+        snapshot.reference,
+        mapFromFirestore(snapshot.data() as Map<String, dynamic>),
+      );
 
   static GoaFacilitiesRecord getDocumentFromData(
-          Map<String, dynamic> data, DocumentReference reference) =>
-      serializers.deserializeWith(serializer,
-          {...mapFromFirestore(data), kDocumentReferenceField: reference})!;
+    Map<String, dynamic> data,
+    DocumentReference reference,
+  ) =>
+      GoaFacilitiesRecord._(reference, mapFromFirestore(data));
+
+  @override
+  String toString() =>
+      'GoaFacilitiesRecord(reference: ${reference.path}, data: $snapshotData)';
 }
 
 Map<String, dynamic> createGoaFacilitiesRecordData({
@@ -306,64 +416,62 @@ Map<String, dynamic> createGoaFacilitiesRecordData({
   String? column9,
   int? hotelNo,
 }) {
-  final firestoreData = serializers.toFirestore(
-    GoaFacilitiesRecord.serializer,
-    GoaFacilitiesRecord(
-      (g) => g
-        ..column10 = column10
-        ..column11 = column11
-        ..column12 = column12
-        ..column13 = column13
-        ..column14 = column14
-        ..column15 = column15
-        ..column16 = column16
-        ..column17 = column17
-        ..column18 = column18
-        ..column19 = column19
-        ..column2 = column2
-        ..column20 = column20
-        ..column21 = column21
-        ..column22 = column22
-        ..column23 = column23
-        ..column24 = column24
-        ..column25 = column25
-        ..column26 = column26
-        ..column27 = column27
-        ..column28 = column28
-        ..column29 = column29
-        ..column3 = column3
-        ..column30 = column30
-        ..column31 = column31
-        ..column32 = column32
-        ..column33 = column33
-        ..column34 = column34
-        ..column35 = column35
-        ..column36 = column36
-        ..column37 = column37
-        ..column38 = column38
-        ..column39 = column39
-        ..column4 = column4
-        ..column40 = column40
-        ..column41 = column41
-        ..column42 = column42
-        ..column43 = column43
-        ..column44 = column44
-        ..column45 = column45
-        ..column46 = column46
-        ..column47 = column47
-        ..column48 = column48
-        ..column49 = column49
-        ..column5 = column5
-        ..column50 = column50
-        ..column6 = column6
-        ..column69 = column69
-        ..column7 = column7
-        ..column70 = column70
-        ..column71 = column71
-        ..column8 = column8
-        ..column9 = column9
-        ..hotelNo = hotelNo,
-    ),
+  final firestoreData = mapToFirestore(
+    <String, dynamic>{
+      'Column10': column10,
+      'Column11': column11,
+      'Column12': column12,
+      'Column13': column13,
+      'Column14': column14,
+      'Column15': column15,
+      'Column16': column16,
+      'Column17': column17,
+      'Column18': column18,
+      'Column19': column19,
+      'Column2': column2,
+      'Column20': column20,
+      'Column21': column21,
+      'Column22': column22,
+      'Column23': column23,
+      'Column24': column24,
+      'Column25': column25,
+      'Column26': column26,
+      'Column27': column27,
+      'Column28': column28,
+      'Column29': column29,
+      'Column3': column3,
+      'Column30': column30,
+      'Column31': column31,
+      'Column32': column32,
+      'Column33': column33,
+      'Column34': column34,
+      'Column35': column35,
+      'Column36': column36,
+      'Column37': column37,
+      'Column38': column38,
+      'Column39': column39,
+      'Column4': column4,
+      'Column40': column40,
+      'Column41': column41,
+      'Column42': column42,
+      'Column43': column43,
+      'Column44': column44,
+      'Column45': column45,
+      'Column46': column46,
+      'Column47': column47,
+      'Column48': column48,
+      'Column49': column49,
+      'Column5': column5,
+      'Column50': column50,
+      'Column6': column6,
+      'Column69': column69,
+      'Column7': column7,
+      'Column70': column70,
+      'Column71': column71,
+      'Column8': column8,
+      'Column9': column9,
+      'HotelNo': hotelNo,
+    }.withoutNulls,
   );
 
   return firestoreData;

@@ -89,6 +89,7 @@ class _H1EditProfileMyAccountWidgetState
           elevation: 2.0,
         ),
         body: SafeArea(
+          top: true,
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [

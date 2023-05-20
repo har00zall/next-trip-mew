@@ -80,6 +80,7 @@ class _E6BusFILTERWidgetState extends State<E6BusFILTERWidget> {
           elevation: 2.0,
         ),
         body: SafeArea(
+          top: true,
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [

@@ -77,6 +77,7 @@ class _G2ClaimRefundWidgetState extends State<G2ClaimRefundWidget> {
           elevation: 2.0,
         ),
         body: SafeArea(
+          top: true,
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [

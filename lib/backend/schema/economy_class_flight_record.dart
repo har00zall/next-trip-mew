@@ -1,69 +1,83 @@
 import 'dart:async';
 
+import '/backend/schema/util/firestore_util.dart';
+import '/backend/schema/util/schema_util.dart';
+
 import 'index.dart';
-import 'serializers.dart';
-import 'package:built_value/built_value.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 
-part 'economy_class_flight_record.g.dart';
+class EconomyClassFlightRecord extends FirestoreRecord {
+  EconomyClassFlightRecord._(
+    DocumentReference reference,
+    Map<String, dynamic> data,
+  ) : super(reference, data) {
+    _initializeFields();
+  }
 
-abstract class EconomyClassFlightRecord
-    implements
-        Built<EconomyClassFlightRecord, EconomyClassFlightRecordBuilder> {
-  static Serializer<EconomyClassFlightRecord> get serializer =>
-      _$economyClassFlightRecordSerializer;
+  // "No" field.
+  int? _no;
+  int get no => _no ?? 0;
+  bool hasNo() => _no != null;
 
-  @BuiltValueField(wireName: 'No')
-  int? get no;
+  // "From" field.
+  String? _from;
+  String get from => _from ?? '';
+  bool hasFrom() => _from != null;
 
-  @BuiltValueField(wireName: 'From')
-  String? get from;
+  // "To" field.
+  String? _to;
+  String get to => _to ?? '';
+  bool hasTo() => _to != null;
 
-  @BuiltValueField(wireName: 'To')
-  String? get to;
+  // "Time" field.
+  String? _time;
+  String get time => _time ?? '';
+  bool hasTime() => _time != null;
 
-  @BuiltValueField(wireName: 'Time')
-  String? get time;
+  // "Price" field.
+  double? _price;
+  double get price => _price ?? 0.0;
+  bool hasPrice() => _price != null;
 
-  @BuiltValueField(wireName: 'Price')
-  double? get price;
+  // "Flight_Name" field.
+  String? _flightName;
+  String get flightName => _flightName ?? '';
+  bool hasFlightName() => _flightName != null;
 
-  @BuiltValueField(wireName: 'Flight_Name')
-  String? get flightName;
-
-  @BuiltValueField(wireName: kDocumentReferenceField)
-  DocumentReference? get ffRef;
-  DocumentReference get reference => ffRef!;
-
-  static void _initializeBuilder(EconomyClassFlightRecordBuilder builder) =>
-      builder
-        ..no = 0
-        ..from = ''
-        ..to = ''
-        ..time = ''
-        ..price = 0.0
-        ..flightName = '';
+  void _initializeFields() {
+    _no = snapshotData['No'] as int?;
+    _from = snapshotData['From'] as String?;
+    _to = snapshotData['To'] as String?;
+    _time = snapshotData['Time'] as String?;
+    _price = castToType<double>(snapshotData['Price']);
+    _flightName = snapshotData['Flight_Name'] as String?;
+  }
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('economyClassFlight');
 
   static Stream<EconomyClassFlightRecord> getDocument(DocumentReference ref) =>
-      ref.snapshots().map(
-          (s) => serializers.deserializeWith(serializer, serializedData(s))!);
+      ref.snapshots().map((s) => EconomyClassFlightRecord.fromSnapshot(s));
 
   static Future<EconomyClassFlightRecord> getDocumentOnce(
           DocumentReference ref) =>
-      ref.get().then(
-          (s) => serializers.deserializeWith(serializer, serializedData(s))!);
+      ref.get().then((s) => EconomyClassFlightRecord.fromSnapshot(s));
 
-  EconomyClassFlightRecord._();
-  factory EconomyClassFlightRecord(
-          [void Function(EconomyClassFlightRecordBuilder) updates]) =
-      _$EconomyClassFlightRecord;
+  static EconomyClassFlightRecord fromSnapshot(DocumentSnapshot snapshot) =>
+      EconomyClassFlightRecord._(
+        snapshot.reference,
+        mapFromFirestore(snapshot.data() as Map<String, dynamic>),
+      );
 
   static EconomyClassFlightRecord getDocumentFromData(
-          Map<String, dynamic> data, DocumentReference reference) =>
-      serializers.deserializeWith(serializer,
-          {...mapFromFirestore(data), kDocumentReferenceField: reference})!;
+    Map<String, dynamic> data,
+    DocumentReference reference,
+  ) =>
+      EconomyClassFlightRecord._(reference, mapFromFirestore(data));
+
+  @override
+  String toString() =>
+      'EconomyClassFlightRecord(reference: ${reference.path}, data: $snapshotData)';
 }
 
 Map<String, dynamic> createEconomyClassFlightRecordData({
@@ -74,17 +88,15 @@ Map<String, dynamic> createEconomyClassFlightRecordData({
   double? price,
   String? flightName,
 }) {
-  final firestoreData = serializers.toFirestore(
-    EconomyClassFlightRecord.serializer,
-    EconomyClassFlightRecord(
-      (e) => e
-        ..no = no
-        ..from = from
-        ..to = to
-        ..time = time
-        ..price = price
-        ..flightName = flightName,
-    ),
+  final firestoreData = mapToFirestore(
+    <String, dynamic>{
+      'No': no,
+      'From': from,
+      'To': to,
+      'Time': time,
+      'Price': price,
+      'Flight_Name': flightName,
+    }.withoutNulls,
   );
 
   return firestoreData;

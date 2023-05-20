@@ -186,6 +186,7 @@ class _D2Train1WidgetState extends State<D2Train1Widget> {
           elevation: 2.0,
         ),
         body: SafeArea(
+          top: true,
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
@@ -370,7 +371,7 @@ class _D2Train1WidgetState extends State<D2Train1Widget> {
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(5.0, 0.0, 0.0, 0.0),
                                               child: AutoSizeText(
-                                                listViewTrainRecord.trainName!,
+                                                listViewTrainRecord.trainName,
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium
@@ -431,7 +432,7 @@ class _D2Train1WidgetState extends State<D2Train1Widget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             5.0, 0.0, 0.0, 0.0),
                                         child: Text(
-                                          listViewTrainRecord.trainNo!
+                                          listViewTrainRecord.trainNo
                                               .toString(),
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
@@ -492,7 +493,7 @@ class _D2Train1WidgetState extends State<D2Train1Widget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             15.0, 0.0, 0.0, 0.0),
                                         child: Text(
-                                          listViewTrainRecord.time!,
+                                          listViewTrainRecord.time,
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -505,7 +506,7 @@ class _D2Train1WidgetState extends State<D2Train1Widget> {
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0.0, 0.0, 15.0, 0.0),
                                         child: Text(
-                                          listViewTrainRecord.duration!,
+                                          listViewTrainRecord.duration,
                                           style: FlutterFlowTheme.of(context)
                                               .bodyMedium
                                               .override(
@@ -573,7 +574,7 @@ class _D2Train1WidgetState extends State<D2Train1Widget> {
                                                     5.0, 0.0, 0.0, 0.0),
                                             child: AutoSizeText(
                                               listViewTrainRecord
-                                                  .boardingStation!,
+                                                  .boardingStation,
                                               maxLines: 1,
                                               style:
                                                   FlutterFlowTheme.of(context)
@@ -595,7 +596,7 @@ class _D2Train1WidgetState extends State<D2Train1Widget> {
                                                     0.0, 0.0, 5.0, 0.0),
                                             child: AutoSizeText(
                                               listViewTrainRecord
-                                                  .arrivalStation!,
+                                                  .arrivalStation,
                                               maxLines: 1,
                                               style:
                                                   FlutterFlowTheme.of(context)
@@ -680,7 +681,7 @@ class _D2Train1WidgetState extends State<D2Train1Widget> {
                                         onPressed: () {
                                           print('Button pressed ...');
                                         },
-                                        text: listViewTrainRecord.aC1ATier!
+                                        text: listViewTrainRecord.aC1ATier
                                             .toString(),
                                         options: FFButtonOptions(
                                           width: 110.0,
@@ -713,7 +714,7 @@ class _D2Train1WidgetState extends State<D2Train1Widget> {
                                         onPressed: () {
                                           print('Button pressed ...');
                                         },
-                                        text: listViewTrainRecord.aC2ATier!
+                                        text: listViewTrainRecord.aC2ATier
                                             .toString(),
                                         options: FFButtonOptions(
                                           width: 110.0,
@@ -746,7 +747,7 @@ class _D2Train1WidgetState extends State<D2Train1Widget> {
                                         onPressed: () {
                                           print('Button pressed ...');
                                         },
-                                        text: listViewTrainRecord.aC3ATier!
+                                        text: listViewTrainRecord.aC3ATier
                                             .toString(),
                                         options: FFButtonOptions(
                                           width: 110.0,

@@ -79,6 +79,7 @@ class _D5TrainsortWidgetState extends State<D5TrainsortWidget> {
           elevation: 2.0,
         ),
         body: SafeArea(
+          top: true,
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [

@@ -1,66 +1,88 @@
 import 'dart:async';
 
+import '/backend/schema/util/firestore_util.dart';
+import '/backend/schema/util/schema_util.dart';
+
 import 'index.dart';
-import 'serializers.dart';
-import 'package:built_value/built_value.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 
-part 'ef_chennai_record.g.dart';
+class EfChennaiRecord extends FirestoreRecord {
+  EfChennaiRecord._(
+    DocumentReference reference,
+    Map<String, dynamic> data,
+  ) : super(reference, data) {
+    _initializeFields();
+  }
 
-abstract class EfChennaiRecord
-    implements Built<EfChennaiRecord, EfChennaiRecordBuilder> {
-  static Serializer<EfChennaiRecord> get serializer =>
-      _$efChennaiRecordSerializer;
+  // "Name-of-festival" field.
+  String? _nameOfFestival;
+  String get nameOfFestival => _nameOfFestival ?? '';
+  bool hasNameOfFestival() => _nameOfFestival != null;
 
-  @BuiltValueField(wireName: 'Name-of-festival')
-  String? get nameOfFestival;
+  // "when" field.
+  String? _when;
+  String get when => _when ?? '';
+  bool hasWhen() => _when != null;
 
-  String? get when;
+  // "where" field.
+  String? _where;
+  String get where => _where ?? '';
+  bool hasWhere() => _where != null;
 
-  String? get where;
+  // "duration" field.
+  String? _duration;
+  String get duration => _duration ?? '';
+  bool hasDuration() => _duration != null;
 
-  String? get duration;
+  // "famous-for" field.
+  String? _famousFor;
+  String get famousFor => _famousFor ?? '';
+  bool hasFamousFor() => _famousFor != null;
 
-  @BuiltValueField(wireName: 'famous-for')
-  String? get famousFor;
+  // "Images" field.
+  String? _images;
+  String get images => _images ?? '';
+  bool hasImages() => _images != null;
 
-  @BuiltValueField(wireName: 'Images')
-  String? get images;
+  // "No" field.
+  int? _no;
+  int get no => _no ?? 0;
+  bool hasNo() => _no != null;
 
-  @BuiltValueField(wireName: 'No')
-  int? get no;
-
-  @BuiltValueField(wireName: kDocumentReferenceField)
-  DocumentReference? get ffRef;
-  DocumentReference get reference => ffRef!;
-
-  static void _initializeBuilder(EfChennaiRecordBuilder builder) => builder
-    ..nameOfFestival = ''
-    ..when = ''
-    ..where = ''
-    ..duration = ''
-    ..famousFor = ''
-    ..images = ''
-    ..no = 0;
+  void _initializeFields() {
+    _nameOfFestival = snapshotData['Name-of-festival'] as String?;
+    _when = snapshotData['when'] as String?;
+    _where = snapshotData['where'] as String?;
+    _duration = snapshotData['duration'] as String?;
+    _famousFor = snapshotData['famous-for'] as String?;
+    _images = snapshotData['Images'] as String?;
+    _no = snapshotData['No'] as int?;
+  }
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('efChennai');
 
-  static Stream<EfChennaiRecord> getDocument(DocumentReference ref) => ref
-      .snapshots()
-      .map((s) => serializers.deserializeWith(serializer, serializedData(s))!);
+  static Stream<EfChennaiRecord> getDocument(DocumentReference ref) =>
+      ref.snapshots().map((s) => EfChennaiRecord.fromSnapshot(s));
 
-  static Future<EfChennaiRecord> getDocumentOnce(DocumentReference ref) => ref
-      .get()
-      .then((s) => serializers.deserializeWith(serializer, serializedData(s))!);
+  static Future<EfChennaiRecord> getDocumentOnce(DocumentReference ref) =>
+      ref.get().then((s) => EfChennaiRecord.fromSnapshot(s));
 
-  EfChennaiRecord._();
-  factory EfChennaiRecord([void Function(EfChennaiRecordBuilder) updates]) =
-      _$EfChennaiRecord;
+  static EfChennaiRecord fromSnapshot(DocumentSnapshot snapshot) =>
+      EfChennaiRecord._(
+        snapshot.reference,
+        mapFromFirestore(snapshot.data() as Map<String, dynamic>),
+      );
 
   static EfChennaiRecord getDocumentFromData(
-          Map<String, dynamic> data, DocumentReference reference) =>
-      serializers.deserializeWith(serializer,
-          {...mapFromFirestore(data), kDocumentReferenceField: reference})!;
+    Map<String, dynamic> data,
+    DocumentReference reference,
+  ) =>
+      EfChennaiRecord._(reference, mapFromFirestore(data));
+
+  @override
+  String toString() =>
+      'EfChennaiRecord(reference: ${reference.path}, data: $snapshotData)';
 }
 
 Map<String, dynamic> createEfChennaiRecordData({
@@ -72,18 +94,16 @@ Map<String, dynamic> createEfChennaiRecordData({
   String? images,
   int? no,
 }) {
-  final firestoreData = serializers.toFirestore(
-    EfChennaiRecord.serializer,
-    EfChennaiRecord(
-      (e) => e
-        ..nameOfFestival = nameOfFestival
-        ..when = when
-        ..where = where
-        ..duration = duration
-        ..famousFor = famousFor
-        ..images = images
-        ..no = no,
-    ),
+  final firestoreData = mapToFirestore(
+    <String, dynamic>{
+      'Name-of-festival': nameOfFestival,
+      'when': when,
+      'where': where,
+      'duration': duration,
+      'famous-for': famousFor,
+      'Images': images,
+      'No': no,
+    }.withoutNulls,
   );
 
   return firestoreData;

@@ -3,6 +3,7 @@ import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/form_field_controller.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -81,6 +82,7 @@ class _B6SelectHotelPaymentWidgetState
           elevation: 2.0,
         ),
         body: SafeArea(
+          top: true,
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
@@ -94,7 +96,7 @@ class _B6SelectHotelPaymentWidgetState
                   ),
                   child: Container(
                     width: double.infinity,
-                    height: 160.0,
+                    height: 250.0,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                       borderRadius: BorderRadius.circular(10.0),
@@ -137,20 +139,23 @@ class _B6SelectHotelPaymentWidgetState
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      5.0, 0.0, 0.0, 0.0),
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      '629q74uy' /* Hotel Name */,
+                                Expanded(
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        5.0, 0.0, 130.0, 0.0),
+                                    child: AutoSizeText(
+                                      FFLocalizations.of(context).getText(
+                                        '629q74uy' /* Hotel Name */,
+                                      ),
+                                      maxLines: 5,
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            color: Colors.black,
+                                            fontSize: 18.0,
+                                          ),
                                     ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: Colors.black,
-                                          fontSize: 18.0,
-                                        ),
                                   ),
                                 ),
                               ],
@@ -165,18 +170,25 @@ class _B6SelectHotelPaymentWidgetState
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
-                                Text(
-                                  FFLocalizations.of(context).getText(
-                                    '6aj2q57i' /* Hotel Address */,
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodySmall
-                                      .override(
-                                        fontFamily: 'Poppins',
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryText,
-                                        fontWeight: FontWeight.w500,
+                                Expanded(
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 130.0, 0.0),
+                                    child: AutoSizeText(
+                                      FFLocalizations.of(context).getText(
+                                        '6aj2q57i' /* Hotel Address */,
                                       ),
+                                      maxLines: 6,
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodySmall
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryText,
+                                            fontWeight: FontWeight.w500,
+                                          ),
+                                    ),
+                                  ),
                                 ),
                               ],
                             ),
@@ -186,7 +198,7 @@ class _B6SelectHotelPaymentWidgetState
                           alignment: AlignmentDirectional(0.0, 0.0),
                           child: Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                5.0, 40.0, 0.0, 0.0),
+                                5.0, 50.0, 0.0, 0.0),
                             child: Row(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -312,17 +324,24 @@ class _B6SelectHotelPaymentWidgetState
                                         fontSize: 16.0,
                                       ),
                                 ),
-                                Text(
-                                  FFLocalizations.of(context).getText(
-                                    'ubijqavm' /* Name */,
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Roboto Slab',
-                                        color: Color(0xFF0081FF),
-                                        fontSize: 16.0,
+                                Expanded(
+                                  child: Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 130.0, 0.0),
+                                    child: AutoSizeText(
+                                      FFLocalizations.of(context).getText(
+                                        'ubijqavm' /* Name */,
                                       ),
+                                      maxLines: 2,
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Roboto Slab',
+                                            color: Color(0xFF0081FF),
+                                            fontSize: 16.0,
+                                          ),
+                                    ),
+                                  ),
                                 ),
                               ],
                             ),

@@ -1,73 +1,89 @@
 import 'dart:async';
 
+import '/backend/schema/util/firestore_util.dart';
+import '/backend/schema/util/schema_util.dart';
+
 import 'index.dart';
-import 'serializers.dart';
-import 'package:built_value/built_value.dart';
+import '/flutter_flow/flutter_flow_util.dart';
 
-part 'business_class_flight_record.g.dart';
+class BusinessClassFlightRecord extends FirestoreRecord {
+  BusinessClassFlightRecord._(
+    DocumentReference reference,
+    Map<String, dynamic> data,
+  ) : super(reference, data) {
+    _initializeFields();
+  }
 
-abstract class BusinessClassFlightRecord
-    implements
-        Built<BusinessClassFlightRecord, BusinessClassFlightRecordBuilder> {
-  static Serializer<BusinessClassFlightRecord> get serializer =>
-      _$businessClassFlightRecordSerializer;
+  // "No" field.
+  int? _no;
+  int get no => _no ?? 0;
+  bool hasNo() => _no != null;
 
-  @BuiltValueField(wireName: 'No')
-  int? get no;
+  // "Flight_Name" field.
+  String? _flightName;
+  String get flightName => _flightName ?? '';
+  bool hasFlightName() => _flightName != null;
 
-  @BuiltValueField(wireName: 'Flight_Name')
-  String? get flightName;
+  // "From" field.
+  String? _from;
+  String get from => _from ?? '';
+  bool hasFrom() => _from != null;
 
-  @BuiltValueField(wireName: 'From')
-  String? get from;
+  // "To" field.
+  String? _to;
+  String get to => _to ?? '';
+  bool hasTo() => _to != null;
 
-  @BuiltValueField(wireName: 'To')
-  String? get to;
+  // "Duration" field.
+  String? _duration;
+  String get duration => _duration ?? '';
+  bool hasDuration() => _duration != null;
 
-  @BuiltValueField(wireName: 'Duration')
-  String? get duration;
+  // "Time" field.
+  String? _time;
+  String get time => _time ?? '';
+  bool hasTime() => _time != null;
 
-  @BuiltValueField(wireName: 'Time')
-  String? get time;
+  // "Price" field.
+  int? _price;
+  int get price => _price ?? 0;
+  bool hasPrice() => _price != null;
 
-  @BuiltValueField(wireName: 'Price')
-  int? get price;
-
-  @BuiltValueField(wireName: kDocumentReferenceField)
-  DocumentReference? get ffRef;
-  DocumentReference get reference => ffRef!;
-
-  static void _initializeBuilder(BusinessClassFlightRecordBuilder builder) =>
-      builder
-        ..no = 0
-        ..flightName = ''
-        ..from = ''
-        ..to = ''
-        ..duration = ''
-        ..time = ''
-        ..price = 0;
+  void _initializeFields() {
+    _no = snapshotData['No'] as int?;
+    _flightName = snapshotData['Flight_Name'] as String?;
+    _from = snapshotData['From'] as String?;
+    _to = snapshotData['To'] as String?;
+    _duration = snapshotData['Duration'] as String?;
+    _time = snapshotData['Time'] as String?;
+    _price = snapshotData['Price'] as int?;
+  }
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('businessClassFlight');
 
   static Stream<BusinessClassFlightRecord> getDocument(DocumentReference ref) =>
-      ref.snapshots().map(
-          (s) => serializers.deserializeWith(serializer, serializedData(s))!);
+      ref.snapshots().map((s) => BusinessClassFlightRecord.fromSnapshot(s));
 
   static Future<BusinessClassFlightRecord> getDocumentOnce(
           DocumentReference ref) =>
-      ref.get().then(
-          (s) => serializers.deserializeWith(serializer, serializedData(s))!);
+      ref.get().then((s) => BusinessClassFlightRecord.fromSnapshot(s));
 
-  BusinessClassFlightRecord._();
-  factory BusinessClassFlightRecord(
-          [void Function(BusinessClassFlightRecordBuilder) updates]) =
-      _$BusinessClassFlightRecord;
+  static BusinessClassFlightRecord fromSnapshot(DocumentSnapshot snapshot) =>
+      BusinessClassFlightRecord._(
+        snapshot.reference,
+        mapFromFirestore(snapshot.data() as Map<String, dynamic>),
+      );
 
   static BusinessClassFlightRecord getDocumentFromData(
-          Map<String, dynamic> data, DocumentReference reference) =>
-      serializers.deserializeWith(serializer,
-          {...mapFromFirestore(data), kDocumentReferenceField: reference})!;
+    Map<String, dynamic> data,
+    DocumentReference reference,
+  ) =>
+      BusinessClassFlightRecord._(reference, mapFromFirestore(data));
+
+  @override
+  String toString() =>
+      'BusinessClassFlightRecord(reference: ${reference.path}, data: $snapshotData)';
 }
 
 Map<String, dynamic> createBusinessClassFlightRecordData({
@@ -79,18 +95,16 @@ Map<String, dynamic> createBusinessClassFlightRecordData({
   String? time,
   int? price,
 }) {
-  final firestoreData = serializers.toFirestore(
-    BusinessClassFlightRecord.serializer,
-    BusinessClassFlightRecord(
-      (b) => b
-        ..no = no
-        ..flightName = flightName
-        ..from = from
-        ..to = to
-        ..duration = duration
-        ..time = time
-        ..price = price,
-    ),
+  final firestoreData = mapToFirestore(
+    <String, dynamic>{
+      'No': no,
+      'Flight_Name': flightName,
+      'From': from,
+      'To': to,
+      'Duration': duration,
+      'Time': time,
+      'Price': price,
+    }.withoutNulls,
   );
 
   return firestoreData;

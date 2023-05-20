@@ -79,6 +79,7 @@ class _E8BusPaymentWidgetState extends State<E8BusPaymentWidget> {
           elevation: 2.0,
         ),
         body: SafeArea(
+          top: true,
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [

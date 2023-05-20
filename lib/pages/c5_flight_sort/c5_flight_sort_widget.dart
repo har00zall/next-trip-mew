@@ -80,6 +80,7 @@ class _C5FlightSortWidgetState extends State<C5FlightSortWidget> {
           elevation: 2.0,
         ),
         body: SafeArea(
+          top: true,
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [

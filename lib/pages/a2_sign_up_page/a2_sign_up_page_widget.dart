@@ -1,9 +1,12 @@
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_radio_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -29,11 +32,12 @@ class _A2SignUpPageWidgetState extends State<A2SignUpPageWidget> {
     super.initState();
     _model = createModel(context, () => A2SignUpPageModel());
 
-    _model.textController1 ??= TextEditingController();
-    _model.textController2 ??= TextEditingController();
-    _model.textController3 ??= TextEditingController();
-    _model.textController4 ??= TextEditingController();
-    _model.textController5 ??= TextEditingController();
+    _model.userNameController ??= TextEditingController();
+    _model.lastNameController ??= TextEditingController();
+    _model.mobileNoController ??= TextEditingController();
+    _model.emailController ??= TextEditingController();
+    _model.passwordController1 ??= TextEditingController();
+    _model.passwordController2 ??= TextEditingController();
   }
 
   @override
@@ -88,6 +92,7 @@ class _A2SignUpPageWidgetState extends State<A2SignUpPageWidget> {
           elevation: 2.0,
         ),
         body: SafeArea(
+          top: true,
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [
@@ -111,7 +116,7 @@ class _A2SignUpPageWidgetState extends State<A2SignUpPageWidget> {
                     children: [
                       Padding(
                         padding:
-                            EdgeInsetsDirectional.fromSTEB(0.0, 60.0, 0.0, 0.0),
+                            EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -121,7 +126,7 @@ class _A2SignUpPageWidgetState extends State<A2SignUpPageWidget> {
                                 context.pushNamed('A3LoginPage');
                               },
                               text: FFLocalizations.of(context).getText(
-                                'nho3nt0x' /* Sign in */,
+                                'khblboki' /* Sign in */,
                               ),
                               options: FFButtonOptions(
                                 width: 130.0,
@@ -151,7 +156,7 @@ class _A2SignUpPageWidgetState extends State<A2SignUpPageWidget> {
                                 context.pushNamed('A2SignUpPage');
                               },
                               text: FFLocalizations.of(context).getText(
-                                'tb3n2ebt' /* Sign up */,
+                                'qn5r16jb' /* Sign up */,
                               ),
                               options: FFButtonOptions(
                                 width: 130.0,
@@ -194,7 +199,7 @@ class _A2SignUpPageWidgetState extends State<A2SignUpPageWidget> {
                                       60.0, 30.0, 0.0, 0.0),
                                   child: Text(
                                     FFLocalizations.of(context).getText(
-                                      'z15i4szu' /* Enter your details */,
+                                      '097os4rz' /* Enter your details */,
                                     ),
                                     textAlign: TextAlign.center,
                                     style: FlutterFlowTheme.of(context)
@@ -220,7 +225,7 @@ class _A2SignUpPageWidgetState extends State<A2SignUpPageWidget> {
                           children: [
                             Text(
                               FFLocalizations.of(context).getText(
-                                '6cbhfj3r' /* Gender:  */,
+                                'k5pgad1h' /* Gender:  */,
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
@@ -233,10 +238,10 @@ class _A2SignUpPageWidgetState extends State<A2SignUpPageWidget> {
                             FlutterFlowRadioButton(
                               options: [
                                 FFLocalizations.of(context).getText(
-                                  'gfbqp1ub' /* Male */,
+                                  '007bi9x3' /* Male */,
                                 ),
                                 FFLocalizations.of(context).getText(
-                                  'z6b35d9o' /* Female */,
+                                  'b8240vxx' /* Female */,
                                 )
                               ].toList(),
                               onChanged: (val) => setState(() {}),
@@ -268,7 +273,7 @@ class _A2SignUpPageWidgetState extends State<A2SignUpPageWidget> {
                           children: [
                             Text(
                               FFLocalizations.of(context).getText(
-                                'u6svj6vy' /* User Name: */,
+                                'obv1mbrw' /* User Name: */,
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
@@ -283,13 +288,13 @@ class _A2SignUpPageWidgetState extends State<A2SignUpPageWidget> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     5.0, 0.0, 0.0, 0.0),
                                 child: TextFormField(
-                                  controller: _model.textController1,
+                                  controller: _model.userNameController,
                                   autofocus: true,
                                   obscureText: false,
                                   decoration: InputDecoration(
                                     hintText:
                                         FFLocalizations.of(context).getText(
-                                      'z8qq7i8c' /* User name... */,
+                                      '4v9b11n0' /* User name... */,
                                     ),
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .bodySmall
@@ -338,7 +343,7 @@ class _A2SignUpPageWidgetState extends State<A2SignUpPageWidget> {
                                         color: Colors.black,
                                         fontSize: 16.0,
                                       ),
-                                  validator: _model.textController1Validator
+                                  validator: _model.userNameControllerValidator
                                       .asValidator(context),
                                 ),
                               ),
@@ -354,7 +359,7 @@ class _A2SignUpPageWidgetState extends State<A2SignUpPageWidget> {
                           children: [
                             Text(
                               FFLocalizations.of(context).getText(
-                                'yxil5w0m' /* Last Name: */,
+                                'wuco1v0m' /* Last Name: */,
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
@@ -369,13 +374,13 @@ class _A2SignUpPageWidgetState extends State<A2SignUpPageWidget> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     5.0, 0.0, 0.0, 0.0),
                                 child: TextFormField(
-                                  controller: _model.textController2,
+                                  controller: _model.lastNameController,
                                   autofocus: true,
                                   obscureText: false,
                                   decoration: InputDecoration(
                                     hintText:
                                         FFLocalizations.of(context).getText(
-                                      '8lh85xwp' /* Last name... */,
+                                      'u1xdk3hn' /* Last name... */,
                                     ),
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .bodySmall
@@ -422,7 +427,7 @@ class _A2SignUpPageWidgetState extends State<A2SignUpPageWidget> {
                                         color: Colors.black,
                                         fontSize: 16.0,
                                       ),
-                                  validator: _model.textController2Validator
+                                  validator: _model.lastNameControllerValidator
                                       .asValidator(context),
                                 ),
                               ),
@@ -438,7 +443,7 @@ class _A2SignUpPageWidgetState extends State<A2SignUpPageWidget> {
                           children: [
                             Text(
                               FFLocalizations.of(context).getText(
-                                'voe1u2ob' /* Mobile No: */,
+                                'io0mk0zi' /* Mobile No: */,
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
@@ -453,13 +458,13 @@ class _A2SignUpPageWidgetState extends State<A2SignUpPageWidget> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     10.0, 0.0, 0.0, 0.0),
                                 child: TextFormField(
-                                  controller: _model.textController3,
+                                  controller: _model.mobileNoController,
                                   autofocus: true,
                                   obscureText: false,
                                   decoration: InputDecoration(
                                     hintText:
                                         FFLocalizations.of(context).getText(
-                                      'u2air1ec' /* Mobile no... */,
+                                      '0q0oh8ic' /* Mobile no... */,
                                     ),
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .bodySmall
@@ -506,7 +511,7 @@ class _A2SignUpPageWidgetState extends State<A2SignUpPageWidget> {
                                         color: Colors.black,
                                         fontSize: 16.0,
                                       ),
-                                  validator: _model.textController3Validator
+                                  validator: _model.mobileNoControllerValidator
                                       .asValidator(context),
                                 ),
                               ),
@@ -516,13 +521,13 @@ class _A2SignUpPageWidgetState extends State<A2SignUpPageWidget> {
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
-                            25.0, 0.0, 25.0, 20.0),
+                            10.0, 0.0, 10.0, 20.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           children: [
                             Text(
                               FFLocalizations.of(context).getText(
-                                'bmvq1bfw' /* E-mail: */,
+                                'w1qach0z' /* E-mail: */,
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
@@ -537,13 +542,13 @@ class _A2SignUpPageWidgetState extends State<A2SignUpPageWidget> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     40.0, 0.0, 0.0, 0.0),
                                 child: TextFormField(
-                                  controller: _model.textController4,
+                                  controller: _model.emailController,
                                   autofocus: true,
                                   obscureText: false,
                                   decoration: InputDecoration(
                                     hintText:
                                         FFLocalizations.of(context).getText(
-                                      'z866hq9s' /* E-mail... */,
+                                      '8ptfd5kp' /* E-mail... */,
                                     ),
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .bodySmall
@@ -590,7 +595,7 @@ class _A2SignUpPageWidgetState extends State<A2SignUpPageWidget> {
                                         color: Colors.black,
                                         fontSize: 16.0,
                                       ),
-                                  validator: _model.textController4Validator
+                                  validator: _model.emailControllerValidator
                                       .asValidator(context),
                                 ),
                               ),
@@ -600,14 +605,14 @@ class _A2SignUpPageWidgetState extends State<A2SignUpPageWidget> {
                       ),
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(
-                            25.0, 0.0, 25.0, 0.0),
+                            10.0, 0.0, 10.0, 20.0),
                         child: Row(
                           mainAxisSize: MainAxisSize.max,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Text(
                               FFLocalizations.of(context).getText(
-                                'ly43ho03' /* Password:  */,
+                                '8l4845l9' /* Password:  */,
                               ),
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
@@ -621,12 +626,12 @@ class _A2SignUpPageWidgetState extends State<A2SignUpPageWidget> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     10.0, 0.0, 0.0, 0.0),
                                 child: TextFormField(
-                                  controller: _model.textController5,
-                                  obscureText: !_model.passwordVisibility,
+                                  controller: _model.passwordController1,
+                                  obscureText: !_model.passwordVisibility1,
                                   decoration: InputDecoration(
                                     hintText:
                                         FFLocalizations.of(context).getText(
-                                      'docortf4' /* Type Password */,
+                                      'iyn6lb3l' /* Type Password */,
                                     ),
                                     hintStyle: FlutterFlowTheme.of(context)
                                         .bodySmall
@@ -682,12 +687,12 @@ class _A2SignUpPageWidgetState extends State<A2SignUpPageWidget> {
                                             5.0, 0.0, 0.0, 0.0),
                                     suffixIcon: InkWell(
                                       onTap: () => setState(
-                                        () => _model.passwordVisibility =
-                                            !_model.passwordVisibility,
+                                        () => _model.passwordVisibility1 =
+                                            !_model.passwordVisibility1,
                                       ),
                                       focusNode: FocusNode(skipTraversal: true),
                                       child: Icon(
-                                        _model.passwordVisibility
+                                        _model.passwordVisibility1
                                             ? Icons.visibility_outlined
                                             : Icons.visibility_off_outlined,
                                         color: FlutterFlowTheme.of(context)
@@ -703,7 +708,120 @@ class _A2SignUpPageWidgetState extends State<A2SignUpPageWidget> {
                                         color: Colors.black,
                                         fontSize: 16.0,
                                       ),
-                                  validator: _model.textController5Validator
+                                  validator: _model.passwordController1Validator
+                                      .asValidator(context),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            10.0, 0.0, 10.0, 0.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.start,
+                          children: [
+                            Text(
+                              FFLocalizations.of(context).getText(
+                                'l3d01qxm' /* Confirm Password:  */,
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    fontSize: 14.0,
+                                  ),
+                            ),
+                            Expanded(
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    10.0, 0.0, 0.0, 0.0),
+                                child: TextFormField(
+                                  controller: _model.passwordController2,
+                                  obscureText: !_model.passwordVisibility2,
+                                  decoration: InputDecoration(
+                                    hintText:
+                                        FFLocalizations.of(context).getText(
+                                      '7uty2vd1' /* Type Password */,
+                                    ),
+                                    hintStyle: FlutterFlowTheme.of(context)
+                                        .bodySmall
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          color: FlutterFlowTheme.of(context)
+                                              .secondaryText,
+                                          fontSize: 12.0,
+                                        ),
+                                    enabledBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: FlutterFlowTheme.of(context)
+                                            .accent2,
+                                        width: 1.0,
+                                      ),
+                                      borderRadius: const BorderRadius.only(
+                                        topLeft: Radius.circular(4.0),
+                                        topRight: Radius.circular(4.0),
+                                      ),
+                                    ),
+                                    focusedBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Color(0x00000000),
+                                        width: 1.0,
+                                      ),
+                                      borderRadius: const BorderRadius.only(
+                                        topLeft: Radius.circular(4.0),
+                                        topRight: Radius.circular(4.0),
+                                      ),
+                                    ),
+                                    errorBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Color(0x00000000),
+                                        width: 1.0,
+                                      ),
+                                      borderRadius: const BorderRadius.only(
+                                        topLeft: Radius.circular(4.0),
+                                        topRight: Radius.circular(4.0),
+                                      ),
+                                    ),
+                                    focusedErrorBorder: UnderlineInputBorder(
+                                      borderSide: BorderSide(
+                                        color: Color(0x00000000),
+                                        width: 1.0,
+                                      ),
+                                      borderRadius: const BorderRadius.only(
+                                        topLeft: Radius.circular(4.0),
+                                        topRight: Radius.circular(4.0),
+                                      ),
+                                    ),
+                                    contentPadding:
+                                        EdgeInsetsDirectional.fromSTEB(
+                                            5.0, 0.0, 0.0, 0.0),
+                                    suffixIcon: InkWell(
+                                      onTap: () => setState(
+                                        () => _model.passwordVisibility2 =
+                                            !_model.passwordVisibility2,
+                                      ),
+                                      focusNode: FocusNode(skipTraversal: true),
+                                      child: Icon(
+                                        _model.passwordVisibility2
+                                            ? Icons.visibility_outlined
+                                            : Icons.visibility_off_outlined,
+                                        color: FlutterFlowTheme.of(context)
+                                            .accent2,
+                                        size: 22.0,
+                                      ),
+                                    ),
+                                  ),
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        color: Colors.black,
+                                        fontSize: 16.0,
+                                      ),
+                                  validator: _model.passwordController2Validator
                                       .asValidator(context),
                                 ),
                               ),
@@ -720,10 +838,24 @@ class _A2SignUpPageWidgetState extends State<A2SignUpPageWidget> {
                           children: [
                             FFButtonWidget(
                               onPressed: () async {
+                                final userCreateData = createUserRecordData(
+                                  email: _model.emailController.text,
+                                  displayName: _model.userNameController.text,
+                                  phoneNumber: _model.mobileNoController.text,
+                                  lastName: _model.lastNameController.text,
+                                  password: _model.passwordController1.text,
+                                  confirmPassword:
+                                      _model.passwordController2.text,
+                                  gendar: _model.radioButtonValue,
+                                );
+                                await UserRecord.collection
+                                    .doc()
+                                    .set(userCreateData);
+
                                 context.pushNamed('A4MainPage');
                               },
                               text: FFLocalizations.of(context).getText(
-                                'xbwfxkgo' /* Submit */,
+                                'mgvfi6bv' /* Next */,
                               ),
                               options: FFButtonOptions(
                                 width: 150.0,

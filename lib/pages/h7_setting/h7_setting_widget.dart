@@ -59,6 +59,7 @@ class _H7SettingWidgetState extends State<H7SettingWidget> {
           elevation: 2.0,
         ),
         body: SafeArea(
+          top: true,
           child: Column(
             mainAxisSize: MainAxisSize.max,
             children: [],
