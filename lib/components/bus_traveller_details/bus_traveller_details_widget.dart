@@ -6,20 +6,19 @@ import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
-import 'flight_traveller_details_model.dart';
-export 'flight_traveller_details_model.dart';
+import 'bus_traveller_details_model.dart';
+export 'bus_traveller_details_model.dart';
 
-class FlightTravellerDetailsWidget extends StatefulWidget {
-  const FlightTravellerDetailsWidget({Key? key}) : super(key: key);
+class BusTravellerDetailsWidget extends StatefulWidget {
+  const BusTravellerDetailsWidget({Key? key}) : super(key: key);
 
   @override
-  _FlightTravellerDetailsWidgetState createState() =>
-      _FlightTravellerDetailsWidgetState();
+  _BusTravellerDetailsWidgetState createState() =>
+      _BusTravellerDetailsWidgetState();
 }
 
-class _FlightTravellerDetailsWidgetState
-    extends State<FlightTravellerDetailsWidget> {
-  late FlightTravellerDetailsModel _model;
+class _BusTravellerDetailsWidgetState extends State<BusTravellerDetailsWidget> {
+  late BusTravellerDetailsModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -30,7 +29,7 @@ class _FlightTravellerDetailsWidgetState
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => FlightTravellerDetailsModel());
+    _model = createModel(context, () => BusTravellerDetailsModel());
 
     _model.textController1 ??= TextEditingController();
     _model.textController2 ??= TextEditingController();
@@ -54,7 +53,7 @@ class _FlightTravellerDetailsWidgetState
           children: [
             Container(
               width: double.infinity,
-              height: 350.0,
+              height: 300.0,
               decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(10.0),
@@ -64,51 +63,45 @@ class _FlightTravellerDetailsWidgetState
                 children: [
                   Padding(
                     padding:
-                        EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                        EdgeInsetsDirectional.fromSTEB(25.0, 20.0, 0.0, 0.0),
                     child: Row(
                       mainAxisSize: MainAxisSize.max,
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              25.0, 0.0, 0.0, 0.0),
-                          child: FlutterFlowRadioButton(
-                            options: [
-                              FFLocalizations.of(context).getText(
-                                '8igs2ymu' /* Mr */,
-                              ),
-                              FFLocalizations.of(context).getText(
-                                'gn3ul1aw' /* Mrs */,
-                              ),
-                              FFLocalizations.of(context).getText(
-                                'zbymelg6' /* Miss */,
-                              )
-                            ].toList(),
-                            onChanged: (val) => setState(() {}),
-                            controller: _model.radioButtonValueController ??=
-                                FormFieldController<String>(null),
-                            optionHeight: 30.0,
-                            textStyle: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Poppins',
-                                  color: Colors.black,
-                                ),
-                            selectedTextStyle: FlutterFlowTheme.of(context)
-                                .bodyMedium
-                                .override(
-                                  fontFamily: 'Poppins',
-                                  color: Colors.black,
-                                  fontSize: 18.0,
-                                ),
-                            buttonPosition: RadioButtonPosition.left,
-                            direction: Axis.horizontal,
-                            radioButtonColor: Color(0xFF3000FF),
-                            inactiveRadioButtonColor: Colors.black,
-                            toggleable: false,
-                            horizontalAlignment: WrapAlignment.start,
-                            verticalAlignment: WrapCrossAlignment.start,
-                          ),
+                        FlutterFlowRadioButton(
+                          options: [
+                            FFLocalizations.of(context).getText(
+                              'f5ix54xk' /* Mr */,
+                            ),
+                            FFLocalizations.of(context).getText(
+                              'k34imb8q' /* Mrs */,
+                            ),
+                            FFLocalizations.of(context).getText(
+                              '7txw5ixp' /* Miss */,
+                            )
+                          ].toList(),
+                          onChanged: (val) => setState(() {}),
+                          controller: _model.radioButtonValueController ??=
+                              FormFieldController<String>(null),
+                          optionHeight: 30.0,
+                          textStyle:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Poppins',
+                                    color: Colors.black,
+                                  ),
+                          selectedTextStyle:
+                              FlutterFlowTheme.of(context).bodyMedium.override(
+                                    fontFamily: 'Poppins',
+                                    color: Colors.black,
+                                    fontSize: 18.0,
+                                  ),
+                          buttonPosition: RadioButtonPosition.left,
+                          direction: Axis.horizontal,
+                          radioButtonColor: Color(0xFF3000FF),
+                          inactiveRadioButtonColor: Colors.black,
+                          toggleable: false,
+                          horizontalAlignment: WrapAlignment.start,
+                          verticalAlignment: WrapCrossAlignment.start,
                         ),
                       ],
                     ),
@@ -121,7 +114,7 @@ class _FlightTravellerDetailsWidgetState
                       children: [
                         Text(
                           FFLocalizations.of(context).getText(
-                            'm4m1etl5' /* Full Name: */,
+                            'ew2zr6s0' /* Full Name: */,
                           ),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
@@ -140,7 +133,7 @@ class _FlightTravellerDetailsWidgetState
                               obscureText: false,
                               decoration: InputDecoration(
                                 hintText: FFLocalizations.of(context).getText(
-                                  'xxboj6df' /* Full name... */,
+                                  '5mm1tkoe' /* Full name... */,
                                 ),
                                 hintStyle: FlutterFlowTheme.of(context)
                                     .bodySmall
@@ -205,7 +198,7 @@ class _FlightTravellerDetailsWidgetState
                       children: [
                         Text(
                           FFLocalizations.of(context).getText(
-                            'n70s6alt' /* Mobile No: */,
+                            'dwi4gn37' /* Mobile No: */,
                           ),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
@@ -224,7 +217,7 @@ class _FlightTravellerDetailsWidgetState
                               obscureText: false,
                               decoration: InputDecoration(
                                 hintText: FFLocalizations.of(context).getText(
-                                  'v880ehpx' /* Mobile no... */,
+                                  'fi6b6nyp' /* Mobile no... */,
                                 ),
                                 hintStyle: FlutterFlowTheme.of(context)
                                     .bodySmall
@@ -287,7 +280,7 @@ class _FlightTravellerDetailsWidgetState
                       children: [
                         Text(
                           FFLocalizations.of(context).getText(
-                            'wvbrwhqz' /* E-mail: */,
+                            'hipapy1l' /* E-mail: */,
                           ),
                           style:
                               FlutterFlowTheme.of(context).bodyMedium.override(
@@ -306,7 +299,7 @@ class _FlightTravellerDetailsWidgetState
                               obscureText: false,
                               decoration: InputDecoration(
                                 hintText: FFLocalizations.of(context).getText(
-                                  'x5woivq2' /* E-mail... */,
+                                  'ia36o2g9' /* E-mail... */,
                                 ),
                                 hintStyle: FlutterFlowTheme.of(context)
                                     .bodySmall

@@ -59,7 +59,7 @@ class _C5FlightSortWidgetState extends State<C5FlightSortWidget> {
               size: 30.0,
             ),
             onPressed: () async {
-              context.pushNamed('C2FlightsMain');
+              context.safePop();
             },
           ),
           title: Align(
@@ -451,7 +451,27 @@ class _C5FlightSortWidgetState extends State<C5FlightSortWidget> {
                       children: [
                         FFButtonWidget(
                           onPressed: () async {
-                            context.pushNamed('C2FlightsMain');
+                            context.pushNamed(
+                              'C2FlightsMain',
+                              queryParams: {
+                                'from': serializeParam(
+                                  '',
+                                  ParamType.String,
+                                ),
+                                'to': serializeParam(
+                                  '',
+                                  ParamType.String,
+                                ),
+                                'depDate': serializeParam(
+                                  '',
+                                  ParamType.String,
+                                ),
+                                'noAdults': serializeParam(
+                                  '',
+                                  ParamType.String,
+                                ),
+                              }.withoutNulls,
+                            );
                           },
                           text: FFLocalizations.of(context).getText(
                             'ahwlmplo' /* Apply */,

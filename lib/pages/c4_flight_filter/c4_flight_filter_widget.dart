@@ -64,7 +64,7 @@ class _C4FlightFilterWidgetState extends State<C4FlightFilterWidget> {
               size: 30.0,
             ),
             onPressed: () async {
-              context.pushNamed('C2FlightsMain');
+              context.safePop();
             },
           ),
           title: Align(
@@ -984,7 +984,27 @@ class _C4FlightFilterWidgetState extends State<C4FlightFilterWidget> {
                     children: [
                       FFButtonWidget(
                         onPressed: () async {
-                          context.pushNamed('C2FlightsMain');
+                          context.pushNamed(
+                            'C2FlightsMain',
+                            queryParams: {
+                              'from': serializeParam(
+                                '',
+                                ParamType.String,
+                              ),
+                              'to': serializeParam(
+                                '',
+                                ParamType.String,
+                              ),
+                              'depDate': serializeParam(
+                                '',
+                                ParamType.String,
+                              ),
+                              'noAdults': serializeParam(
+                                '',
+                                ParamType.String,
+                              ),
+                            }.withoutNulls,
+                          );
                         },
                         text: FFLocalizations.of(context).getText(
                           'wg98h2lt' /* Apply */,

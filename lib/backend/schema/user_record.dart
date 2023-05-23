@@ -54,11 +54,6 @@ class UserRecord extends FirestoreRecord {
   String get password => _password ?? '';
   bool hasPassword() => _password != null;
 
-  // "confirm-password" field.
-  String? _confirmPassword;
-  String get confirmPassword => _confirmPassword ?? '';
-  bool hasConfirmPassword() => _confirmPassword != null;
-
   // "gendar" field.
   String? _gendar;
   String get gendar => _gendar ?? '';
@@ -73,7 +68,6 @@ class UserRecord extends FirestoreRecord {
     _phoneNumber = snapshotData['phone_number'] as String?;
     _lastName = snapshotData['last-name'] as String?;
     _password = snapshotData['password'] as String?;
-    _confirmPassword = snapshotData['confirm-password'] as String?;
     _gendar = snapshotData['gendar'] as String?;
   }
 
@@ -111,7 +105,6 @@ Map<String, dynamic> createUserRecordData({
   String? phoneNumber,
   String? lastName,
   String? password,
-  String? confirmPassword,
   String? gendar,
 }) {
   final firestoreData = mapToFirestore(
@@ -124,7 +117,6 @@ Map<String, dynamic> createUserRecordData({
       'phone_number': phoneNumber,
       'last-name': lastName,
       'password': password,
-      'confirm-password': confirmPassword,
       'gendar': gendar,
     }.withoutNulls,
   );

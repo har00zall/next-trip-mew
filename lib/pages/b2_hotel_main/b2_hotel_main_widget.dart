@@ -24,12 +24,14 @@ class B2HotelMainWidget extends StatefulWidget {
     required this.noAdults,
     required this.noRooms,
     required this.bDate,
+    required this.todate,
   }) : super(key: key);
 
   final String? cityName;
   final String? noAdults;
   final String? noRooms;
   final String? bDate;
+  final String? todate;
 
   @override
   _B2HotelMainWidgetState createState() => _B2HotelMainWidgetState();
@@ -568,6 +570,57 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                             bangaloreBangaloreRecord.bedType1,
                                             ParamType.String,
                                           ),
+                                          'roomImage1': serializeParam(
+                                            (String image) {
+                                              return "https://nexttrip123.000webhostapp.com/${image.split('"')[1]}";
+                                            }(bangaloreBangaloreRecord
+                                                .roomImage1),
+                                            ParamType.String,
+                                          ),
+                                          'roomType2': serializeParam(
+                                            bangaloreBangaloreRecord.roomType2,
+                                            ParamType.String,
+                                          ),
+                                          'bedType2': serializeParam(
+                                            bangaloreBangaloreRecord.bedType2,
+                                            ParamType.String,
+                                          ),
+                                          'roomView2': serializeParam(
+                                            bangaloreBangaloreRecord.roomView2,
+                                            ParamType.String,
+                                          ),
+                                          'roomSize2': serializeParam(
+                                            bangaloreBangaloreRecord.roomSize2,
+                                            ParamType.String,
+                                          ),
+                                          'toDate': serializeParam(
+                                            widget.todate,
+                                            ParamType.String,
+                                          ),
+                                          'checkIn': serializeParam(
+                                            bangaloreBangaloreRecord.checkIn,
+                                            ParamType.String,
+                                          ),
+                                          'checkOut': serializeParam(
+                                            bangaloreBangaloreRecord.checkOut,
+                                            ParamType.String,
+                                          ),
+                                          'roomImage2': serializeParam(
+                                            (String image) {
+                                              return "https://nexttrip123.000webhostapp.com/${image.split('"')[1]}";
+                                            }(bangaloreBangaloreRecord
+                                                .roomImage2),
+                                            ParamType.String,
+                                          ),
+                                          'totalPrice': serializeParam(
+                                            (double.parse(
+                                                        bangaloreBangaloreRecord
+                                                            .price
+                                                            .toString()) +
+                                                    500)
+                                                .toString(),
+                                            ParamType.String,
+                                          ),
                                         }.withoutNulls,
                                       );
                                     },
@@ -748,78 +801,81 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                 ),
                                               ],
                                             ),
-                                            Expanded(
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Expanded(
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  5.0,
-                                                                  0.0,
-                                                                  5.0,
-                                                                  0.0),
-                                                      child: AutoSizeText(
-                                                        bangaloreBangaloreRecord
-                                                            .hotelName,
-                                                        textAlign:
-                                                            TextAlign.start,
-                                                        maxLines: 4,
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Poppins',
-                                                              fontSize: 18.0,
-                                                            ),
-                                                      ),
+                                            Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Expanded(
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(5.0, 0.0,
+                                                                5.0, 0.0),
+                                                    child: AutoSizeText(
+                                                      bangaloreBangaloreRecord
+                                                          .hotelName,
+                                                      textAlign:
+                                                          TextAlign.start,
+                                                      maxLines: 4,
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                fontSize: 16.0,
+                                                              ),
                                                     ),
                                                   ),
-                                                ],
-                                              ),
+                                                ),
+                                              ],
                                             ),
                                             Expanded(
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Expanded(
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  5.0,
-                                                                  0.0,
-                                                                  5.0,
-                                                                  0.0),
-                                                      child: AutoSizeText(
-                                                        bangaloreBangaloreRecord
-                                                            .hotelAddress,
-                                                        textAlign:
-                                                            TextAlign.start,
-                                                        maxLines: 4,
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Poppins',
-                                                              color:
-                                                                  Colors.black,
-                                                            ),
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 8.0, 0.0, 0.0),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Expanded(
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    5.0,
+                                                                    0.0,
+                                                                    5.0,
+                                                                    0.0),
+                                                        child: AutoSizeText(
+                                                          bangaloreBangaloreRecord
+                                                              .hotelAddress,
+                                                          textAlign:
+                                                              TextAlign.start,
+                                                          maxLines: 5,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                color: Colors
+                                                                    .black,
+                                                                fontSize: 14.0,
+                                                              ),
+                                                        ),
                                                       ),
                                                     ),
-                                                  ),
-                                                ],
+                                                  ],
+                                                ),
                                               ),
                                             ),
                                             Row(
@@ -827,6 +883,20 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.end,
                                               children: [
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 3.0, 0.0),
+                                                  child: Text(
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                      '9f332cgu' /* Price: */,
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium,
+                                                  ),
+                                                ),
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
@@ -851,6 +921,20 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.end,
                                               children: [
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 3.0, 0.0),
+                                                  child: Text(
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                      'z0gd67x3' /* Taxes & fees: */,
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium,
+                                                  ),
+                                                ),
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
@@ -879,6 +963,23 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                 mainAxisAlignment:
                                                     MainAxisAlignment.end,
                                                 children: [
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                3.0, 0.0),
+                                                    child: Text(
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        'qunbrvla' /* Total Price: */,
+                                                      ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium,
+                                                    ),
+                                                  ),
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
@@ -1019,6 +1120,54 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                           ),
                                           'bedType1': serializeParam(
                                             chennaiChennaiRecord.bedType1,
+                                            ParamType.String,
+                                          ),
+                                          'roomImage1': serializeParam(
+                                            (String image) {
+                                              return "https://nexttrip123.000webhostapp.com/${image.split('"')[1]}";
+                                            }(chennaiChennaiRecord.roomImage1),
+                                            ParamType.String,
+                                          ),
+                                          'roomType2': serializeParam(
+                                            chennaiChennaiRecord.roomType2,
+                                            ParamType.String,
+                                          ),
+                                          'bedType2': serializeParam(
+                                            chennaiChennaiRecord.bedType2,
+                                            ParamType.String,
+                                          ),
+                                          'roomView2': serializeParam(
+                                            chennaiChennaiRecord.roomView2,
+                                            ParamType.String,
+                                          ),
+                                          'roomSize2': serializeParam(
+                                            chennaiChennaiRecord.roomSize2,
+                                            ParamType.String,
+                                          ),
+                                          'toDate': serializeParam(
+                                            widget.todate,
+                                            ParamType.String,
+                                          ),
+                                          'checkIn': serializeParam(
+                                            chennaiChennaiRecord.checkIn,
+                                            ParamType.String,
+                                          ),
+                                          'checkOut': serializeParam(
+                                            chennaiChennaiRecord.checkOut,
+                                            ParamType.String,
+                                          ),
+                                          'roomImage2': serializeParam(
+                                            (String image) {
+                                              return "https://nexttrip123.000webhostapp.com/${image.split('"')[1]}";
+                                            }(chennaiChennaiRecord.roomImage2),
+                                            ParamType.String,
+                                          ),
+                                          'totalPrice': serializeParam(
+                                            (double.parse(chennaiChennaiRecord
+                                                        .price
+                                                        .toString()) +
+                                                    500)
+                                                .toString(),
                                             ParamType.String,
                                           ),
                                         }.withoutNulls,
@@ -1201,74 +1350,76 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                 ),
                                               ],
                                             ),
-                                            Expanded(
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Expanded(
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  5.0,
-                                                                  0.0,
-                                                                  5.0,
-                                                                  0.0),
-                                                      child: AutoSizeText(
-                                                        chennaiChennaiRecord
-                                                            .hotelName,
-                                                        maxLines: 4,
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Poppins',
-                                                              fontSize: 18.0,
-                                                            ),
-                                                      ),
+                                            Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Expanded(
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(5.0, 0.0,
+                                                                5.0, 0.0),
+                                                    child: AutoSizeText(
+                                                      chennaiChennaiRecord
+                                                          .hotelName,
+                                                      maxLines: 4,
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                fontSize: 18.0,
+                                                              ),
                                                     ),
                                                   ),
-                                                ],
-                                              ),
+                                                ),
+                                              ],
                                             ),
                                             Expanded(
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Expanded(
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  5.0,
-                                                                  0.0,
-                                                                  5.0,
-                                                                  0.0),
-                                                      child: AutoSizeText(
-                                                        chennaiChennaiRecord
-                                                            .hotelAddress,
-                                                        maxLines: 4,
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Poppins',
-                                                              color:
-                                                                  Colors.black,
-                                                            ),
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 8.0, 0.0, 0.0),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Expanded(
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    5.0,
+                                                                    0.0,
+                                                                    5.0,
+                                                                    0.0),
+                                                        child: AutoSizeText(
+                                                          chennaiChennaiRecord
+                                                              .hotelAddress,
+                                                          maxLines: 4,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                color: Colors
+                                                                    .black,
+                                                              ),
+                                                        ),
                                                       ),
                                                     ),
-                                                  ),
-                                                ],
+                                                  ],
+                                                ),
                                               ),
                                             ),
                                             Row(
@@ -1276,6 +1427,20 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.end,
                                               children: [
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 3.0, 0.0),
+                                                  child: Text(
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                      'e2ufxum2' /* Price: */,
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium,
+                                                  ),
+                                                ),
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
@@ -1295,6 +1460,24 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.end,
                                               children: [
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 3.0, 0.0),
+                                                  child: Text(
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                      'nxc9bosz' /* Taxes & fees: */,
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 12.0,
+                                                        ),
+                                                  ),
+                                                ),
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
@@ -1323,6 +1506,23 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                 mainAxisAlignment:
                                                     MainAxisAlignment.end,
                                                 children: [
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                3.0, 0.0),
+                                                    child: Text(
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        'c4gapqo8' /* Total price: */,
+                                                      ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium,
+                                                    ),
+                                                  ),
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
@@ -1459,6 +1659,53 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                           ),
                                           'bedType1': serializeParam(
                                             goaGoaRecord.bedType1,
+                                            ParamType.String,
+                                          ),
+                                          'roomImage1': serializeParam(
+                                            (String image) {
+                                              return "https://nexttrip123.000webhostapp.com/${image.split('"')[1]}";
+                                            }(goaGoaRecord.roomImage1),
+                                            ParamType.String,
+                                          ),
+                                          'roomType2': serializeParam(
+                                            goaGoaRecord.roomType2,
+                                            ParamType.String,
+                                          ),
+                                          'bedType2': serializeParam(
+                                            goaGoaRecord.bedType2,
+                                            ParamType.String,
+                                          ),
+                                          'roomView2': serializeParam(
+                                            goaGoaRecord.roomView2,
+                                            ParamType.String,
+                                          ),
+                                          'roomSize2': serializeParam(
+                                            goaGoaRecord.roomSize2,
+                                            ParamType.String,
+                                          ),
+                                          'toDate': serializeParam(
+                                            widget.todate,
+                                            ParamType.String,
+                                          ),
+                                          'checkIn': serializeParam(
+                                            goaGoaRecord.checkIn,
+                                            ParamType.String,
+                                          ),
+                                          'checkOut': serializeParam(
+                                            goaGoaRecord.checkOut,
+                                            ParamType.String,
+                                          ),
+                                          'roomImage2': serializeParam(
+                                            (String image) {
+                                              return "https://nexttrip123.000webhostapp.com/${image.split('"')[1]}";
+                                            }(goaGoaRecord.roomImage2),
+                                            ParamType.String,
+                                          ),
+                                          'totalPrice': serializeParam(
+                                            (double.parse(goaGoaRecord.price
+                                                        .toString()) +
+                                                    500)
+                                                .toString(),
                                             ParamType.String,
                                           ),
                                         }.withoutNulls,
@@ -1636,73 +1883,75 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                 ),
                                               ],
                                             ),
-                                            Expanded(
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Expanded(
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  5.0,
-                                                                  0.0,
-                                                                  5.0,
-                                                                  0.0),
-                                                      child: AutoSizeText(
-                                                        goaGoaRecord.hotelName,
-                                                        maxLines: 4,
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Poppins',
-                                                              fontSize: 18.0,
-                                                            ),
-                                                      ),
+                                            Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Expanded(
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(5.0, 0.0,
+                                                                5.0, 0.0),
+                                                    child: AutoSizeText(
+                                                      goaGoaRecord.hotelName,
+                                                      maxLines: 4,
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                fontSize: 18.0,
+                                                              ),
                                                     ),
                                                   ),
-                                                ],
-                                              ),
+                                                ),
+                                              ],
                                             ),
                                             Expanded(
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Expanded(
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  5.0,
-                                                                  0.0,
-                                                                  5.0,
-                                                                  0.0),
-                                                      child: AutoSizeText(
-                                                        goaGoaRecord
-                                                            .hotelAddress,
-                                                        maxLines: 4,
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Poppins',
-                                                              color:
-                                                                  Colors.black,
-                                                            ),
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 8.0, 0.0, 0.0),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Expanded(
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    5.0,
+                                                                    0.0,
+                                                                    5.0,
+                                                                    0.0),
+                                                        child: AutoSizeText(
+                                                          goaGoaRecord
+                                                              .hotelAddress,
+                                                          maxLines: 4,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                color: Colors
+                                                                    .black,
+                                                              ),
+                                                        ),
                                                       ),
                                                     ),
-                                                  ),
-                                                ],
+                                                  ],
+                                                ),
                                               ),
                                             ),
                                             Row(
@@ -1710,6 +1959,20 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.end,
                                               children: [
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 3.0, 0.0),
+                                                  child: Text(
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                      '8hhxr1qh' /* Price: */,
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium,
+                                                  ),
+                                                ),
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
@@ -1733,6 +1996,24 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.end,
                                               children: [
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 3.0, 0.0),
+                                                  child: Text(
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                      '13krrlp0' /* Taxes & fees: */,
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 12.0,
+                                                        ),
+                                                  ),
+                                                ),
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
@@ -1761,6 +2042,23 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                 mainAxisAlignment:
                                                     MainAxisAlignment.end,
                                                 children: [
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                3.0, 0.0),
+                                                    child: Text(
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        'iv2jzajg' /* Total price: */,
+                                                      ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium,
+                                                    ),
+                                                  ),
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
@@ -1905,6 +2203,57 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                           ),
                                           'bedType1': serializeParam(
                                             '',
+                                            ParamType.String,
+                                          ),
+                                          'roomImage1': serializeParam(
+                                            (String image) {
+                                              return "https://nexttrip123.000webhostapp.com/${image.split('"')[1]}";
+                                            }(hyderabadHyderabadRecord
+                                                .roomImage1),
+                                            ParamType.String,
+                                          ),
+                                          'roomType2': serializeParam(
+                                            hyderabadHyderabadRecord.roomType2,
+                                            ParamType.String,
+                                          ),
+                                          'bedType2': serializeParam(
+                                            hyderabadHyderabadRecord.bedType2,
+                                            ParamType.String,
+                                          ),
+                                          'roomView2': serializeParam(
+                                            hyderabadHyderabadRecord.roomView2,
+                                            ParamType.String,
+                                          ),
+                                          'roomSize2': serializeParam(
+                                            hyderabadHyderabadRecord.roomSize2,
+                                            ParamType.String,
+                                          ),
+                                          'toDate': serializeParam(
+                                            widget.todate,
+                                            ParamType.String,
+                                          ),
+                                          'checkIn': serializeParam(
+                                            hyderabadHyderabadRecord.checkIn,
+                                            ParamType.String,
+                                          ),
+                                          'checkOut': serializeParam(
+                                            hyderabadHyderabadRecord.checkOut,
+                                            ParamType.String,
+                                          ),
+                                          'roomImage2': serializeParam(
+                                            (String image) {
+                                              return "https://nexttrip123.000webhostapp.com/${image.split('"')[1]}";
+                                            }(hyderabadHyderabadRecord
+                                                .roomImage2),
+                                            ParamType.String,
+                                          ),
+                                          'totalPrice': serializeParam(
+                                            (double.parse(
+                                                        hyderabadHyderabadRecord
+                                                            .price
+                                                            .toString()) +
+                                                    500)
+                                                .toString(),
                                             ParamType.String,
                                           ),
                                         }.withoutNulls,
@@ -2084,74 +2433,76 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                 ),
                                               ],
                                             ),
-                                            Expanded(
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Expanded(
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  5.0,
-                                                                  0.0,
-                                                                  5.0,
-                                                                  0.0),
-                                                      child: AutoSizeText(
-                                                        hyderabadHyderabadRecord
-                                                            .hotelName,
-                                                        maxLines: 4,
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Poppins',
-                                                              fontSize: 18.0,
-                                                            ),
-                                                      ),
+                                            Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Expanded(
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(5.0, 0.0,
+                                                                5.0, 0.0),
+                                                    child: AutoSizeText(
+                                                      hyderabadHyderabadRecord
+                                                          .hotelName,
+                                                      maxLines: 4,
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                fontSize: 18.0,
+                                                              ),
                                                     ),
                                                   ),
-                                                ],
-                                              ),
+                                                ),
+                                              ],
                                             ),
                                             Expanded(
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Expanded(
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  5.0,
-                                                                  0.0,
-                                                                  5.0,
-                                                                  0.0),
-                                                      child: AutoSizeText(
-                                                        hyderabadHyderabadRecord
-                                                            .hotelAddress,
-                                                        maxLines: 4,
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Poppins',
-                                                              color:
-                                                                  Colors.black,
-                                                            ),
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 8.0, 0.0, 0.0),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Expanded(
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    5.0,
+                                                                    0.0,
+                                                                    5.0,
+                                                                    0.0),
+                                                        child: AutoSizeText(
+                                                          hyderabadHyderabadRecord
+                                                              .hotelAddress,
+                                                          maxLines: 4,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                color: Colors
+                                                                    .black,
+                                                              ),
+                                                        ),
                                                       ),
                                                     ),
-                                                  ),
-                                                ],
+                                                  ],
+                                                ),
                                               ),
                                             ),
                                             Row(
@@ -2159,6 +2510,20 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.end,
                                               children: [
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 3.0, 0.0),
+                                                  child: Text(
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                      'ur9aeanc' /* Price: */,
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium,
+                                                  ),
+                                                ),
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
@@ -2183,6 +2548,19 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.end,
                                               children: [
+                                                Text(
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    'ohxmn67z' /* Taxes & fees: */,
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 12.0,
+                                                      ),
+                                                ),
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
@@ -2211,6 +2589,23 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                 mainAxisAlignment:
                                                     MainAxisAlignment.end,
                                                 children: [
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                3.0, 0.0),
+                                                    child: Text(
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        'a2a69cpp' /* Total price: */,
+                                                      ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium,
+                                                    ),
+                                                  ),
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional
@@ -2350,6 +2745,54 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                           ),
                                           'bedType1': serializeParam(
                                             jaipurJaipurRecord.bedType1,
+                                            ParamType.String,
+                                          ),
+                                          'roomImage1': serializeParam(
+                                            (String image) {
+                                              return "https://nexttrip123.000webhostapp.com/${image.split('"')[1]}";
+                                            }(jaipurJaipurRecord.roomImage1),
+                                            ParamType.String,
+                                          ),
+                                          'roomType2': serializeParam(
+                                            jaipurJaipurRecord.roomType2,
+                                            ParamType.String,
+                                          ),
+                                          'bedType2': serializeParam(
+                                            jaipurJaipurRecord.bedType2,
+                                            ParamType.String,
+                                          ),
+                                          'roomView2': serializeParam(
+                                            jaipurJaipurRecord.roomView2,
+                                            ParamType.String,
+                                          ),
+                                          'roomSize2': serializeParam(
+                                            jaipurJaipurRecord.roomSize2,
+                                            ParamType.String,
+                                          ),
+                                          'toDate': serializeParam(
+                                            widget.todate,
+                                            ParamType.String,
+                                          ),
+                                          'checkIn': serializeParam(
+                                            jaipurJaipurRecord.checkIn,
+                                            ParamType.String,
+                                          ),
+                                          'checkOut': serializeParam(
+                                            jaipurJaipurRecord.checkOut,
+                                            ParamType.String,
+                                          ),
+                                          'roomImage2': serializeParam(
+                                            (String image) {
+                                              return "https://nexttrip123.000webhostapp.com/${image.split('"')[1]}";
+                                            }(jaipurJaipurRecord.roomImage2),
+                                            ParamType.String,
+                                          ),
+                                          'totalPrice': serializeParam(
+                                            (double.parse(jaipurJaipurRecord
+                                                        .price
+                                                        .toString()) +
+                                                    500)
+                                                .toString(),
                                             ParamType.String,
                                           ),
                                         }.withoutNulls,
@@ -2529,74 +2972,76 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                 ),
                                               ],
                                             ),
-                                            Expanded(
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Expanded(
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  5.0,
-                                                                  0.0,
-                                                                  5.0,
-                                                                  0.0),
-                                                      child: AutoSizeText(
-                                                        jaipurJaipurRecord
-                                                            .hotelName,
-                                                        maxLines: 4,
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Poppins',
-                                                              fontSize: 18.0,
-                                                            ),
-                                                      ),
+                                            Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              crossAxisAlignment:
+                                                  CrossAxisAlignment.start,
+                                              children: [
+                                                Expanded(
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(5.0, 0.0,
+                                                                5.0, 0.0),
+                                                    child: AutoSizeText(
+                                                      jaipurJaipurRecord
+                                                          .hotelName,
+                                                      maxLines: 4,
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                fontSize: 18.0,
+                                                              ),
                                                     ),
                                                   ),
-                                                ],
-                                              ),
+                                                ),
+                                              ],
                                             ),
                                             Expanded(
-                                              child: Row(
-                                                mainAxisSize: MainAxisSize.max,
-                                                mainAxisAlignment:
-                                                    MainAxisAlignment
-                                                        .spaceBetween,
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
-                                                children: [
-                                                  Expanded(
-                                                    child: Padding(
-                                                      padding:
-                                                          EdgeInsetsDirectional
-                                                              .fromSTEB(
-                                                                  5.0,
-                                                                  0.0,
-                                                                  5.0,
-                                                                  0.0),
-                                                      child: AutoSizeText(
-                                                        jaipurJaipurRecord
-                                                            .hotelAddress,
-                                                        maxLines: 4,
-                                                        style: FlutterFlowTheme
-                                                                .of(context)
-                                                            .bodyMedium
-                                                            .override(
-                                                              fontFamily:
-                                                                  'Poppins',
-                                                              color:
-                                                                  Colors.black,
-                                                            ),
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 8.0, 0.0, 0.0),
+                                                child: Row(
+                                                  mainAxisSize:
+                                                      MainAxisSize.max,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceBetween,
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.start,
+                                                  children: [
+                                                    Expanded(
+                                                      child: Padding(
+                                                        padding:
+                                                            EdgeInsetsDirectional
+                                                                .fromSTEB(
+                                                                    5.0,
+                                                                    0.0,
+                                                                    5.0,
+                                                                    0.0),
+                                                        child: AutoSizeText(
+                                                          jaipurJaipurRecord
+                                                              .hotelAddress,
+                                                          maxLines: 4,
+                                                          style: FlutterFlowTheme
+                                                                  .of(context)
+                                                              .bodyMedium
+                                                              .override(
+                                                                fontFamily:
+                                                                    'Poppins',
+                                                                color: Colors
+                                                                    .black,
+                                                              ),
+                                                        ),
                                                       ),
                                                     ),
-                                                  ),
-                                                ],
+                                                  ],
+                                                ),
                                               ),
                                             ),
                                             Row(
@@ -2620,6 +3065,15 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                         ),
                                                   ),
                                                 ),
+                                                Text(
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    '0s2shhm1' /* Hello World */,
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium,
+                                                ),
                                               ],
                                             ),
                                             Row(
@@ -2627,6 +3081,24 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.end,
                                               children: [
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          0.0, 0.0, 3.0, 0.0),
+                                                  child: Text(
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                      'dtnke2c6' /* Taxes & fees: */,
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 12.0,
+                                                        ),
+                                                  ),
+                                                ),
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
@@ -2655,6 +3127,15 @@ class _B2HotelMainWidgetState extends State<B2HotelMainWidget> {
                                                 mainAxisAlignment:
                                                     MainAxisAlignment.end,
                                                 children: [
+                                                  Text(
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                      '514uc4o4' /* Total price: */,
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium,
+                                                  ),
                                                   Padding(
                                                     padding:
                                                         EdgeInsetsDirectional

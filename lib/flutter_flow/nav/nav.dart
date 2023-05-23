@@ -70,13 +70,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
       debugLogDiagnostics: true,
       refreshListenable: appStateNotifier,
       errorBuilder: (context, _) =>
-          appStateNotifier.loggedIn ? A4MainPageWidget() : A1PageWidget(),
+          appStateNotifier.loggedIn ? A4MainPageWidget() : A3LoginPageWidget(),
       routes: [
         FFRoute(
           name: '_initialize',
           path: '/',
-          builder: (context, _) =>
-              appStateNotifier.loggedIn ? A4MainPageWidget() : A1PageWidget(),
+          builder: (context, _) => appStateNotifier.loggedIn
+              ? A4MainPageWidget()
+              : A3LoginPageWidget(),
           routes: [
             FFRoute(
               name: 'A1Page',
@@ -91,7 +92,23 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'B5HotelReviewBooking',
               path: 'b5HotelReviewBooking',
-              builder: (context, params) => B5HotelReviewBookingWidget(),
+              builder: (context, params) => B5HotelReviewBookingWidget(
+                hotelName: params.getParam('hotelName', ParamType.String),
+                rate: params.getParam('rate', ParamType.double),
+                hotelAdress: params.getParam('hotelAdress', ParamType.String),
+                checkIn: params.getParam('checkIn', ParamType.String),
+                checkOut: params.getParam('checkOut', ParamType.String),
+                dDate: params.getParam('dDate', ParamType.String),
+                toDate: params.getParam('toDate', ParamType.String),
+                noRooms: params.getParam('noRooms', ParamType.String),
+                noAdults: params.getParam('noAdults', ParamType.String),
+                image: params.getParam('image', ParamType.String),
+                name: params.getParam('name', ParamType.String),
+                moblie: params.getParam('moblie', ParamType.String),
+                email: params.getParam('email', ParamType.String),
+                mr: params.getParam('mr', ParamType.String),
+                totalPrice: params.getParam('totalPrice', ParamType.String),
+              ),
             ),
             FFRoute(
               name: 'B1Hotel',
@@ -106,6 +123,25 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 roomView1: params.getParam('roomView1', ParamType.String),
                 bedType1: params.getParam('bedType1', ParamType.String),
                 roomSize1: params.getParam('roomSize1', ParamType.String),
+                roomtype2: params.getParam('roomtype2', ParamType.String),
+                roomImage1: params.getParam('roomImage1', ParamType.String),
+                roomType2: params.getParam('roomType2', ParamType.String),
+                bedType2: params.getParam('bedType2', ParamType.String),
+                roomView2: params.getParam('roomView2', ParamType.String),
+                roomSize2: params.getParam('roomSize2', ParamType.String),
+                roomImage2: params.getParam('roomImage2', ParamType.String),
+                checkIn: params.getParam('checkIn', ParamType.String),
+                checkOut: params.getParam('checkOut', ParamType.String),
+                bDate: params.getParam('bDate', ParamType.String),
+                toDate: params.getParam('toDate', ParamType.String),
+                hotelName: params.getParam('hotelName', ParamType.String),
+                hotelAddress: params.getParam('hotelAddress', ParamType.String),
+                noRooms: params.getParam('noRooms', ParamType.String),
+                rate: params.getParam('rate', ParamType.double),
+                star: params.getParam('star', ParamType.String),
+                noAdullts: params.getParam('noAdullts', ParamType.String),
+                image: params.getParam('image', ParamType.String),
+                totalPrice: params.getParam('totalPrice', ParamType.String),
               ),
             ),
             FFRoute(
@@ -127,6 +163,16 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 roomSize1: params.getParam('roomSize1', ParamType.String),
                 roomView1: params.getParam('roomView1', ParamType.String),
                 bedType1: params.getParam('bedType1', ParamType.String),
+                roomImage1: params.getParam('roomImage1', ParamType.String),
+                roomType2: params.getParam('roomType2', ParamType.String),
+                bedType2: params.getParam('bedType2', ParamType.String),
+                roomView2: params.getParam('roomView2', ParamType.String),
+                roomSize2: params.getParam('roomSize2', ParamType.String),
+                toDate: params.getParam('toDate', ParamType.String),
+                checkIn: params.getParam('checkIn', ParamType.String),
+                checkOut: params.getParam('checkOut', ParamType.String),
+                roomImage2: params.getParam('roomImage2', ParamType.String),
+                totalPrice: params.getParam('totalPrice', ParamType.String),
               ),
             ),
             FFRoute(
@@ -157,12 +203,18 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 noAdults: params.getParam('noAdults', ParamType.String),
                 noRooms: params.getParam('noRooms', ParamType.String),
                 bDate: params.getParam('bDate', ParamType.String),
+                todate: params.getParam('todate', ParamType.String),
               ),
             ),
             FFRoute(
               name: 'C2FlightsMain',
               path: 'c2FlightsMain',
-              builder: (context, params) => C2FlightsMainWidget(),
+              builder: (context, params) => C2FlightsMainWidget(
+                from: params.getParam('from', ParamType.String),
+                to: params.getParam('to', ParamType.String),
+                depDate: params.getParam('depDate', ParamType.String),
+                noAdults: params.getParam('noAdults', ParamType.String),
+              ),
             ),
             FFRoute(
               name: 'C4FlightFilter',
@@ -172,27 +224,53 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'B6SelectHotelPayment',
               path: 'b6SelectHotelPayment',
-              builder: (context, params) => B6SelectHotelPaymentWidget(),
+              builder: (context, params) => B6SelectHotelPaymentWidget(
+                hotelName: params.getParam('hotelName', ParamType.String),
+                hotelAddress: params.getParam('hotelAddress', ParamType.String),
+                userName: params.getParam('userName', ParamType.String),
+                cheinIn: params.getParam('cheinIn', ParamType.String),
+                checkOut: params.getParam('checkOut', ParamType.String),
+                roomType: params.getParam('roomType', ParamType.String),
+                image: params.getParam('image', ParamType.String),
+                mobileNo: params.getParam('mobileNo', ParamType.String),
+                email: params.getParam('email', ParamType.String),
+                noRooms: params.getParam('noRooms', ParamType.String),
+                noAdults: params.getParam('noAdults', ParamType.String),
+                totalPrice: params.getParam('totalPrice', ParamType.String),
+              ),
             ),
             FFRoute(
               name: 'C3FlightReview',
               path: 'c3FlightReview',
-              builder: (context, params) => C3FlightReviewWidget(),
+              builder: (context, params) => C3FlightReviewWidget(
+                airlineName: params.getParam('airlineName', ParamType.String),
+                from: params.getParam('from', ParamType.String),
+                to: params.getParam('to', ParamType.String),
+                dTime: params.getParam('dTime', ParamType.String),
+                duration: params.getParam('duration', ParamType.String),
+                price: params.getParam('price', ParamType.String),
+              ),
             ),
             FFRoute(
               name: 'C6FlightPayment',
               path: 'c6FlightPayment',
-              builder: (context, params) => C6FlightPaymentWidget(),
-            ),
-            FFRoute(
-              name: 'D1Train',
-              path: 'd1Train',
-              builder: (context, params) => D1TrainWidget(),
+              builder: (context, params) => C6FlightPaymentWidget(
+                airlineName: params.getParam('airlineName', ParamType.String),
+                from: params.getParam('from', ParamType.String),
+                to: params.getParam('to', ParamType.String),
+                dtime: params.getParam('dtime', ParamType.String),
+                duration: params.getParam('duration', ParamType.String),
+              ),
             ),
             FFRoute(
               name: 'D2Train1',
               path: 'd2Train1',
-              builder: (context, params) => D2Train1Widget(),
+              builder: (context, params) => D2Train1Widget(
+                from: params.getParam('from', ParamType.String),
+                to: params.getParam('to', ParamType.String),
+                depDate: params.getParam('depDate', ParamType.String),
+                noAdults: params.getParam('noAdults', ParamType.String),
+              ),
             ),
             FFRoute(
               name: 'D4TrainFilter',
@@ -207,17 +285,46 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'D3TrainReview',
               path: 'd3TrainReview',
-              builder: (context, params) => D3TrainReviewWidget(),
+              builder: (context, params) => D3TrainReviewWidget(
+                trainName: params.getParam('trainName', ParamType.String),
+                duration: params.getParam('duration', ParamType.String),
+                airTime: params.getParam('airTime', ParamType.String),
+                boardingStation:
+                    params.getParam('boardingStation', ParamType.String),
+                arrivalStation:
+                    params.getParam('arrivalStation', ParamType.String),
+                classType: params.getParam('classType', ParamType.String),
+                price: params.getParam('price', ParamType.int),
+                userName: params.getParam('userName', ParamType.String),
+                userMobileNo: params.getParam('userMobileNo', ParamType.String),
+                userEmail: params.getParam('userEmail', ParamType.String),
+              ),
             ),
             FFRoute(
               name: 'D6TrainPayment',
               path: 'd6TrainPayment',
-              builder: (context, params) => D6TrainPaymentWidget(),
+              builder: (context, params) => D6TrainPaymentWidget(
+                depTime: params.getParam('depTime', ParamType.String),
+                duration: params.getParam('duration', ParamType.String),
+                ariTime: params.getParam('ariTime', ParamType.String),
+                boardingStation:
+                    params.getParam('boardingStation', ParamType.String),
+                arrivalStation:
+                    params.getParam('arrivalStation', ParamType.String),
+                classType: params.getParam('classType', ParamType.String),
+                price: params.getParam('price', ParamType.int),
+                trainName: params.getParam('trainName', ParamType.String),
+              ),
             ),
             FFRoute(
               name: 'E2BusBooking1',
               path: 'e2BusBooking1',
-              builder: (context, params) => E2BusBooking1Widget(),
+              builder: (context, params) => E2BusBooking1Widget(
+                from: params.getParam('from', ParamType.String),
+                to: params.getParam('to', ParamType.String),
+                depDate: params.getParam('depDate', ParamType.String),
+                noAdults: params.getParam('noAdults', ParamType.String),
+              ),
             ),
             FFRoute(
               name: 'E7BusSORT',
@@ -237,7 +344,17 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'E3BusSelectSet',
               path: 'e3BusSelectSet',
-              builder: (context, params) => E3BusSelectSetWidget(),
+              builder: (context, params) => E3BusSelectSetWidget(
+                busName: params.getParam('busName', ParamType.String),
+                busType: params.getParam('busType', ParamType.String),
+                time: params.getParam('time', ParamType.String),
+                price: params.getParam('price', ParamType.String),
+                boardingStation:
+                    params.getParam('boardingStation', ParamType.String),
+                duration: params.getParam('duration', ParamType.String),
+                arrivalStation:
+                    params.getParam('arrivalStation', ParamType.String),
+              ),
             ),
             FFRoute(
               name: 'E4BusPickupandDrop',
@@ -247,12 +364,30 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'E5BusReview',
               path: 'e5BusReview',
-              builder: (context, params) => E5BusReviewWidget(),
+              builder: (context, params) => E5BusReviewWidget(
+                busName: params.getParam('busName', ParamType.String),
+                busType: params.getParam('busType', ParamType.String),
+                time: params.getParam('time', ParamType.String),
+                boardingStation:
+                    params.getParam('boardingStation', ParamType.String),
+                arrivalStation:
+                    params.getParam('arrivalStation', ParamType.String),
+                duration: params.getParam('duration', ParamType.String),
+              ),
             ),
             FFRoute(
               name: 'E8BusPayment',
               path: 'e8BusPayment',
-              builder: (context, params) => E8BusPaymentWidget(),
+              builder: (context, params) => E8BusPaymentWidget(
+                busName: params.getParam('busName', ParamType.String),
+                busType: params.getParam('busType', ParamType.String),
+                time: params.getParam('time', ParamType.String),
+                duration: params.getParam('duration', ParamType.String),
+                boardingStation:
+                    params.getParam('boardingStation', ParamType.String),
+                arrivalStation:
+                    params.getParam('arrivalStation', ParamType.String),
+              ),
             ),
             FFRoute(
               name: 'F1Holidays',
@@ -363,9 +498,14 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
               builder: (context, params) => SimoleWidget(),
             ),
             FFRoute(
-              name: 'C1Flight',
-              path: 'c1Flight',
-              builder: (context, params) => C1FlightWidget(),
+              name: 'c1flight',
+              path: 'c1flight',
+              builder: (context, params) => C1flightWidget(),
+            ),
+            FFRoute(
+              name: 'd1train',
+              path: 'd1train',
+              builder: (context, params) => D1trainWidget(),
             )
           ].map((r) => r.toRoute(appStateNotifier)).toList(),
         ),
@@ -537,7 +677,7 @@ class FFRoute {
 
           if (requireAuth && !appStateNotifier.loggedIn) {
             appStateNotifier.setRedirectLocationIfUnset(state.location);
-            return '/a1Page';
+            return '/a3LoginPage';
           }
           return null;
         },

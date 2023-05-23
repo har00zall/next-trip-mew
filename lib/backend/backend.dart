@@ -40,6 +40,7 @@ import 'schema/hyderabad_policies_rules_record.dart';
 import 'schema/jaipur_facilities_record.dart';
 import 'schema/jaipur_policies_record.dart';
 import 'schema/user_record.dart';
+import 'schema/hotel_booking_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart';
@@ -82,6 +83,7 @@ export 'schema/hyderabad_policies_rules_record.dart';
 export 'schema/jaipur_facilities_record.dart';
 export 'schema/jaipur_policies_record.dart';
 export 'schema/user_record.dart';
+export 'schema/hotel_booking_record.dart';
 
 /// Functions to query BangaloreRecords (as a Stream and as a Future).
 Future<int> queryBangaloreRecordCount({
@@ -1915,6 +1917,58 @@ Future<FFFirestorePage<UserRecord>> queryUserRecordPage({
       isStream: isStream,
     );
 
+/// Functions to query HotelBookingRecords (as a Stream and as a Future).
+Future<int> queryHotelBookingRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      HotelBookingRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<HotelBookingRecord>> queryHotelBookingRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      HotelBookingRecord.collection,
+      HotelBookingRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<HotelBookingRecord>> queryHotelBookingRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      HotelBookingRecord.collection,
+      HotelBookingRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<HotelBookingRecord>> queryHotelBookingRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+    queryCollectionPage(
+      HotelBookingRecord.collection,
+      HotelBookingRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    );
+
 Future<int> queryCollectionCount(
   Query collection, {
   Query Function(Query)? queryBuilder,
@@ -2039,4 +2093,26 @@ Future<FFFirestorePage<T>> queryCollectionPage<T>(
   final dataStream = docSnapshotStream?.map(getDocs);
   final nextPageToken = docSnapshot.docs.isEmpty ? null : docSnapshot.docs.last;
   return FFFirestorePage(data, dataStream, nextPageToken);
+}
+
+// Creates a Firestore document representing the logged in user if it doesn't yet exist
+Future maybeCreateUser(User user) async {
+  final userRecord = UserRecord.collection.doc(user.uid);
+  final userExists = await userRecord.get().then((u) => u.exists);
+  if (userExists) {
+    currentUserDocument = await UserRecord.getDocumentOnce(userRecord);
+    return;
+  }
+
+  final userData = createUserRecordData(
+    email: user.email,
+    displayName: user.displayName,
+    photoUrl: user.photoURL,
+    uid: user.uid,
+    phoneNumber: user.phoneNumber,
+    createdTime: getCurrentTimestamp,
+  );
+
+  await userRecord.set(userData);
+  currentUserDocument = UserRecord.getDocumentFromData(userData, userRecord);
 }

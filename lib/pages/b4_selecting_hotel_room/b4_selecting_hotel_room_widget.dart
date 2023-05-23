@@ -18,12 +18,50 @@ class B4SelectingHotelRoomWidget extends StatefulWidget {
     required this.roomView1,
     required this.bedType1,
     required this.roomSize1,
+    required this.roomtype2,
+    required this.roomImage1,
+    required this.roomType2,
+    required this.bedType2,
+    required this.roomView2,
+    required this.roomSize2,
+    required this.roomImage2,
+    required this.checkIn,
+    required this.checkOut,
+    required this.bDate,
+    required this.toDate,
+    required this.hotelName,
+    required this.hotelAddress,
+    required this.noRooms,
+    required this.rate,
+    required this.star,
+    required this.noAdullts,
+    required this.image,
+    required this.totalPrice,
   }) : super(key: key);
 
   final String? roomType1;
   final String? roomView1;
   final String? bedType1;
   final String? roomSize1;
+  final String? roomtype2;
+  final String? roomImage1;
+  final String? roomType2;
+  final String? bedType2;
+  final String? roomView2;
+  final String? roomSize2;
+  final String? roomImage2;
+  final String? checkIn;
+  final String? checkOut;
+  final String? bDate;
+  final String? toDate;
+  final String? hotelName;
+  final String? hotelAddress;
+  final String? noRooms;
+  final double? rate;
+  final String? star;
+  final String? noAdullts;
+  final String? image;
+  final String? totalPrice;
 
   @override
   _B4SelectingHotelRoomWidgetState createState() =>
@@ -91,41 +129,37 @@ class _B4SelectingHotelRoomWidgetState
         ),
         body: SafeArea(
           top: true,
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
+          child: Stack(
             children: [
-              Column(
-                mainAxisSize: MainAxisSize.max,
-                children: [
-                  ListView(
-                    padding: EdgeInsets.zero,
-                    shrinkWrap: true,
-                    scrollDirection: Axis.vertical,
-                    children: [
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            10.0, 5.0, 10.0, 0.0),
-                        child: Material(
-                          color: Colors.transparent,
-                          elevation: 5.0,
-                          shape: RoundedRectangleBorder(
+              SingleChildScrollView(
+                child: Column(
+                  mainAxisSize: MainAxisSize.max,
+                  children: [
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 0.0),
+                      child: Material(
+                        color: Colors.transparent,
+                        elevation: 5.0,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        child: Container(
+                          width: double.infinity,
+                          height: 280.0,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            boxShadow: [
+                              BoxShadow(
+                                blurRadius: 4.0,
+                                color: Color(0x33000000),
+                                offset: Offset(0.0, 2.0),
+                              )
+                            ],
                             borderRadius: BorderRadius.circular(10.0),
                           ),
-                          child: Container(
-                            width: double.infinity,
-                            height: 280.0,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                              boxShadow: [
-                                BoxShadow(
-                                  blurRadius: 4.0,
-                                  color: Color(0x33000000),
-                                  offset: Offset(0.0, 2.0),
-                                )
-                              ],
-                              borderRadius: BorderRadius.circular(10.0),
-                            ),
+                          child: SingleChildScrollView(
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -136,7 +170,10 @@ class _B4SelectingHotelRoomWidgetState
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           15.0, 10.0, 0.0, 0.0),
                                       child: Text(
-                                        widget.roomType1!,
+                                        valueOrDefault<String>(
+                                          widget.roomType1,
+                                          'room',
+                                        ),
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -161,7 +198,7 @@ class _B4SelectingHotelRoomWidgetState
                                         borderRadius:
                                             BorderRadius.circular(10.0),
                                         child: Image.network(
-                                          'https://picsum.photos/seed/678/600',
+                                          '${widget.roomImage1}',
                                           width: 150.0,
                                           height: 140.0,
                                           fit: BoxFit.cover,
@@ -280,42 +317,36 @@ class _B4SelectingHotelRoomWidgetState
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 0.0, 0.0, 0.0),
-                                        child: FlutterFlowRadioButton(
-                                          options: [
-                                            FFLocalizations.of(context).getText(
-                                              'iyy1b58o' /* Room with Breakfast */,
+                                      FlutterFlowRadioButton(
+                                        options: [
+                                          FFLocalizations.of(context).getText(
+                                            'kclgfd0i' /* Room with Breakfast */,
+                                          ),
+                                          FFLocalizations.of(context).getText(
+                                            '3z00nr3d' /* Room without Brealfast */,
+                                          )
+                                        ].toList(),
+                                        onChanged: (val) => setState(() {}),
+                                        controller: _model
+                                                .radioButtonValueController1 ??=
+                                            FormFieldController<String>(null),
+                                        optionHeight: 30.0,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              color: Colors.black,
                                             ),
-                                            FFLocalizations.of(context).getText(
-                                              'yxzs2af6' /* Room without Brealfast */,
-                                            )
-                                          ].toList(),
-                                          onChanged: (val) => setState(() {}),
-                                          controller: _model
-                                                  .radioButtonValueController1 ??=
-                                              FormFieldController<String>(null),
-                                          optionHeight: 30.0,
-                                          textStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    fontFamily: 'Poppins',
-                                                    color: Colors.black,
-                                                  ),
-                                          buttonPosition:
-                                              RadioButtonPosition.left,
-                                          direction: Axis.vertical,
-                                          radioButtonColor: Color(0xFF3000FF),
-                                          inactiveRadioButtonColor:
-                                              Colors.black,
-                                          toggleable: false,
-                                          horizontalAlignment:
-                                              WrapAlignment.start,
-                                          verticalAlignment:
-                                              WrapCrossAlignment.start,
-                                        ),
+                                        buttonPosition:
+                                            RadioButtonPosition.left,
+                                        direction: Axis.vertical,
+                                        radioButtonColor: Color(0xFF3000FF),
+                                        inactiveRadioButtonColor: Colors.black,
+                                        toggleable: false,
+                                        horizontalAlignment:
+                                            WrapAlignment.start,
+                                        verticalAlignment:
+                                            WrapCrossAlignment.start,
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
@@ -328,7 +359,7 @@ class _B4SelectingHotelRoomWidgetState
                                             Text(
                                               FFLocalizations.of(context)
                                                   .getText(
-                                                'rotlo063' /* Price */,
+                                                'vlny8g11' /* Price */,
                                               ),
                                               style:
                                                   FlutterFlowTheme.of(context)
@@ -342,7 +373,7 @@ class _B4SelectingHotelRoomWidgetState
                                             Text(
                                               FFLocalizations.of(context)
                                                   .getText(
-                                                'gy587pba' /* Price */,
+                                                '02st0a3m' /* Price */,
                                               ),
                                               style:
                                                   FlutterFlowTheme.of(context)
@@ -365,30 +396,32 @@ class _B4SelectingHotelRoomWidgetState
                           ),
                         ),
                       ),
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(
-                            10.0, 5.0, 10.0, 0.0),
-                        child: Material(
-                          color: Colors.transparent,
-                          elevation: 5.0,
-                          shape: RoundedRectangleBorder(
+                    ),
+                    Padding(
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 0.0),
+                      child: Material(
+                        color: Colors.transparent,
+                        elevation: 5.0,
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        child: Container(
+                          width: double.infinity,
+                          height: 280.0,
+                          decoration: BoxDecoration(
+                            color: FlutterFlowTheme.of(context)
+                                .secondaryBackground,
+                            boxShadow: [
+                              BoxShadow(
+                                blurRadius: 4.0,
+                                color: Color(0x33000000),
+                                offset: Offset(0.0, 2.0),
+                              )
+                            ],
                             borderRadius: BorderRadius.circular(10.0),
                           ),
-                          child: Container(
-                            width: double.infinity,
-                            height: 280.0,
-                            decoration: BoxDecoration(
-                              color: FlutterFlowTheme.of(context)
-                                  .secondaryBackground,
-                              boxShadow: [
-                                BoxShadow(
-                                  blurRadius: 4.0,
-                                  color: Color(0x33000000),
-                                  offset: Offset(0.0, 2.0),
-                                )
-                              ],
-                              borderRadius: BorderRadius.circular(10.0),
-                            ),
+                          child: SingleChildScrollView(
                             child: Column(
                               mainAxisSize: MainAxisSize.max,
                               children: [
@@ -399,9 +432,7 @@ class _B4SelectingHotelRoomWidgetState
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           15.0, 10.0, 0.0, 0.0),
                                       child: Text(
-                                        FFLocalizations.of(context).getText(
-                                          '4v6loaah' /* Room type */,
-                                        ),
+                                        widget.roomType2!,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -426,7 +457,7 @@ class _B4SelectingHotelRoomWidgetState
                                         borderRadius:
                                             BorderRadius.circular(10.0),
                                         child: Image.network(
-                                          'https://picsum.photos/seed/678/600',
+                                          '${widget.roomImage2}',
                                           width: 150.0,
                                           height: 140.0,
                                           fit: BoxFit.cover,
@@ -456,9 +487,7 @@ class _B4SelectingHotelRoomWidgetState
                                             },
                                           ),
                                           Text(
-                                            FFLocalizations.of(context).getText(
-                                              'w5w5x88s' /* Size of room */,
-                                            ),
+                                            widget.roomSize2!,
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
@@ -492,9 +521,7 @@ class _B4SelectingHotelRoomWidgetState
                                             },
                                           ),
                                           Text(
-                                            FFLocalizations.of(context).getText(
-                                              'hawbal07' /* Room view */,
-                                            ),
+                                            widget.roomView2!,
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
@@ -528,9 +555,7 @@ class _B4SelectingHotelRoomWidgetState
                                             },
                                           ),
                                           Text(
-                                            FFLocalizations.of(context).getText(
-                                              'zhmym7vg' /* Bed type */,
-                                            ),
+                                            widget.bedType2!,
                                             style: FlutterFlowTheme.of(context)
                                                 .bodyMedium
                                                 .override(
@@ -551,42 +576,36 @@ class _B4SelectingHotelRoomWidgetState
                                     mainAxisAlignment:
                                         MainAxisAlignment.spaceBetween,
                                     children: [
-                                      Padding(
-                                        padding: EdgeInsetsDirectional.fromSTEB(
-                                            10.0, 0.0, 0.0, 0.0),
-                                        child: FlutterFlowRadioButton(
-                                          options: [
-                                            FFLocalizations.of(context).getText(
-                                              'tr9yhing' /* Room with Breakfast */,
+                                      FlutterFlowRadioButton(
+                                        options: [
+                                          FFLocalizations.of(context).getText(
+                                            'ssir51iu' /* Room with Breakfast */,
+                                          ),
+                                          FFLocalizations.of(context).getText(
+                                            '0sz4f0r9' /* Room without Brealfast */,
+                                          )
+                                        ].toList(),
+                                        onChanged: (val) => setState(() {}),
+                                        controller: _model
+                                                .radioButtonValueController2 ??=
+                                            FormFieldController<String>(null),
+                                        optionHeight: 30.0,
+                                        textStyle: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              color: Colors.black,
                                             ),
-                                            FFLocalizations.of(context).getText(
-                                              '65ujhe72' /* Room without Brealfast */,
-                                            )
-                                          ].toList(),
-                                          onChanged: (val) => setState(() {}),
-                                          controller: _model
-                                                  .radioButtonValueController2 ??=
-                                              FormFieldController<String>(null),
-                                          optionHeight: 30.0,
-                                          textStyle:
-                                              FlutterFlowTheme.of(context)
-                                                  .bodyMedium
-                                                  .override(
-                                                    fontFamily: 'Poppins',
-                                                    color: Colors.black,
-                                                  ),
-                                          buttonPosition:
-                                              RadioButtonPosition.left,
-                                          direction: Axis.vertical,
-                                          radioButtonColor: Color(0xFF3000FF),
-                                          inactiveRadioButtonColor:
-                                              Colors.black,
-                                          toggleable: false,
-                                          horizontalAlignment:
-                                              WrapAlignment.start,
-                                          verticalAlignment:
-                                              WrapCrossAlignment.start,
-                                        ),
+                                        buttonPosition:
+                                            RadioButtonPosition.left,
+                                        direction: Axis.vertical,
+                                        radioButtonColor: Color(0xFF3000FF),
+                                        inactiveRadioButtonColor: Colors.black,
+                                        toggleable: false,
+                                        horizontalAlignment:
+                                            WrapAlignment.start,
+                                        verticalAlignment:
+                                            WrapCrossAlignment.start,
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
@@ -599,7 +618,7 @@ class _B4SelectingHotelRoomWidgetState
                                             Text(
                                               FFLocalizations.of(context)
                                                   .getText(
-                                                '71fvilfv' /* Price */,
+                                                'du8u3lkz' /* Price */,
                                               ),
                                               style:
                                                   FlutterFlowTheme.of(context)
@@ -613,7 +632,7 @@ class _B4SelectingHotelRoomWidgetState
                                             Text(
                                               FFLocalizations.of(context)
                                                   .getText(
-                                                'ybm7hcha' /* Price */,
+                                                'drb0s5l0' /* Price */,
                                               ),
                                               style:
                                                   FlutterFlowTheme.of(context)
@@ -636,89 +655,147 @@ class _B4SelectingHotelRoomWidgetState
                           ),
                         ),
                       ),
-                    ],
-                  ),
-                ],
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0.0, 200.0, 0.0, 0.0),
-                child: Stack(
-                  children: [
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
-                      child: Material(
-                        color: Colors.transparent,
-                        elevation: 10.0,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(10.0),
-                        ),
-                        child: Container(
-                          width: double.infinity,
-                          height: 65.0,
-                          decoration: BoxDecoration(
-                            color: FlutterFlowTheme.of(context)
-                                .secondaryBackground,
-                            borderRadius: BorderRadius.circular(10.0),
-                          ),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    15.0, 0.0, 0.0, 0.0),
-                                child: Text(
-                                  FFLocalizations.of(context).getText(
-                                    'f8e1m1zy' /* Price */,
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Poppins',
-                                        fontSize: 20.0,
-                                      ),
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    0.0, 0.0, 20.0, 0.0),
-                                child: FFButtonWidget(
-                                  onPressed: () async {
-                                    context.pushNamed('B5HotelReviewBooking');
-                                  },
-                                  text: FFLocalizations.of(context).getText(
-                                    'y3ndsonf' /* Continue */,
-                                  ),
-                                  options: FFButtonOptions(
-                                    width: 130.0,
-                                    height: 45.0,
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
-                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 0.0, 0.0),
-                                    color: Color(0xFFFA4918),
-                                    textStyle: FlutterFlowTheme.of(context)
-                                        .titleSmall
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: Colors.white,
-                                          fontSize: 18.0,
-                                        ),
-                                    borderSide: BorderSide(
-                                      color: Colors.transparent,
-                                      width: 1.0,
-                                    ),
-                                    borderRadius: BorderRadius.circular(10.0),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ),
                     ),
                   ],
+                ),
+              ),
+              Align(
+                alignment: AlignmentDirectional(0.0, 1.0),
+                child: Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 10.0, 0.0),
+                  child: Material(
+                    color: Colors.transparent,
+                    elevation: 10.0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    child: Container(
+                      width: double.infinity,
+                      height: 65.0,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                15.0, 0.0, 0.0, 0.0),
+                            child: Text(
+                              FFLocalizations.of(context).getText(
+                                'znrfqrnp' /* Price */,
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .bodyMedium
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    fontSize: 20.0,
+                                  ),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 20.0, 0.0),
+                            child: FFButtonWidget(
+                              onPressed: () async {
+                                context.pushNamed(
+                                  'B5HotelReviewBooking',
+                                  queryParams: {
+                                    'hotelName': serializeParam(
+                                      widget.hotelName,
+                                      ParamType.String,
+                                    ),
+                                    'rate': serializeParam(
+                                      widget.rate,
+                                      ParamType.double,
+                                    ),
+                                    'hotelAdress': serializeParam(
+                                      widget.hotelAddress,
+                                      ParamType.String,
+                                    ),
+                                    'checkIn': serializeParam(
+                                      widget.checkIn,
+                                      ParamType.String,
+                                    ),
+                                    'checkOut': serializeParam(
+                                      widget.checkOut,
+                                      ParamType.String,
+                                    ),
+                                    'dDate': serializeParam(
+                                      widget.bDate,
+                                      ParamType.String,
+                                    ),
+                                    'toDate': serializeParam(
+                                      widget.toDate,
+                                      ParamType.String,
+                                    ),
+                                    'noRooms': serializeParam(
+                                      widget.noRooms,
+                                      ParamType.String,
+                                    ),
+                                    'noAdults': serializeParam(
+                                      widget.noAdullts,
+                                      ParamType.String,
+                                    ),
+                                    'image': serializeParam(
+                                      widget.image,
+                                      ParamType.String,
+                                    ),
+                                    'name': serializeParam(
+                                      '',
+                                      ParamType.String,
+                                    ),
+                                    'moblie': serializeParam(
+                                      '',
+                                      ParamType.String,
+                                    ),
+                                    'email': serializeParam(
+                                      '',
+                                      ParamType.String,
+                                    ),
+                                    'mr': serializeParam(
+                                      '',
+                                      ParamType.String,
+                                    ),
+                                    'totalPrice': serializeParam(
+                                      widget.totalPrice,
+                                      ParamType.String,
+                                    ),
+                                  }.withoutNulls,
+                                );
+                              },
+                              text: FFLocalizations.of(context).getText(
+                                '6x96qz19' /* Continue */,
+                              ),
+                              options: FFButtonOptions(
+                                width: 130.0,
+                                height: 45.0,
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
+                                iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 0.0),
+                                color: Color(0xFFFA4918),
+                                textStyle: FlutterFlowTheme.of(context)
+                                    .titleSmall
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      color: Colors.white,
+                                      fontSize: 18.0,
+                                    ),
+                                borderSide: BorderSide(
+                                  color: Colors.transparent,
+                                  width: 1.0,
+                                ),
+                                borderRadius: BorderRadius.circular(10.0),
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
                 ),
               ),
             ],

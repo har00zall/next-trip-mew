@@ -11,7 +11,22 @@ import 'e8_bus_payment_model.dart';
 export 'e8_bus_payment_model.dart';
 
 class E8BusPaymentWidget extends StatefulWidget {
-  const E8BusPaymentWidget({Key? key}) : super(key: key);
+  const E8BusPaymentWidget({
+    Key? key,
+    required this.busName,
+    required this.busType,
+    required this.time,
+    required this.duration,
+    required this.boardingStation,
+    required this.arrivalStation,
+  }) : super(key: key);
+
+  final String? busName;
+  final String? busType;
+  final String? time;
+  final String? duration;
+  final String? boardingStation;
+  final String? arrivalStation;
 
   @override
   _E8BusPaymentWidgetState createState() => _E8BusPaymentWidgetState();
@@ -112,9 +127,7 @@ class _E8BusPaymentWidgetState extends State<E8BusPaymentWidget> {
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   15.0, 10.0, 0.0, 0.0),
                               child: Text(
-                                FFLocalizations.of(context).getText(
-                                  '8aberbfa' /* Bus Name */,
-                                ),
+                                widget.busName!,
                                 style: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
@@ -141,9 +154,7 @@ class _E8BusPaymentWidgetState extends State<E8BusPaymentWidget> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     10.0, 0.0, 0.0, 0.0),
                                 child: Text(
-                                  FFLocalizations.of(context).getText(
-                                    '5rziirqw' /* DepTime */,
-                                  ),
+                                  widget.time!,
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
@@ -154,9 +165,7 @@ class _E8BusPaymentWidgetState extends State<E8BusPaymentWidget> {
                                 ),
                               ),
                               Text(
-                                FFLocalizations.of(context).getText(
-                                  '4ubo90kx' /* Duration */,
-                                ),
+                                widget.duration!,
                                 style: FlutterFlowTheme.of(context).bodyMedium,
                               ),
                               Align(
@@ -192,9 +201,7 @@ class _E8BusPaymentWidgetState extends State<E8BusPaymentWidget> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     15.0, 0.0, 0.0, 0.0),
                                 child: Text(
-                                  FFLocalizations.of(context).getText(
-                                    'ij5cm3lw' /* Boarding Station */,
-                                  ),
+                                  widget.boardingStation!,
                                   style:
                                       FlutterFlowTheme.of(context).bodyMedium,
                                 ),
@@ -203,9 +210,7 @@ class _E8BusPaymentWidgetState extends State<E8BusPaymentWidget> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 15.0, 0.0),
                                 child: Text(
-                                  FFLocalizations.of(context).getText(
-                                    '67l0035c' /* Arrival Station */,
-                                  ),
+                                  widget.arrivalStation!,
                                   style:
                                       FlutterFlowTheme.of(context).bodyMedium,
                                 ),
@@ -234,9 +239,7 @@ class _E8BusPaymentWidgetState extends State<E8BusPaymentWidget> {
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     5.0, 0.0, 0.0, 0.0),
                                 child: Text(
-                                  FFLocalizations.of(context).getText(
-                                    'y8xpxmhy' /* ClassType */,
-                                  ),
+                                  widget.busType!,
                                   style: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(

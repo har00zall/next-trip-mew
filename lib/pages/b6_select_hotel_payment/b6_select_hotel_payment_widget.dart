@@ -1,9 +1,13 @@
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
 import '/flutter_flow/flutter_flow_drop_down.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
@@ -12,7 +16,34 @@ import 'b6_select_hotel_payment_model.dart';
 export 'b6_select_hotel_payment_model.dart';
 
 class B6SelectHotelPaymentWidget extends StatefulWidget {
-  const B6SelectHotelPaymentWidget({Key? key}) : super(key: key);
+  const B6SelectHotelPaymentWidget({
+    Key? key,
+    required this.hotelName,
+    required this.hotelAddress,
+    required this.userName,
+    required this.cheinIn,
+    required this.checkOut,
+    required this.roomType,
+    required this.image,
+    required this.mobileNo,
+    required this.email,
+    required this.noRooms,
+    required this.noAdults,
+    required this.totalPrice,
+  }) : super(key: key);
+
+  final String? hotelName;
+  final String? hotelAddress;
+  final String? userName;
+  final String? cheinIn;
+  final String? checkOut;
+  final String? roomType;
+  final String? image;
+  final String? mobileNo;
+  final String? email;
+  final String? noRooms;
+  final String? noAdults;
+  final String? totalPrice;
 
   @override
   _B6SelectHotelPaymentWidgetState createState() =>
@@ -83,491 +114,723 @@ class _B6SelectHotelPaymentWidgetState
         ),
         body: SafeArea(
           top: true,
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
+          child: Stack(
             children: [
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 0.0),
-                child: Material(
-                  color: Colors.transparent,
-                  elevation: 3.0,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  child: Container(
-                    width: double.infinity,
-                    height: 250.0,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                      borderRadius: BorderRadius.circular(10.0),
-                      border: Border.all(
-                        color: Colors.transparent,
+              Column(
+                mainAxisSize: MainAxisSize.max,
+                children: [
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 0.0),
+                    child: Material(
+                      color: Colors.transparent,
+                      elevation: 3.0,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
                       ),
-                    ),
-                    child: Stack(
-                      children: [
-                        Align(
-                          alignment: AlignmentDirectional(1.02, -0.98),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 2.0, 5.0, 0.0),
-                            child: Container(
-                              width: 120.0,
-                              height: 150.0,
-                              decoration: BoxDecoration(
-                                color:
-                                    FlutterFlowTheme.of(context).primaryBtnText,
-                                borderRadius: BorderRadius.circular(5.0),
-                              ),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(5.0),
-                                child: Image.network(
-                                  'https://pix8.agoda.net/hotelImages/31260952/0/fec2c4279a298f6e652a5bf8c12c1665.jpg?ca=28&ce=0&s=1024x768',
-                                  width: 100.0,
-                                  height: 15.0,
-                                  fit: BoxFit.cover,
+                      child: Container(
+                        width: double.infinity,
+                        height: 300.0,
+                        decoration: BoxDecoration(
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          borderRadius: BorderRadius.circular(10.0),
+                          border: Border.all(
+                            color: Colors.transparent,
+                          ),
+                        ),
+                        child: Stack(
+                          children: [
+                            Align(
+                              alignment: AlignmentDirectional(1.02, -0.98),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 2.0, 5.0, 0.0),
+                                child: Container(
+                                  width: 120.0,
+                                  height: 150.0,
+                                  decoration: BoxDecoration(
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryBtnText,
+                                    borderRadius: BorderRadius.circular(5.0),
+                                  ),
+                                  child: ClipRRect(
+                                    borderRadius: BorderRadius.circular(5.0),
+                                    child: Image.network(
+                                      '${widget.image}',
+                                      width: 100.0,
+                                      height: 15.0,
+                                      fit: BoxFit.cover,
+                                    ),
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                        ),
-                        Align(
-                          alignment: AlignmentDirectional(0.0, -0.94),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 3.0, 0.0, 0.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Expanded(
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        5.0, 0.0, 130.0, 0.0),
-                                    child: AutoSizeText(
-                                      FFLocalizations.of(context).getText(
-                                        '629q74uy' /* Hotel Name */,
+                            Align(
+                              alignment: AlignmentDirectional(0.0, -0.94),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 3.0, 0.0, 0.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Expanded(
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            5.0, 0.0, 130.0, 0.0),
+                                        child: AutoSizeText(
+                                          widget.hotelName!,
+                                          maxLines: 5,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                color: Colors.black,
+                                                fontSize: 16.0,
+                                              ),
+                                        ),
                                       ),
-                                      maxLines: 5,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(0.0, -0.51),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    5.0, 0.0, 0.0, 0.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Expanded(
+                                      child: Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 0.0, 130.0, 0.0),
+                                        child: AutoSizeText(
+                                          widget.hotelAddress!,
+                                          maxLines: 6,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodySmall
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .primaryText,
+                                                fontSize: 11.0,
+                                                fontWeight: FontWeight.w500,
+                                              ),
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(0.0, 0.63),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    5.0, 50.0, 0.0, 0.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Text(
+                                      FFLocalizations.of(context).getText(
+                                        'sler0bfu' /* Check in:  */,
+                                      ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Poppins',
-                                            color: Colors.black,
-                                            fontSize: 18.0,
+                                            fontSize: 13.0,
+                                            fontWeight: FontWeight.w600,
                                           ),
                                     ),
-                                  ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        Align(
-                          alignment: AlignmentDirectional(0.0, -0.51),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                5.0, 0.0, 0.0, 0.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Expanded(
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 130.0, 0.0),
-                                    child: AutoSizeText(
-                                      FFLocalizations.of(context).getText(
-                                        '6aj2q57i' /* Hotel Address */,
-                                      ),
-                                      maxLines: 6,
+                                    Text(
+                                      widget.cheinIn!,
                                       style: FlutterFlowTheme.of(context)
-                                          .bodySmall
+                                          .bodyMedium
                                           .override(
                                             fontFamily: 'Poppins',
                                             color: FlutterFlowTheme.of(context)
-                                                .primaryText,
-                                            fontWeight: FontWeight.w500,
+                                                .primary,
+                                            fontSize: 13.0,
+                                            fontWeight: FontWeight.bold,
                                           ),
                                     ),
-                                  ),
+                                  ],
                                 ),
-                              ],
+                              ),
                             ),
-                          ),
-                        ),
-                        Align(
-                          alignment: AlignmentDirectional(0.0, 0.0),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                5.0, 50.0, 0.0, 0.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Text(
-                                  FFLocalizations.of(context).getText(
-                                    'e3qducax' /* Check in:  */,
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Poppins',
-                                        fontSize: 13.0,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                ),
-                                Text(
-                                  FFLocalizations.of(context).getText(
-                                    'kqjlf30l' /* Check in */,
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Poppins',
-                                        color: Color(0xFF0081FF),
-                                        fontSize: 13.0,
-                                        fontWeight: FontWeight.normal,
-                                      ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        Align(
-                          alignment: AlignmentDirectional(0.0, 0.0),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                5.0, 80.0, 0.0, 0.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Text(
-                                  FFLocalizations.of(context).getText(
-                                    'd6kkfkgx' /* Check out:  */,
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Poppins',
-                                        fontSize: 13.0,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                ),
-                                Text(
-                                  FFLocalizations.of(context).getText(
-                                    'w2h5c378' /* Check out */,
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Poppins',
-                                        color: Color(0xFF3987D2),
-                                        fontSize: 13.0,
-                                        fontWeight: FontWeight.normal,
-                                      ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        Align(
-                          alignment: AlignmentDirectional(0.0, 0.0),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                5.0, 120.0, 0.0, 0.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Text(
-                                  FFLocalizations.of(context).getText(
-                                    'sbej0k8w' /* Room: */,
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Poppins',
-                                        fontSize: 13.0,
-                                        fontWeight: FontWeight.w600,
-                                      ),
-                                ),
-                                Text(
-                                  FFLocalizations.of(context).getText(
-                                    '3x9g77vj' /* RoomType */,
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Poppins',
-                                        color: Color(0xFF0081FF),
-                                        fontSize: 13.0,
-                                        fontWeight: FontWeight.normal,
-                                      ),
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                        Align(
-                          alignment: AlignmentDirectional(0.0, 0.0),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                5.0, 0.0, 0.0, 0.0),
-                            child: Row(
-                              mainAxisSize: MainAxisSize.max,
-                              children: [
-                                Text(
-                                  FFLocalizations.of(context).getText(
-                                    '7x1nl48z' /* Guest name:  */,
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .titleMedium
-                                      .override(
-                                        fontFamily: 'Roboto Slab',
-                                        fontSize: 16.0,
-                                      ),
-                                ),
-                                Expanded(
-                                  child: Padding(
-                                    padding: EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 0.0, 130.0, 0.0),
-                                    child: AutoSizeText(
+                            Align(
+                              alignment: AlignmentDirectional(0.0, 0.77),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    5.0, 80.0, 0.0, 0.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Text(
                                       FFLocalizations.of(context).getText(
-                                        'ubijqavm' /* Name */,
+                                        '5rxnj9p4' /* Check out:  */,
                                       ),
-                                      maxLines: 2,
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
-                                            fontFamily: 'Roboto Slab',
-                                            color: Color(0xFF0081FF),
-                                            fontSize: 16.0,
+                                            fontFamily: 'Poppins',
+                                            fontSize: 13.0,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                    ),
+                                    Text(
+                                      widget.checkOut!,
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
+                                            fontSize: 13.0,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(0.0, 0.95),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    5.0, 120.0, 0.0, 0.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Text(
+                                      FFLocalizations.of(context).getText(
+                                        'zyfl9plk' /* Room: */,
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            fontSize: 13.0,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                    ),
+                                    Text(
+                                      FFLocalizations.of(context).getText(
+                                        '8hri7p86' /* RoomType */,
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
+                                            fontSize: 13.0,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  5.0, 119.0, 0.0, 0.0),
+                              child: Row(
+                                mainAxisSize: MainAxisSize.max,
+                                children: [
+                                  Text(
+                                    FFLocalizations.of(context).getText(
+                                      'hg7xfh7m' /* Guset Name: */,
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          fontSize: 13.0,
+                                        ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        3.0, 0.0, 0.0, 0.0),
+                                    child: Text(
+                                      widget.userName!,
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
+                                            fontSize: 13.0,
+                                            fontWeight: FontWeight.bold,
                                           ),
                                     ),
                                   ),
+                                ],
+                              ),
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(0.0, 0.05),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    5.0, 0.0, 0.0, 0.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Text(
+                                      FFLocalizations.of(context).getText(
+                                        'izt0k905' /* ,Mobile No: */,
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            fontSize: 13.0,
+                                          ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          3.0, 0.0, 0.0, 0.0),
+                                      child: Text(
+                                        valueOrDefault<String>(
+                                          widget.mobileNo,
+                                          'moblie',
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                              fontSize: 13.0,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(0.0, 0.4),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    5.0, 0.0, 0.0, 0.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Text(
+                                      FFLocalizations.of(context).getText(
+                                        'jg9hw5x5' /* No Rooms: */,
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            fontSize: 12.0,
+                                            fontWeight: FontWeight.w600,
+                                          ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          3.0, 0.0, 0.0, 0.0),
+                                      child: Text(
+                                        widget.noRooms!,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                              fontSize: 13.0,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(0.0, 0.55),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    5.0, 0.0, 0.0, 0.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Text(
+                                      FFLocalizations.of(context).getText(
+                                        '352gqy1x' /* NoAdults: */,
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            fontSize: 13.0,
+                                          ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          3.0, 0.0, 0.0, 0.0),
+                                      child: Text(
+                                        widget.noAdults!,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                              fontSize: 13.0,
+                                              fontWeight: FontWeight.bold,
+                                            ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                            Align(
+                              alignment: AlignmentDirectional(0.0, 0.2),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    5.0, 0.0, 0.0, 0.0),
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Text(
+                                      FFLocalizations.of(context).getText(
+                                        '3aykj318' /* email: */,
+                                      ),
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            fontSize: 13.0,
+                                          ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          3.0, 0.0, 0.0, 0.0),
+                                      child: Text(
+                                        widget.email!,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primary,
+                                              fontSize: 13.0,
+                                            ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding:
+                        EdgeInsetsDirectional.fromSTEB(10.0, 7.0, 10.0, 0.0),
+                    child: Material(
+                      color: Colors.transparent,
+                      elevation: 5.0,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      child: Container(
+                        width: double.infinity,
+                        height: 350.0,
+                        decoration: BoxDecoration(
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        child: Stack(
+                          children: [
+                            Column(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          10.0, 15.0, 0.0, 0.0),
+                                      child: Text(
+                                        FFLocalizations.of(context).getText(
+                                          '9mjugare' /* Price to Pay */,
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              color: Colors.black,
+                                              fontSize: 18.0,
+                                            ),
+                                      ),
+                                    ),
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 15.0, 10.0, 0.0),
+                                      child: Text(
+                                        widget.totalPrice!,
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              color: Color(0xFF3987D2),
+                                              fontSize: 18.0,
+                                            ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                                Divider(
+                                  thickness: 1.0,
+                                ),
+                                FlutterFlowDropDown<String>(
+                                  controller:
+                                      _model.dropDownValueController1 ??=
+                                          FormFieldController<String>(null),
+                                  options: [
+                                    FFLocalizations.of(context).getText(
+                                      'c2zzf2ip' /* Gpay */,
+                                    ),
+                                    FFLocalizations.of(context).getText(
+                                      'cw4n5pey' /* PayTM */,
+                                    ),
+                                    FFLocalizations.of(context).getText(
+                                      'w7iybn9l' /* PhonePay */,
+                                    )
+                                  ],
+                                  onChanged: (val) => setState(
+                                      () => _model.dropDownValue1 = val),
+                                  width: double.infinity,
+                                  height: 50.0,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        color: Colors.black,
+                                      ),
+                                  hintText: FFLocalizations.of(context).getText(
+                                    '9dwvgitk' /* All Upi Option... */,
+                                  ),
+                                  fillColor: Colors.white,
+                                  elevation: 2.0,
+                                  borderColor: Colors.transparent,
+                                  borderWidth: 0.0,
+                                  borderRadius: 0.0,
+                                  margin: EdgeInsetsDirectional.fromSTEB(
+                                      12.0, 4.0, 12.0, 4.0),
+                                  hidesUnderline: true,
+                                  isSearchable: false,
+                                ),
+                                Divider(
+                                  thickness: 1.0,
+                                ),
+                                FlutterFlowDropDown<String>(
+                                  controller:
+                                      _model.dropDownValueController2 ??=
+                                          FormFieldController<String>(null),
+                                  options: [
+                                    FFLocalizations.of(context).getText(
+                                      'ieqznz12' /* Credit Card */,
+                                    ),
+                                    FFLocalizations.of(context).getText(
+                                      '8aeior7z' /* Debit Card */,
+                                    ),
+                                    FFLocalizations.of(context).getText(
+                                      'q8egavb6' /* ATM Card */,
+                                    )
+                                  ],
+                                  onChanged: (val) => setState(
+                                      () => _model.dropDownValue2 = val),
+                                  width: double.infinity,
+                                  height: 50.0,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        color: Colors.black,
+                                      ),
+                                  hintText: FFLocalizations.of(context).getText(
+                                    'v3jt2pra' /* Credit/Debit/ATM Card... */,
+                                  ),
+                                  fillColor: Colors.white,
+                                  elevation: 2.0,
+                                  borderColor: Colors.transparent,
+                                  borderWidth: 0.0,
+                                  borderRadius: 0.0,
+                                  margin: EdgeInsetsDirectional.fromSTEB(
+                                      12.0, 4.0, 12.0, 4.0),
+                                  hidesUnderline: true,
+                                  isSearchable: false,
+                                ),
+                                Divider(
+                                  thickness: 1.0,
+                                ),
+                                FlutterFlowDropDown<String>(
+                                  controller:
+                                      _model.dropDownValueController3 ??=
+                                          FormFieldController<String>(null),
+                                  options: [
+                                    FFLocalizations.of(context).getText(
+                                      'gmjxhwo2' /* SBI  */,
+                                    ),
+                                    FFLocalizations.of(context).getText(
+                                      '6lthzcmu' /* Kotak Mahindra Bank */,
+                                    ),
+                                    FFLocalizations.of(context).getText(
+                                      '8xpimvl8' /* Canara Bank */,
+                                    )
+                                  ],
+                                  onChanged: (val) => setState(
+                                      () => _model.dropDownValue3 = val),
+                                  width: double.infinity,
+                                  height: 50.0,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        color: Colors.black,
+                                      ),
+                                  hintText: FFLocalizations.of(context).getText(
+                                    'og5rn2hj' /* Net Banking.... */,
+                                  ),
+                                  fillColor: Colors.white,
+                                  elevation: 2.0,
+                                  borderColor: Colors.transparent,
+                                  borderWidth: 0.0,
+                                  borderRadius: 0.0,
+                                  margin: EdgeInsetsDirectional.fromSTEB(
+                                      12.0, 4.0, 12.0, 4.0),
+                                  hidesUnderline: true,
+                                  isSearchable: false,
+                                ),
+                                Divider(
+                                  thickness: 1.0,
+                                ),
+                                FlutterFlowDropDown<String>(
+                                  controller:
+                                      _model.dropDownValueController4 ??=
+                                          FormFieldController<String>(null),
+                                  options: [
+                                    FFLocalizations.of(context).getText(
+                                      '3j095tf0' /* Gift Card */,
+                                    ),
+                                    FFLocalizations.of(context).getText(
+                                      'dg90xovy' /* Wallets */,
+                                    )
+                                  ],
+                                  onChanged: (val) => setState(
+                                      () => _model.dropDownValue4 = val),
+                                  width: double.infinity,
+                                  height: 50.0,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        color: Colors.black,
+                                      ),
+                                  hintText: FFLocalizations.of(context).getText(
+                                    'gu3pnsn8' /* Gift Card, Wallets & More... */,
+                                  ),
+                                  fillColor: Colors.white,
+                                  elevation: 2.0,
+                                  borderColor: Colors.transparent,
+                                  borderWidth: 0.0,
+                                  borderRadius: 0.0,
+                                  margin: EdgeInsetsDirectional.fromSTEB(
+                                      12.0, 4.0, 12.0, 4.0),
+                                  hidesUnderline: true,
+                                  isSearchable: false,
                                 ),
                               ],
                             ),
-                          ),
+                          ],
                         ),
-                      ],
+                      ),
                     ),
                   ),
-                ),
+                ],
               ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(10.0, 7.0, 10.0, 0.0),
-                child: Material(
-                  color: Colors.transparent,
-                  elevation: 5.0,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
+              Align(
+                alignment: AlignmentDirectional(0.0, 1.0),
+                child: Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 0.0, 0.0, 0.0),
                   child: Container(
                     width: double.infinity,
-                    height: 350.0,
+                    height: 65.0,
                     decoration: BoxDecoration(
                       color: FlutterFlowTheme.of(context).secondaryBackground,
                       borderRadius: BorderRadius.circular(10.0),
                     ),
-                    child: Stack(
+                    child: Row(
+                      mainAxisSize: MainAxisSize.max,
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        Column(
-                          mainAxisSize: MainAxisSize.max,
-                          children: [
-                            Row(
-                              mainAxisSize: MainAxisSize.max,
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: [
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      10.0, 15.0, 0.0, 0.0),
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      '6i5a1oow' /* Price to Pay */,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: Colors.black,
-                                          fontSize: 18.0,
-                                        ),
-                                  ),
+                        FFButtonWidget(
+                          onPressed: () async {
+                            final hotelBookingCreateData =
+                                createHotelBookingRecordData(
+                              guestName: widget.userName,
+                              email: widget.email,
+                              noRooms: widget.noRooms,
+                              checkIn: widget.cheinIn,
+                              checkOut: widget.checkOut,
+                              mobileNo: widget.mobileNo,
+                              noAdults: widget.noAdults,
+                              hotelName: widget.hotelName,
+                              price: widget.totalPrice,
+                              paymentMethod: _model.dropDownValue1,
+                              paymentMethod1: _model.dropDownValue2,
+                              paymentMethod2: _model.dropDownValue3,
+                              paymentMethod3: _model.dropDownValue4,
+                            );
+                            await HotelBookingRecord.collection
+                                .doc()
+                                .set(hotelBookingCreateData);
+                          },
+                          text: FFLocalizations.of(context).getText(
+                            '4uur8s88' /* Book */,
+                          ),
+                          options: FFButtonOptions(
+                            width: 150.0,
+                            height: 45.0,
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                0.0, 0.0, 0.0, 0.0),
+                            color: Color(0xFFFA4918),
+                            textStyle: FlutterFlowTheme.of(context)
+                                .titleSmall
+                                .override(
+                                  fontFamily: 'Poppins',
+                                  color: Colors.white,
+                                  fontSize: 20.0,
                                 ),
-                                Padding(
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 15.0, 10.0, 0.0),
-                                  child: Text(
-                                    FFLocalizations.of(context).getText(
-                                      'gtrrmkqo' /* Price */,
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Poppins',
-                                          color: Color(0xFF3987D2),
-                                          fontSize: 18.0,
-                                        ),
-                                  ),
-                                ),
-                              ],
+                            elevation: 5.0,
+                            borderSide: BorderSide(
+                              color: Colors.transparent,
                             ),
-                            Divider(
-                              thickness: 1.0,
-                            ),
-                            FlutterFlowDropDown<String>(
-                              controller: _model.dropDownValueController1 ??=
-                                  FormFieldController<String>(null),
-                              options: [
-                                FFLocalizations.of(context).getText(
-                                  'o7jgumid' /* Gpay */,
-                                ),
-                                FFLocalizations.of(context).getText(
-                                  'klbzrhno' /* PayTM */,
-                                ),
-                                FFLocalizations.of(context).getText(
-                                  'aickdqtm' /* PhonePay */,
-                                )
-                              ],
-                              onChanged: (val) =>
-                                  setState(() => _model.dropDownValue1 = val),
-                              width: double.infinity,
-                              height: 50.0,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                  ),
-                              hintText: FFLocalizations.of(context).getText(
-                                'ntyf3oh1' /* All Upi Option... */,
-                              ),
-                              fillColor: Colors.white,
-                              elevation: 2.0,
-                              borderColor: Colors.transparent,
-                              borderWidth: 0.0,
-                              borderRadius: 0.0,
-                              margin: EdgeInsetsDirectional.fromSTEB(
-                                  12.0, 4.0, 12.0, 4.0),
-                              hidesUnderline: true,
-                              isSearchable: false,
-                            ),
-                            Divider(
-                              thickness: 1.0,
-                            ),
-                            FlutterFlowDropDown<String>(
-                              controller: _model.dropDownValueController2 ??=
-                                  FormFieldController<String>(null),
-                              options: [
-                                FFLocalizations.of(context).getText(
-                                  '2bbb12ac' /* Credit Card */,
-                                ),
-                                FFLocalizations.of(context).getText(
-                                  'hogzkxa8' /* Debit Card */,
-                                ),
-                                FFLocalizations.of(context).getText(
-                                  '1s83kmsq' /* ATM Card */,
-                                )
-                              ],
-                              onChanged: (val) =>
-                                  setState(() => _model.dropDownValue2 = val),
-                              width: double.infinity,
-                              height: 50.0,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                  ),
-                              hintText: FFLocalizations.of(context).getText(
-                                '41berice' /* Credit/Debit/ATM Card... */,
-                              ),
-                              fillColor: Colors.white,
-                              elevation: 2.0,
-                              borderColor: Colors.transparent,
-                              borderWidth: 0.0,
-                              borderRadius: 0.0,
-                              margin: EdgeInsetsDirectional.fromSTEB(
-                                  12.0, 4.0, 12.0, 4.0),
-                              hidesUnderline: true,
-                              isSearchable: false,
-                            ),
-                            Divider(
-                              thickness: 1.0,
-                            ),
-                            FlutterFlowDropDown<String>(
-                              controller: _model.dropDownValueController3 ??=
-                                  FormFieldController<String>(null),
-                              options: [
-                                FFLocalizations.of(context).getText(
-                                  'r7i20nwh' /* SBI  */,
-                                ),
-                                FFLocalizations.of(context).getText(
-                                  '3l5fbh92' /* Kotak Mahindra Bank */,
-                                ),
-                                FFLocalizations.of(context).getText(
-                                  'v8kvaz57' /* Canara Bank */,
-                                )
-                              ],
-                              onChanged: (val) =>
-                                  setState(() => _model.dropDownValue3 = val),
-                              width: double.infinity,
-                              height: 50.0,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                  ),
-                              hintText: FFLocalizations.of(context).getText(
-                                'iuqfxdu0' /* Net Banking.... */,
-                              ),
-                              fillColor: Colors.white,
-                              elevation: 2.0,
-                              borderColor: Colors.transparent,
-                              borderWidth: 0.0,
-                              borderRadius: 0.0,
-                              margin: EdgeInsetsDirectional.fromSTEB(
-                                  12.0, 4.0, 12.0, 4.0),
-                              hidesUnderline: true,
-                              isSearchable: false,
-                            ),
-                            Divider(
-                              thickness: 1.0,
-                            ),
-                            FlutterFlowDropDown<String>(
-                              controller: _model.dropDownValueController4 ??=
-                                  FormFieldController<String>(null),
-                              options: [
-                                FFLocalizations.of(context).getText(
-                                  'rkndfj8y' /* Gift Card */,
-                                ),
-                                FFLocalizations.of(context).getText(
-                                  'd9zrjh13' /* Wallets */,
-                                )
-                              ],
-                              onChanged: (val) =>
-                                  setState(() => _model.dropDownValue4 = val),
-                              width: double.infinity,
-                              height: 50.0,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: Colors.black,
-                                  ),
-                              hintText: FFLocalizations.of(context).getText(
-                                'lh28mh5w' /* Gift Card, Wallets & More... */,
-                              ),
-                              fillColor: Colors.white,
-                              elevation: 2.0,
-                              borderColor: Colors.transparent,
-                              borderWidth: 0.0,
-                              borderRadius: 0.0,
-                              margin: EdgeInsetsDirectional.fromSTEB(
-                                  12.0, 4.0, 12.0, 4.0),
-                              hidesUnderline: true,
-                              isSearchable: false,
-                            ),
-                          ],
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
                         ),
                       ],
                     ),

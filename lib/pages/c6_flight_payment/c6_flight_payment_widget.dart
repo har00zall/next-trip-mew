@@ -12,7 +12,20 @@ import 'c6_flight_payment_model.dart';
 export 'c6_flight_payment_model.dart';
 
 class C6FlightPaymentWidget extends StatefulWidget {
-  const C6FlightPaymentWidget({Key? key}) : super(key: key);
+  const C6FlightPaymentWidget({
+    Key? key,
+    required this.airlineName,
+    required this.from,
+    required this.to,
+    required this.dtime,
+    required this.duration,
+  }) : super(key: key);
+
+  final String? airlineName;
+  final String? from;
+  final String? to;
+  final String? dtime;
+  final String? duration;
 
   @override
   _C6FlightPaymentWidgetState createState() => _C6FlightPaymentWidgetState();

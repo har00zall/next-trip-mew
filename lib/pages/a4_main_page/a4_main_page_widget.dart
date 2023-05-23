@@ -6,6 +6,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart'
     as smooth_page_indicator;
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -1124,7 +1125,7 @@ class _A4MainPageWidgetState extends State<A4MainPageWidget> {
                                       size: 35.0,
                                     ),
                                     onPressed: () async {
-                                      context.pushNamed('C1Flight');
+                                      context.pushNamed('c1flight');
                                     },
                                   ),
                                   FlutterFlowIconButton(
@@ -1136,10 +1137,10 @@ class _A4MainPageWidgetState extends State<A4MainPageWidget> {
                                       Icons.train_rounded,
                                       color: FlutterFlowTheme.of(context)
                                           .primaryText,
-                                      size: 50.0,
+                                      size: 35.0,
                                     ),
                                     onPressed: () async {
-                                      context.pushNamed('D1Train');
+                                      context.pushNamed('d1train');
                                     },
                                   ),
                                   FlutterFlowIconButton(
@@ -1300,7 +1301,7 @@ class _A4MainPageWidgetState extends State<A4MainPageWidget> {
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       5.0, 0.0, 0.0, 0.0),
-                                  child: Text(
+                                  child: AutoSizeText(
                                     FFLocalizations.of(context).getText(
                                       '20ulucli' /* Holidays */,
                                     ),
@@ -1312,7 +1313,7 @@ class _A4MainPageWidgetState extends State<A4MainPageWidget> {
                                         ),
                                   ),
                                 ),
-                                Text(
+                                AutoSizeText(
                                   FFLocalizations.of(context).getText(
                                     'mp17hd6a' /* Honeymoon */,
                                   ),
@@ -1326,7 +1327,7 @@ class _A4MainPageWidgetState extends State<A4MainPageWidget> {
                                 Padding(
                                   padding: EdgeInsetsDirectional.fromSTEB(
                                       0.0, 0.0, 27.0, 0.0),
-                                  child: Text(
+                                  child: AutoSizeText(
                                     FFLocalizations.of(context).getText(
                                       '05bi380n' /* Historical */,
                                     ),
@@ -1438,7 +1439,7 @@ class _A4MainPageWidgetState extends State<A4MainPageWidget> {
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceAround,
                             children: [
-                              Text(
+                              AutoSizeText(
                                 FFLocalizations.of(context).getText(
                                   'e3l0y2ml' /* Event & Festivals */,
                                 ),
@@ -1446,20 +1447,30 @@ class _A4MainPageWidgetState extends State<A4MainPageWidget> {
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Poppins',
-                                      fontSize: 14.0,
+                                      fontSize: 12.0,
                                     ),
                               ),
-                              Text(
+                              AutoSizeText(
                                 FFLocalizations.of(context).getText(
                                   '3i01k1gb' /* Claim & Refunds */,
                                 ),
-                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      fontSize: 12.0,
+                                    ),
                               ),
-                              Text(
+                              AutoSizeText(
                                 FFLocalizations.of(context).getText(
                                   '7rm98ogy' /* Offer & Discount */,
                                 ),
-                                style: FlutterFlowTheme.of(context).bodyMedium,
+                                style: FlutterFlowTheme.of(context)
+                                    .bodyMedium
+                                    .override(
+                                      fontFamily: 'Poppins',
+                                      fontSize: 12.0,
+                                    ),
                               ),
                             ],
                           ),

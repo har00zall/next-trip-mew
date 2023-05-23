@@ -260,6 +260,54 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                           chennaiChennaiRecord.bedType1,
                                           ParamType.String,
                                         ),
+                                        'roomType2': serializeParam(
+                                          chennaiChennaiRecord.roomType2,
+                                          ParamType.String,
+                                        ),
+                                        'roomImage1': serializeParam(
+                                          (String image) {
+                                            return "https://nexttrip123.000webhostapp.com/${image.split('"')[1]}";
+                                          }(chennaiChennaiRecord.roomImage1),
+                                          ParamType.String,
+                                        ),
+                                        'bedType2': serializeParam(
+                                          chennaiChennaiRecord.bedType2,
+                                          ParamType.String,
+                                        ),
+                                        'roomView2': serializeParam(
+                                          chennaiChennaiRecord.roomView2,
+                                          ParamType.String,
+                                        ),
+                                        'roomSize2': serializeParam(
+                                          chennaiChennaiRecord.roomSize2,
+                                          ParamType.String,
+                                        ),
+                                        'toDate': serializeParam(
+                                          '',
+                                          ParamType.String,
+                                        ),
+                                        'checkIn': serializeParam(
+                                          chennaiChennaiRecord.checkIn,
+                                          ParamType.String,
+                                        ),
+                                        'checkOut': serializeParam(
+                                          chennaiChennaiRecord.checkOut,
+                                          ParamType.String,
+                                        ),
+                                        'roomImage2': serializeParam(
+                                          (String image) {
+                                            return "https://nexttrip123.000webhostapp.com/${image.split('"')[1]}";
+                                          }(chennaiChennaiRecord.roomImage2),
+                                          ParamType.String,
+                                        ),
+                                        'totalPrice': serializeParam(
+                                          (double.parse(chennaiChennaiRecord
+                                                      .price
+                                                      .toString()) +
+                                                  500)
+                                              .toString(),
+                                          ParamType.String,
+                                        ),
                                       }.withoutNulls,
                                     );
                                   },
@@ -438,68 +486,71 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                               ),
                                             ],
                                           ),
-                                          Expanded(
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Expanded(
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(5.0, 0.0,
-                                                                5.0, 0.0),
-                                                    child: AutoSizeText(
-                                                      chennaiChennaiRecord
-                                                          .hotelName,
-                                                      maxLines: 4,
-                                                      style:
-                                                          FlutterFlowTheme.of(
-                                                                  context)
-                                                              .bodyMedium
-                                                              .override(
-                                                                fontFamily:
-                                                                    'Poppins',
-                                                                fontSize: 18.0,
-                                                              ),
-                                                    ),
+                                          Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Expanded(
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          5.0, 0.0, 5.0, 0.0),
+                                                  child: AutoSizeText(
+                                                    chennaiChennaiRecord
+                                                        .hotelName,
+                                                    maxLines: 4,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 18.0,
+                                                        ),
                                                   ),
                                                 ),
-                                              ],
-                                            ),
+                                              ),
+                                            ],
                                           ),
                                           Expanded(
-                                            child: Row(
-                                              mainAxisSize: MainAxisSize.max,
-                                              mainAxisAlignment:
-                                                  MainAxisAlignment
-                                                      .spaceBetween,
-                                              crossAxisAlignment:
-                                                  CrossAxisAlignment.start,
-                                              children: [
-                                                Expanded(
-                                                  child: Padding(
-                                                    padding:
-                                                        EdgeInsetsDirectional
-                                                            .fromSTEB(5.0, 0.0,
-                                                                5.0, 0.0),
-                                                    child: AutoSizeText(
-                                                      chennaiChennaiRecord
-                                                          .hotelAddress,
-                                                      maxLines: 4,
-                                                      style: FlutterFlowTheme
-                                                              .of(context)
-                                                          .bodyMedium
-                                                          .override(
-                                                            fontFamily:
-                                                                'Poppins',
-                                                            color: Colors.black,
-                                                          ),
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 8.0, 0.0, 0.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                mainAxisAlignment:
+                                                    MainAxisAlignment
+                                                        .spaceBetween,
+                                                crossAxisAlignment:
+                                                    CrossAxisAlignment.start,
+                                                children: [
+                                                  Expanded(
+                                                    child: Padding(
+                                                      padding:
+                                                          EdgeInsetsDirectional
+                                                              .fromSTEB(
+                                                                  5.0,
+                                                                  0.0,
+                                                                  5.0,
+                                                                  0.0),
+                                                      child: AutoSizeText(
+                                                        chennaiChennaiRecord
+                                                            .hotelAddress,
+                                                        maxLines: 6,
+                                                        style: FlutterFlowTheme
+                                                                .of(context)
+                                                            .bodyMedium
+                                                            .override(
+                                                              fontFamily:
+                                                                  'Poppins',
+                                                              color:
+                                                                  Colors.black,
+                                                            ),
+                                                      ),
                                                     ),
                                                   ),
-                                                ),
-                                              ],
+                                                ],
+                                              ),
                                             ),
                                           ),
                                           Row(
@@ -507,6 +558,20 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                             mainAxisAlignment:
                                                 MainAxisAlignment.end,
                                             children: [
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 3.0, 0.0),
+                                                child: Text(
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    '77t4n0zi' /* Price: */,
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium,
+                                                ),
+                                              ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
@@ -519,7 +584,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Poppins',
-                                                        fontSize: 16.0,
+                                                        fontSize: 14.0,
                                                       ),
                                                 ),
                                               ),
@@ -530,6 +595,24 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                             mainAxisAlignment:
                                                 MainAxisAlignment.end,
                                             children: [
+                                              Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        0.0, 0.0, 3.0, 0.0),
+                                                child: Text(
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    '7t8u862j' /* Taxes & fees: */,
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 12.0,
+                                                      ),
+                                                ),
+                                              ),
                                               Padding(
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
@@ -544,7 +627,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Poppins',
-                                                        fontSize: 14.0,
+                                                        fontSize: 12.0,
                                                       ),
                                                 ),
                                               ),
@@ -559,6 +642,15 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.end,
                                               children: [
+                                                Text(
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    '3nsqu95x' /* Total price: */,
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium,
+                                                ),
                                                 Padding(
                                                   padding: EdgeInsetsDirectional
                                                       .fromSTEB(
@@ -574,7 +666,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Poppins',
-                                                          fontSize: 16.0,
+                                                          fontSize: 14.0,
                                                         ),
                                                   ),
                                                 ),
@@ -711,6 +803,53 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                     ),
                                     'bedType1': serializeParam(
                                       jaipurJaipurRecord.bedType1,
+                                      ParamType.String,
+                                    ),
+                                    'roomImage1': serializeParam(
+                                      (String image) {
+                                        return "https://nexttrip123.000webhostapp.com/${image.split('"')[1]}";
+                                      }(jaipurJaipurRecord.roomImage1),
+                                      ParamType.String,
+                                    ),
+                                    'roomType2': serializeParam(
+                                      jaipurJaipurRecord.roomType2,
+                                      ParamType.String,
+                                    ),
+                                    'bedType2': serializeParam(
+                                      jaipurJaipurRecord.bedType2,
+                                      ParamType.String,
+                                    ),
+                                    'roomView2': serializeParam(
+                                      jaipurJaipurRecord.roomView2,
+                                      ParamType.String,
+                                    ),
+                                    'roomSize2': serializeParam(
+                                      jaipurJaipurRecord.roomSize2,
+                                      ParamType.String,
+                                    ),
+                                    'toDate': serializeParam(
+                                      '',
+                                      ParamType.String,
+                                    ),
+                                    'checkIn': serializeParam(
+                                      jaipurJaipurRecord.checkIn,
+                                      ParamType.String,
+                                    ),
+                                    'checkOut': serializeParam(
+                                      jaipurJaipurRecord.checkOut,
+                                      ParamType.String,
+                                    ),
+                                    'roomImage2': serializeParam(
+                                      (String image) {
+                                        return "https://nexttrip123.000webhostapp.com/${image.split('"')[1]}";
+                                      }(jaipurJaipurRecord.roomImage2),
+                                      ParamType.String,
+                                    ),
+                                    'totalPrice': serializeParam(
+                                      (double.parse(jaipurJaipurRecord.price
+                                                  .toString()) +
+                                              500)
+                                          .toString(),
                                       ParamType.String,
                                     ),
                                   }.withoutNulls,
@@ -869,61 +1008,63 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                           ),
                                         ],
                                       ),
-                                      Expanded(
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Expanded(
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        5.0, 0.0, 5.0, 0.0),
-                                                child: AutoSizeText(
-                                                  jaipurJaipurRecord.hotelName,
-                                                  maxLines: 4,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        fontSize: 18.0,
-                                                      ),
-                                                ),
+                                      Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Expanded(
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(5.0, 0.0, 5.0, 0.0),
+                                              child: AutoSizeText(
+                                                jaipurJaipurRecord.hotelName,
+                                                maxLines: 4,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 18.0,
+                                                        ),
                                               ),
                                             ),
-                                          ],
-                                        ),
+                                          ),
+                                        ],
                                       ),
                                       Expanded(
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Expanded(
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        5.0, 0.0, 5.0, 0.0),
-                                                child: AutoSizeText(
-                                                  jaipurJaipurRecord
-                                                      .hotelAddress,
-                                                  maxLines: 4,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color: Colors.black,
-                                                      ),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 8.0, 0.0, 0.0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Expanded(
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          5.0, 0.0, 5.0, 0.0),
+                                                  child: AutoSizeText(
+                                                    jaipurJaipurRecord
+                                                        .hotelAddress,
+                                                    maxLines: 6,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: Colors.black,
+                                                        ),
+                                                  ),
                                                 ),
                                               ),
-                                            ),
-                                          ],
+                                            ],
+                                          ),
                                         ),
                                       ),
                                       Row(
@@ -931,6 +1072,20 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.end,
                                         children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 3.0, 0.0),
+                                            child: Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'no3e4bmz' /* Price: */,
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium,
+                                            ),
+                                          ),
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -943,7 +1098,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Poppins',
-                                                        fontSize: 16.0,
+                                                        fontSize: 14.0,
                                                       ),
                                             ),
                                           ),
@@ -954,6 +1109,20 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.end,
                                         children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 3.0, 0.0),
+                                            child: Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'nr9grdnv' /* Taxes & fees: */,
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium,
+                                            ),
+                                          ),
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -968,7 +1137,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Poppins',
-                                                        fontSize: 14.0,
+                                                        fontSize: 12.0,
                                                       ),
                                             ),
                                           ),
@@ -984,6 +1153,19 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                           children: [
                                             Padding(
                                               padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 3.0, 0.0),
+                                              child: Text(
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  '3czo50bo' /* Total price: */,
+                                                ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium,
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 0.0, 10.0, 0.0),
                                               child: Text(
@@ -997,7 +1179,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Poppins',
-                                                          fontSize: 16.0,
+                                                          fontSize: 14.0,
                                                         ),
                                               ),
                                             ),
@@ -1132,6 +1314,51 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                     ),
                                     'bedType1': serializeParam(
                                       hydHyderabadRecord.bedType1,
+                                      ParamType.String,
+                                    ),
+                                    'roomImage1': serializeParam(
+                                      (String image) {
+                                        return "https://nexttrip123.000webhostapp.com/${image.split('"')[1]}";
+                                      }(hydHyderabadRecord.roomImage1),
+                                      ParamType.String,
+                                    ),
+                                    'roomType2': serializeParam(
+                                      hydHyderabadRecord.roomType2,
+                                      ParamType.String,
+                                    ),
+                                    'bedType2': serializeParam(
+                                      hydHyderabadRecord.bedType2,
+                                      ParamType.String,
+                                    ),
+                                    'roomView2': serializeParam(
+                                      hydHyderabadRecord.roomView2,
+                                      ParamType.String,
+                                    ),
+                                    'roomSize2': serializeParam(
+                                      hydHyderabadRecord.roomSize2,
+                                      ParamType.String,
+                                    ),
+                                    'toDate': serializeParam(
+                                      '',
+                                      ParamType.String,
+                                    ),
+                                    'checkIn': serializeParam(
+                                      hydHyderabadRecord.checkIn,
+                                      ParamType.String,
+                                    ),
+                                    'checkOut': serializeParam(
+                                      hydHyderabadRecord.checkOut,
+                                      ParamType.String,
+                                    ),
+                                    'roomImage2': serializeParam(
+                                      hydHyderabadRecord.roomImage2,
+                                      ParamType.String,
+                                    ),
+                                    'totalPrice': serializeParam(
+                                      (double.parse(hydHyderabadRecord.price
+                                                  .toString()) +
+                                              500)
+                                          .toString(),
                                       ParamType.String,
                                     ),
                                   }.withoutNulls,
@@ -1290,61 +1517,63 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                           ),
                                         ],
                                       ),
-                                      Expanded(
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Expanded(
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        5.0, 0.0, 5.0, 0.0),
-                                                child: AutoSizeText(
-                                                  hydHyderabadRecord.hotelName,
-                                                  maxLines: 4,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        fontSize: 18.0,
-                                                      ),
-                                                ),
+                                      Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Expanded(
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(5.0, 0.0, 5.0, 0.0),
+                                              child: AutoSizeText(
+                                                hydHyderabadRecord.hotelName,
+                                                maxLines: 4,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 18.0,
+                                                        ),
                                               ),
                                             ),
-                                          ],
-                                        ),
+                                          ),
+                                        ],
                                       ),
                                       Expanded(
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Expanded(
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        5.0, 0.0, 5.0, 0.0),
-                                                child: AutoSizeText(
-                                                  hydHyderabadRecord
-                                                      .hotelAddress,
-                                                  maxLines: 4,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color: Colors.black,
-                                                      ),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 8.0, 0.0, 0.0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Expanded(
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          5.0, 0.0, 5.0, 0.0),
+                                                  child: AutoSizeText(
+                                                    hydHyderabadRecord
+                                                        .hotelAddress,
+                                                    maxLines: 4,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: Colors.black,
+                                                        ),
+                                                  ),
                                                 ),
                                               ),
-                                            ),
-                                          ],
+                                            ],
+                                          ),
                                         ),
                                       ),
                                       Row(
@@ -1352,6 +1581,20 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.end,
                                         children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 3.0, 0.0),
+                                            child: Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                '31tsjyw5' /* Price: */,
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium,
+                                            ),
+                                          ),
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -1364,7 +1607,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Poppins',
-                                                        fontSize: 16.0,
+                                                        fontSize: 14.0,
                                                       ),
                                             ),
                                           ),
@@ -1375,6 +1618,24 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.end,
                                         children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 3.0, 0.0),
+                                            child: Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'ren94rp7' /* Taxes & fees: */,
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 12.0,
+                                                      ),
+                                            ),
+                                          ),
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -1389,7 +1650,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Poppins',
-                                                        fontSize: 14.0,
+                                                        fontSize: 12.0,
                                                       ),
                                             ),
                                           ),
@@ -1405,6 +1666,19 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                           children: [
                                             Padding(
                                               padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 3.0, 0.0),
+                                              child: Text(
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'xj7pjgh7' /* Total price: */,
+                                                ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium,
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 0.0, 10.0, 0.0),
                                               child: Text(
@@ -1418,7 +1692,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Poppins',
-                                                          fontSize: 16.0,
+                                                          fontSize: 14.0,
                                                         ),
                                               ),
                                             ),
@@ -1554,6 +1828,52 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                     ),
                                     'bedType1': serializeParam(
                                       bangaloreBangaloreRecord.bedType1,
+                                      ParamType.String,
+                                    ),
+                                    'roomImage1': serializeParam(
+                                      (String image) {
+                                        return "https://nexttrip123.000webhostapp.com/${image.split('"')[1]}";
+                                      }(bangaloreBangaloreRecord.roomImage1),
+                                      ParamType.String,
+                                    ),
+                                    'roomType2': serializeParam(
+                                      bangaloreBangaloreRecord.roomType2,
+                                      ParamType.String,
+                                    ),
+                                    'bedType2': serializeParam(
+                                      bangaloreBangaloreRecord.bedType2,
+                                      ParamType.String,
+                                    ),
+                                    'roomView2': serializeParam(
+                                      bangaloreBangaloreRecord.roomView2,
+                                      ParamType.String,
+                                    ),
+                                    'roomSize2': serializeParam(
+                                      bangaloreBangaloreRecord.roomSize2,
+                                      ParamType.String,
+                                    ),
+                                    'toDate': serializeParam(
+                                      '',
+                                      ParamType.String,
+                                    ),
+                                    'checkIn': serializeParam(
+                                      bangaloreBangaloreRecord.checkIn,
+                                      ParamType.String,
+                                    ),
+                                    'checkOut': serializeParam(
+                                      bangaloreBangaloreRecord.checkOut,
+                                      ParamType.String,
+                                    ),
+                                    'roomImage2': serializeParam(
+                                      bangaloreBangaloreRecord.checkOut,
+                                      ParamType.String,
+                                    ),
+                                    'totalPrice': serializeParam(
+                                      (double.parse(bangaloreBangaloreRecord
+                                                  .price
+                                                  .toString()) +
+                                              500)
+                                          .toString(),
                                       ParamType.String,
                                     ),
                                   }.withoutNulls,
@@ -1714,61 +2034,64 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                           ),
                                         ],
                                       ),
-                                      Expanded(
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Expanded(
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        5.0, 0.0, 5.0, 0.0),
-                                                child: AutoSizeText(
-                                                  bangaloreBangaloreRecord
-                                                      .hotelName,
-                                                  maxLines: 4,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        fontSize: 18.0,
-                                                      ),
-                                                ),
+                                      Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Expanded(
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(5.0, 0.0, 5.0, 0.0),
+                                              child: AutoSizeText(
+                                                bangaloreBangaloreRecord
+                                                    .hotelName,
+                                                maxLines: 4,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 18.0,
+                                                        ),
                                               ),
                                             ),
-                                          ],
-                                        ),
+                                          ),
+                                        ],
                                       ),
                                       Expanded(
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Expanded(
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        5.0, 0.0, 5.0, 0.0),
-                                                child: AutoSizeText(
-                                                  bangaloreBangaloreRecord
-                                                      .hotelAddress,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color: Colors.black,
-                                                      ),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 8.0, 0.0, 0.0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Expanded(
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          5.0, 0.0, 5.0, 0.0),
+                                                  child: AutoSizeText(
+                                                    bangaloreBangaloreRecord
+                                                        .hotelAddress,
+                                                    maxLines: 6,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: Colors.black,
+                                                        ),
+                                                  ),
                                                 ),
                                               ),
-                                            ),
-                                          ],
+                                            ],
+                                          ),
                                         ),
                                       ),
                                       Row(
@@ -1776,6 +2099,20 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.end,
                                         children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 3.0, 0.0),
+                                            child: Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                '4unn0pxr' /* Price: */,
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium,
+                                            ),
+                                          ),
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -1788,7 +2125,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Poppins',
-                                                        fontSize: 18.0,
+                                                        fontSize: 14.0,
                                                       ),
                                             ),
                                           ),
@@ -1799,6 +2136,24 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.end,
                                         children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 3.0, 0.0),
+                                            child: Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'psy636zz' /* Taxes & fees: */,
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 12.0,
+                                                      ),
+                                            ),
+                                          ),
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -1813,7 +2168,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Poppins',
-                                                        fontSize: 14.0,
+                                                        fontSize: 12.0,
                                                       ),
                                             ),
                                           ),
@@ -1827,6 +2182,19 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                           mainAxisAlignment:
                                               MainAxisAlignment.end,
                                           children: [
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 3.0, 0.0),
+                                              child: Text(
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  '2vwyafl7' /* Total price: */,
+                                                ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium,
+                                              ),
+                                            ),
                                             Padding(
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(
@@ -1843,7 +2211,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Poppins',
-                                                          fontSize: 16.0,
+                                                          fontSize: 14.0,
                                                         ),
                                               ),
                                             ),
@@ -1976,6 +2344,53 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                     ),
                                     'bedType1': serializeParam(
                                       '',
+                                      ParamType.String,
+                                    ),
+                                    'roomImage1': serializeParam(
+                                      (String image) {
+                                        return "https://nexttrip123.000webhostapp.com/${image.split('"')[1]}";
+                                      }(goaGoaRecord.roomImage1),
+                                      ParamType.String,
+                                    ),
+                                    'roomType2': serializeParam(
+                                      goaGoaRecord.roomType2,
+                                      ParamType.String,
+                                    ),
+                                    'bedType2': serializeParam(
+                                      goaGoaRecord.bedType2,
+                                      ParamType.String,
+                                    ),
+                                    'roomView2': serializeParam(
+                                      goaGoaRecord.roomView2,
+                                      ParamType.String,
+                                    ),
+                                    'roomSize2': serializeParam(
+                                      goaGoaRecord.roomSize2,
+                                      ParamType.String,
+                                    ),
+                                    'toDate': serializeParam(
+                                      '',
+                                      ParamType.String,
+                                    ),
+                                    'checkIn': serializeParam(
+                                      goaGoaRecord.checkIn,
+                                      ParamType.String,
+                                    ),
+                                    'checkOut': serializeParam(
+                                      goaGoaRecord.checkOut,
+                                      ParamType.String,
+                                    ),
+                                    'roomImage2': serializeParam(
+                                      (String image) {
+                                        return "https://nexttrip123.000webhostapp.com/${image.split('"')[1]}";
+                                      }(goaGoaRecord.roomImage2),
+                                      ParamType.String,
+                                    ),
+                                    'totalPrice': serializeParam(
+                                      (double.parse(goaGoaRecord.price
+                                                  .toString()) +
+                                              500)
+                                          .toString(),
                                       ParamType.String,
                                     ),
                                   }.withoutNulls,
@@ -2133,58 +2548,60 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                           ),
                                         ],
                                       ),
-                                      Expanded(
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Expanded(
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        5.0, 0.0, 5.0, 0.0),
-                                                child: AutoSizeText(
-                                                  goaGoaRecord.hotelName,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        fontSize: 18.0,
-                                                      ),
-                                                ),
+                                      Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                        children: [
+                                          Expanded(
+                                            child: Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(5.0, 0.0, 5.0, 0.0),
+                                              child: AutoSizeText(
+                                                goaGoaRecord.hotelName,
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 18.0,
+                                                        ),
                                               ),
                                             ),
-                                          ],
-                                        ),
+                                          ),
+                                        ],
                                       ),
                                       Expanded(
-                                        child: Row(
-                                          mainAxisSize: MainAxisSize.max,
-                                          mainAxisAlignment:
-                                              MainAxisAlignment.spaceBetween,
-                                          crossAxisAlignment:
-                                              CrossAxisAlignment.start,
-                                          children: [
-                                            Expanded(
-                                              child: Padding(
-                                                padding: EdgeInsetsDirectional
-                                                    .fromSTEB(
-                                                        5.0, 0.0, 5.0, 0.0),
-                                                child: AutoSizeText(
-                                                  goaGoaRecord.hotelAddress,
-                                                  style: FlutterFlowTheme.of(
-                                                          context)
-                                                      .bodyMedium
-                                                      .override(
-                                                        fontFamily: 'Poppins',
-                                                        color: Colors.black,
-                                                      ),
+                                        child: Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  0.0, 8.0, 0.0, 0.0),
+                                          child: Row(
+                                            mainAxisSize: MainAxisSize.max,
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.spaceBetween,
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: [
+                                              Expanded(
+                                                child: Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          5.0, 0.0, 5.0, 0.0),
+                                                  child: AutoSizeText(
+                                                    goaGoaRecord.hotelAddress,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          color: Colors.black,
+                                                        ),
+                                                  ),
                                                 ),
                                               ),
-                                            ),
-                                          ],
+                                            ],
+                                          ),
                                         ),
                                       ),
                                       Row(
@@ -2192,6 +2609,20 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.end,
                                         children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 3.0, 0.0),
+                                            child: Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'g8f9rlk2' /* Price: */,
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium,
+                                            ),
+                                          ),
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -2203,7 +2634,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Poppins',
-                                                        fontSize: 16.0,
+                                                        fontSize: 14.0,
                                                       ),
                                             ),
                                           ),
@@ -2214,6 +2645,24 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                         mainAxisAlignment:
                                             MainAxisAlignment.end,
                                         children: [
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 3.0, 0.0),
+                                            child: Text(
+                                              FFLocalizations.of(context)
+                                                  .getText(
+                                                'h4cp871v' /* Taxes & fees: */,
+                                              ),
+                                              style:
+                                                  FlutterFlowTheme.of(context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 12.0,
+                                                      ),
+                                            ),
+                                          ),
                                           Padding(
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -2228,7 +2677,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                       .bodyMedium
                                                       .override(
                                                         fontFamily: 'Poppins',
-                                                        fontSize: 14.0,
+                                                        fontSize: 12.0,
                                                       ),
                                             ),
                                           ),
@@ -2244,6 +2693,19 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                           children: [
                                             Padding(
                                               padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 3.0, 0.0),
+                                              child: Text(
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  '7b4kah1u' /* Total price: */,
+                                                ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium,
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
                                                   .fromSTEB(
                                                       0.0, 0.0, 10.0, 0.0),
                                               child: Text(
@@ -2256,7 +2718,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Poppins',
-                                                          fontSize: 16.0,
+                                                          fontSize: 14.0,
                                                         ),
                                               ),
                                             ),
@@ -2327,14 +2789,43 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                               bcfBusinessClassFlightRecordList[bcfIndex];
                           return Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                10.0, 5.0, 10.0, 0.0),
+                                10.0, 0.0, 10.0, 0.0),
                             child: InkWell(
                               splashColor: Colors.transparent,
                               focusColor: Colors.transparent,
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                context.pushNamed('C3FlightReview');
+                                context.pushNamed(
+                                  'C3FlightReview',
+                                  queryParams: {
+                                    'airlineName': serializeParam(
+                                      bcfBusinessClassFlightRecord.flightName,
+                                      ParamType.String,
+                                    ),
+                                    'from': serializeParam(
+                                      bcfBusinessClassFlightRecord.from,
+                                      ParamType.String,
+                                    ),
+                                    'to': serializeParam(
+                                      bcfBusinessClassFlightRecord.to,
+                                      ParamType.String,
+                                    ),
+                                    'dTime': serializeParam(
+                                      bcfBusinessClassFlightRecord.time,
+                                      ParamType.String,
+                                    ),
+                                    'duration': serializeParam(
+                                      bcfBusinessClassFlightRecord.duration,
+                                      ParamType.String,
+                                    ),
+                                    'price': serializeParam(
+                                      bcfBusinessClassFlightRecord.price
+                                          .toString(),
+                                      ParamType.String,
+                                    ),
+                                  }.withoutNulls,
+                                );
                               },
                               child: Material(
                                 color: Colors.transparent,
@@ -2653,7 +3144,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                   ),
                 ),
                 Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 20.0),
+                  padding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 10.0),
                   child: StreamBuilder<List<EconomyClassFlightRecord>>(
                     stream: queryEconomyClassFlightRecord(
                       queryBuilder: (economyClassFlightRecord) =>
@@ -2676,7 +3167,6 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                       widget.percentageToExpense,
                                       widget.transportation))
                               .where('From', isEqualTo: widget.currentCity),
-                      limit: 10,
                     ),
                     builder: (context, snapshot) {
                       // Customize what your widget looks like when it's loading.
@@ -2703,14 +3193,43 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                               ecfEconomyClassFlightRecordList[ecfIndex];
                           return Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                10.0, 5.0, 10.0, 0.0),
+                                10.0, 0.0, 10.0, 0.0),
                             child: InkWell(
                               splashColor: Colors.transparent,
                               focusColor: Colors.transparent,
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                context.pushNamed('C3FlightReview');
+                                context.pushNamed(
+                                  'C3FlightReview',
+                                  queryParams: {
+                                    'airlineName': serializeParam(
+                                      ecfEconomyClassFlightRecord.flightName,
+                                      ParamType.String,
+                                    ),
+                                    'from': serializeParam(
+                                      ecfEconomyClassFlightRecord.from,
+                                      ParamType.String,
+                                    ),
+                                    'to': serializeParam(
+                                      ecfEconomyClassFlightRecord.to,
+                                      ParamType.String,
+                                    ),
+                                    'dTime': serializeParam(
+                                      ecfEconomyClassFlightRecord.time,
+                                      ParamType.String,
+                                    ),
+                                    'price': serializeParam(
+                                      ecfEconomyClassFlightRecord.price
+                                          .toString(),
+                                      ParamType.String,
+                                    ),
+                                    'duration': serializeParam(
+                                      '',
+                                      ParamType.String,
+                                    ),
+                                  }.withoutNulls,
+                                );
                               },
                               child: Material(
                                 color: Colors.transparent,
@@ -3040,7 +3559,6 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                   widget.percentageToExpense,
                                   widget.transportation))
                           .where('From', isEqualTo: widget.currentCity),
-                      limit: 10,
                     ),
                     builder: (context, snapshot) {
                       // Customize what your widget looks like when it's loading.
@@ -3066,14 +3584,50 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                               traiTrainRecordList[traiIndex];
                           return Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 0.0, 10.0),
+                                0.0, 0.0, 0.0, 5.0),
                             child: InkWell(
                               splashColor: Colors.transparent,
                               focusColor: Colors.transparent,
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                context.pushNamed('D3TrainReview');
+                                context.pushNamed(
+                                  'D6TrainPayment',
+                                  queryParams: {
+                                    'duration': serializeParam(
+                                      '',
+                                      ParamType.String,
+                                    ),
+                                    'boardingStation': serializeParam(
+                                      '',
+                                      ParamType.String,
+                                    ),
+                                    'arrivalStation': serializeParam(
+                                      '',
+                                      ParamType.String,
+                                    ),
+                                    'classType': serializeParam(
+                                      '',
+                                      ParamType.String,
+                                    ),
+                                    'depTime': serializeParam(
+                                      '',
+                                      ParamType.String,
+                                    ),
+                                    'ariTime': serializeParam(
+                                      '',
+                                      ParamType.String,
+                                    ),
+                                    'price': serializeParam(
+                                      0,
+                                      ParamType.int,
+                                    ),
+                                    'trainName': serializeParam(
+                                      '',
+                                      ParamType.String,
+                                    ),
+                                  }.withoutNulls,
+                                );
                               },
                               child: Material(
                                 color: Colors.transparent,
@@ -3083,7 +3637,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                 ),
                                 child: Container(
                                   width: 100.0,
-                                  height: 220.0,
+                                  height: 300.0,
                                   decoration: BoxDecoration(
                                     color: FlutterFlowTheme.of(context)
                                         .secondaryBackground,
@@ -3125,20 +3679,25 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                     },
                                                   ),
                                                 ),
-                                                Padding(
-                                                  padding: EdgeInsetsDirectional
-                                                      .fromSTEB(
-                                                          5.0, 0.0, 0.0, 0.0),
-                                                  child: Text(
-                                                    traiTrainRecord.trainName,
-                                                    style: FlutterFlowTheme.of(
-                                                            context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color: Colors.black,
-                                                          fontSize: 18.0,
-                                                        ),
+                                                Expanded(
+                                                  child: Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(5.0, 0.0,
+                                                                0.0, 0.0),
+                                                    child: Text(
+                                                      traiTrainRecord.trainName,
+                                                      maxLines: 3,
+                                                      style: FlutterFlowTheme
+                                                              .of(context)
+                                                          .bodyMedium
+                                                          .override(
+                                                            fontFamily:
+                                                                'Poppins',
+                                                            color: Colors.black,
+                                                            fontSize: 16.0,
+                                                          ),
+                                                    ),
                                                   ),
                                                 ),
                                               ],
@@ -3179,20 +3738,174 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceBetween,
                                           children: [
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(
-                                                      15.0, 0.0, 0.0, 0.0),
-                                              child: Text(
-                                                traiTrainRecord.time,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
+                                            Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          15.0, 0.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    FFLocalizations.of(context)
+                                                        .getText(
+                                                      'q1gl4m7w' /* Time: */,
+                                                    ),
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium
+                                                        .override(
+                                                          fontFamily: 'Poppins',
+                                                          fontSize: 16.0,
+                                                        ),
+                                                  ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          3.0, 0.0, 0.0, 0.0),
+                                                  child: Text(
+                                                    traiTrainRecord.time,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
                                                         .bodyMedium
                                                         .override(
                                                           fontFamily: 'Poppins',
                                                           color: Colors.black,
                                                           fontSize: 16.0,
                                                         ),
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                            Row(
+                                              mainAxisSize: MainAxisSize.max,
+                                              children: [
+                                                Text(
+                                                  FFLocalizations.of(context)
+                                                      .getText(
+                                                    '6ro1jery' /* Duration: */,
+                                                  ),
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        fontSize: 16.0,
+                                                      ),
+                                                ),
+                                                Padding(
+                                                  padding: EdgeInsetsDirectional
+                                                      .fromSTEB(
+                                                          3.0, 0.0, 15.0, 0.0),
+                                                  child: Text(
+                                                    traiTrainRecord.duration,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium,
+                                                  ),
+                                                ),
+                                              ],
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 5.0, 0.0, 0.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      10.0, 0.0, 0.0, 0.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                3.0, 0.0),
+                                                    child: Text(
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        '3w64vlzz' /* From: */,
+                                                      ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium,
+                                                    ),
+                                                  ),
+                                                  Text(
+                                                    traiTrainRecord.from,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium,
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      0.0, 0.0, 10.0, 0.0),
+                                              child: Row(
+                                                mainAxisSize: MainAxisSize.max,
+                                                children: [
+                                                  Padding(
+                                                    padding:
+                                                        EdgeInsetsDirectional
+                                                            .fromSTEB(0.0, 0.0,
+                                                                3.0, 0.0),
+                                                    child: Text(
+                                                      FFLocalizations.of(
+                                                              context)
+                                                          .getText(
+                                                        'wpcmlsif' /* To: */,
+                                                      ),
+                                                      style:
+                                                          FlutterFlowTheme.of(
+                                                                  context)
+                                                              .bodyMedium,
+                                                    ),
+                                                  ),
+                                                  Text(
+                                                    traiTrainRecord.to,
+                                                    style: FlutterFlowTheme.of(
+                                                            context)
+                                                        .bodyMedium,
+                                                  ),
+                                                ],
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                      ),
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            0.0, 10.0, 0.0, 0.0),
+                                        child: Row(
+                                          mainAxisSize: MainAxisSize.max,
+                                          mainAxisAlignment:
+                                              MainAxisAlignment.spaceBetween,
+                                          children: [
+                                            Padding(
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(
+                                                      15.0, 0.0, 0.0, 0.0),
+                                              child: Text(
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  'cnz91nzw' /* Boarding Station */,
+                                                ),
+                                                style:
+                                                    FlutterFlowTheme.of(context)
+                                                        .bodyMedium,
                                               ),
                                             ),
                                             Padding(
@@ -3200,7 +3913,10 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                   .fromSTEB(
                                                       0.0, 0.0, 15.0, 0.0),
                                               child: Text(
-                                                traiTrainRecord.duration,
+                                                FFLocalizations.of(context)
+                                                    .getText(
+                                                  '4cujinqu' /* Arrival Station */,
+                                                ),
                                                 style:
                                                     FlutterFlowTheme.of(context)
                                                         .bodyMedium,
@@ -3211,7 +3927,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                       ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 5.0, 0.0, 0.0),
+                                            0.0, 3.0, 0.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
@@ -3300,9 +4016,37 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                           ],
                                         ),
                                       ),
+                                      Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        mainAxisAlignment:
+                                            MainAxisAlignment.spaceEvenly,
+                                        children: [
+                                          Text(
+                                            FFLocalizations.of(context).getText(
+                                              'aldlfjn8' /* AC_1A-Tier */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium,
+                                          ),
+                                          Text(
+                                            FFLocalizations.of(context).getText(
+                                              'anq8dbcf' /* AC _2A-Tier */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium,
+                                          ),
+                                          Text(
+                                            FFLocalizations.of(context).getText(
+                                              'l8aoa3y5' /* AC_3A-Tier */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium,
+                                          ),
+                                        ],
+                                      ),
                                       Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
-                                            0.0, 3.0, 0.0, 0.0),
+                                            0.0, 5.0, 0.0, 0.0),
                                         child: Row(
                                           mainAxisSize: MainAxisSize.max,
                                           mainAxisAlignment:
@@ -3316,7 +4060,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                   .toString(),
                                               options: FFButtonOptions(
                                                 width: 110.0,
-                                                height: 45.0,
+                                                height: 40.0,
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 0.0),
@@ -3350,7 +4094,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                   .toString(),
                                               options: FFButtonOptions(
                                                 width: 110.0,
-                                                height: 45.0,
+                                                height: 40.0,
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 0.0),
@@ -3384,7 +4128,7 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                                   .toString(),
                                               options: FFButtonOptions(
                                                 width: 110.0,
-                                                height: 45.0,
+                                                height: 40.0,
                                                 padding: EdgeInsetsDirectional
                                                     .fromSTEB(
                                                         0.0, 0.0, 0.0, 0.0),
@@ -3480,7 +4224,39 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                context.pushNamed('E3BusSelectSet');
+                                context.pushNamed(
+                                  'E3BusSelectSet',
+                                  queryParams: {
+                                    'busName': serializeParam(
+                                      acbusAcbusRecord.busName,
+                                      ParamType.String,
+                                    ),
+                                    'busType': serializeParam(
+                                      acbusAcbusRecord.acSleeper.toString(),
+                                      ParamType.String,
+                                    ),
+                                    'time': serializeParam(
+                                      acbusAcbusRecord.time,
+                                      ParamType.String,
+                                    ),
+                                    'price': serializeParam(
+                                      acbusAcbusRecord.acSleeper.toString(),
+                                      ParamType.String,
+                                    ),
+                                    'boardingStation': serializeParam(
+                                      '',
+                                      ParamType.String,
+                                    ),
+                                    'duration': serializeParam(
+                                      acbusAcbusRecord.duration,
+                                      ParamType.String,
+                                    ),
+                                    'arrivalStation': serializeParam(
+                                      acbusAcbusRecord.destination,
+                                      ParamType.String,
+                                    ),
+                                  }.withoutNulls,
+                                );
                               },
                               child: Material(
                                 color: Colors.transparent,
@@ -3927,7 +4703,41 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                               hoverColor: Colors.transparent,
                               highlightColor: Colors.transparent,
                               onTap: () async {
-                                context.pushNamed('E3BusSelectSet');
+                                context.pushNamed(
+                                  'E3BusSelectSet',
+                                  queryParams: {
+                                    'busName': serializeParam(
+                                      nonbusNonAcBusRecord.busName,
+                                      ParamType.String,
+                                    ),
+                                    'busType': serializeParam(
+                                      nonbusNonAcBusRecord.nonACSeater
+                                          .toString(),
+                                      ParamType.String,
+                                    ),
+                                    'time': serializeParam(
+                                      nonbusNonAcBusRecord.time,
+                                      ParamType.String,
+                                    ),
+                                    'price': serializeParam(
+                                      nonbusNonAcBusRecord.nonACSeater
+                                          .toString(),
+                                      ParamType.String,
+                                    ),
+                                    'boardingStation': serializeParam(
+                                      nonbusNonAcBusRecord.boarding,
+                                      ParamType.String,
+                                    ),
+                                    'duration': serializeParam(
+                                      nonbusNonAcBusRecord.duration,
+                                      ParamType.String,
+                                    ),
+                                    'arrivalStation': serializeParam(
+                                      nonbusNonAcBusRecord.arrival,
+                                      ParamType.String,
+                                    ),
+                                  }.withoutNulls,
+                                );
                               },
                               child: Material(
                                 color: Colors.transparent,

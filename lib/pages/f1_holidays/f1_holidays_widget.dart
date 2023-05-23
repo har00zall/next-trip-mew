@@ -272,11 +272,7 @@ class _F1HolidaysWidgetState extends State<F1HolidaysWidget> {
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 0.0),
                   child: StreamBuilder<List<HoliChennaiRecord>>(
-                    stream: queryHoliChennaiRecord(
-                      queryBuilder: (holiChennaiRecord) =>
-                          holiChennaiRecord.where('Name-of-Place',
-                              isEqualTo: 'Chennai${_model.dropDownValue}'),
-                    ),
+                    stream: queryHoliChennaiRecord(),
                     builder: (context, snapshot) {
                       // Customize what your widget looks like when it's loading.
                       if (!snapshot.hasData) {
@@ -436,11 +432,7 @@ class _F1HolidaysWidgetState extends State<F1HolidaysWidget> {
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 0.0),
                   child: StreamBuilder<List<HoliGoaRecord>>(
-                    stream: queryHoliGoaRecord(
-                      queryBuilder: (holiGoaRecord) => holiGoaRecord.where(
-                          'Name-of-Place',
-                          isEqualTo: 'Goa${_model.dropDownValue}'),
-                    ),
+                    stream: queryHoliGoaRecord(),
                     builder: (context, snapshot) {
                       // Customize what your widget looks like when it's loading.
                       if (!snapshot.hasData) {

@@ -284,7 +284,7 @@ class _BudgetSearchBottomSheetWidgetState
                                                       .override(
                                                         fontFamily: 'Poppins',
                                                         color: Colors.black,
-                                                        fontSize: 16.0,
+                                                        fontSize: 14.0,
                                                       ),
                                               enabledBorder: OutlineInputBorder(
                                                 borderSide: BorderSide(

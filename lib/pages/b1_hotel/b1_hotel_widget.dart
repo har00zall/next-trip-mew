@@ -208,7 +208,7 @@ class _B1HotelWidgetState extends State<B1HotelWidget> {
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Poppins',
-                                    fontSize: 20.0,
+                                    fontSize: 18.0,
                                   ),
                             ),
                           ),
@@ -320,7 +320,7 @@ class _B1HotelWidgetState extends State<B1HotelWidget> {
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Poppins',
-                                        fontSize: 20.0,
+                                        fontSize: 18.0,
                                       ),
                                 ),
                               ),
@@ -400,7 +400,7 @@ class _B1HotelWidgetState extends State<B1HotelWidget> {
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Poppins',
-                                      fontSize: 14.0,
+                                      fontSize: 12.0,
                                     ),
                               ),
                             ],
@@ -438,84 +438,96 @@ class _B1HotelWidgetState extends State<B1HotelWidget> {
                       children: [
                         Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(
-                              15.0, 10.0, 15.0, 0.0),
+                              0.0, 10.0, 0.0, 0.0),
                           child: Row(
                             mainAxisSize: MainAxisSize.max,
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
+                              Expanded(
+                                child: Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  children: [
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          15.0, 0.0, 0.0, 0.0),
+                                      child: AutoSizeText(
+                                        FFLocalizations.of(context).getText(
+                                          'xgld0mih' /* Number of Childerns */,
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              fontSize: 18.0,
+                                            ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
                               Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
-                                    5.0, 0.0, 0.0, 0.0),
-                                child: Text(
-                                  FFLocalizations.of(context).getText(
-                                    'xgld0mih' /* Number of Childerns */,
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
+                                    0.0, 0.0, 15.0, 0.0),
+                                child: FlutterFlowDropDown<String>(
+                                  controller:
+                                      _model.dropDownValueController4 ??=
+                                          FormFieldController<String>(null),
+                                  options: [
+                                    FFLocalizations.of(context).getText(
+                                      'wj26cn9v' /* 0 1 */,
+                                    ),
+                                    FFLocalizations.of(context).getText(
+                                      'vfyz5b1v' /* 02 */,
+                                    ),
+                                    FFLocalizations.of(context).getText(
+                                      '14r6raa9' /* 03 */,
+                                    ),
+                                    FFLocalizations.of(context).getText(
+                                      '1l9gd06r' /* 04 */,
+                                    ),
+                                    FFLocalizations.of(context).getText(
+                                      '1o0zy7l9' /* 05 */,
+                                    ),
+                                    FFLocalizations.of(context).getText(
+                                      'pxn9l8zs' /* 06 */,
+                                    ),
+                                    FFLocalizations.of(context).getText(
+                                      'ecpdi5g9' /* 07 */,
+                                    ),
+                                    FFLocalizations.of(context).getText(
+                                      'bwy9pnce' /* 08 */,
+                                    ),
+                                    FFLocalizations.of(context).getText(
+                                      'lzkzggrc' /* 09 */,
+                                    ),
+                                    FFLocalizations.of(context).getText(
+                                      'ih5fecgb' /* 10 */,
+                                    )
+                                  ],
+                                  onChanged: (val) => setState(
+                                      () => _model.dropDownValue4 = val),
+                                  width: 110.0,
+                                  height: 40.0,
+                                  textStyle: FlutterFlowTheme.of(context)
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Poppins',
-                                        fontSize: 20.0,
+                                        color: Colors.black,
+                                        fontSize: 18.0,
                                       ),
+                                  hintText: FFLocalizations.of(context).getText(
+                                    'wve4aiqj' /* No */,
+                                  ),
+                                  fillColor: Colors.white,
+                                  elevation: 2.0,
+                                  borderColor: Color(0x53000000),
+                                  borderWidth: 0.0,
+                                  borderRadius: 10.0,
+                                  margin: EdgeInsetsDirectional.fromSTEB(
+                                      12.0, 4.0, 12.0, 4.0),
+                                  hidesUnderline: true,
+                                  isSearchable: false,
                                 ),
-                              ),
-                              FlutterFlowDropDown<String>(
-                                controller: _model.dropDownValueController4 ??=
-                                    FormFieldController<String>(null),
-                                options: [
-                                  FFLocalizations.of(context).getText(
-                                    'wj26cn9v' /* 0 1 */,
-                                  ),
-                                  FFLocalizations.of(context).getText(
-                                    'vfyz5b1v' /* 02 */,
-                                  ),
-                                  FFLocalizations.of(context).getText(
-                                    '14r6raa9' /* 03 */,
-                                  ),
-                                  FFLocalizations.of(context).getText(
-                                    '1l9gd06r' /* 04 */,
-                                  ),
-                                  FFLocalizations.of(context).getText(
-                                    '1o0zy7l9' /* 05 */,
-                                  ),
-                                  FFLocalizations.of(context).getText(
-                                    'pxn9l8zs' /* 06 */,
-                                  ),
-                                  FFLocalizations.of(context).getText(
-                                    'ecpdi5g9' /* 07 */,
-                                  ),
-                                  FFLocalizations.of(context).getText(
-                                    'bwy9pnce' /* 08 */,
-                                  ),
-                                  FFLocalizations.of(context).getText(
-                                    'lzkzggrc' /* 09 */,
-                                  ),
-                                  FFLocalizations.of(context).getText(
-                                    'ih5fecgb' /* 10 */,
-                                  )
-                                ],
-                                onChanged: (val) =>
-                                    setState(() => _model.dropDownValue4 = val),
-                                width: 110.0,
-                                height: 40.0,
-                                textStyle: FlutterFlowTheme.of(context)
-                                    .bodyMedium
-                                    .override(
-                                      fontFamily: 'Poppins',
-                                      color: Colors.black,
-                                      fontSize: 18.0,
-                                    ),
-                                hintText: FFLocalizations.of(context).getText(
-                                  'wve4aiqj' /* No */,
-                                ),
-                                fillColor: Colors.white,
-                                elevation: 2.0,
-                                borderColor: Color(0x53000000),
-                                borderWidth: 0.0,
-                                borderRadius: 10.0,
-                                margin: EdgeInsetsDirectional.fromSTEB(
-                                    12.0, 4.0, 12.0, 4.0),
-                                hidesUnderline: true,
-                                isSearchable: false,
                               ),
                             ],
                           ),
@@ -534,7 +546,7 @@ class _B1HotelWidgetState extends State<B1HotelWidget> {
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Poppins',
-                                      fontSize: 14.0,
+                                      fontSize: 12.0,
                                     ),
                               ),
                             ],
@@ -616,7 +628,7 @@ class _B1HotelWidgetState extends State<B1HotelWidget> {
                                       .bodyMedium
                                       .override(
                                         fontFamily: 'Poppins',
-                                        fontSize: 16.0,
+                                        fontSize: 14.0,
                                       ),
                                 ),
                               ),
@@ -678,7 +690,7 @@ class _B1HotelWidgetState extends State<B1HotelWidget> {
                                         .bodyMedium
                                         .override(
                                           fontFamily: 'Poppins',
-                                          fontSize: 16.0,
+                                          fontSize: 14.0,
                                         ),
                                   ),
                                 ),
@@ -712,6 +724,13 @@ class _B1HotelWidgetState extends State<B1HotelWidget> {
                         ),
                         'bDate': serializeParam(
                           _model.datePicked1?.toString(),
+                          ParamType.String,
+                        ),
+                        'todate': serializeParam(
+                          valueOrDefault<String>(
+                            _model.datePicked2?.toString(),
+                            'date',
+                          ),
                           ParamType.String,
                         ),
                       }.withoutNulls,

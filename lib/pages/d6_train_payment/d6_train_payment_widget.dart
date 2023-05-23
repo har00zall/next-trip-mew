@@ -11,7 +11,26 @@ import 'd6_train_payment_model.dart';
 export 'd6_train_payment_model.dart';
 
 class D6TrainPaymentWidget extends StatefulWidget {
-  const D6TrainPaymentWidget({Key? key}) : super(key: key);
+  const D6TrainPaymentWidget({
+    Key? key,
+    required this.depTime,
+    required this.duration,
+    required this.ariTime,
+    required this.boardingStation,
+    required this.arrivalStation,
+    required this.classType,
+    required this.price,
+    required this.trainName,
+  }) : super(key: key);
+
+  final String? depTime;
+  final String? duration;
+  final String? ariTime;
+  final String? boardingStation;
+  final String? arrivalStation;
+  final String? classType;
+  final int? price;
+  final String? trainName;
 
   @override
   _D6TrainPaymentWidgetState createState() => _D6TrainPaymentWidgetState();

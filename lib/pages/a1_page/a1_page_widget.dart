@@ -75,285 +75,294 @@ class _A1PageWidgetState extends State<A1PageWidget> {
         ),
         body: SafeArea(
           top: true,
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Container(
-                width: double.infinity,
-                height: 901.3,
-                decoration: BoxDecoration(
-                  color: FlutterFlowTheme.of(context).secondaryBackground,
-                ),
-                child: Column(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 180.0, 0.0, 0.0),
-                      child: Text(
-                        FFLocalizations.of(context).getText(
-                          'mhe9qyq7' /* Select Your Language */,
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Container(
+                  width: double.infinity,
+                  height: 901.3,
+                  decoration: BoxDecoration(
+                    color: FlutterFlowTheme.of(context).secondaryBackground,
+                  ),
+                  child: Column(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Padding(
+                        padding: EdgeInsetsDirectional.fromSTEB(
+                            0.0, 130.0, 0.0, 0.0),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text(
+                              FFLocalizations.of(context).getText(
+                                'mhe9qyq7' /* Select Your Language */,
+                              ),
+                              style: FlutterFlowTheme.of(context)
+                                  .titleMedium
+                                  .override(
+                                    fontFamily: 'Poppins',
+                                    fontSize: 22.0,
+                                  ),
+                            ),
+                          ],
                         ),
-                        style:
-                            FlutterFlowTheme.of(context).titleMedium.override(
-                                  fontFamily: 'Poppins',
-                                  fontSize: 22.0,
-                                ),
                       ),
-                    ),
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
-                      child: Column(
-                        mainAxisSize: MainAxisSize.max,
-                        children: [
-                          Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 10.0),
-                              child: FFButtonWidget(
-                                onPressed: () async {
-                                  setAppLanguage(context, 'en');
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(0.0, 20.0, 0.0, 0.0),
+                        child: Column(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Align(
+                              alignment: AlignmentDirectional(0.0, 0.0),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 10.0),
+                                child: FFButtonWidget(
+                                  onPressed: () async {
+                                    setAppLanguage(context, 'en');
 
-                                  context.pushNamed('A2SignUpPage');
-                                },
-                                text: FFLocalizations.of(context).getText(
-                                  '2pelg00u' /* English */,
-                                ),
-                                options: FFButtonOptions(
-                                  width: 150.0,
-                                  height: 45.0,
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
-                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
-                                  color: Color(0xFF3000FF),
-                                  textStyle: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Poppins',
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryBtnText,
-                                        fontSize: 20.0,
-                                      ),
-                                  elevation: 5.0,
-                                  borderSide: BorderSide(
-                                    color: Colors.transparent,
-                                    width: 1.0,
+                                    context.pushNamed('A2SignUpPage');
+                                  },
+                                  text: FFLocalizations.of(context).getText(
+                                    '2pelg00u' /* English */,
                                   ),
-                                  borderRadius: BorderRadius.circular(15.0),
+                                  options: FFButtonOptions(
+                                    width: 150.0,
+                                    height: 45.0,
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    color: Color(0xFF3000FF),
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryBtnText,
+                                          fontSize: 20.0,
+                                        ),
+                                    elevation: 5.0,
+                                    borderSide: BorderSide(
+                                      color: Colors.transparent,
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(15.0),
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                          Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 10.0),
-                              child: FFButtonWidget(
-                                onPressed: () async {
-                                  setAppLanguage(context, 'hi');
+                            Align(
+                              alignment: AlignmentDirectional(0.0, 0.0),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 10.0),
+                                child: FFButtonWidget(
+                                  onPressed: () async {
+                                    setAppLanguage(context, 'hi');
 
-                                  context.pushNamed('A2SignUpPage');
-                                },
-                                text: FFLocalizations.of(context).getText(
-                                  'refhve1p' /* Hindi */,
-                                ),
-                                options: FFButtonOptions(
-                                  width: 150.0,
-                                  height: 45.0,
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
-                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
-                                  color: Color(0xFF3000FF),
-                                  textStyle: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Poppins',
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryBtnText,
-                                        fontSize: 20.0,
-                                      ),
-                                  elevation: 5.0,
-                                  borderSide: BorderSide(
-                                    color: Colors.transparent,
-                                    width: 1.0,
+                                    context.pushNamed('A2SignUpPage');
+                                  },
+                                  text: FFLocalizations.of(context).getText(
+                                    'refhve1p' /* Hindi */,
                                   ),
-                                  borderRadius: BorderRadius.circular(15.0),
+                                  options: FFButtonOptions(
+                                    width: 150.0,
+                                    height: 45.0,
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    color: Color(0xFF3000FF),
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryBtnText,
+                                          fontSize: 20.0,
+                                        ),
+                                    elevation: 5.0,
+                                    borderSide: BorderSide(
+                                      color: Colors.transparent,
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(15.0),
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                          Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 10.0),
-                              child: FFButtonWidget(
-                                onPressed: () async {
-                                  context.pushNamed('A2SignUpPage');
+                            Align(
+                              alignment: AlignmentDirectional(0.0, 0.0),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 10.0),
+                                child: FFButtonWidget(
+                                  onPressed: () async {
+                                    context.pushNamed('A2SignUpPage');
 
-                                  setAppLanguage(context, 'pa');
-                                },
-                                text: FFLocalizations.of(context).getText(
-                                  'x0y1epmv' /* Punjabi */,
-                                ),
-                                options: FFButtonOptions(
-                                  width: 150.0,
-                                  height: 45.0,
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
-                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
-                                  color: Color(0xFF3000FF),
-                                  textStyle: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Poppins',
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryBtnText,
-                                        fontSize: 20.0,
-                                      ),
-                                  elevation: 5.0,
-                                  borderSide: BorderSide(
-                                    color: Colors.transparent,
-                                    width: 1.0,
+                                    setAppLanguage(context, 'pa');
+                                  },
+                                  text: FFLocalizations.of(context).getText(
+                                    'x0y1epmv' /* Punjabi */,
                                   ),
-                                  borderRadius: BorderRadius.circular(15.0),
+                                  options: FFButtonOptions(
+                                    width: 150.0,
+                                    height: 45.0,
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    color: Color(0xFF3000FF),
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryBtnText,
+                                          fontSize: 20.0,
+                                        ),
+                                    elevation: 5.0,
+                                    borderSide: BorderSide(
+                                      color: Colors.transparent,
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(15.0),
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                          Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 10.0),
-                              child: FFButtonWidget(
-                                onPressed: () async {
-                                  setAppLanguage(context, 'kn');
+                            Align(
+                              alignment: AlignmentDirectional(0.0, 0.0),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 10.0),
+                                child: FFButtonWidget(
+                                  onPressed: () async {
+                                    setAppLanguage(context, 'kn');
 
-                                  context.pushNamed('A2SignUpPage');
-                                },
-                                text: FFLocalizations.of(context).getText(
-                                  '0lbo7wpi' /* Kannada */,
-                                ),
-                                options: FFButtonOptions(
-                                  width: 150.0,
-                                  height: 45.0,
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
-                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
-                                  color: Color(0xFF3000FF),
-                                  textStyle: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Poppins',
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryBtnText,
-                                        fontSize: 20.0,
-                                      ),
-                                  elevation: 5.0,
-                                  borderSide: BorderSide(
-                                    color: Colors.transparent,
-                                    width: 1.0,
+                                    context.pushNamed('A2SignUpPage');
+                                  },
+                                  text: FFLocalizations.of(context).getText(
+                                    '0lbo7wpi' /* Kannada */,
                                   ),
-                                  borderRadius: BorderRadius.circular(15.0),
+                                  options: FFButtonOptions(
+                                    width: 150.0,
+                                    height: 45.0,
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    color: Color(0xFF3000FF),
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryBtnText,
+                                          fontSize: 20.0,
+                                        ),
+                                    elevation: 5.0,
+                                    borderSide: BorderSide(
+                                      color: Colors.transparent,
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(15.0),
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                          Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 10.0),
-                              child: FFButtonWidget(
-                                onPressed: () async {
-                                  setAppLanguage(context, 'ta');
+                            Align(
+                              alignment: AlignmentDirectional(0.0, 0.0),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 10.0),
+                                child: FFButtonWidget(
+                                  onPressed: () async {
+                                    setAppLanguage(context, 'ta');
 
-                                  context.pushNamed('A2SignUpPage');
-                                },
-                                text: FFLocalizations.of(context).getText(
-                                  'f8xx9qks' /* Tamil */,
-                                ),
-                                options: FFButtonOptions(
-                                  width: 150.0,
-                                  height: 45.0,
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
-                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
-                                  color: Color(0xFF3000FF),
-                                  textStyle: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Poppins',
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryBtnText,
-                                        fontSize: 20.0,
-                                      ),
-                                  elevation: 5.0,
-                                  borderSide: BorderSide(
-                                    color: Colors.transparent,
-                                    width: 1.0,
+                                    context.pushNamed('A2SignUpPage');
+                                  },
+                                  text: FFLocalizations.of(context).getText(
+                                    'f8xx9qks' /* Tamil */,
                                   ),
-                                  borderRadius: BorderRadius.circular(15.0),
+                                  options: FFButtonOptions(
+                                    width: 150.0,
+                                    height: 45.0,
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    color: Color(0xFF3000FF),
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryBtnText,
+                                          fontSize: 20.0,
+                                        ),
+                                    elevation: 5.0,
+                                    borderSide: BorderSide(
+                                      color: Colors.transparent,
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(15.0),
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                          Align(
-                            alignment: AlignmentDirectional(0.0, 0.0),
-                            child: Padding(
-                              padding: EdgeInsetsDirectional.fromSTEB(
-                                  0.0, 0.0, 0.0, 10.0),
-                              child: FFButtonWidget(
-                                onPressed: () async {
-                                  setAppLanguage(context, 'te');
+                            Align(
+                              alignment: AlignmentDirectional(0.0, 0.0),
+                              child: Padding(
+                                padding: EdgeInsetsDirectional.fromSTEB(
+                                    0.0, 0.0, 0.0, 10.0),
+                                child: FFButtonWidget(
+                                  onPressed: () async {
+                                    setAppLanguage(context, 'te');
 
-                                  context.pushNamed('A2SignUpPage');
-                                },
-                                text: FFLocalizations.of(context).getText(
-                                  '58i0tecp' /* Telugu */,
-                                ),
-                                options: FFButtonOptions(
-                                  width: 150.0,
-                                  height: 45.0,
-                                  padding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
-                                  iconPadding: EdgeInsetsDirectional.fromSTEB(
-                                      0.0, 0.0, 0.0, 0.0),
-                                  color: Color(0xFF3000FF),
-                                  textStyle: FlutterFlowTheme.of(context)
-                                      .bodyMedium
-                                      .override(
-                                        fontFamily: 'Poppins',
-                                        color: FlutterFlowTheme.of(context)
-                                            .primaryBtnText,
-                                        fontSize: 20.0,
-                                      ),
-                                  elevation: 5.0,
-                                  borderSide: BorderSide(
-                                    color: Colors.transparent,
-                                    width: 1.0,
+                                    context.pushNamed('A2SignUpPage');
+                                  },
+                                  text: FFLocalizations.of(context).getText(
+                                    '58i0tecp' /* Telugu */,
                                   ),
-                                  borderRadius: BorderRadius.circular(15.0),
+                                  options: FFButtonOptions(
+                                    width: 150.0,
+                                    height: 45.0,
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    iconPadding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 0.0, 0.0),
+                                    color: Color(0xFF3000FF),
+                                    textStyle: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Poppins',
+                                          color: FlutterFlowTheme.of(context)
+                                              .primaryBtnText,
+                                          fontSize: 20.0,
+                                        ),
+                                    elevation: 5.0,
+                                    borderSide: BorderSide(
+                                      color: Colors.transparent,
+                                      width: 1.0,
+                                    ),
+                                    borderRadius: BorderRadius.circular(15.0),
+                                  ),
                                 ),
                               ),
                             ),
-                          ),
-                        ],
+                          ],
+                        ),
                       ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

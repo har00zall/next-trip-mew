@@ -19,18 +19,16 @@ class TrainBottomSheetModel extends FlutterFlowModel {
   // State field(s) for DropDown widget.
   String? dropDownValue2;
   FormFieldController<String>? dropDownValueController2;
+  // State field(s) for DropDown widget.
+  String? dropDownValue3;
+  FormFieldController<String>? dropDownValueController3;
   DateTime? datePicked;
-  // State field(s) for TextField widget.
-  TextEditingController? textController;
-  String? Function(BuildContext, String?)? textControllerValidator;
 
   /// Initialization and disposal methods.
 
   void initState(BuildContext context) {}
 
-  void dispose() {
-    textController?.dispose();
-  }
+  void dispose() {}
 
   /// Additional helper methods are added here.
 

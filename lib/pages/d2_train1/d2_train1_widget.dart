@@ -14,7 +14,18 @@ import 'd2_train1_model.dart';
 export 'd2_train1_model.dart';
 
 class D2Train1Widget extends StatefulWidget {
-  const D2Train1Widget({Key? key}) : super(key: key);
+  const D2Train1Widget({
+    Key? key,
+    required this.from,
+    required this.to,
+    required this.depDate,
+    required this.noAdults,
+  }) : super(key: key);
+
+  final String? from;
+  final String? to;
+  final String? depDate;
+  final String? noAdults;
 
   @override
   _D2Train1WidgetState createState() => _D2Train1WidgetState();
@@ -64,21 +75,41 @@ class _D2Train1WidgetState extends State<D2Train1Widget> {
               context.safePop();
             },
           ),
-          title: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Align(
-                alignment: AlignmentDirectional(0.0, 0.0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 0.0),
-                      child: Text(
-                        FFLocalizations.of(context).getText(
-                          'o1abs3h1' /* From */,
+          title: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Align(
+                  alignment: AlignmentDirectional(0.0, 0.0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 0.0),
+                        child: Text(
+                          widget.from!,
+                          style:
+                              FlutterFlowTheme.of(context).titleMedium.override(
+                                    fontFamily: 'Poppins',
+                                    color: Colors.white,
+                                    fontSize: 18.0,
+                                  ),
                         ),
+                      ),
+                      Text(
+                        FFLocalizations.of(context).getText(
+                          'jw0i8h38' /* --- */,
+                        ),
+                        style:
+                            FlutterFlowTheme.of(context).titleMedium.override(
+                                  fontFamily: 'Poppins',
+                                  color: Colors.white,
+                                  fontSize: 16.0,
+                                ),
+                      ),
+                      Text(
+                        widget.to!,
                         style:
                             FlutterFlowTheme.of(context).titleMedium.override(
                                   fontFamily: 'Poppins',
@@ -86,70 +117,50 @@ class _D2Train1WidgetState extends State<D2Train1Widget> {
                                   fontSize: 18.0,
                                 ),
                       ),
-                    ),
-                    Text(
-                      FFLocalizations.of(context).getText(
-                        'jw0i8h38' /* --- */,
-                      ),
-                      style: FlutterFlowTheme.of(context).titleMedium.override(
-                            fontFamily: 'Poppins',
-                            color: Colors.white,
-                            fontSize: 16.0,
-                          ),
-                    ),
-                    Text(
-                      FFLocalizations.of(context).getText(
-                        '3ssz5ycv' /* To */,
-                      ),
-                      style: FlutterFlowTheme.of(context).titleMedium.override(
-                            fontFamily: 'Poppins',
-                            color: Colors.white,
-                            fontSize: 18.0,
-                          ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-              Align(
-                alignment: AlignmentDirectional(0.0, 0.0),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  children: [
-                    Padding(
-                      padding:
-                          EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 0.0),
-                      child: Text(
+                Align(
+                  alignment: AlignmentDirectional(0.0, 0.0),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Padding(
+                        padding:
+                            EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 0.0, 0.0),
+                        child: Text(
+                          widget.depDate!.maybeHandleOverflow(maxChars: 11),
+                          style:
+                              FlutterFlowTheme.of(context).titleSmall.override(
+                                    fontFamily: 'Poppins',
+                                    color: Colors.white,
+                                  ),
+                        ),
+                      ),
+                      Text(
                         FFLocalizations.of(context).getText(
-                          'pzt848po' /* DepDate */,
+                          'k0qb9u88' /* - */,
                         ),
                         style: FlutterFlowTheme.of(context).titleSmall.override(
                               fontFamily: 'Poppins',
                               color: Colors.white,
                             ),
                       ),
-                    ),
-                    Text(
-                      FFLocalizations.of(context).getText(
-                        'k0qb9u88' /* - */,
+                      Text(
+                        valueOrDefault<String>(
+                          widget.noAdults,
+                          'no',
+                        ),
+                        style: FlutterFlowTheme.of(context).titleSmall.override(
+                              fontFamily: 'Poppins',
+                              color: Colors.white,
+                            ),
                       ),
-                      style: FlutterFlowTheme.of(context).titleSmall.override(
-                            fontFamily: 'Poppins',
-                            color: Colors.white,
-                          ),
-                    ),
-                    Text(
-                      FFLocalizations.of(context).getText(
-                        'qejdekan' /* NoAdults */,
-                      ),
-                      style: FlutterFlowTheme.of(context).titleSmall.override(
-                            fontFamily: 'Poppins',
-                            color: Colors.white,
-                          ),
-                    ),
-                  ],
+                    ],
+                  ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
           actions: [
             FlutterFlowIconButton(
@@ -310,7 +321,51 @@ class _D2Train1WidgetState extends State<D2Train1Widget> {
                           hoverColor: Colors.transparent,
                           highlightColor: Colors.transparent,
                           onTap: () async {
-                            context.pushNamed('D3TrainReview');
+                            context.pushNamed(
+                              'D3TrainReview',
+                              queryParams: {
+                                'trainName': serializeParam(
+                                  listViewTrainRecord.trainName,
+                                  ParamType.String,
+                                ),
+                                'duration': serializeParam(
+                                  '',
+                                  ParamType.String,
+                                ),
+                                'airTime': serializeParam(
+                                  '',
+                                  ParamType.String,
+                                ),
+                                'boardingStation': serializeParam(
+                                  '',
+                                  ParamType.String,
+                                ),
+                                'arrivalStation': serializeParam(
+                                  '',
+                                  ParamType.String,
+                                ),
+                                'classType': serializeParam(
+                                  '',
+                                  ParamType.String,
+                                ),
+                                'price': serializeParam(
+                                  0,
+                                  ParamType.int,
+                                ),
+                                'userName': serializeParam(
+                                  '',
+                                  ParamType.String,
+                                ),
+                                'userMobileNo': serializeParam(
+                                  '',
+                                  ParamType.String,
+                                ),
+                                'userEmail': serializeParam(
+                                  '',
+                                  ParamType.String,
+                                ),
+                              }.withoutNulls,
+                            );
                           },
                           child: Material(
                             color: Colors.transparent,
@@ -367,19 +422,23 @@ class _D2Train1WidgetState extends State<D2Train1Widget> {
                                                 },
                                               ),
                                             ),
-                                            Padding(
-                                              padding: EdgeInsetsDirectional
-                                                  .fromSTEB(5.0, 0.0, 0.0, 0.0),
-                                              child: AutoSizeText(
-                                                listViewTrainRecord.trainName,
-                                                style:
-                                                    FlutterFlowTheme.of(context)
-                                                        .bodyMedium
-                                                        .override(
-                                                          fontFamily: 'Poppins',
-                                                          color: Colors.black,
-                                                          fontSize: 18.0,
-                                                        ),
+                                            Expanded(
+                                              child: Padding(
+                                                padding: EdgeInsetsDirectional
+                                                    .fromSTEB(
+                                                        5.0, 0.0, 0.0, 0.0),
+                                                child: AutoSizeText(
+                                                  listViewTrainRecord.trainName,
+                                                  maxLines: 3,
+                                                  style: FlutterFlowTheme.of(
+                                                          context)
+                                                      .bodyMedium
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color: Colors.black,
+                                                        fontSize: 16.0,
+                                                      ),
+                                                ),
                                               ),
                                             ),
                                           ],
