@@ -9,6 +9,42 @@
           "order": "ASCENDING"
         },
         {
+          "fieldPath": "To",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "Price",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "economyClassFlight",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "From",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "To",
+          "order": "ASCENDING"
+        },
+        {
+          "fieldPath": "Price",
+          "order": "ASCENDING"
+        }
+      ]
+    },
+    {
+      "collectionGroup": "businessClassFlight",
+      "queryScope": "COLLECTION",
+      "fields": [
+        {
+          "fieldPath": "From",
+          "order": "ASCENDING"
+        },
+        {
           "fieldPath": "Price",
           "order": "ASCENDING"
         }

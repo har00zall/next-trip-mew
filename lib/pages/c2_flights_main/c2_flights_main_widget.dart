@@ -321,7 +321,13 @@ class _C2FlightsMainWidgetState extends State<C2FlightsMainWidget> {
                   ),
                 ),
                 StreamBuilder<List<BusinessClassFlightRecord>>(
-                  stream: queryBusinessClassFlightRecord(),
+                  stream: queryBusinessClassFlightRecord(
+                    queryBuilder: (businessClassFlightRecord) =>
+                        businessClassFlightRecord
+                            .where('From', isEqualTo: widget.from)
+                            .where('To', isEqualTo: widget.to)
+                            .orderBy('Price'),
+                  ),
                   builder: (context, snapshot) {
                     // Customize what your widget looks like when it's loading.
                     if (!snapshot.hasData) {
@@ -713,7 +719,13 @@ class _C2FlightsMainWidgetState extends State<C2FlightsMainWidget> {
                   },
                 ),
                 StreamBuilder<List<EconomyClassFlightRecord>>(
-                  stream: queryEconomyClassFlightRecord(),
+                  stream: queryEconomyClassFlightRecord(
+                    queryBuilder: (economyClassFlightRecord) =>
+                        economyClassFlightRecord
+                            .where('From', isEqualTo: widget.from)
+                            .where('To', isEqualTo: widget.to)
+                            .orderBy('Price'),
+                  ),
                   builder: (context, snapshot) {
                     // Customize what your widget looks like when it's loading.
                     if (!snapshot.hasData) {

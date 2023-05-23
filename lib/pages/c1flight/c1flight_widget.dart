@@ -300,7 +300,7 @@ class _C1flightWidgetState extends State<C1flightWidget> {
                                             FormFieldController<String>(null),
                                         options: [
                                           FFLocalizations.of(context).getText(
-                                            '6bj4olzm' /* Bangalore */,
+                                            '6bj4olzm' /* Bangaluru */,
                                           ),
                                           FFLocalizations.of(context).getText(
                                             '7xvj9u7a' /* Chennai */,
@@ -411,7 +411,7 @@ class _C1flightWidgetState extends State<C1flightWidget> {
                                               FormFieldController<String>(null),
                                           options: [
                                             FFLocalizations.of(context).getText(
-                                              'fulmlbn5' /* Bangalore */,
+                                              'fulmlbn5' /* Bangaluru */,
                                             ),
                                             FFLocalizations.of(context).getText(
                                               '2e4uhpuw' /* Chennai */,

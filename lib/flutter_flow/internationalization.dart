@@ -8352,7 +8352,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'te': '',
     },
     '6bj4olzm': {
-      'en': 'Bangalore',
+      'en': 'Bangaluru',
       'hi': '',
       'kn': '',
       'pa': '',
@@ -8408,7 +8408,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'te': '',
     },
     'fulmlbn5': {
-      'en': 'Bangalore',
+      'en': 'Bangaluru',
       'hi': '',
       'kn': '',
       'pa': '',

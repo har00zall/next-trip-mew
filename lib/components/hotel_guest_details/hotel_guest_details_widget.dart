@@ -359,72 +359,8 @@ class _HotelGuestDetailsWidgetState extends State<HotelGuestDetailsWidget> {
                     padding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                     child: FFButtonWidget(
-                      onPressed: () async {
-                        context.pushNamed(
-                          'B5HotelReviewBooking',
-                          queryParams: {
-                            'hotelName': serializeParam(
-                              '',
-                              ParamType.String,
-                            ),
-                            'rate': serializeParam(
-                              0.0,
-                              ParamType.double,
-                            ),
-                            'hotelAdress': serializeParam(
-                              '',
-                              ParamType.String,
-                            ),
-                            'checkIn': serializeParam(
-                              '',
-                              ParamType.String,
-                            ),
-                            'checkOut': serializeParam(
-                              '',
-                              ParamType.String,
-                            ),
-                            'dDate': serializeParam(
-                              '',
-                              ParamType.String,
-                            ),
-                            'toDate': serializeParam(
-                              '',
-                              ParamType.String,
-                            ),
-                            'noRooms': serializeParam(
-                              '',
-                              ParamType.String,
-                            ),
-                            'noAdults': serializeParam(
-                              '',
-                              ParamType.String,
-                            ),
-                            'image': serializeParam(
-                              '',
-                              ParamType.String,
-                            ),
-                            'name': serializeParam(
-                              _model.textController1.text,
-                              ParamType.String,
-                            ),
-                            'moblie': serializeParam(
-                              _model.textController2.text,
-                              ParamType.String,
-                            ),
-                            'email': serializeParam(
-                              _model.textController3.text,
-                              ParamType.String,
-                            ),
-                            'mr': serializeParam(
-                              _model.radioButtonValue,
-                              ParamType.String,
-                            ),
-                            'totalPrice': serializeParam(
-                              '',
-                              ParamType.String,
-                            ),
-                          }.withoutNulls,
-                        );
+                      onPressed: () {
+                        print('Button pressed ...');
                       },
                       text: FFLocalizations.of(context).getText(
                         'hqz0on4y' /* Update */,
