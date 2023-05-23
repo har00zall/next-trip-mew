@@ -2824,6 +2824,30 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                           .toString(),
                                       ParamType.String,
                                     ),
+                                    'userName': serializeParam(
+                                      '',
+                                      ParamType.String,
+                                    ),
+                                    'mobileNo': serializeParam(
+                                      '',
+                                      ParamType.String,
+                                    ),
+                                    'email': serializeParam(
+                                      '',
+                                      ParamType.String,
+                                    ),
+                                    'mr': serializeParam(
+                                      '',
+                                      ParamType.String,
+                                    ),
+                                    'depDate': serializeParam(
+                                      '',
+                                      ParamType.String,
+                                    ),
+                                    'noAdults': serializeParam(
+                                      '',
+                                      ParamType.String,
+                                    ),
                                   }.withoutNulls,
                                 );
                               },
@@ -3225,6 +3249,30 @@ class _A6BudgetSearchWidgetState extends State<A6BudgetSearchWidget> {
                                       ParamType.String,
                                     ),
                                     'duration': serializeParam(
+                                      '',
+                                      ParamType.String,
+                                    ),
+                                    'userName': serializeParam(
+                                      '',
+                                      ParamType.String,
+                                    ),
+                                    'mobileNo': serializeParam(
+                                      '',
+                                      ParamType.String,
+                                    ),
+                                    'email': serializeParam(
+                                      '',
+                                      ParamType.String,
+                                    ),
+                                    'mr': serializeParam(
+                                      '',
+                                      ParamType.String,
+                                    ),
+                                    'depDate': serializeParam(
+                                      '',
+                                      ParamType.String,
+                                    ),
+                                    'noAdults': serializeParam(
                                       '',
                                       ParamType.String,
                                     ),

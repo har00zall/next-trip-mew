@@ -1,6 +1,7 @@
 import '/flutter_flow/flutter_flow_radio_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
 import '/flutter_flow/form_field_controller.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
@@ -10,7 +11,34 @@ import 'flight_traveller_details_model.dart';
 export 'flight_traveller_details_model.dart';
 
 class FlightTravellerDetailsWidget extends StatefulWidget {
-  const FlightTravellerDetailsWidget({Key? key}) : super(key: key);
+  const FlightTravellerDetailsWidget({
+    Key? key,
+    required this.airlineName,
+    required this.from,
+    required this.to,
+    required this.dTime,
+    required this.duration,
+    required this.price,
+    required this.userName,
+    required this.mobileNo,
+    required this.email,
+    required this.mr,
+    required this.depDate,
+    required this.noAdults,
+  }) : super(key: key);
+
+  final String? airlineName;
+  final String? from;
+  final String? to;
+  final String? dTime;
+  final String? duration;
+  final String? price;
+  final String? userName;
+  final String? mobileNo;
+  final String? email;
+  final String? mr;
+  final String? depDate;
+  final String? noAdults;
 
   @override
   _FlightTravellerDetailsWidgetState createState() =>
@@ -359,6 +387,86 @@ class _FlightTravellerDetailsWidgetState
                           ),
                         ),
                       ],
+                    ),
+                  ),
+                  FFButtonWidget(
+                    onPressed: () async {
+                      context.pushNamed(
+                        'C3FlightReview',
+                        queryParams: {
+                          'airlineName': serializeParam(
+                            widget.airlineName,
+                            ParamType.String,
+                          ),
+                          'from': serializeParam(
+                            widget.from,
+                            ParamType.String,
+                          ),
+                          'to': serializeParam(
+                            widget.to,
+                            ParamType.String,
+                          ),
+                          'dTime': serializeParam(
+                            widget.dTime,
+                            ParamType.String,
+                          ),
+                          'duration': serializeParam(
+                            widget.duration,
+                            ParamType.String,
+                          ),
+                          'price': serializeParam(
+                            widget.price,
+                            ParamType.String,
+                          ),
+                          'userName': serializeParam(
+                            _model.textController1.text,
+                            ParamType.String,
+                          ),
+                          'mobileNo': serializeParam(
+                            _model.textController2.text,
+                            ParamType.String,
+                          ),
+                          'email': serializeParam(
+                            _model.textController3.text,
+                            ParamType.String,
+                          ),
+                          'mr': serializeParam(
+                            _model.radioButtonValue,
+                            ParamType.String,
+                          ),
+                          'depDate': serializeParam(
+                            widget.depDate,
+                            ParamType.String,
+                          ),
+                          'noAdults': serializeParam(
+                            widget.noAdults,
+                            ParamType.String,
+                          ),
+                        }.withoutNulls,
+                      );
+                    },
+                    text: FFLocalizations.of(context).getText(
+                      'ckzsxdnc' /* Update */,
+                    ),
+                    options: FFButtonOptions(
+                      width: 150.0,
+                      height: 45.0,
+                      padding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      iconPadding:
+                          EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                      color: FlutterFlowTheme.of(context).primary,
+                      textStyle:
+                          FlutterFlowTheme.of(context).titleSmall.override(
+                                fontFamily: 'Poppins',
+                                color: Colors.white,
+                              ),
+                      elevation: 3.0,
+                      borderSide: BorderSide(
+                        color: Colors.transparent,
+                        width: 1.0,
+                      ),
+                      borderRadius: BorderRadius.circular(8.0),
                     ),
                   ),
                 ],

@@ -41,6 +41,7 @@ import 'schema/jaipur_facilities_record.dart';
 import 'schema/jaipur_policies_record.dart';
 import 'schema/user_record.dart';
 import 'schema/hotel_booking_record.dart';
+import 'schema/flight_booking_record.dart';
 
 export 'dart:async' show StreamSubscription;
 export 'package:cloud_firestore/cloud_firestore.dart';
@@ -84,6 +85,7 @@ export 'schema/jaipur_facilities_record.dart';
 export 'schema/jaipur_policies_record.dart';
 export 'schema/user_record.dart';
 export 'schema/hotel_booking_record.dart';
+export 'schema/flight_booking_record.dart';
 
 /// Functions to query BangaloreRecords (as a Stream and as a Future).
 Future<int> queryBangaloreRecordCount({
@@ -1963,6 +1965,58 @@ Future<FFFirestorePage<HotelBookingRecord>> queryHotelBookingRecordPage({
     queryCollectionPage(
       HotelBookingRecord.collection,
       HotelBookingRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    );
+
+/// Functions to query FlightBookingRecords (as a Stream and as a Future).
+Future<int> queryFlightBookingRecordCount({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+}) =>
+    queryCollectionCount(
+      FlightBookingRecord.collection,
+      queryBuilder: queryBuilder,
+      limit: limit,
+    );
+
+Stream<List<FlightBookingRecord>> queryFlightBookingRecord({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollection(
+      FlightBookingRecord.collection,
+      FlightBookingRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<List<FlightBookingRecord>> queryFlightBookingRecordOnce({
+  Query Function(Query)? queryBuilder,
+  int limit = -1,
+  bool singleRecord = false,
+}) =>
+    queryCollectionOnce(
+      FlightBookingRecord.collection,
+      FlightBookingRecord.fromSnapshot,
+      queryBuilder: queryBuilder,
+      limit: limit,
+      singleRecord: singleRecord,
+    );
+
+Future<FFFirestorePage<FlightBookingRecord>> queryFlightBookingRecordPage({
+  Query Function(Query)? queryBuilder,
+  DocumentSnapshot? nextPageMarker,
+  required int pageSize,
+  required bool isStream,
+}) =>
+    queryCollectionPage(
+      FlightBookingRecord.collection,
+      FlightBookingRecord.fromSnapshot,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,

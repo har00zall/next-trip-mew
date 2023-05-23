@@ -11,7 +11,40 @@ import 'hotel_guest_details_model.dart';
 export 'hotel_guest_details_model.dart';
 
 class HotelGuestDetailsWidget extends StatefulWidget {
-  const HotelGuestDetailsWidget({Key? key}) : super(key: key);
+  const HotelGuestDetailsWidget({
+    Key? key,
+    required this.hotelName,
+    required this.rate,
+    required this.hotelAddress,
+    required this.checkIn,
+    required this.checkOut,
+    required this.dDate,
+    required this.toDate,
+    required this.noRooms,
+    required this.noAdults,
+    required this.image,
+    required this.name,
+    required this.mobile,
+    required this.email,
+    required this.mr,
+    required this.totalPrice,
+  }) : super(key: key);
+
+  final String? hotelName;
+  final double? rate;
+  final String? hotelAddress;
+  final String? checkIn;
+  final String? checkOut;
+  final String? dDate;
+  final String? toDate;
+  final String? noRooms;
+  final String? noAdults;
+  final String? image;
+  final String? name;
+  final String? mobile;
+  final String? email;
+  final String? mr;
+  final String? totalPrice;
 
   @override
   _HotelGuestDetailsWidgetState createState() =>
@@ -359,8 +392,72 @@ class _HotelGuestDetailsWidgetState extends State<HotelGuestDetailsWidget> {
                     padding:
                         EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                     child: FFButtonWidget(
-                      onPressed: () {
-                        print('Button pressed ...');
+                      onPressed: () async {
+                        context.pushNamed(
+                          'B5HotelReviewBooking',
+                          queryParams: {
+                            'hotelName': serializeParam(
+                              widget.hotelName,
+                              ParamType.String,
+                            ),
+                            'rate': serializeParam(
+                              widget.rate,
+                              ParamType.double,
+                            ),
+                            'hotelAdress': serializeParam(
+                              widget.hotelAddress,
+                              ParamType.String,
+                            ),
+                            'checkIn': serializeParam(
+                              widget.checkIn,
+                              ParamType.String,
+                            ),
+                            'checkOut': serializeParam(
+                              widget.checkOut,
+                              ParamType.String,
+                            ),
+                            'dDate': serializeParam(
+                              widget.dDate,
+                              ParamType.String,
+                            ),
+                            'toDate': serializeParam(
+                              widget.toDate,
+                              ParamType.String,
+                            ),
+                            'noRooms': serializeParam(
+                              widget.noRooms,
+                              ParamType.String,
+                            ),
+                            'noAdults': serializeParam(
+                              widget.noAdults,
+                              ParamType.String,
+                            ),
+                            'image': serializeParam(
+                              widget.image,
+                              ParamType.String,
+                            ),
+                            'name': serializeParam(
+                              _model.textController1.text,
+                              ParamType.String,
+                            ),
+                            'moblie': serializeParam(
+                              _model.textController2.text,
+                              ParamType.String,
+                            ),
+                            'email': serializeParam(
+                              _model.textController3.text,
+                              ParamType.String,
+                            ),
+                            'mr': serializeParam(
+                              _model.radioButtonValue,
+                              ParamType.String,
+                            ),
+                            'totalPrice': serializeParam(
+                              widget.totalPrice,
+                              ParamType.String,
+                            ),
+                          }.withoutNulls,
+                        );
                       },
                       text: FFLocalizations.of(context).getText(
                         'hqz0on4y' /* Update */,

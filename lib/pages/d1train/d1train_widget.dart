@@ -163,7 +163,7 @@ class _D1trainWidgetState extends State<D1trainWidget> {
                                               FormFieldController<String>(null),
                                       options: [
                                         FFLocalizations.of(context).getText(
-                                          '2rk0jtdp' /* Bangalore */,
+                                          '2rk0jtdp' /* Bengaluru */,
                                         ),
                                         FFLocalizations.of(context).getText(
                                           'z3az7jt3' /* Chennai */,
@@ -282,7 +282,7 @@ class _D1trainWidgetState extends State<D1trainWidget> {
                                               FormFieldController<String>(null),
                                       options: [
                                         FFLocalizations.of(context).getText(
-                                          'gw24raw6' /* Bangalore */,
+                                          'gw24raw6' /* Bengaluru */,
                                         ),
                                         FFLocalizations.of(context).getText(
                                           'ddcbbl10' /* Chennai */,

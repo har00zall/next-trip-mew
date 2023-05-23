@@ -5,6 +5,7 @@ import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
 import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/scheduler.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:provider/provider.dart';
@@ -63,6 +64,11 @@ class _B5HotelReviewBookingWidgetState
   void initState() {
     super.initState();
     _model = createModel(context, () => B5HotelReviewBookingModel());
+
+    // On page load action.
+    SchedulerBinding.instance.addPostFrameCallback((_) async {
+      Navigator.pop(context);
+    });
   }
 
   @override
@@ -1271,7 +1277,26 @@ class _B5HotelReviewBookingWidgetState
                                                           bottomSheetContext)
                                                       .viewInsets,
                                                   child:
-                                                      HotelGuestDetailsWidget(),
+                                                      HotelGuestDetailsWidget(
+                                                    hotelName:
+                                                        widget.hotelName!,
+                                                    rate: widget.rate!,
+                                                    hotelAddress:
+                                                        widget.hotelAdress!,
+                                                    checkIn: widget.checkIn!,
+                                                    checkOut: widget.checkOut!,
+                                                    dDate: widget.dDate!,
+                                                    toDate: widget.toDate!,
+                                                    noRooms: widget.noRooms!,
+                                                    noAdults: widget.noAdults!,
+                                                    image: widget.image!,
+                                                    name: widget.name!,
+                                                    mobile: widget.moblie!,
+                                                    email: widget.email!,
+                                                    mr: widget.mr!,
+                                                    totalPrice:
+                                                        widget.totalPrice!,
+                                                  ),
                                                 ),
                                               );
                                             },
@@ -1401,6 +1426,14 @@ class _B5HotelReviewBookingWidgetState
                                   ),
                                   'totalPrice': serializeParam(
                                     widget.totalPrice,
+                                    ParamType.String,
+                                  ),
+                                  'fromDate': serializeParam(
+                                    widget.dDate,
+                                    ParamType.String,
+                                  ),
+                                  'toDate': serializeParam(
+                                    widget.toDate,
                                     ParamType.String,
                                   ),
                                 }.withoutNulls,

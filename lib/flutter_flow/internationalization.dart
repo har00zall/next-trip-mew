@@ -915,14 +915,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ta': '',
       'te': '',
     },
-    '02st0a3m': {
-      'en': 'Price',
-      'hi': '',
-      'kn': '',
-      'pa': '',
-      'ta': '',
-      'te': '',
-    },
     'ssir51iu': {
       'en': 'Room with Breakfast',
       'hi': '',
@@ -2312,7 +2304,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ta': '',
       'te': '',
     },
-    '8v5oaxe2': {
+    'zvhx9tnz': {
       'en': 'Business Class',
       'hi': '',
       'kn': '',
@@ -2360,8 +2352,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ta': '',
       'te': '',
     },
-    '4cn3s8r0': {
-      'en': 'Ecnomy Class',
+    '8py45wcb': {
+      'en': 'Economy Class',
       'hi': '',
       'kn': '',
       'pa': '',
@@ -2638,8 +2630,24 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ta': '',
       'te': '',
     },
+    'gezr910w': {
+      'en': 'From Date:',
+      'hi': '',
+      'kn': '',
+      'pa': '',
+      'ta': '',
+      'te': '',
+    },
     '5rxnj9p4': {
       'en': 'Check out: ',
+      'hi': '',
+      'kn': '',
+      'pa': '',
+      'ta': '',
+      'te': '',
+    },
+    'pu24vviq': {
+      'en': 'To Date:',
       'hi': '',
       'kn': '',
       'pa': '',
@@ -2857,22 +2865,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ta': '',
       'te': '',
     },
-    'acsurxn0': {
-      'en': 'Airline Name',
-      'hi': '',
-      'kn': '',
-      'pa': '',
-      'ta': '',
-      'te': '',
-    },
-    '7j3fai0p': {
-      'en': 'From',
-      'hi': '',
-      'kn': '',
-      'pa': '',
-      'ta': '',
-      'te': '',
-    },
     'kya9l8n3': {
       'en': 'Non Stop',
       'hi': '',
@@ -2881,32 +2873,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ta': '',
       'te': '',
     },
-    'qzs0lvcz': {
-      'en': 'To ',
-      'hi': '',
-      'kn': '',
-      'pa': '',
-      'ta': '',
-      'te': '',
-    },
-    'bzuheuve': {
-      'en': 'DTime',
-      'hi': '',
-      'kn': '',
-      'pa': '',
-      'ta': '',
-      'te': '',
-    },
-    'cu1hkqe2': {
-      'en': 'Duration',
-      'hi': '',
-      'kn': '',
-      'pa': '',
-      'ta': '',
-      'te': '',
-    },
-    'xre15gnw': {
-      'en': 'ATime',
+    'vlzsiler': {
+      'en': 'Flight Type',
       'hi': '',
       'kn': '',
       'pa': '',
@@ -2961,14 +2929,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ta': '',
       'te': '',
     },
-    'u6cuvyjj': {
-      'en': 'User Name',
-      'hi': '',
-      'kn': '',
-      'pa': '',
-      'ta': '',
-      'te': '',
-    },
     '7cuw4rpg': {
       'en': 'Phone:',
       'hi': '',
@@ -2977,24 +2937,8 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ta': '',
       'te': '',
     },
-    'f7vl81od': {
-      'en': 'User Moblie No',
-      'hi': '',
-      'kn': '',
-      'pa': '',
-      'ta': '',
-      'te': '',
-    },
     '37e6cv6k': {
       'en': 'Email:',
-      'hi': '',
-      'kn': '',
-      'pa': '',
-      'ta': '',
-      'te': '',
-    },
-    '4sfhslkm': {
-      'en': 'User Email',
       'hi': '',
       'kn': '',
       'pa': '',
@@ -3044,22 +2988,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   },
   // C6FlightPayment
   {
-    'rjfk2ejn': {
-      'en': 'Airline Name',
-      'hi': '',
-      'kn': '',
-      'pa': '',
-      'ta': '',
-      'te': '',
-    },
-    'b15zsu65': {
-      'en': 'From',
-      'hi': '',
-      'kn': '',
-      'pa': '',
-      'ta': '',
-      'te': '',
-    },
     'osm4e2oe': {
       'en': 'Non Stop',
       'hi': '',
@@ -3068,32 +2996,40 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ta': '',
       'te': '',
     },
-    'jlng9d0a': {
-      'en': 'To ',
+    'a2g0dhrw': {
+      'en': 'Traveller Name:',
       'hi': '',
       'kn': '',
       'pa': '',
       'ta': '',
       'te': '',
     },
-    'n1t5kuqk': {
-      'en': 'DTime',
+    '2vnc9mtk': {
+      'en': 'Mobile No:',
       'hi': '',
       'kn': '',
       'pa': '',
       'ta': '',
       'te': '',
     },
-    'surugaz4': {
-      'en': 'Duration',
+    'p45fowoj': {
+      'en': 'No Adults:',
       'hi': '',
       'kn': '',
       'pa': '',
       'ta': '',
       'te': '',
     },
-    'vv6pxtoa': {
-      'en': 'ATime',
+    '6inmsxy4': {
+      'en': 'Email: ',
+      'hi': '',
+      'kn': '',
+      'pa': '',
+      'ta': '',
+      'te': '',
+    },
+    'fo0xv14x': {
+      'en': 'Departure Date: ',
       'hi': '',
       'kn': '',
       'pa': '',
@@ -3102,14 +3038,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'u3gsi17b': {
       'en': 'Price to Pay',
-      'hi': '',
-      'kn': '',
-      'pa': '',
-      'ta': '',
-      'te': '',
-    },
-    'riu8j104': {
-      'en': 'Price',
       'hi': '',
       'kn': '',
       'pa': '',
@@ -3230,6 +3158,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     't6lnlm04': {
       'en': 'Gift Card, Wallets & More...',
+      'hi': '',
+      'kn': '',
+      'pa': '',
+      'ta': '',
+      'te': '',
+    },
+    'dv91d4gr': {
+      'en': 'Book',
       'hi': '',
       'kn': '',
       'pa': '',
@@ -4421,7 +4357,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'te': '',
     },
     'lamkz05e': {
-      'en': 'Bangalore',
+      'en': 'Bengaluru',
       'hi': '',
       'kn': '',
       'pa': '',
@@ -4477,7 +4413,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'te': '',
     },
     'n24qisy4': {
-      'en': 'Bangalore',
+      'en': 'Bengaluru',
       'hi': '',
       'kn': '',
       'pa': '',
@@ -5240,14 +5176,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   {
     '66ze3mxf': {
       'en': 'Halidays',
-      'hi': '',
-      'kn': '',
-      'pa': '',
-      'ta': '',
-      'te': '',
-    },
-    '4bditm65': {
-      'en': 'Bengalore',
       'hi': '',
       'kn': '',
       'pa': '',
@@ -8352,7 +8280,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'te': '',
     },
     '6bj4olzm': {
-      'en': 'Bangaluru',
+      'en': 'Bengaluru',
       'hi': '',
       'kn': '',
       'pa': '',
@@ -8408,7 +8336,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'te': '',
     },
     'fulmlbn5': {
-      'en': 'Bangaluru',
+      'en': 'Bengaluru',
       'hi': '',
       'kn': '',
       'pa': '',
@@ -8579,7 +8507,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'te': '',
     },
     '2rk0jtdp': {
-      'en': 'Bangalore',
+      'en': 'Bengaluru',
       'hi': '',
       'kn': '',
       'pa': '',
@@ -8635,7 +8563,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'te': '',
     },
     'gw24raw6': {
-      'en': 'Bangalore',
+      'en': 'Bengaluru',
       'hi': '',
       'kn': '',
       'pa': '',
@@ -10129,6 +10057,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'x5woivq2': {
       'en': 'E-mail...',
+      'hi': '',
+      'kn': '',
+      'pa': '',
+      'ta': '',
+      'te': '',
+    },
+    'ckzsxdnc': {
+      'en': 'Update',
       'hi': '',
       'kn': '',
       'pa': '',

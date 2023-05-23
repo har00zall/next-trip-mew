@@ -20,6 +20,12 @@ class C3FlightReviewWidget extends StatefulWidget {
     required this.dTime,
     required this.duration,
     required this.price,
+    required this.userName,
+    required this.mobileNo,
+    required this.email,
+    required this.mr,
+    required this.depDate,
+    required this.noAdults,
   }) : super(key: key);
 
   final String? airlineName;
@@ -28,6 +34,12 @@ class C3FlightReviewWidget extends StatefulWidget {
   final String? dTime;
   final String? duration;
   final String? price;
+  final String? userName;
+  final String? mobileNo;
+  final String? email;
+  final String? mr;
+  final String? depDate;
+  final String? noAdults;
 
   @override
   _C3FlightReviewWidgetState createState() => _C3FlightReviewWidgetState();
@@ -107,13 +119,13 @@ class _C3FlightReviewWidgetState extends State<C3FlightReviewWidget> {
                           EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 0.0),
                       child: Material(
                         color: Colors.transparent,
-                        elevation: 3.0,
+                        elevation: 5.0,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10.0),
                         ),
                         child: Container(
                           width: double.infinity,
-                          height: 121.8,
+                          height: 150.0,
                           decoration: BoxDecoration(
                             color: FlutterFlowTheme.of(context)
                                 .secondaryBackground,
@@ -152,9 +164,7 @@ class _C3FlightReviewWidgetState extends State<C3FlightReviewWidget> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         5.0, 0.0, 0.0, 0.0),
                                     child: Text(
-                                      FFLocalizations.of(context).getText(
-                                        'acsurxn0' /* Airline Name */,
-                                      ),
+                                      widget.airlineName!,
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
@@ -175,9 +185,7 @@ class _C3FlightReviewWidgetState extends State<C3FlightReviewWidget> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         15.0, 0.0, 0.0, 0.0),
                                     child: Text(
-                                      FFLocalizations.of(context).getText(
-                                        '7j3fai0p' /* From */,
-                                      ),
+                                      widget.from!,
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
@@ -201,9 +209,7 @@ class _C3FlightReviewWidgetState extends State<C3FlightReviewWidget> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         0.0, 0.0, 15.0, 0.0),
                                     child: Text(
-                                      FFLocalizations.of(context).getText(
-                                        'qzs0lvcz' /* To  */,
-                                      ),
+                                      widget.to!,
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
@@ -228,15 +234,13 @@ class _C3FlightReviewWidgetState extends State<C3FlightReviewWidget> {
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   mainAxisAlignment:
-                                      MainAxisAlignment.spaceBetween,
+                                      MainAxisAlignment.spaceAround,
                                   children: [
                                     Padding(
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           15.0, 0.0, 0.0, 0.0),
                                       child: Text(
-                                        FFLocalizations.of(context).getText(
-                                          'bzuheuve' /* DTime */,
-                                        ),
+                                        widget.dTime!,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -246,29 +250,39 @@ class _C3FlightReviewWidgetState extends State<C3FlightReviewWidget> {
                                       ),
                                     ),
                                     Text(
+                                      widget.duration!,
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Row(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        25.0, 0.0, 0.0, 0.0),
+                                    child: Text(
                                       FFLocalizations.of(context).getText(
-                                        'cu1hkqe2' /* Duration */,
+                                        'vlzsiler' /* Flight Type */,
                                       ),
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium,
                                     ),
-                                    Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 15.0, 0.0),
-                                      child: Text(
-                                        FFLocalizations.of(context).getText(
-                                          'xre15gnw' /* ATime */,
-                                        ),
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              fontSize: 16.0,
-                                            ),
-                                      ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        0.0, 0.0, 25.0, 0.0),
+                                    child: Text(
+                                      widget.price!,
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium,
                                     ),
-                                  ],
-                                ),
+                                  ),
+                                ],
                               ),
                             ],
                           ),
@@ -469,9 +483,20 @@ class _C3FlightReviewWidgetState extends State<C3FlightReviewWidget> {
                                     padding: EdgeInsetsDirectional.fromSTEB(
                                         8.0, 0.0, 0.0, 0.0),
                                     child: Text(
-                                      FFLocalizations.of(context).getText(
-                                        'u6cuvyjj' /* User Name */,
-                                      ),
+                                      widget.mr!,
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Poppins',
+                                            fontSize: 16.0,
+                                          ),
+                                    ),
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsetsDirectional.fromSTEB(
+                                        2.0, 0.0, 0.0, 0.0),
+                                    child: Text(
+                                      widget.userName!,
                                       style: FlutterFlowTheme.of(context)
                                           .bodyMedium
                                           .override(
@@ -509,9 +534,7 @@ class _C3FlightReviewWidgetState extends State<C3FlightReviewWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           6.0, 0.0, 0.0, 0.0),
                                       child: Text(
-                                        FFLocalizations.of(context).getText(
-                                          'f7vl81od' /* User Moblie No */,
-                                        ),
+                                        widget.mobileNo!,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -548,9 +571,7 @@ class _C3FlightReviewWidgetState extends State<C3FlightReviewWidget> {
                                       padding: EdgeInsetsDirectional.fromSTEB(
                                           12.0, 0.0, 0.0, 0.0),
                                       child: Text(
-                                        FFLocalizations.of(context).getText(
-                                          '4sfhslkm' /* User Email */,
-                                        ),
+                                        widget.email!,
                                         style: FlutterFlowTheme.of(context)
                                             .bodyMedium
                                             .override(
@@ -619,7 +640,21 @@ class _C3FlightReviewWidgetState extends State<C3FlightReviewWidget> {
                                                         bottomSheetContext)
                                                     .viewInsets,
                                                 child:
-                                                    FlightTravellerDetailsWidget(),
+                                                    FlightTravellerDetailsWidget(
+                                                  airlineName:
+                                                      widget.airlineName!,
+                                                  from: widget.from!,
+                                                  to: widget.to!,
+                                                  dTime: widget.dTime!,
+                                                  duration: widget.duration!,
+                                                  price: widget.duration!,
+                                                  userName: widget.userName!,
+                                                  mobileNo: widget.mobileNo!,
+                                                  email: widget.email!,
+                                                  mr: widget.mr!,
+                                                  depDate: widget.depDate!,
+                                                  noAdults: widget.noAdults!,
+                                                ),
                                               ),
                                             );
                                           },
@@ -717,6 +752,34 @@ class _C3FlightReviewWidgetState extends State<C3FlightReviewWidget> {
                                     ),
                                     'duration': serializeParam(
                                       widget.duration,
+                                      ParamType.String,
+                                    ),
+                                    'mr': serializeParam(
+                                      widget.mr,
+                                      ParamType.String,
+                                    ),
+                                    'name': serializeParam(
+                                      widget.userName,
+                                      ParamType.String,
+                                    ),
+                                    'mobileNo': serializeParam(
+                                      widget.mobileNo,
+                                      ParamType.String,
+                                    ),
+                                    'email': serializeParam(
+                                      widget.email,
+                                      ParamType.String,
+                                    ),
+                                    'noAdults': serializeParam(
+                                      widget.noAdults,
+                                      ParamType.String,
+                                    ),
+                                    'date': serializeParam(
+                                      widget.depDate,
+                                      ParamType.String,
+                                    ),
+                                    'price': serializeParam(
+                                      widget.price,
                                       ParamType.String,
                                     ),
                                   }.withoutNulls,

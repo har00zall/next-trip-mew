@@ -324,8 +324,11 @@ class _C2FlightsMainWidgetState extends State<C2FlightsMainWidget> {
                   stream: queryBusinessClassFlightRecord(
                     queryBuilder: (businessClassFlightRecord) =>
                         businessClassFlightRecord
-                            .where('From', isEqualTo: widget.from)
-                            .where('To', isEqualTo: widget.to)
+                            .where('From',
+                                isEqualTo:
+                                    widget.from != '' ? widget.from : null)
+                            .where('To',
+                                isEqualTo: widget.to != '' ? widget.to : null)
                             .orderBy('Price'),
                   ),
                   builder: (context, snapshot) {
@@ -385,8 +388,31 @@ class _C2FlightsMainWidgetState extends State<C2FlightsMainWidget> {
                                     ParamType.String,
                                   ),
                                   'price': serializeParam(
-                                    bcfBusinessClassFlightRecord.price
-                                        .toString(),
+                                    '',
+                                    ParamType.String,
+                                  ),
+                                  'userName': serializeParam(
+                                    '',
+                                    ParamType.String,
+                                  ),
+                                  'mobileNo': serializeParam(
+                                    '',
+                                    ParamType.String,
+                                  ),
+                                  'email': serializeParam(
+                                    '',
+                                    ParamType.String,
+                                  ),
+                                  'mr': serializeParam(
+                                    '',
+                                    ParamType.String,
+                                  ),
+                                  'depDate': serializeParam(
+                                    widget.depDate,
+                                    ParamType.String,
+                                  ),
+                                  'noAdults': serializeParam(
+                                    widget.to,
                                     ParamType.String,
                                   ),
                                 }.withoutNulls,
@@ -400,7 +426,7 @@ class _C2FlightsMainWidgetState extends State<C2FlightsMainWidget> {
                               ),
                               child: Container(
                                 width: double.infinity,
-                                height: 210.0,
+                                height: 220.0,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
@@ -646,20 +672,41 @@ class _C2FlightsMainWidgetState extends State<C2FlightsMainWidget> {
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
+                                            MainAxisAlignment.spaceAround,
                                         children: [
-                                          Padding(
-                                            padding:
-                                                EdgeInsetsDirectional.fromSTEB(
-                                                    25.0, 0.0, 0.0, 0.0),
-                                            child: Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                '8v5oaxe2' /* Business Class */,
-                                              ),
-                                              style:
+                                          FFButtonWidget(
+                                            onPressed: () {
+                                              print('Button pressed ...');
+                                            },
+                                            text: FFLocalizations.of(context)
+                                                .getText(
+                                              'zvhx9tnz' /* Business Class */,
+                                            ),
+                                            options: FFButtonOptions(
+                                              width: 170.0,
+                                              height: 30.0,
+                                              padding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                              iconPadding: EdgeInsetsDirectional
+                                                  .fromSTEB(0.0, 0.0, 0.0, 0.0),
+                                              color:
                                                   FlutterFlowTheme.of(context)
-                                                      .bodyMedium,
+                                                      .primary,
+                                              textStyle:
+                                                  FlutterFlowTheme.of(context)
+                                                      .titleSmall
+                                                      .override(
+                                                        fontFamily: 'Poppins',
+                                                        color: Colors.white,
+                                                        fontSize: 14.0,
+                                                      ),
+                                              elevation: 3.0,
+                                              borderSide: BorderSide(
+                                                color: Colors.transparent,
+                                                width: 1.0,
+                                              ),
+                                              borderRadius:
+                                                  BorderRadius.circular(10.0),
                                             ),
                                           ),
                                           Row(
@@ -787,6 +834,30 @@ class _C2FlightsMainWidgetState extends State<C2FlightsMainWidget> {
                                     '',
                                     ParamType.String,
                                   ),
+                                  'userName': serializeParam(
+                                    '',
+                                    ParamType.String,
+                                  ),
+                                  'mobileNo': serializeParam(
+                                    '',
+                                    ParamType.String,
+                                  ),
+                                  'email': serializeParam(
+                                    '',
+                                    ParamType.String,
+                                  ),
+                                  'mr': serializeParam(
+                                    '',
+                                    ParamType.String,
+                                  ),
+                                  'depDate': serializeParam(
+                                    widget.depDate,
+                                    ParamType.String,
+                                  ),
+                                  'noAdults': serializeParam(
+                                    widget.noAdults,
+                                    ParamType.String,
+                                  ),
                                 }.withoutNulls,
                               );
                             },
@@ -798,7 +869,7 @@ class _C2FlightsMainWidgetState extends State<C2FlightsMainWidget> {
                               ),
                               child: Container(
                                 width: double.infinity,
-                                height: 190.0,
+                                height: 200.0,
                                 decoration: BoxDecoration(
                                   color: FlutterFlowTheme.of(context)
                                       .secondaryBackground,
@@ -993,7 +1064,7 @@ class _C2FlightsMainWidgetState extends State<C2FlightsMainWidget> {
                                       child: Row(
                                         mainAxisSize: MainAxisSize.max,
                                         mainAxisAlignment:
-                                            MainAxisAlignment.start,
+                                            MainAxisAlignment.spaceAround,
                                         children: [
                                           Padding(
                                             padding:
@@ -1034,18 +1105,42 @@ class _C2FlightsMainWidgetState extends State<C2FlightsMainWidget> {
                                     Row(
                                       mainAxisSize: MainAxisSize.max,
                                       mainAxisAlignment:
-                                          MainAxisAlignment.spaceBetween,
+                                          MainAxisAlignment.spaceAround,
                                       children: [
-                                        Padding(
-                                          padding:
-                                              EdgeInsetsDirectional.fromSTEB(
-                                                  25.0, 0.0, 0.0, 0.0),
-                                          child: Text(
-                                            FFLocalizations.of(context).getText(
-                                              '4cn3s8r0' /* Ecnomy Class */,
+                                        FFButtonWidget(
+                                          onPressed: () {
+                                            print('Button pressed ...');
+                                          },
+                                          text: FFLocalizations.of(context)
+                                              .getText(
+                                            '8py45wcb' /* Economy Class */,
+                                          ),
+                                          options: FFButtonOptions(
+                                            width: 170.0,
+                                            height: 30.0,
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 0.0, 0.0),
+                                            iconPadding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 0.0, 0.0),
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
+                                            textStyle:
+                                                FlutterFlowTheme.of(context)
+                                                    .titleSmall
+                                                    .override(
+                                                      fontFamily: 'Poppins',
+                                                      color: Colors.white,
+                                                      fontSize: 14.0,
+                                                    ),
+                                            elevation: 3.0,
+                                            borderSide: BorderSide(
+                                              color: Colors.transparent,
+                                              width: 1.0,
                                             ),
-                                            style: FlutterFlowTheme.of(context)
-                                                .bodyMedium,
+                                            borderRadius:
+                                                BorderRadius.circular(10.0),
                                           ),
                                         ),
                                         Row(

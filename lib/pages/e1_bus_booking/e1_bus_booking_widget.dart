@@ -144,7 +144,7 @@ class _E1BusBookingWidgetState extends State<E1BusBookingWidget> {
                                     FormFieldController<String>(null),
                                 options: [
                                   FFLocalizations.of(context).getText(
-                                    'lamkz05e' /* Bangalore */,
+                                    'lamkz05e' /* Bengaluru */,
                                   ),
                                   FFLocalizations.of(context).getText(
                                     'mr5pu25u' /* Chennai */,
@@ -251,7 +251,7 @@ class _E1BusBookingWidgetState extends State<E1BusBookingWidget> {
                                     FormFieldController<String>(null),
                                 options: [
                                   FFLocalizations.of(context).getText(
-                                    'n24qisy4' /* Bangalore */,
+                                    'n24qisy4' /* Bengaluru */,
                                   ),
                                   FFLocalizations.of(context).getText(
                                     'm5ojy3oi' /* Chennai */,

@@ -237,6 +237,8 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 noRooms: params.getParam('noRooms', ParamType.String),
                 noAdults: params.getParam('noAdults', ParamType.String),
                 totalPrice: params.getParam('totalPrice', ParamType.String),
+                fromDate: params.getParam('fromDate', ParamType.String),
+                toDate: params.getParam('toDate', ParamType.String),
               ),
             ),
             FFRoute(
@@ -249,6 +251,12 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 dTime: params.getParam('dTime', ParamType.String),
                 duration: params.getParam('duration', ParamType.String),
                 price: params.getParam('price', ParamType.String),
+                userName: params.getParam('userName', ParamType.String),
+                mobileNo: params.getParam('mobileNo', ParamType.String),
+                email: params.getParam('email', ParamType.String),
+                mr: params.getParam('mr', ParamType.String),
+                depDate: params.getParam('depDate', ParamType.String),
+                noAdults: params.getParam('noAdults', ParamType.String),
               ),
             ),
             FFRoute(
@@ -260,6 +268,13 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
                 to: params.getParam('to', ParamType.String),
                 dtime: params.getParam('dtime', ParamType.String),
                 duration: params.getParam('duration', ParamType.String),
+                mr: params.getParam('mr', ParamType.String),
+                name: params.getParam('name', ParamType.String),
+                mobileNo: params.getParam('mobileNo', ParamType.String),
+                email: params.getParam('email', ParamType.String),
+                noAdults: params.getParam('noAdults', ParamType.String),
+                date: params.getParam('date', ParamType.String),
+                price: params.getParam('price', ParamType.String),
               ),
             ),
             FFRoute(
@@ -392,7 +407,10 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'F1Holidays',
               path: 'f1Holidays',
-              builder: (context, params) => F1HolidaysWidget(),
+              builder: (context, params) => F1HolidaysWidget(
+                selectedPlace:
+                    params.getParam('selectedPlace', ParamType.String),
+              ),
             ),
             FFRoute(
               name: 'F3Honeymoon',

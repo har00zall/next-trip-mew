@@ -18,7 +18,13 @@ import 'f1_holidays_model.dart';
 export 'f1_holidays_model.dart';
 
 class F1HolidaysWidget extends StatefulWidget {
-  const F1HolidaysWidget({Key? key}) : super(key: key);
+  const F1HolidaysWidget({
+    Key? key,
+    String? selectedPlace,
+  })  : this.selectedPlace = selectedPlace ?? 'Chennai',
+        super(key: key);
+
+  final String selectedPlace;
 
   @override
   _F1HolidaysWidgetState createState() => _F1HolidaysWidgetState();
@@ -123,9 +129,6 @@ class _F1HolidaysWidgetState extends State<F1HolidaysWidget> {
                               controller: _model.dropDownValueController ??=
                                   FormFieldController<String>(null),
                               options: [
-                                FFLocalizations.of(context).getText(
-                                  '4bditm65' /* Bengalore */,
-                                ),
                                 FFLocalizations.of(context).getText(
                                   'c5urkgum' /* Hyderabad */,
                                 ),
@@ -272,7 +275,13 @@ class _F1HolidaysWidgetState extends State<F1HolidaysWidget> {
                 child: Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 0.0),
                   child: StreamBuilder<List<HoliChennaiRecord>>(
-                    stream: queryHoliChennaiRecord(),
+                    stream: queryHoliChennaiRecord(
+                      queryBuilder: (holiChennaiRecord) =>
+                          holiChennaiRecord.where('No',
+                              isGreaterThan: (String selectedCity) {
+                                return selectedCity == "Chennai" ? 0 : 100000;
+                              }(_model.dropDownValue!)),
+                    ),
                     builder: (context, snapshot) {
                       // Customize what your widget looks like when it's loading.
                       if (!snapshot.hasData) {

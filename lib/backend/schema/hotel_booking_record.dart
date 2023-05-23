@@ -84,6 +84,16 @@ class HotelBookingRecord extends FirestoreRecord {
   String get paymentMethod3 => _paymentMethod3 ?? '';
   bool hasPaymentMethod3() => _paymentMethod3 != null;
 
+  // "fromDate" field.
+  String? _fromDate;
+  String get fromDate => _fromDate ?? '';
+  bool hasFromDate() => _fromDate != null;
+
+  // "toDate" field.
+  String? _toDate;
+  String get toDate => _toDate ?? '';
+  bool hasToDate() => _toDate != null;
+
   void _initializeFields() {
     _guestName = snapshotData['Guest_Name'] as String?;
     _email = snapshotData['Email'] as String?;
@@ -99,6 +109,8 @@ class HotelBookingRecord extends FirestoreRecord {
     _paymentMethod1 = snapshotData['Payment_Method1'] as String?;
     _paymentMethod2 = snapshotData['Payment_Method2'] as String?;
     _paymentMethod3 = snapshotData['Payment_Method3'] as String?;
+    _fromDate = snapshotData['fromDate'] as String?;
+    _toDate = snapshotData['toDate'] as String?;
   }
 
   static CollectionReference get collection =>
@@ -142,6 +154,8 @@ Map<String, dynamic> createHotelBookingRecordData({
   String? paymentMethod1,
   String? paymentMethod2,
   String? paymentMethod3,
+  String? fromDate,
+  String? toDate,
 }) {
   final firestoreData = mapToFirestore(
     <String, dynamic>{
@@ -159,6 +173,8 @@ Map<String, dynamic> createHotelBookingRecordData({
       'Payment_Method1': paymentMethod1,
       'Payment_Method2': paymentMethod2,
       'Payment_Method3': paymentMethod3,
+      'fromDate': fromDate,
+      'toDate': toDate,
     }.withoutNulls,
   );
 

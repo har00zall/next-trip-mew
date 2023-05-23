@@ -310,7 +310,13 @@ class _E2BusBooking1WidgetState extends State<E2BusBooking1Widget> {
                   ),
                 ),
                 StreamBuilder<List<AcbusRecord>>(
-                  stream: queryAcbusRecord(),
+                  stream: queryAcbusRecord(
+                    queryBuilder: (acbusRecord) => acbusRecord
+                        .where('From',
+                            isEqualTo: widget.from != '' ? widget.from : null)
+                        .where('To',
+                            isEqualTo: widget.to != '' ? widget.to : null),
+                  ),
                   builder: (context, snapshot) {
                     // Customize what your widget looks like when it's loading.
                     if (!snapshot.hasData) {
@@ -325,14 +331,14 @@ class _E2BusBooking1WidgetState extends State<E2BusBooking1Widget> {
                         ),
                       );
                     }
-                    List<AcbusRecord> columnAcbusRecordList = snapshot.data!;
+                    List<AcbusRecord> acBusAcbusRecordList = snapshot.data!;
                     return SingleChildScrollView(
                       child: Column(
                         mainAxisSize: MainAxisSize.max,
-                        children: List.generate(columnAcbusRecordList.length,
-                            (columnIndex) {
-                          final columnAcbusRecord =
-                              columnAcbusRecordList[columnIndex];
+                        children: List.generate(acBusAcbusRecordList.length,
+                            (acBusIndex) {
+                          final acBusAcbusRecord =
+                              acBusAcbusRecordList[acBusIndex];
                           return Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 10.0, 0.0, 10.0, 5.0),
@@ -346,23 +352,23 @@ class _E2BusBooking1WidgetState extends State<E2BusBooking1Widget> {
                                   'E3BusSelectSet',
                                   queryParams: {
                                     'busName': serializeParam(
-                                      columnAcbusRecord.busName,
+                                      acBusAcbusRecord.busName,
                                       ParamType.String,
                                     ),
                                     'busType': serializeParam(
-                                      columnAcbusRecord.acSeater.toString(),
+                                      acBusAcbusRecord.acSeater.toString(),
                                       ParamType.String,
                                     ),
                                     'time': serializeParam(
-                                      columnAcbusRecord.time,
+                                      acBusAcbusRecord.time,
                                       ParamType.String,
                                     ),
                                     'price': serializeParam(
-                                      columnAcbusRecord.acSleeper.toString(),
+                                      acBusAcbusRecord.acSleeper.toString(),
                                       ParamType.String,
                                     ),
                                     'boardingStation': serializeParam(
-                                      columnAcbusRecord.boarding,
+                                      acBusAcbusRecord.boarding,
                                       ParamType.String,
                                     ),
                                     'duration': serializeParam(
@@ -370,7 +376,7 @@ class _E2BusBooking1WidgetState extends State<E2BusBooking1Widget> {
                                       ParamType.String,
                                     ),
                                     'arrivalStation': serializeParam(
-                                      columnAcbusRecord.destination,
+                                      acBusAcbusRecord.destination,
                                       ParamType.String,
                                     ),
                                   }.withoutNulls,
@@ -436,7 +442,7 @@ class _E2BusBooking1WidgetState extends State<E2BusBooking1Widget> {
                                                             .fromSTEB(10.0, 0.0,
                                                                 0.0, 0.0),
                                                     child: Text(
-                                                      columnAcbusRecord.busName,
+                                                      acBusAcbusRecord.busName,
                                                       style:
                                                           FlutterFlowTheme.of(
                                                                   context)
@@ -536,7 +542,7 @@ class _E2BusBooking1WidgetState extends State<E2BusBooking1Widget> {
                                                     .fromSTEB(
                                                         5.0, 0.0, 0.0, 0.0),
                                                 child: Text(
-                                                  columnAcbusRecord.time,
+                                                  acBusAcbusRecord.time,
                                                   style: FlutterFlowTheme.of(
                                                           context)
                                                       .bodyMedium
@@ -608,7 +614,7 @@ class _E2BusBooking1WidgetState extends State<E2BusBooking1Widget> {
                                                                   0.0,
                                                                   0.0),
                                                       child: Text(
-                                                        columnAcbusRecord.from,
+                                                        acBusAcbusRecord.from,
                                                         style:
                                                             FlutterFlowTheme.of(
                                                                     context)
@@ -635,7 +641,7 @@ class _E2BusBooking1WidgetState extends State<E2BusBooking1Widget> {
                                                                   5.0,
                                                                   0.0),
                                                       child: AutoSizeText(
-                                                        columnAcbusRecord.to,
+                                                        acBusAcbusRecord.to,
                                                         textAlign:
                                                             TextAlign.end,
                                                         maxLines: 2,
@@ -690,7 +696,7 @@ class _E2BusBooking1WidgetState extends State<E2BusBooking1Widget> {
                                               onPressed: () {
                                                 print('Button pressed ...');
                                               },
-                                              text: columnAcbusRecord.acSeater
+                                              text: acBusAcbusRecord.acSeater
                                                   .toString(),
                                               options: FFButtonOptions(
                                                 width: 130.0,
@@ -722,7 +728,7 @@ class _E2BusBooking1WidgetState extends State<E2BusBooking1Widget> {
                                               onPressed: () {
                                                 print('Button pressed ...');
                                               },
-                                              text: columnAcbusRecord.acSleeper
+                                              text: acBusAcbusRecord.acSleeper
                                                   .toString(),
                                               options: FFButtonOptions(
                                                 width: 130.0,
@@ -767,7 +773,13 @@ class _E2BusBooking1WidgetState extends State<E2BusBooking1Widget> {
                 Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(0.0, 10.0, 0.0, 0.0),
                   child: StreamBuilder<List<NonAcBusRecord>>(
-                    stream: queryNonAcBusRecord(),
+                    stream: queryNonAcBusRecord(
+                      queryBuilder: (nonAcBusRecord) => nonAcBusRecord
+                          .where('From',
+                              isEqualTo: widget.from != '' ? widget.from : null)
+                          .where('To',
+                              isEqualTo: widget.to != '' ? widget.to : null),
+                    ),
                     builder: (context, snapshot) {
                       // Customize what your widget looks like when it's loading.
                       if (!snapshot.hasData) {
@@ -782,15 +794,16 @@ class _E2BusBooking1WidgetState extends State<E2BusBooking1Widget> {
                           ),
                         );
                       }
-                      List<NonAcBusRecord> columnNonAcBusRecordList =
+                      List<NonAcBusRecord> nonAcBusNonAcBusRecordList =
                           snapshot.data!;
                       return SingleChildScrollView(
                         child: Column(
                           mainAxisSize: MainAxisSize.max,
-                          children: List.generate(
-                              columnNonAcBusRecordList.length, (columnIndex) {
-                            final columnNonAcBusRecord =
-                                columnNonAcBusRecordList[columnIndex];
+                          children:
+                              List.generate(nonAcBusNonAcBusRecordList.length,
+                                  (nonAcBusIndex) {
+                            final nonAcBusNonAcBusRecord =
+                                nonAcBusNonAcBusRecordList[nonAcBusIndex];
                             return Padding(
                               padding: EdgeInsetsDirectional.fromSTEB(
                                   10.0, 0.0, 10.0, 5.0),
@@ -804,33 +817,33 @@ class _E2BusBooking1WidgetState extends State<E2BusBooking1Widget> {
                                     'E3BusSelectSet',
                                     queryParams: {
                                       'busName': serializeParam(
-                                        columnNonAcBusRecord.busName,
+                                        nonAcBusNonAcBusRecord.busName,
                                         ParamType.String,
                                       ),
                                       'busType': serializeParam(
-                                        columnNonAcBusRecord.nonAcSleeper
+                                        nonAcBusNonAcBusRecord.nonAcSleeper
                                             .toString(),
                                         ParamType.String,
                                       ),
                                       'time': serializeParam(
-                                        columnNonAcBusRecord.time,
+                                        nonAcBusNonAcBusRecord.time,
                                         ParamType.String,
                                       ),
                                       'price': serializeParam(
-                                        columnNonAcBusRecord.nonACSeater
+                                        nonAcBusNonAcBusRecord.nonACSeater
                                             .toString(),
                                         ParamType.String,
                                       ),
                                       'boardingStation': serializeParam(
-                                        columnNonAcBusRecord.boarding,
+                                        nonAcBusNonAcBusRecord.boarding,
                                         ParamType.String,
                                       ),
                                       'duration': serializeParam(
-                                        columnNonAcBusRecord.duration,
+                                        nonAcBusNonAcBusRecord.duration,
                                         ParamType.String,
                                       ),
                                       'arrivalStation': serializeParam(
-                                        columnNonAcBusRecord.arrival,
+                                        nonAcBusNonAcBusRecord.arrival,
                                         ParamType.String,
                                       ),
                                     }.withoutNulls,
@@ -902,7 +915,7 @@ class _E2BusBooking1WidgetState extends State<E2BusBooking1Widget> {
                                                                   0.0,
                                                                   0.0),
                                                       child: Text(
-                                                        columnNonAcBusRecord
+                                                        nonAcBusNonAcBusRecord
                                                             .busName,
                                                         style: FlutterFlowTheme
                                                                 .of(context)
@@ -1004,7 +1017,7 @@ class _E2BusBooking1WidgetState extends State<E2BusBooking1Widget> {
                                                       .fromSTEB(
                                                           5.0, 0.0, 0.0, 0.0),
                                                   child: Text(
-                                                    columnNonAcBusRecord.time,
+                                                    nonAcBusNonAcBusRecord.time,
                                                     style: FlutterFlowTheme.of(
                                                             context)
                                                         .bodyMedium
@@ -1078,7 +1091,7 @@ class _E2BusBooking1WidgetState extends State<E2BusBooking1Widget> {
                                                                     0.0,
                                                                     0.0),
                                                         child: Text(
-                                                          columnNonAcBusRecord
+                                                          nonAcBusNonAcBusRecord
                                                               .from,
                                                           style: FlutterFlowTheme
                                                                   .of(context)
@@ -1106,7 +1119,7 @@ class _E2BusBooking1WidgetState extends State<E2BusBooking1Widget> {
                                                                     5.0,
                                                                     0.0),
                                                         child: AutoSizeText(
-                                                          columnNonAcBusRecord
+                                                          nonAcBusNonAcBusRecord
                                                               .to,
                                                           textAlign:
                                                               TextAlign.end,
@@ -1161,7 +1174,7 @@ class _E2BusBooking1WidgetState extends State<E2BusBooking1Widget> {
                                                 onPressed: () {
                                                   print('Button pressed ...');
                                                 },
-                                                text: columnNonAcBusRecord
+                                                text: nonAcBusNonAcBusRecord
                                                     .nonACSeater
                                                     .toString(),
                                                 options: FFButtonOptions(
@@ -1195,7 +1208,7 @@ class _E2BusBooking1WidgetState extends State<E2BusBooking1Widget> {
                                                 onPressed: () {
                                                   print('Button pressed ...');
                                                 },
-                                                text: columnNonAcBusRecord
+                                                text: nonAcBusNonAcBusRecord
                                                     .nonAcSleeper
                                                     .toString(),
                                                 options: FFButtonOptions(

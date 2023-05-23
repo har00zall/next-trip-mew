@@ -30,6 +30,8 @@ class B6SelectHotelPaymentWidget extends StatefulWidget {
     required this.noRooms,
     required this.noAdults,
     required this.totalPrice,
+    required this.fromDate,
+    required this.toDate,
   }) : super(key: key);
 
   final String? hotelName;
@@ -44,6 +46,8 @@ class B6SelectHotelPaymentWidget extends StatefulWidget {
   final String? noRooms;
   final String? noAdults;
   final String? totalPrice;
+  final String? fromDate;
+  final String? toDate;
 
   @override
   _B6SelectHotelPaymentWidgetState createState() =>
@@ -186,7 +190,7 @@ class _B6SelectHotelPaymentWidgetState
                                               .override(
                                                 fontFamily: 'Poppins',
                                                 color: Colors.black,
-                                                fontSize: 16.0,
+                                                fontSize: 14.0,
                                               ),
                                         ),
                                       ),
@@ -196,12 +200,12 @@ class _B6SelectHotelPaymentWidgetState
                               ),
                             ),
                             Align(
-                              alignment: AlignmentDirectional(0.0, -0.51),
+                              alignment: AlignmentDirectional(0.0, -0.58),
                               child: Padding(
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     5.0, 0.0, 0.0, 0.0),
                                 child: Row(
-                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisSize: MainAxisSize.min,
                                   children: [
                                     Expanded(
                                       child: Padding(
@@ -217,7 +221,7 @@ class _B6SelectHotelPaymentWidgetState
                                                 color:
                                                     FlutterFlowTheme.of(context)
                                                         .primaryText,
-                                                fontSize: 11.0,
+                                                fontSize: 10.0,
                                                 fontWeight: FontWeight.w500,
                                               ),
                                         ),
@@ -234,30 +238,75 @@ class _B6SelectHotelPaymentWidgetState
                                     5.0, 50.0, 0.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Text(
-                                      FFLocalizations.of(context).getText(
-                                        'sler0bfu' /* Check in:  */,
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Poppins',
-                                            fontSize: 13.0,
-                                            fontWeight: FontWeight.w600,
+                                    Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Text(
+                                          FFLocalizations.of(context).getText(
+                                            'sler0bfu' /* Check in:  */,
                                           ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                fontSize: 13.0,
+                                                fontWeight: FontWeight.w600,
+                                              ),
+                                        ),
+                                        Text(
+                                          widget.cheinIn!,
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                color: Color(0xFFFA4918),
+                                                fontSize: 13.0,
+                                                fontWeight: FontWeight.w800,
+                                              ),
+                                        ),
+                                      ],
                                     ),
-                                    Text(
-                                      widget.cheinIn!,
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Poppins',
-                                            color: FlutterFlowTheme.of(context)
-                                                .primary,
-                                            fontSize: 13.0,
-                                            fontWeight: FontWeight.bold,
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 0.0, 5.0, 0.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Text(
+                                            FFLocalizations.of(context).getText(
+                                              'gezr910w' /* From Date: */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  fontSize: 13.0,
+                                                ),
                                           ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    3.0, 0.0, 0.0, 0.0),
+                                            child: Text(
+                                              widget.fromDate!
+                                                  .maybeHandleOverflow(
+                                                      maxChars: 11),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    color: Color(0xFFFA4918),
+                                                    fontSize: 13.0,
+                                                    fontWeight: FontWeight.w800,
+                                                  ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ],
                                 ),
@@ -270,30 +319,80 @@ class _B6SelectHotelPaymentWidgetState
                                     5.0, 80.0, 0.0, 0.0),
                                 child: Row(
                                   mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Text(
-                                      FFLocalizations.of(context).getText(
-                                        '5rxnj9p4' /* Check out:  */,
-                                      ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Poppins',
-                                            fontSize: 13.0,
-                                            fontWeight: FontWeight.w600,
+                                    Row(
+                                      mainAxisSize: MainAxisSize.max,
+                                      children: [
+                                        Text(
+                                          FFLocalizations.of(context).getText(
+                                            '5rxnj9p4' /* Check out:  */,
                                           ),
+                                          style: FlutterFlowTheme.of(context)
+                                              .bodyMedium
+                                              .override(
+                                                fontFamily: 'Poppins',
+                                                fontSize: 13.0,
+                                                fontWeight: FontWeight.w600,
+                                              ),
+                                        ),
+                                        Padding(
+                                          padding:
+                                              EdgeInsetsDirectional.fromSTEB(
+                                                  3.0, 0.0, 0.0, 0.0),
+                                          child: Text(
+                                            widget.checkOut!,
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  color: Color(0xFFFA4918),
+                                                  fontSize: 13.0,
+                                                  fontWeight: FontWeight.w800,
+                                                ),
+                                          ),
+                                        ),
+                                      ],
                                     ),
-                                    Text(
-                                      widget.checkOut!,
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Poppins',
-                                            color: FlutterFlowTheme.of(context)
-                                                .primary,
-                                            fontSize: 13.0,
-                                            fontWeight: FontWeight.bold,
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 0.0, 5.0, 0.0),
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: [
+                                          Text(
+                                            FFLocalizations.of(context).getText(
+                                              'pu24vviq' /* To Date: */,
+                                            ),
+                                            style: FlutterFlowTheme.of(context)
+                                                .bodyMedium
+                                                .override(
+                                                  fontFamily: 'Poppins',
+                                                  fontSize: 13.0,
+                                                ),
                                           ),
+                                          Padding(
+                                            padding:
+                                                EdgeInsetsDirectional.fromSTEB(
+                                                    3.0, 0.0, 0.0, 0.0),
+                                            child: Text(
+                                              widget.toDate!
+                                                  .maybeHandleOverflow(
+                                                      maxChars: 11),
+                                              style: FlutterFlowTheme.of(
+                                                      context)
+                                                  .bodyMedium
+                                                  .override(
+                                                    fontFamily: 'Poppins',
+                                                    color: Color(0xFFFA4918),
+                                                    fontSize: 13.0,
+                                                    fontWeight: FontWeight.w800,
+                                                  ),
+                                            ),
+                                          ),
+                                        ],
+                                      ),
                                     ),
                                   ],
                                 ),
@@ -319,19 +418,22 @@ class _B6SelectHotelPaymentWidgetState
                                             fontWeight: FontWeight.w600,
                                           ),
                                     ),
-                                    Text(
-                                      FFLocalizations.of(context).getText(
-                                        '8hri7p86' /* RoomType */,
+                                    Padding(
+                                      padding: EdgeInsetsDirectional.fromSTEB(
+                                          3.0, 0.0, 0.0, 0.0),
+                                      child: Text(
+                                        FFLocalizations.of(context).getText(
+                                          '8hri7p86' /* RoomType */,
+                                        ),
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Poppins',
+                                              color: Color(0xFFFA4918),
+                                              fontSize: 13.0,
+                                              fontWeight: FontWeight.w800,
+                                            ),
                                       ),
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Poppins',
-                                            color: FlutterFlowTheme.of(context)
-                                                .primary,
-                                            fontSize: 13.0,
-                                            fontWeight: FontWeight.bold,
-                                          ),
                                     ),
                                   ],
                                 ),
@@ -363,10 +465,9 @@ class _B6SelectHotelPaymentWidgetState
                                           .bodyMedium
                                           .override(
                                             fontFamily: 'Poppins',
-                                            color: FlutterFlowTheme.of(context)
-                                                .primary,
+                                            color: Color(0xFFFA4918),
                                             fontSize: 13.0,
-                                            fontWeight: FontWeight.bold,
+                                            fontWeight: FontWeight.w800,
                                           ),
                                     ),
                                   ),
@@ -404,9 +505,7 @@ class _B6SelectHotelPaymentWidgetState
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Poppins',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
+                                              color: Color(0xFFFA4918),
                                               fontSize: 13.0,
                                               fontWeight: FontWeight.bold,
                                             ),
@@ -445,11 +544,9 @@ class _B6SelectHotelPaymentWidgetState
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Poppins',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
+                                              color: Color(0xFFFA4918),
                                               fontSize: 13.0,
-                                              fontWeight: FontWeight.bold,
+                                              fontWeight: FontWeight.w800,
                                             ),
                                       ),
                                     ),
@@ -485,11 +582,9 @@ class _B6SelectHotelPaymentWidgetState
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Poppins',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
+                                              color: Color(0xFFFA4918),
                                               fontSize: 13.0,
-                                              fontWeight: FontWeight.bold,
+                                              fontWeight: FontWeight.w800,
                                             ),
                                       ),
                                     ),
@@ -525,10 +620,9 @@ class _B6SelectHotelPaymentWidgetState
                                             .bodyMedium
                                             .override(
                                               fontFamily: 'Poppins',
-                                              color:
-                                                  FlutterFlowTheme.of(context)
-                                                      .primary,
+                                              color: Color(0xFFFA4918),
                                               fontSize: 13.0,
+                                              fontWeight: FontWeight.w800,
                                             ),
                                       ),
                                     ),
@@ -802,10 +896,28 @@ class _B6SelectHotelPaymentWidgetState
                               paymentMethod1: _model.dropDownValue2,
                               paymentMethod2: _model.dropDownValue3,
                               paymentMethod3: _model.dropDownValue4,
+                              fromDate: widget.toDate,
+                              toDate: widget.toDate,
                             );
                             await HotelBookingRecord.collection
                                 .doc()
                                 .set(hotelBookingCreateData);
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(
+                                content: Text(
+                                  'The Hotel booked Successfully!',
+                                  style: TextStyle(
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    fontWeight: FontWeight.w600,
+                                    fontSize: 18.0,
+                                  ),
+                                ),
+                                duration: Duration(milliseconds: 4000),
+                                backgroundColor:
+                                    FlutterFlowTheme.of(context).secondary,
+                              ),
+                            );
                           },
                           text: FFLocalizations.of(context).getText(
                             '4uur8s88' /* Book */,
