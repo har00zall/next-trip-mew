@@ -92,187 +92,207 @@ class _F1HolidaysWidgetState extends State<F1HolidaysWidget> {
         ),
         body: SafeArea(
           top: true,
-          child: Column(
-            mainAxisSize: MainAxisSize.max,
-            children: [
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 0.0),
-                child: Material(
-                  color: Colors.transparent,
-                  elevation: 5.0,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  child: Container(
-                    width: double.infinity,
-                    height: 60.0,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                      boxShadow: [
-                        BoxShadow(
-                          blurRadius: 4.0,
-                          color: Color(0x33000000),
-                          offset: Offset(0.0, 2.0),
-                        )
-                      ],
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisSize: MainAxisSize.max,
+              children: [
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 0.0),
+                  child: Material(
+                    color: Colors.transparent,
+                    elevation: 5.0,
+                    shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10.0),
                     ),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Align(
-                          alignment: AlignmentDirectional(0.0, 0.0),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                10.0, 5.0, 10.0, 0.0),
-                            child: FlutterFlowDropDown<String>(
-                              controller: _model.dropDownValueController ??=
-                                  FormFieldController<String>(null),
-                              options: [
-                                FFLocalizations.of(context).getText(
-                                  'c5urkgum' /* Hyderabad */,
-                                ),
-                                FFLocalizations.of(context).getText(
-                                  'w4d9c30c' /* Chennai */,
-                                ),
-                                FFLocalizations.of(context).getText(
-                                  'm00w79wo' /* Goa */,
-                                ),
-                                FFLocalizations.of(context).getText(
-                                  'fubzidtm' /* Jaipur */,
-                                )
-                              ],
-                              onChanged: (val) =>
-                                  setState(() => _model.dropDownValue = val),
-                              width: double.infinity,
-                              height: 47.0,
-                              textStyle: FlutterFlowTheme.of(context)
-                                  .bodyMedium
-                                  .override(
-                                    fontFamily: 'Poppins',
-                                    color: FlutterFlowTheme.of(context)
-                                        .primaryText,
+                    child: Container(
+                      width: double.infinity,
+                      height: 60.0,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        boxShadow: [
+                          BoxShadow(
+                            blurRadius: 4.0,
+                            color: Color(0x33000000),
+                            offset: Offset(0.0, 2.0),
+                          )
+                        ],
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Align(
+                            alignment: AlignmentDirectional(0.0, 0.0),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  10.0, 5.0, 10.0, 0.0),
+                              child: FlutterFlowDropDown<String>(
+                                controller: _model.dropDownValueController ??=
+                                    FormFieldController<String>(
+                                  _model.dropDownValue ??=
+                                      FFLocalizations.of(context).getText(
+                                    '4sja9slq' /* Chennai */,
                                   ),
-                              hintText: FFLocalizations.of(context).getText(
-                                'tpaxttz4' /* Destination... */,
-                              ),
-                              fillColor: Colors.white,
-                              elevation: 2.0,
-                              borderColor:
-                                  FlutterFlowTheme.of(context).primaryText,
-                              borderWidth: 0.0,
-                              borderRadius: 10.0,
-                              margin: EdgeInsetsDirectional.fromSTEB(
-                                  12.0, 4.0, 12.0, 4.0),
-                              hidesUnderline: true,
-                              isSearchable: false,
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 0.0),
-                child: Material(
-                  color: Colors.transparent,
-                  elevation: 5.0,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(10.0),
-                  ),
-                  child: Container(
-                    width: double.infinity,
-                    height: 90.0,
-                    decoration: BoxDecoration(
-                      color: FlutterFlowTheme.of(context).secondaryBackground,
-                      borderRadius: BorderRadius.circular(10.0),
-                    ),
-                    child: Column(
-                      mainAxisSize: MainAxisSize.max,
-                      children: [
-                        Align(
-                          alignment: AlignmentDirectional(0.0, 0.0),
-                          child: Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
-                                10.0, 5.0, 10.0, 0.0),
-                            child: FlutterFlowPlacePicker(
-                              iOSGoogleMapsApiKey: '',
-                              androidGoogleMapsApiKey: '',
-                              webGoogleMapsApiKey: '',
-                              onSelect: (place) async {
-                                setState(() => _model.placePickerValue = place);
-                              },
-                              defaultText: FFLocalizations.of(context).getText(
-                                '1glbiu6j' /* Show Holiday Places */,
-                              ),
-                              icon: Icon(
-                                Icons.place,
-                                color: FlutterFlowTheme.of(context).primary,
-                                size: 25.0,
-                              ),
-                              buttonOptions: FFButtonOptions(
+                                ),
+                                options: [
+                                  FFLocalizations.of(context).getText(
+                                    'c5urkgum' /* Hyderabad */,
+                                  ),
+                                  FFLocalizations.of(context).getText(
+                                    'w4d9c30c' /* Chennai */,
+                                  ),
+                                  FFLocalizations.of(context).getText(
+                                    'm00w79wo' /* Goa */,
+                                  ),
+                                  FFLocalizations.of(context).getText(
+                                    'fubzidtm' /* Jaipur */,
+                                  )
+                                ],
+                                onChanged: (val) async {
+                                  setState(() => _model.dropDownValue = val);
+                                  if (Navigator.of(context).canPop()) {
+                                    context.pop();
+                                  }
+                                  context.pushNamed(
+                                    'F1Holidays',
+                                    queryParams: {
+                                      'selectedPlace': serializeParam(
+                                        _model.dropDownValue,
+                                        ParamType.String,
+                                      ),
+                                    }.withoutNulls,
+                                  );
+                                },
                                 width: double.infinity,
-                                height: 40.0,
-                                color:
-                                    FlutterFlowTheme.of(context).primaryBtnText,
+                                height: 47.0,
                                 textStyle: FlutterFlowTheme.of(context)
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Poppins',
-                                      color: Colors.black,
-                                      fontSize: 14.0,
+                                      color: FlutterFlowTheme.of(context)
+                                          .primaryText,
                                     ),
-                                borderSide: BorderSide(
-                                  color:
-                                      FlutterFlowTheme.of(context).primaryText,
-                                  width: 1.0,
+                                hintText: FFLocalizations.of(context).getText(
+                                  'tpaxttz4' /* Destination... */,
                                 ),
-                                borderRadius: BorderRadius.circular(12.0),
+                                fillColor: Colors.white,
+                                elevation: 2.0,
+                                borderColor:
+                                    FlutterFlowTheme.of(context).primaryText,
+                                borderWidth: 0.0,
+                                borderRadius: 10.0,
+                                margin: EdgeInsetsDirectional.fromSTEB(
+                                    12.0, 4.0, 12.0, 4.0),
+                                hidesUnderline: true,
+                                isSearchable: false,
                               ),
                             ),
                           ),
-                        ),
-                        Padding(
-                          padding: EdgeInsetsDirectional.fromSTEB(
-                              10.0, 5.0, 10.0, 0.0),
-                          child: Row(
-                            mainAxisSize: MainAxisSize.max,
-                            children: [
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    5.0, 8.0, 0.0, 0.0),
-                                child: FaIcon(
-                                  FontAwesomeIcons.mountain,
-                                  color: Colors.black,
-                                  size: 24.0,
-                                ),
-                              ),
-                              Padding(
-                                padding: EdgeInsetsDirectional.fromSTEB(
-                                    5.0, 10.0, 0.0, 0.0),
-                                child: Text(
-                                  FFLocalizations.of(context).getText(
-                                    'jb6m8cmr' /* Popular Visiting Place */,
-                                  ),
-                                  style: FlutterFlowTheme.of(context)
-                                      .titleMedium
-                                      .override(
-                                        fontFamily: 'Roboto Condensed',
-                                      ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                   ),
                 ),
-              ),
-              Expanded(
-                child: Padding(
+                Padding(
+                  padding: EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 0.0),
+                  child: Material(
+                    color: Colors.transparent,
+                    elevation: 5.0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    child: Container(
+                      width: double.infinity,
+                      height: 90.0,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      child: Column(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Align(
+                            alignment: AlignmentDirectional(0.0, 0.0),
+                            child: Padding(
+                              padding: EdgeInsetsDirectional.fromSTEB(
+                                  10.0, 5.0, 10.0, 0.0),
+                              child: FlutterFlowPlacePicker(
+                                iOSGoogleMapsApiKey: '',
+                                androidGoogleMapsApiKey: '',
+                                webGoogleMapsApiKey: '',
+                                onSelect: (place) async {
+                                  setState(
+                                      () => _model.placePickerValue = place);
+                                },
+                                defaultText:
+                                    FFLocalizations.of(context).getText(
+                                  '1glbiu6j' /* Show Holiday Places */,
+                                ),
+                                icon: Icon(
+                                  Icons.place,
+                                  color: FlutterFlowTheme.of(context).primary,
+                                  size: 25.0,
+                                ),
+                                buttonOptions: FFButtonOptions(
+                                  width: double.infinity,
+                                  height: 40.0,
+                                  color: FlutterFlowTheme.of(context)
+                                      .primaryBtnText,
+                                  textStyle: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Poppins',
+                                        color: Colors.black,
+                                        fontSize: 14.0,
+                                      ),
+                                  borderSide: BorderSide(
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
+                                    width: 1.0,
+                                  ),
+                                  borderRadius: BorderRadius.circular(12.0),
+                                ),
+                              ),
+                            ),
+                          ),
+                          Padding(
+                            padding: EdgeInsetsDirectional.fromSTEB(
+                                10.0, 5.0, 10.0, 0.0),
+                            child: Row(
+                              mainAxisSize: MainAxisSize.max,
+                              children: [
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      5.0, 8.0, 0.0, 0.0),
+                                  child: FaIcon(
+                                    FontAwesomeIcons.mountain,
+                                    color: Colors.black,
+                                    size: 24.0,
+                                  ),
+                                ),
+                                Padding(
+                                  padding: EdgeInsetsDirectional.fromSTEB(
+                                      5.0, 10.0, 0.0, 0.0),
+                                  child: Text(
+                                    FFLocalizations.of(context).getText(
+                                      'jb6m8cmr' /* Popular Visiting Place */,
+                                    ),
+                                    style: FlutterFlowTheme.of(context)
+                                        .titleMedium
+                                        .override(
+                                          fontFamily: 'Roboto Condensed',
+                                        ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 0.0),
                   child: StreamBuilder<List<HoliChennaiRecord>>(
                     stream: queryHoliChennaiRecord(
@@ -280,7 +300,7 @@ class _F1HolidaysWidgetState extends State<F1HolidaysWidget> {
                           holiChennaiRecord.where('No',
                               isGreaterThan: (String selectedCity) {
                                 return selectedCity == "Chennai" ? 0 : 100000;
-                              }(_model.dropDownValue!)),
+                              }(widget.selectedPlace)),
                     ),
                     builder: (context, snapshot) {
                       // Customize what your widget looks like when it's loading.
@@ -306,6 +326,8 @@ class _F1HolidaysWidgetState extends State<F1HolidaysWidget> {
                           mainAxisSpacing: 10.0,
                           childAspectRatio: 0.65,
                         ),
+                        primary: false,
+                        shrinkWrap: true,
                         scrollDirection: Axis.vertical,
                         itemCount: holiChennaiHoliChennaiRecordList.length,
                         itemBuilder: (context, holiChennaiIndex) {
@@ -436,12 +458,15 @@ class _F1HolidaysWidgetState extends State<F1HolidaysWidget> {
                     },
                   ),
                 ),
-              ),
-              Expanded(
-                child: Padding(
+                Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 0.0),
                   child: StreamBuilder<List<HoliGoaRecord>>(
-                    stream: queryHoliGoaRecord(),
+                    stream: queryHoliGoaRecord(
+                      queryBuilder: (holiGoaRecord) => holiGoaRecord.where('No',
+                          isGreaterThan: (String selectedCity) {
+                            return selectedCity == "Goa" ? 0 : 100000;
+                          }(widget.selectedPlace)),
+                    ),
                     builder: (context, snapshot) {
                       // Customize what your widget looks like when it's loading.
                       if (!snapshot.hasData) {
@@ -466,6 +491,8 @@ class _F1HolidaysWidgetState extends State<F1HolidaysWidget> {
                           mainAxisSpacing: 10.0,
                           childAspectRatio: 0.65,
                         ),
+                        primary: false,
+                        shrinkWrap: true,
                         scrollDirection: Axis.vertical,
                         itemCount: holiGoaHoliGoaRecordList.length,
                         itemBuilder: (context, holiGoaIndex) {
@@ -593,12 +620,16 @@ class _F1HolidaysWidgetState extends State<F1HolidaysWidget> {
                     },
                   ),
                 ),
-              ),
-              Expanded(
-                child: Padding(
+                Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 0.0),
                   child: StreamBuilder<List<HoliHyderabadRecord>>(
-                    stream: queryHoliHyderabadRecord(),
+                    stream: queryHoliHyderabadRecord(
+                      queryBuilder: (holiHyderabadRecord) =>
+                          holiHyderabadRecord.where('No',
+                              isGreaterThan: (String selectedCity) {
+                                return selectedCity == "Hyderabad" ? 0 : 100000;
+                              }(widget.selectedPlace)),
+                    ),
                     builder: (context, snapshot) {
                       // Customize what your widget looks like when it's loading.
                       if (!snapshot.hasData) {
@@ -623,6 +654,8 @@ class _F1HolidaysWidgetState extends State<F1HolidaysWidget> {
                           mainAxisSpacing: 10.0,
                           childAspectRatio: 0.65,
                         ),
+                        primary: false,
+                        shrinkWrap: true,
                         scrollDirection: Axis.vertical,
                         itemCount: holiHyderabadHoliHyderabadRecordList.length,
                         itemBuilder: (context, holiHyderabadIndex) {
@@ -716,12 +749,16 @@ class _F1HolidaysWidgetState extends State<F1HolidaysWidget> {
                     },
                   ),
                 ),
-              ),
-              Expanded(
-                child: Padding(
+                Padding(
                   padding: EdgeInsetsDirectional.fromSTEB(10.0, 5.0, 10.0, 0.0),
                   child: StreamBuilder<List<HoliJaipurRecord>>(
-                    stream: queryHoliJaipurRecord(),
+                    stream: queryHoliJaipurRecord(
+                      queryBuilder: (holiJaipurRecord) =>
+                          holiJaipurRecord.where('No',
+                              isGreaterThan: (String selectedCity) {
+                                return selectedCity == "Jaipur" ? 0 : 100000;
+                              }(widget.selectedPlace)),
+                    ),
                     builder: (context, snapshot) {
                       // Customize what your widget looks like when it's loading.
                       if (!snapshot.hasData) {
@@ -746,6 +783,8 @@ class _F1HolidaysWidgetState extends State<F1HolidaysWidget> {
                           mainAxisSpacing: 10.0,
                           childAspectRatio: 0.65,
                         ),
+                        primary: false,
+                        shrinkWrap: true,
                         scrollDirection: Axis.vertical,
                         itemCount: holiJaipurHoliJaipurRecordList.length,
                         itemBuilder: (context, holiJaipurIndex) {
@@ -875,8 +914,8 @@ class _F1HolidaysWidgetState extends State<F1HolidaysWidget> {
                     },
                   ),
                 ),
-              ),
-            ],
+              ],
+            ),
           ),
         ),
       ),

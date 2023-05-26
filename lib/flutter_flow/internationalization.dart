@@ -907,14 +907,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ta': '',
       'te': '',
     },
-    'vlny8g11': {
-      'en': 'Price',
-      'hi': '',
-      'kn': '',
-      'pa': '',
-      'ta': '',
-      'te': '',
-    },
     'ssir51iu': {
       'en': 'Room with Breakfast',
       'hi': '',
@@ -931,22 +923,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ta': '',
       'te': '',
     },
-    'du8u3lkz': {
-      'en': 'Price',
-      'hi': '',
-      'kn': '',
-      'pa': '',
-      'ta': '',
-      'te': '',
-    },
-    'drb0s5l0': {
-      'en': 'Price',
-      'hi': '',
-      'kn': '',
-      'pa': '',
-      'ta': '',
-      'te': '',
-    },
     'znrfqrnp': {
       'en': 'Price',
       'hi': '',
@@ -955,7 +931,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ta': '',
       'te': '',
     },
-    '6x96qz19': {
+    '54ugrugl': {
       'en': 'Continue',
       'hi': '',
       'kn': '',
@@ -1352,14 +1328,6 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
     },
     'amd6w67y': {
       'en': 'Food Arrangement',
-      'hi': '',
-      'kn': '',
-      'pa': '',
-      'ta': '',
-      'te': '',
-    },
-    'pv7z8uab': {
-      'en': 'Price',
       'hi': '',
       'kn': '',
       'pa': '',
@@ -2304,7 +2272,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ta': '',
       'te': '',
     },
-    'zvhx9tnz': {
+    '5ewmwlpn': {
       'en': 'Business Class',
       'hi': '',
       'kn': '',
@@ -2352,7 +2320,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ta': '',
       'te': '',
     },
-    '8py45wcb': {
+    '2lf6n2oz': {
       'en': 'Economy Class',
       'hi': '',
       'kn': '',
@@ -3271,24 +3239,24 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ta': '',
       'te': '',
     },
-    'kphf1tov': {
-      'en': 'AC_1A-Tier',
+    'n9697fqi': {
+      'en': '1A-AC_Tier',
       'hi': '',
       'kn': '',
       'pa': '',
       'ta': '',
       'te': '',
     },
-    'a4j4iq42': {
-      'en': 'AC_2A-Tier',
+    '01pmdo4l': {
+      'en': '2A-AC_Tier',
       'hi': '',
       'kn': '',
       'pa': '',
       'ta': '',
       'te': '',
     },
-    'tiu9r6hs': {
-      'en': 'AC_3A-Tier',
+    '4w9xc3d7': {
+      'en': '3A-AC_Tier',
       'hi': '',
       'kn': '',
       'pa': '',
@@ -5176,6 +5144,14 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
   {
     '66ze3mxf': {
       'en': 'Halidays',
+      'hi': '',
+      'kn': '',
+      'pa': '',
+      'ta': '',
+      'te': '',
+    },
+    '4sja9slq': {
+      'en': 'Chennai',
       'hi': '',
       'kn': '',
       'pa': '',
@@ -7977,7 +7953,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ta': '',
       'te': '',
     },
-    '0k6nvuz5': {
+    '4q46wu2w': {
       'en': 'Business Class',
       'hi': '',
       'kn': '',
@@ -8025,7 +8001,7 @@ final kTranslationsMap = <Map<String, Map<String, String>>>[
       'ta': '',
       'te': '',
     },
-    'ynmb0bh8': {
+    'sto0oq4s': {
       'en': 'Economy Class',
       'hi': '',
       'kn': '',

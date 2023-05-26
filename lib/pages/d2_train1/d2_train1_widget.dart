@@ -704,40 +704,28 @@ class _D2Train1WidgetState extends State<D2Train1Widget> {
                                   Row(
                                     mainAxisSize: MainAxisSize.max,
                                     mainAxisAlignment:
-                                        MainAxisAlignment.spaceEvenly,
+                                        MainAxisAlignment.spaceAround,
                                     children: [
                                       Text(
                                         FFLocalizations.of(context).getText(
-                                          'kphf1tov' /* AC_1A-Tier */,
+                                          'n9697fqi' /* 1A-AC_Tier */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              fontSize: 16.0,
-                                            ),
+                                            .bodyMedium,
                                       ),
                                       Text(
                                         FFLocalizations.of(context).getText(
-                                          'a4j4iq42' /* AC_2A-Tier */,
+                                          '01pmdo4l' /* 2A-AC_Tier */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              fontSize: 16.0,
-                                            ),
+                                            .bodyMedium,
                                       ),
                                       Text(
                                         FFLocalizations.of(context).getText(
-                                          'tiu9r6hs' /* AC_3A-Tier */,
+                                          '4w9xc3d7' /* 3A-AC_Tier */,
                                         ),
                                         style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Poppins',
-                                              fontSize: 16.0,
-                                            ),
+                                            .bodyMedium,
                                       ),
                                     ],
                                   ),

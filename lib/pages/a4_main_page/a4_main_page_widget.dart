@@ -1243,7 +1243,15 @@ class _A4MainPageWidgetState extends State<A4MainPageWidget> {
                                       size: 50.0,
                                     ),
                                     onPressed: () async {
-                                      context.pushNamed('F1Holidays');
+                                      context.pushNamed(
+                                        'F1Holidays',
+                                        queryParams: {
+                                          'selectedPlace': serializeParam(
+                                            'Chennai',
+                                            ParamType.String,
+                                          ),
+                                        }.withoutNulls,
+                                      );
                                     },
                                   ),
                                   FlutterFlowIconButton(

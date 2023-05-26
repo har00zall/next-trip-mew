@@ -693,6 +693,8 @@ class _C6FlightPaymentWidgetState extends State<C6FlightPaymentWidget> {
                               await FlightBookingRecord.collection
                                   .doc()
                                   .set(flightBookingCreateData);
+
+                              context.pushNamed('A4MainPage');
                             },
                             text: FFLocalizations.of(context).getText(
                               'dv91d4gr' /* Book */,

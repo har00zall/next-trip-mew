@@ -361,10 +361,10 @@ class _B4SelectingHotelRoomWidgetState
                                               MainAxisAlignment.spaceBetween,
                                           children: [
                                             Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                'vlny8g11' /* Price */,
-                                              ),
+                                              (double.parse(
+                                                          widget.totalPrice!) +
+                                                      500)
+                                                  .toString(),
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
@@ -620,10 +620,10 @@ class _B4SelectingHotelRoomWidgetState
                                               MainAxisAlignment.spaceBetween,
                                           children: [
                                             Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                'du8u3lkz' /* Price */,
-                                              ),
+                                              (double.parse(
+                                                          widget.totalPrice!) +
+                                                      1500)
+                                                  .toString(),
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
@@ -634,10 +634,10 @@ class _B4SelectingHotelRoomWidgetState
                                                       ),
                                             ),
                                             Text(
-                                              FFLocalizations.of(context)
-                                                  .getText(
-                                                'drb0s5l0' /* Price */,
-                                              ),
+                                              (double.parse(
+                                                          widget.totalPrice!) +
+                                                      1000)
+                                                  .toString(),
                                               style:
                                                   FlutterFlowTheme.of(context)
                                                       .bodyMedium
@@ -701,7 +701,7 @@ class _B4SelectingHotelRoomWidgetState
                           ),
                           Padding(
                             padding: EdgeInsetsDirectional.fromSTEB(
-                                0.0, 0.0, 20.0, 0.0),
+                                0.0, 0.0, 25.0, 0.0),
                             child: FFButtonWidget(
                               onPressed: () async {
                                 context.pushNamed(
@@ -768,14 +768,21 @@ class _B4SelectingHotelRoomWidgetState
                                       ParamType.String,
                                     ),
                                   }.withoutNulls,
+                                  extra: <String, dynamic>{
+                                    kTransitionInfoKey: TransitionInfo(
+                                      hasTransition: true,
+                                      transitionType: PageTransitionType.fade,
+                                      duration: Duration(milliseconds: 0),
+                                    ),
+                                  },
                                 );
                               },
                               text: FFLocalizations.of(context).getText(
-                                '6x96qz19' /* Continue */,
+                                '54ugrugl' /* Continue */,
                               ),
                               options: FFButtonOptions(
                                 width: 130.0,
-                                height: 45.0,
+                                height: 40.0,
                                 padding: EdgeInsetsDirectional.fromSTEB(
                                     0.0, 0.0, 0.0, 0.0),
                                 iconPadding: EdgeInsetsDirectional.fromSTEB(
@@ -788,6 +795,7 @@ class _B4SelectingHotelRoomWidgetState
                                       color: Colors.white,
                                       fontSize: 18.0,
                                     ),
+                                elevation: 3.0,
                                 borderSide: BorderSide(
                                   color: Colors.transparent,
                                   width: 1.0,

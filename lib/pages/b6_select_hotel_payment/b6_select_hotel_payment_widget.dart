@@ -918,6 +918,8 @@ class _B6SelectHotelPaymentWidgetState
                                     FlutterFlowTheme.of(context).secondary,
                               ),
                             );
+
+                            context.pushNamed('A4MainPage');
                           },
                           text: FFLocalizations.of(context).getText(
                             '4uur8s88' /* Book */,

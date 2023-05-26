@@ -388,7 +388,8 @@ class _C2FlightsMainWidgetState extends State<C2FlightsMainWidget> {
                                     ParamType.String,
                                   ),
                                   'price': serializeParam(
-                                    '',
+                                    bcfBusinessClassFlightRecord.price
+                                        .toString(),
                                     ParamType.String,
                                   ),
                                   'userName': serializeParam(
@@ -412,7 +413,7 @@ class _C2FlightsMainWidgetState extends State<C2FlightsMainWidget> {
                                     ParamType.String,
                                   ),
                                   'noAdults': serializeParam(
-                                    widget.to,
+                                    widget.noAdults,
                                     ParamType.String,
                                   ),
                                 }.withoutNulls,
@@ -680,10 +681,10 @@ class _C2FlightsMainWidgetState extends State<C2FlightsMainWidget> {
                                             },
                                             text: FFLocalizations.of(context)
                                                 .getText(
-                                              'zvhx9tnz' /* Business Class */,
+                                              '5ewmwlpn' /* Business Class */,
                                             ),
                                             options: FFButtonOptions(
-                                              width: 170.0,
+                                              width: 150.0,
                                               height: 30.0,
                                               padding: EdgeInsetsDirectional
                                                   .fromSTEB(0.0, 0.0, 0.0, 0.0),
@@ -706,7 +707,7 @@ class _C2FlightsMainWidgetState extends State<C2FlightsMainWidget> {
                                                 width: 1.0,
                                               ),
                                               borderRadius:
-                                                  BorderRadius.circular(10.0),
+                                                  BorderRadius.circular(8.0),
                                             ),
                                           ),
                                           Row(
@@ -1113,10 +1114,10 @@ class _C2FlightsMainWidgetState extends State<C2FlightsMainWidget> {
                                           },
                                           text: FFLocalizations.of(context)
                                               .getText(
-                                            '8py45wcb' /* Economy Class */,
+                                            '2lf6n2oz' /* Economy Class */,
                                           ),
                                           options: FFButtonOptions(
-                                            width: 170.0,
+                                            width: 150.0,
                                             height: 30.0,
                                             padding:
                                                 EdgeInsetsDirectional.fromSTEB(
@@ -1140,7 +1141,7 @@ class _C2FlightsMainWidgetState extends State<C2FlightsMainWidget> {
                                               width: 1.0,
                                             ),
                                             borderRadius:
-                                                BorderRadius.circular(10.0),
+                                                BorderRadius.circular(8.0),
                                           ),
                                         ),
                                         Row(

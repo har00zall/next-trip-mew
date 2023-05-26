@@ -377,7 +377,7 @@ class _B3HotelBookingWidgetState extends State<B3HotelBookingWidget> {
                                             borderRadius:
                                                 BorderRadius.circular(10.0),
                                             child: Image.network(
-                                              'https://picsum.photos/seed/795/600',
+                                              '${widget.roomImage1}',
                                               width: 100.0,
                                               height: 100.0,
                                               fit: BoxFit.cover,
@@ -387,7 +387,7 @@ class _B3HotelBookingWidgetState extends State<B3HotelBookingWidget> {
                                             borderRadius:
                                                 BorderRadius.circular(10.0),
                                             child: Image.network(
-                                              'https://picsum.photos/seed/453/600',
+                                              '${widget.roomImage2}',
                                               width: 100.0,
                                               height: 100.0,
                                               fit: BoxFit.cover,
@@ -886,7 +886,7 @@ class _B3HotelBookingWidgetState extends State<B3HotelBookingWidget> {
                                                                             10.0),
                                                                 child: Image
                                                                     .network(
-                                                                  'https://picsum.photos/seed/338/600',
+                                                                  'https://thumbs.dreamstime.com/b/car-202398423.jpg',
                                                                   width: 70.0,
                                                                   height: 70.0,
                                                                   fit: BoxFit
@@ -951,7 +951,7 @@ class _B3HotelBookingWidgetState extends State<B3HotelBookingWidget> {
                                                                               10.0),
                                                                   child: Image
                                                                       .network(
-                                                                    'https://picsum.photos/seed/338/600',
+                                                                    'https://static.vecteezy.com/system/resources/previews/002/261/140/original/wifi-icon-wireless-internet-isolate-on-transparent-background-illustration-free-vector.jpg',
                                                                     width: 70.0,
                                                                     height:
                                                                         70.0,
@@ -1017,7 +1017,7 @@ class _B3HotelBookingWidgetState extends State<B3HotelBookingWidget> {
                                                                               10.0),
                                                                   child: Image
                                                                       .network(
-                                                                    'https://picsum.photos/seed/338/600',
+                                                                    'https://static.vecteezy.com/system/resources/previews/007/126/381/non_2x/air-conditioner-icon-vector.jpg',
                                                                     width: 70.0,
                                                                     height:
                                                                         70.0,
@@ -3152,9 +3152,7 @@ class _B3HotelBookingWidgetState extends State<B3HotelBookingWidget> {
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 15.0, 0.0, 0.0, 0.0),
                             child: Text(
-                              FFLocalizations.of(context).getText(
-                                'pv7z8uab' /* Price */,
-                              ),
+                              widget.totalPrice!,
                               style: FlutterFlowTheme.of(context)
                                   .bodyMedium
                                   .override(
