@@ -18,13 +18,7 @@ import 'f1_holidays_model.dart';
 export 'f1_holidays_model.dart';
 
 class F1HolidaysWidget extends StatefulWidget {
-  const F1HolidaysWidget({
-    Key? key,
-    String? selectedPlace,
-  })  : this.selectedPlace = selectedPlace ?? 'Chennai',
-        super(key: key);
-
-  final String selectedPlace;
+  const F1HolidaysWidget({Key? key}) : super(key: key);
 
   @override
   _F1HolidaysWidgetState createState() => _F1HolidaysWidgetState();
@@ -153,15 +147,7 @@ class _F1HolidaysWidgetState extends State<F1HolidaysWidget> {
                                   if (Navigator.of(context).canPop()) {
                                     context.pop();
                                   }
-                                  context.pushNamed(
-                                    'F1Holidays',
-                                    queryParams: {
-                                      'selectedPlace': serializeParam(
-                                        _model.dropDownValue,
-                                        ParamType.String,
-                                      ),
-                                    }.withoutNulls,
-                                  );
+                                  context.pushNamed('F1Holidays');
                                 },
                                 width: double.infinity,
                                 height: 47.0,
@@ -300,7 +286,7 @@ class _F1HolidaysWidgetState extends State<F1HolidaysWidget> {
                           holiChennaiRecord.where('No',
                               isGreaterThan: (String selectedCity) {
                                 return selectedCity == "Chennai" ? 0 : 100000;
-                              }(widget.selectedPlace)),
+                              }(_model.dropDownValue!)),
                     ),
                     builder: (context, snapshot) {
                       // Customize what your widget looks like when it's loading.
@@ -465,7 +451,7 @@ class _F1HolidaysWidgetState extends State<F1HolidaysWidget> {
                       queryBuilder: (holiGoaRecord) => holiGoaRecord.where('No',
                           isGreaterThan: (String selectedCity) {
                             return selectedCity == "Goa" ? 0 : 100000;
-                          }(widget.selectedPlace)),
+                          }(_model.dropDownValue!)),
                     ),
                     builder: (context, snapshot) {
                       // Customize what your widget looks like when it's loading.
@@ -628,7 +614,7 @@ class _F1HolidaysWidgetState extends State<F1HolidaysWidget> {
                           holiHyderabadRecord.where('No',
                               isGreaterThan: (String selectedCity) {
                                 return selectedCity == "Hyderabad" ? 0 : 100000;
-                              }(widget.selectedPlace)),
+                              }(_model.dropDownValue!)),
                     ),
                     builder: (context, snapshot) {
                       // Customize what your widget looks like when it's loading.
@@ -757,7 +743,7 @@ class _F1HolidaysWidgetState extends State<F1HolidaysWidget> {
                           holiJaipurRecord.where('No',
                               isGreaterThan: (String selectedCity) {
                                 return selectedCity == "Jaipur" ? 0 : 100000;
-                              }(widget.selectedPlace)),
+                              }(_model.dropDownValue!)),
                     ),
                     builder: (context, snapshot) {
                       // Customize what your widget looks like when it's loading.

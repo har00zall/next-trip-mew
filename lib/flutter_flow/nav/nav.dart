@@ -407,10 +407,7 @@ GoRouter createRouter(AppStateNotifier appStateNotifier) => GoRouter(
             FFRoute(
               name: 'F1Holidays',
               path: 'f1Holidays',
-              builder: (context, params) => F1HolidaysWidget(
-                selectedPlace:
-                    params.getParam('selectedPlace', ParamType.String),
-              ),
+              builder: (context, params) => F1HolidaysWidget(),
             ),
             FFRoute(
               name: 'F3Honeymoon',
